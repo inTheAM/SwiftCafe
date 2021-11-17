@@ -31,6 +31,15 @@ final class SignUpViewUITests: XCTestCase {
         XCTAssert(repeatPassword.exists)
     }
     
+    func testSignUpButtonAppearsOnEmailValidation() throws {
+        let email = app.textFields["email"]
+        email.tap()
+        email.typeText("testuser3@test.com")
+        let signup = app.buttons["signup"]
+        XCTAssert(signup.waitForExistence(timeout: 1))
+        XCTAssertFalse(signup.isEnabled)
+    }
+    
 //    MARK: - Teardown
     override func tearDownWithError() throws {
         app.terminate()
