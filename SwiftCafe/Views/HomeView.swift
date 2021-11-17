@@ -10,7 +10,11 @@ import SwiftUI
 struct HomeView: View {
     @State private var isLoggedIn = false
     var body: some View {
-        SignInView(isLoggedIn: $isLoggedIn)
+        if isLoggedIn {
+            
+        } else {
+            SignInView(isLoggedIn: $isLoggedIn)
+        }
     }
 }
 
