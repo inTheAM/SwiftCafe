@@ -22,6 +22,7 @@ final class SignUpViewModel: ObservableObject {
 //    MARK: - Validation
     @Published var isEmailValid = false
     @Published var isPasswordValid = false
+    @Published var isFormValid = false
     
 //    MARK: - Inline Errors
     @Published var emailErrorDescription = ""
@@ -60,6 +61,11 @@ final class SignUpViewModel: ObservableObject {
                 }
             }
             .assign(to: \.isPasswordValid, on: self)
+            .store(in: &cancellables)
+        
+        isFormValidPublisher
+            .receive(on: RunLoop.main)
+            .assign(to: \.isFormValid, on: self)
             .store(in: &cancellables)
     }
 }
@@ -192,6 +198,17 @@ extension SignUpViewModel {
                     return .passwordsDoNotMatch
                 }
                 return .valid
+            }
+            .eraseToAnyPublisher()
+    }
+}
+
+// MARK: - Form Validation
+extension SignUpViewModel {
+    private var isFormValidPublisher: AnyPublisher<Bool, Never> {
+        Publishers.CombineLatest(isEmailInputValidPublisher, isPasswordInputValidPublisher)
+            .map { emailStatus, passwordStatus in
+                return emailStatus == .valid && passwordStatus == .valid
             }
             .eraseToAnyPublisher()
     }
