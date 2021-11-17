@@ -34,6 +34,12 @@
 		E2C0A24227454908003CB51B /* SignInViewUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C0A24127454908003CB51B /* SignInViewUITests.swift */; };
 		E2C0A24427457630003CB51B /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C0A24327457630003CB51B /* Color.swift */; };
 		E2C0A24627457CC9003CB51B /* MockMenuService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C0A24527457CC9003CB51B /* MockMenuService.swift */; };
+		E2C0A24827457D0E003CB51B /* MenuService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C0A24727457D0E003CB51B /* MenuService.swift */; };
+		E2C0A24A27457DEE003CB51B /* MenuSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C0A24927457DEE003CB51B /* MenuSection.swift */; };
+		E2C0A24C27457E2A003CB51B /* Food.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C0A24B27457E2A003CB51B /* Food.swift */; };
+		E2C0A24E27457F94003CB51B /* Option.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C0A24D27457F94003CB51B /* Option.swift */; };
+		E2C0A2502745801F003CB51B /* OptionGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C0A24F2745801F003CB51B /* OptionGroup.swift */; };
+		E2C0A25227458046003CB51B /* Extra.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C0A25127458046003CB51B /* Extra.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,6 +90,12 @@
 		E2C0A24127454908003CB51B /* SignInViewUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewUITests.swift; sourceTree = "<group>"; };
 		E2C0A24327457630003CB51B /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		E2C0A24527457CC9003CB51B /* MockMenuService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockMenuService.swift; sourceTree = "<group>"; };
+		E2C0A24727457D0E003CB51B /* MenuService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuService.swift; sourceTree = "<group>"; };
+		E2C0A24927457DEE003CB51B /* MenuSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuSection.swift; sourceTree = "<group>"; };
+		E2C0A24B27457E2A003CB51B /* Food.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Food.swift; sourceTree = "<group>"; };
+		E2C0A24D27457F94003CB51B /* Option.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Option.swift; sourceTree = "<group>"; };
+		E2C0A24F2745801F003CB51B /* OptionGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionGroup.swift; sourceTree = "<group>"; };
+		E2C0A25127458046003CB51B /* Extra.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extra.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -182,6 +194,11 @@
 			children = (
 				E2C0A21F2744FC06003CB51B /* User.swift */,
 				E2C0A2262744FE61003CB51B /* Token.swift */,
+				E2C0A24927457DEE003CB51B /* MenuSection.swift */,
+				E2C0A24B27457E2A003CB51B /* Food.swift */,
+				E2C0A24F2745801F003CB51B /* OptionGroup.swift */,
+				E2C0A24D27457F94003CB51B /* Option.swift */,
+				E2C0A25127458046003CB51B /* Extra.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -211,6 +228,7 @@
 			children = (
 				E2C0A22827450027003CB51B /* APIService.swift */,
 				E2C0A21B2744FACF003CB51B /* AuthService.swift */,
+				E2C0A24727457D0E003CB51B /* MenuService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -398,14 +416,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				E2C0A23B2745372E003CB51B /* View.swift in Sources */,
+				E2C0A2502745801F003CB51B /* OptionGroup.swift in Sources */,
 				E2C0A2252744FC97003CB51B /* RequestError.swift in Sources */,
 				E2C0A2222744FC47003CB51B /* NetworkManager.swift in Sources */,
+				E2C0A24827457D0E003CB51B /* MenuService.swift in Sources */,
+				E2C0A24C27457E2A003CB51B /* Food.swift in Sources */,
+				E2C0A24A27457DEE003CB51B /* MenuSection.swift in Sources */,
 				E2C0A21C2744FACF003CB51B /* AuthService.swift in Sources */,
+				E2C0A25227458046003CB51B /* Extra.swift in Sources */,
 				E2C0A1EC2744F7E5003CB51B /* HomeView.swift in Sources */,
 				E2C0A24427457630003CB51B /* Color.swift in Sources */,
 				E2C0A23827453459003CB51B /* SignUpView.swift in Sources */,
 				E2C0A23027450F65003CB51B /* AuthError.swift in Sources */,
 				E2C0A21E2744FB21003CB51B /* SignUpViewModel.swift in Sources */,
+				E2C0A24E27457F94003CB51B /* Option.swift in Sources */,
 				E2C0A2202744FC06003CB51B /* User.swift in Sources */,
 				E2C0A240274548DA003CB51B /* SignInView.swift in Sources */,
 				E2C0A1EA2744F7E5003CB51B /* SwiftCafeApp.swift in Sources */,
