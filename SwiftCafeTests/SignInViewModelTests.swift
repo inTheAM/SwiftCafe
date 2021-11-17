@@ -103,6 +103,16 @@ final class SignInViewModelTests: XCTestCase {
         XCTAssertTrue(isSignedIn)
     }
     
+    func testSigningInWithInvalidCredentials() throws {
+        viewModel.email = "wrongemail@gmail.com"
+        viewModel.password = "Passwordetc"
+        var isSignedIn = false
+        viewModel.signIn {
+            isSignedIn = true
+        }
+        XCTAssertFalse(isSignedIn)
+    }
+    
 //    MARK: - Teardown
     override func tearDownWithError() throws {
         viewModel = nil
