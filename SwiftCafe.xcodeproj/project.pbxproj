@@ -24,6 +24,7 @@
 		E2C0A22927450027003CB51B /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C0A22827450027003CB51B /* APIService.swift */; };
 		E2C0A22C2745017B003CB51B /* User+Sample.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C0A22B2745017B003CB51B /* User+Sample.swift */; };
 		E2C0A22E274503E6003CB51B /* XCTestCase+Await.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C0A22D274503E6003CB51B /* XCTestCase+Await.swift */; };
+		E2C0A23027450F65003CB51B /* AuthError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C0A22F27450F65003CB51B /* AuthError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +65,7 @@
 		E2C0A22827450027003CB51B /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		E2C0A22B2745017B003CB51B /* User+Sample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+Sample.swift"; sourceTree = "<group>"; };
 		E2C0A22D274503E6003CB51B /* XCTestCase+Await.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+Await.swift"; sourceTree = "<group>"; };
+		E2C0A22F27450F65003CB51B /* AuthError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -208,6 +210,7 @@
 			isa = PBXGroup;
 			children = (
 				E2C0A2242744FC97003CB51B /* RequestError.swift */,
+				E2C0A22F27450F65003CB51B /* AuthError.swift */,
 			);
 			path = Errors;
 			sourceTree = "<group>";
@@ -355,6 +358,7 @@
 				E2C0A2222744FC47003CB51B /* NetworkManager.swift in Sources */,
 				E2C0A21C2744FACF003CB51B /* AuthService.swift in Sources */,
 				E2C0A1EC2744F7E5003CB51B /* ContentView.swift in Sources */,
+				E2C0A23027450F65003CB51B /* AuthError.swift in Sources */,
 				E2C0A21E2744FB21003CB51B /* SignUpViewModel.swift in Sources */,
 				E2C0A2202744FC06003CB51B /* User.swift in Sources */,
 				E2C0A1EA2744F7E5003CB51B /* SwiftCafeApp.swift in Sources */,

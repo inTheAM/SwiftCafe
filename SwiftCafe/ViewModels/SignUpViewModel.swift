@@ -27,6 +27,7 @@ final class SignUpViewModel: ObservableObject {
 //    MARK: - Inline Errors
     @Published var emailErrorDescription = ""
     @Published var passwordErrorDescription = ""
+    @Published var signUpErrorDescription = ""
     
 //    MARK: - Initializer
     init(authService: AuthServiceProtocol = AuthService.shared) {
@@ -211,5 +212,19 @@ extension SignUpViewModel {
                 return emailStatus == .valid && passwordStatus == .valid
             }
             .eraseToAnyPublisher()
+    }
+}
+
+//  MARK: - Sign Up
+extension SignUpViewModel {
+    func signUp(completion: @escaping ()->()) {
+        authService.signUp(email: email, password: password) { result in
+            switch result {
+            case .success:
+                completion()
+            case .failure:
+                self.signUpErrorDescription = AuthError.signUpFailed.rawValue
+            }
+        }
     }
 }
