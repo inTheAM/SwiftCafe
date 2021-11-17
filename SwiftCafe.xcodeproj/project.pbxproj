@@ -27,6 +27,7 @@
 		E2C0A23027450F65003CB51B /* AuthError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C0A22F27450F65003CB51B /* AuthError.swift */; };
 		E2C0A232274510DF003CB51B /* SignInViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C0A231274510DF003CB51B /* SignInViewModelTests.swift */; };
 		E2C0A2342745115C003CB51B /* SignInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C0A2332745115C003CB51B /* SignInViewModel.swift */; };
+		E2C0A23627453214003CB51B /* SignUpViewUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C0A23527453214003CB51B /* SignUpViewUITests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +71,7 @@
 		E2C0A22F27450F65003CB51B /* AuthError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthError.swift; sourceTree = "<group>"; };
 		E2C0A231274510DF003CB51B /* SignInViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewModelTests.swift; sourceTree = "<group>"; };
 		E2C0A2332745115C003CB51B /* SignInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewModel.swift; sourceTree = "<group>"; };
+		E2C0A23527453214003CB51B /* SignUpViewUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewUITests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -156,6 +158,7 @@
 			isa = PBXGroup;
 			children = (
 				E2C0A2042744F7E7003CB51B /* SwiftCafeUITests.swift */,
+				E2C0A23527453214003CB51B /* SignUpViewUITests.swift */,
 				E2C0A2062744F7E7003CB51B /* SwiftCafeUITestsLaunchTests.swift */,
 			);
 			path = SwiftCafeUITests;
@@ -391,6 +394,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E2C0A2052744F7E7003CB51B /* SwiftCafeUITests.swift in Sources */,
+				E2C0A23627453214003CB51B /* SignUpViewUITests.swift in Sources */,
 				E2C0A2072744F7E7003CB51B /* SwiftCafeUITestsLaunchTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
