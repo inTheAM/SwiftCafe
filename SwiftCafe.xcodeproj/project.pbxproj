@@ -33,6 +33,7 @@
 		E2C0A240274548DA003CB51B /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C0A23F274548DA003CB51B /* SignInView.swift */; };
 		E2C0A24227454908003CB51B /* SignInViewUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C0A24127454908003CB51B /* SignInViewUITests.swift */; };
 		E2C0A24427457630003CB51B /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C0A24327457630003CB51B /* Color.swift */; };
+		E2C0A24627457CC9003CB51B /* MockMenuService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C0A24527457CC9003CB51B /* MockMenuService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,6 +83,7 @@
 		E2C0A23F274548DA003CB51B /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
 		E2C0A24127454908003CB51B /* SignInViewUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewUITests.swift; sourceTree = "<group>"; };
 		E2C0A24327457630003CB51B /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		E2C0A24527457CC9003CB51B /* MockMenuService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockMenuService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -225,6 +227,7 @@
 			isa = PBXGroup;
 			children = (
 				E2C0A2192744F98A003CB51B /* MockAuthService.swift */,
+				E2C0A24527457CC9003CB51B /* MockMenuService.swift */,
 			);
 			path = MockServices;
 			sourceTree = "<group>";
@@ -419,6 +422,7 @@
 			files = (
 				E2C0A1FB2744F7E7003CB51B /* SignUpViewModelTests.swift in Sources */,
 				E2C0A22E274503E6003CB51B /* XCTestCase+Await.swift in Sources */,
+				E2C0A24627457CC9003CB51B /* MockMenuService.swift in Sources */,
 				E2C0A232274510DF003CB51B /* SignInViewModelTests.swift in Sources */,
 				E2C0A21A2744F98A003CB51B /* MockAuthService.swift in Sources */,
 				E2C0A22C2745017B003CB51B /* User+Sample.swift in Sources */,
