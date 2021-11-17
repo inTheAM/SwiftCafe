@@ -184,6 +184,16 @@ final class SignUpViewModelTests: XCTestCase {
         XCTAssertTrue(isSignedIn)
     }
     
+    func testSigningUpWithInvalidCredentials() throws {
+        viewModel.email = User.sample.email
+        viewModel.password = User.sample.password
+        var isSignedIn = false
+        viewModel.signUp {
+            isSignedIn = true
+        }
+        XCTAssertFalse(isSignedIn)
+    }
+    
 //    MARK: Teardown
     override func tearDownWithError() throws {
         viewModel = nil
