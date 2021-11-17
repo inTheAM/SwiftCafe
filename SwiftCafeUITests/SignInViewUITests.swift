@@ -46,6 +46,13 @@ final class SignInViewUITests: XCTestCase {
         XCTAssert(signInButton.exists)
     }
     
+    func testNavigatingToSignUpView() throws {
+        let signUpLink = app.buttons["go to signup"]
+        signUpLink.tap()
+        XCTAssertFalse(signUpLink.waitForExistence(timeout: 5))
+    }
+    
+    
 //    MARK: - Teardown
     override func tearDownWithError() throws {
         app.terminate()
