@@ -194,6 +194,19 @@ final class SignUpViewModelTests: XCTestCase {
         XCTAssertFalse(isSignedIn)
     }
     
+//    MARK: - Sign Up Error Tests
+    func testFailedSignUpUpdatesInlineError() throws {
+        let signUpErrorPublisher = viewModel.$signUpErrorDescription
+            .first()
+        viewModel.email = "fail@gmail.com"
+        viewModel.password = "Passwordetc"
+        viewModel.signUp() {}
+        
+        let error = try awaitResult(from: signUpErrorPublisher)
+        
+        XCTAssertEqual(error, AuthError.signUpFailed.rawValue)
+    }
+    
 //    MARK: Teardown
     override func tearDownWithError() throws {
         viewModel = nil
