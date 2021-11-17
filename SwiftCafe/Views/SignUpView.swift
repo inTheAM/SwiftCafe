@@ -30,7 +30,7 @@ struct SignUpView: View {
                         .stroke(lineWidth: 2)
                         .foregroundColor(viewModel.isEmailValid ? .green.opacity(0.5) : .primary.opacity(0.3))
                 )
-                .accessibilityIdentifier("email")
+                .accessibilityIdentifier("email input")
             
             HStack {
                 Text(viewModel.emailErrorDescription)
@@ -49,7 +49,7 @@ struct SignUpView: View {
                     SecureField("Confirm password", text: $viewModel.repeatedPassword)
                         .autocapitalization(.none)
                         .padding()
-                        .accessibilityIdentifier("repeatpassword")
+                        .accessibilityIdentifier("repeat password")
                     
                 }.background(
                     RoundedRectangle(cornerRadius: 10)
@@ -76,7 +76,7 @@ struct SignUpView: View {
                     .background(Color.blue.cornerRadius(20))
                     .grayscale(viewModel.isFormValid ? 0 : 1)
                     .disabled(!viewModel.isFormValid)
-                    .accessibilityIdentifier("signup")
+                    .accessibilityIdentifier("sign up")
             }
             Spacer()
         }
