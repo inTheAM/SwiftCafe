@@ -13,15 +13,6 @@ struct SignUpView: View {
     @Binding var isLoggedIn: Bool
     var body: some View {
         VStack {
-            VStack(spacing: 30) {
-                Text("SwiftCafe")
-                
-                Image(systemName: "mappin.and.ellipse")
-                    .accessibilityIdentifier("logo")
-            }
-            .font(.system(size: 40, weight: .bold, design: .rounded))
-            .padding(48)
-            
             TextField("Email", text: $viewModel.email)
                 .autocapitalization(.none)
                 .padding()
@@ -82,7 +73,9 @@ struct SignUpView: View {
             Spacer()
         }
         .animation(.default)
-        .padding(.horizontal)
+        .padding(.top, 48)
+        .padding()
+        .navigationTitle("Sign up")
         .navigationBarBackButtonHidden(true)
         .toolbar {
             ToolbarItem(placement: .navigationBarLeading) {
