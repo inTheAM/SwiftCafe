@@ -57,8 +57,28 @@ struct SignUpView: View {
                 }.padding(.bottom)
                 
                 Spacer()
+                
+                Button("Sign up") {
+                    viewModel.signUp() {
+                        isLoggedIn = true
+                    }
+                }.font(.body.bold())
+                    .foregroundColor(.white)
+                    .padding(10)
+                    .background(Color.blue.cornerRadius(20))
+                    .grayscale(viewModel.isFormValid ? 0 : 1)
+                    .disabled(!viewModel.isFormValid)
+                    .accessibilityIdentifier("signup")
             }
-            
+            Spacer()
+        }
+        .animation(.default)
+        .padding(.horizontal)
+        .navigationBarBackButtonHidden(true)
+        .toolbar {
+            ToolbarItem(placement: .navigationBarLeading) {
+                BackButton(presentationMode: presentationMode)
+            }
         }
     }
 }
