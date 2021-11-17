@@ -40,6 +40,8 @@
 		E2C0A24E27457F94003CB51B /* Option.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C0A24D27457F94003CB51B /* Option.swift */; };
 		E2C0A2502745801F003CB51B /* OptionGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C0A24F2745801F003CB51B /* OptionGroup.swift */; };
 		E2C0A25227458046003CB51B /* Extra.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C0A25127458046003CB51B /* Extra.swift */; };
+		E2C0A25427458135003CB51B /* MenuSection+Samples.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C0A25327458135003CB51B /* MenuSection+Samples.swift */; };
+		E2C0A2562745818F003CB51B /* Food+Samples.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C0A2552745818F003CB51B /* Food+Samples.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -96,6 +98,8 @@
 		E2C0A24D27457F94003CB51B /* Option.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Option.swift; sourceTree = "<group>"; };
 		E2C0A24F2745801F003CB51B /* OptionGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionGroup.swift; sourceTree = "<group>"; };
 		E2C0A25127458046003CB51B /* Extra.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extra.swift; sourceTree = "<group>"; };
+		E2C0A25327458135003CB51B /* MenuSection+Samples.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MenuSection+Samples.swift"; sourceTree = "<group>"; };
+		E2C0A2552745818F003CB51B /* Food+Samples.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Food+Samples.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -263,6 +267,8 @@
 			isa = PBXGroup;
 			children = (
 				E2C0A22B2745017B003CB51B /* User+Sample.swift */,
+				E2C0A25327458135003CB51B /* MenuSection+Samples.swift */,
+				E2C0A2552745818F003CB51B /* Food+Samples.swift */,
 				E2C0A22D274503E6003CB51B /* XCTestCase+Await.swift */,
 			);
 			path = Extensions;
@@ -448,6 +454,8 @@
 				E2C0A22E274503E6003CB51B /* XCTestCase+Await.swift in Sources */,
 				E2C0A24627457CC9003CB51B /* MockMenuService.swift in Sources */,
 				E2C0A232274510DF003CB51B /* SignInViewModelTests.swift in Sources */,
+				E2C0A25427458135003CB51B /* MenuSection+Samples.swift in Sources */,
+				E2C0A2562745818F003CB51B /* Food+Samples.swift in Sources */,
 				E2C0A21A2744F98A003CB51B /* MockAuthService.swift in Sources */,
 				E2C0A22C2745017B003CB51B /* User+Sample.swift in Sources */,
 			);
