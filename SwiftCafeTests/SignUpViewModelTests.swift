@@ -137,6 +137,18 @@ final class SignUpViewModelTests: XCTestCase {
         XCTAssertEqual(error, PasswordStatus.weak.rawValue)
     }
     
+    func testPasswordValidationInlineErrorForDifferentPasswords() throws {
+        let passwordsDoNotMatchPublisher = viewModel.$passwordErrorDescription
+            .dropFirst()
+            .first()
+        
+        viewModel.password = "password123!"
+        viewModel.repeatedPassword = "password213@"
+        
+        let error = try awaitResult(from: passwordsDoNotMatchPublisher)
+        XCTAssertEqual(error, PasswordStatus.passwordsDoNotMatch.rawValue)
+    }
+    
 //    MARK: Teardown
     override func tearDownWithError() throws {
         viewModel = nil
