@@ -14,6 +14,7 @@
 		E2C0A1FB2744F7E7003CB51B /* SignUpViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C0A1FA2744F7E7003CB51B /* SignUpViewModelTests.swift */; };
 		E2C0A2052744F7E7003CB51B /* SwiftCafeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C0A2042744F7E7003CB51B /* SwiftCafeUITests.swift */; };
 		E2C0A2072744F7E7003CB51B /* SwiftCafeUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C0A2062744F7E7003CB51B /* SwiftCafeUITestsLaunchTests.swift */; };
+		E2C0A21A2744F98A003CB51B /* MockAuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C0A2192744F98A003CB51B /* MockAuthService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +45,7 @@
 		E2C0A2002744F7E7003CB51B /* SwiftCafeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftCafeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2C0A2042744F7E7003CB51B /* SwiftCafeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftCafeUITests.swift; sourceTree = "<group>"; };
 		E2C0A2062744F7E7003CB51B /* SwiftCafeUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftCafeUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		E2C0A2192744F98A003CB51B /* MockAuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockAuthService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +119,7 @@
 		E2C0A1F92744F7E7003CB51B /* SwiftCafeTests */ = {
 			isa = PBXGroup;
 			children = (
+				E2C0A2182744F935003CB51B /* MockServices */,
 				E2C0A1FA2744F7E7003CB51B /* SignUpViewModelTests.swift */,
 			);
 			path = SwiftCafeTests;
@@ -165,6 +168,14 @@
 			children = (
 			);
 			path = Utility;
+			sourceTree = "<group>";
+		};
+		E2C0A2182744F935003CB51B /* MockServices */ = {
+			isa = PBXGroup;
+			children = (
+				E2C0A2192744F98A003CB51B /* MockAuthService.swift */,
+			);
+			path = MockServices;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -307,6 +318,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E2C0A1FB2744F7E7003CB51B /* SignUpViewModelTests.swift in Sources */,
+				E2C0A21A2744F98A003CB51B /* MockAuthService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

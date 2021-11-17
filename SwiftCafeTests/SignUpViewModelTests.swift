@@ -4,11 +4,11 @@
 //
 //  Created by Ahmed Mgua on 17/11/2021.
 //
-
-import XCTest
+import Combine
 @testable import SwiftCafe
+import XCTest
 
-class SignUpViewModelTests: XCTestCase {
+final class SignUpViewModelTests: XCTestCase {
     var viewModel: SignUpViewModel!
     override func setUpWithError() throws {
         let service = MockAuthService()
