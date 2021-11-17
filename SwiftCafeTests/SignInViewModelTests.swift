@@ -92,6 +92,17 @@ final class SignInViewModelTests: XCTestCase {
         XCTAssertEqual(error, FormStatus.valid.rawValue)
     }
     
+//    MARK: - SignIn Tests
+    func testSigningInWithValidCredentials() throws {
+        viewModel.email = User.sample.email
+        viewModel.password = User.sample.password
+        var isSignedIn = false
+        viewModel.signIn {
+            isSignedIn = true
+        }
+        XCTAssertTrue(isSignedIn)
+    }
+    
 //    MARK: - Teardown
     override func tearDownWithError() throws {
         viewModel = nil
