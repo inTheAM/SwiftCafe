@@ -86,3 +86,17 @@ extension SignInViewModel {
             .eraseToAnyPublisher()
     }
 }
+
+//  MARK: - Sign In
+extension SignInViewModel {
+    func signIn(completion: @escaping ()->()) {
+        authService.signIn(email: email, password: password) { result in
+            switch result {
+            case .success:
+                completion()
+            case .failure:
+                self.signInErrorDescription = AuthError.signInFailed.rawValue
+            }
+        }
+    }
+}
