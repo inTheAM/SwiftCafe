@@ -13,6 +13,15 @@ struct SignUpView: View {
     @Binding var isLoggedIn: Bool
     var body: some View {
         VStack {
+            VStack(spacing: 30) {
+                Text("SwiftCafe")
+                
+                Image(systemName: "mappin.and.ellipse")
+                    .accessibilityIdentifier("logo")
+            }
+            .font(.system(size: 40, weight: .bold, design: .rounded))
+            .padding(48)
+            
             TextField("Email", text: $viewModel.email)
                 .autocapitalization(.none)
                 .padding()
