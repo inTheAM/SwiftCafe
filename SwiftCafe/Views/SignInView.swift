@@ -74,6 +74,9 @@ struct SignInView: View {
                 
                 Spacer()
             }
+            .animation(.default)
+            .padding(.horizontal)
+            .navigationBarBackButtonHidden(true)
         }
     }
 }
