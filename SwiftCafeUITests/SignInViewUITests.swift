@@ -32,8 +32,13 @@ final class SignInViewUITests: XCTestCase {
     }
     
     func testPasswordFieldExists() throws {
-        let password = app.textFields["password"]
+        let password = app.secureTextFields["password"]
         XCTAssert(password.exists)
+    }
+    
+    func testSignUpNavigationLinkExists() throws {
+        let signUpLink = app.buttons["go to signup"]
+        XCTAssert(signUpLink.exists)
     }
     
 //    MARK: - Teardown
