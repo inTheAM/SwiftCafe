@@ -12,50 +12,52 @@ struct SignInView: View {
     @Binding var isLoggedIn: Bool
     
     var body: some View {
-        VStack {
-            VStack(spacing: 30) {
-                Text("SwiftCafe")
+        NavigationView {
+            VStack {
+                VStack(spacing: 30) {
+                    Text("SwiftCafe")
+                    
+                    Image(systemName: "mappin.and.ellipse")
+                        .accessibilityIdentifier("logo")
+                }
+                .font(.system(size: 40, weight: .bold, design: .rounded))
+                .padding(48)
                 
-                Image(systemName: "mappin.and.ellipse")
-                    .accessibilityIdentifier("logo")
+                TextField("Email", text: $viewModel.email)
+                    .autocapitalization(.none)
+                    .padding()
+                    .background(
+                        RoundedRectangle(cornerRadius: 10)
+                            .stroke(lineWidth: 2)
+                            .foregroundColor(.primary.opacity(0.3))
+                    )
+                    .padding(.bottom)
+                    .accessibilityIdentifier("email")
+                
+                SecureField("Password", text: $viewModel.password)
+                    .autocapitalization(.none)
+                    .padding()
+                    .background(
+                        RoundedRectangle(cornerRadius: 10)
+                            .stroke(lineWidth: 2)
+                            .foregroundColor(.primary.opacity(0.3))
+                    )
+                    .accessibilityIdentifier("password")
+                
+                HStack {
+                    Text(viewModel.signInErrorDescription)
+                        .font(.caption)
+                        .foregroundColor(.red)
+                    Spacer()
+                }.padding(.bottom)
+                
+                HStack {
+                    NavigationLink("Don't have an account?", destination: SignUpView(isLoggedIn: $isLoggedIn))
+                        .font(.caption)
+                        .accessibilityIdentifier("go to signup")
+                    Spacer()
+                }.padding(.bottom)
             }
-            .font(.system(size: 40, weight: .bold, design: .rounded))
-            .padding(48)
-            
-            TextField("Email", text: $viewModel.email)
-                .autocapitalization(.none)
-                .padding()
-                .background(
-                    RoundedRectangle(cornerRadius: 10)
-                        .stroke(lineWidth: 2)
-                        .foregroundColor(.primary.opacity(0.3))
-                )
-                .padding(.bottom)
-                .accessibilityIdentifier("email")
-            
-            SecureField("Password", text: $viewModel.password)
-                .autocapitalization(.none)
-                .padding()
-                .background(
-                    RoundedRectangle(cornerRadius: 10)
-                        .stroke(lineWidth: 2)
-                        .foregroundColor(.primary.opacity(0.3))
-                )
-                .accessibilityIdentifier("password")
-            
-            HStack {
-                Text(viewModel.signInErrorDescription)
-                    .font(.caption)
-                    .foregroundColor(.red)
-                Spacer()
-            }.padding(.bottom)
-            
-            HStack {
-                NavigationLink("Don't have an account?", destination: SignUpView(isLoggedIn: $isLoggedIn))
-                    .font(.caption)
-                    .accessibilityIdentifier("go to signup")
-                Spacer()
-            }.padding(.bottom)
         }
     }
 }
