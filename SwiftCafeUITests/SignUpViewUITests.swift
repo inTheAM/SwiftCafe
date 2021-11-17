@@ -18,14 +18,9 @@ final class SignUpViewUITests: XCTestCase {
     }
     
 //    MARK: - Tests
-    func testSwiftCafeTextExists() throws {
-        let text = app.staticTexts["SwiftCafe"]
-        XCTAssert(text.exists)
-    }
-    
-    func testSwiftCafeLogoExists() throws {
-        let image = app.images["logo"]
-        XCTAssert(image.exists)
+    func testNavigationTitleExists() throws {
+        let navTitle = app.navigationBars.staticTexts["Sign up"]
+        XCTAssert(navTitle.exists)
     }
     
     func testEmailTextFieldExists() throws {
