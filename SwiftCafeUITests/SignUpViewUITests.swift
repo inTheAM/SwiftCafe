@@ -21,6 +21,14 @@ final class SignUpViewUITests: XCTestCase {
         XCTAssert(email.exists)
     }
     
+    func testPasswordTextFieldsAppearOnEmailValidation() throws {
+        let email = app.textFields["email"]
+        email.tap()
+        email.typeText("testuser3@test.com")
+        let password = app.secureTextFields["password"]
+        XCTAssert(password.exists)
+    }
+    
 //    MARK: - Teardown
     override func tearDownWithError() throws {
         app.terminate()
