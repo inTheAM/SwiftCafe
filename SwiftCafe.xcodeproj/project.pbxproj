@@ -42,6 +42,7 @@
 		E2C0A25227458046003CB51B /* Extra.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C0A25127458046003CB51B /* Extra.swift */; };
 		E2C0A25427458135003CB51B /* MenuSection+Samples.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C0A25327458135003CB51B /* MenuSection+Samples.swift */; };
 		E2C0A2562745818F003CB51B /* Food+Samples.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C0A2552745818F003CB51B /* Food+Samples.swift */; };
+		E2C0A2582745827D003CB51B /* MenuViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C0A2572745827D003CB51B /* MenuViewModelTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -100,6 +101,7 @@
 		E2C0A25127458046003CB51B /* Extra.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extra.swift; sourceTree = "<group>"; };
 		E2C0A25327458135003CB51B /* MenuSection+Samples.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MenuSection+Samples.swift"; sourceTree = "<group>"; };
 		E2C0A2552745818F003CB51B /* Food+Samples.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Food+Samples.swift"; sourceTree = "<group>"; };
+		E2C0A2572745827D003CB51B /* MenuViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewModelTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -179,6 +181,7 @@
 				E2C0A2182744F935003CB51B /* MockServices */,
 				E2C0A1FA2744F7E7003CB51B /* SignUpViewModelTests.swift */,
 				E2C0A231274510DF003CB51B /* SignInViewModelTests.swift */,
+				E2C0A2572745827D003CB51B /* MenuViewModelTests.swift */,
 			);
 			path = SwiftCafeTests;
 			sourceTree = "<group>";
@@ -452,6 +455,7 @@
 			files = (
 				E2C0A1FB2744F7E7003CB51B /* SignUpViewModelTests.swift in Sources */,
 				E2C0A22E274503E6003CB51B /* XCTestCase+Await.swift in Sources */,
+				E2C0A2582745827D003CB51B /* MenuViewModelTests.swift in Sources */,
 				E2C0A24627457CC9003CB51B /* MockMenuService.swift in Sources */,
 				E2C0A232274510DF003CB51B /* SignInViewModelTests.swift in Sources */,
 				E2C0A25427458135003CB51B /* MenuSection+Samples.swift in Sources */,
