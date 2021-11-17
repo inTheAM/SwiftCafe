@@ -11,13 +11,13 @@ import XCTest
 final class SignUpViewModelTests: XCTestCase {
     var viewModel: SignUpViewModel!
     
-//    MARK: Setup
+//    MARK: - Setup
     override func setUpWithError() throws {
         let service = MockAuthService()
         viewModel = SignUpViewModel(authService: service)
     }
     
-//    MARK: Email Validation Tests
+//    MARK: - Email Validation Tests
     func testEmailValidationWithValidEmail() throws {
         let isEmailValidPublisher = viewModel.$isEmailValid
             .dropFirst()
@@ -38,7 +38,7 @@ final class SignUpViewModelTests: XCTestCase {
         XCTAssertFalse(isEmailValid)
     }
     
-//    MARK: Email Error Tests
+//    MARK: - Email Error Tests
     func testEmailValidationInlineErrorForEmptyEmail() throws {
         let isEmailValidPublisher = viewModel.$emailErrorDescription
             .dropFirst()
@@ -79,7 +79,7 @@ final class SignUpViewModelTests: XCTestCase {
         XCTAssertEqual(error, EmailStatus.valid.rawValue)
     }
     
-//    MARK: Password Validation tests
+//    MARK: - Password Validation tests
     func testPasswordValidationWithValidPassword() throws {
         let isPasswordValidPublisher = viewModel.$isPasswordValid
             .dropFirst()
@@ -111,6 +111,18 @@ final class SignUpViewModelTests: XCTestCase {
         
         let isPasswordValid = try awaitResult(from: isPasswordValidPublisher)
         XCTAssertFalse(isPasswordValid)
+    }
+    
+//    MARK: - Password Error Tests
+    func testPasswordValidationInlineErrorForEmptyPassword() throws {
+        let isPasswordEmptyPublisher = viewModel.$passwordErrorDescription
+            .dropFirst()
+            .first()
+        
+        viewModel.password = ""
+        viewModel.repeatedPassword = ""
+        let error = try awaitResult(from: isPasswordEmptyPublisher)
+        XCTAssertEqual(error, PasswordStatus.empty.rawValue)
     }
     
 //    MARK: Teardown

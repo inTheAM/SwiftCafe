@@ -14,20 +14,20 @@ final class SignUpViewModel: ObservableObject {
     
     private let passwordPredicate = NSPredicate(format: "SELF MATCHES %@", "^(?=.*[a-z])(?=.*[0-9])(?=.*[S@$#!%*?&]).{8,}$")
     
-//    MARK: Inputs
+//    MARK: - Inputs
     @Published var email = ""
     @Published var password = ""
     @Published var repeatedPassword = ""
     
-//    MARK: Validation
+//    MARK: - Validation
     @Published var isEmailValid = false
     @Published var isPasswordValid = false
     
-//    MARK: Inline Errors
+//    MARK: - Inline Errors
     @Published var emailErrorDescription = ""
     @Published var passwordErrorDescription = ""
     
-//    MARK: Initializer
+//    MARK: - Initializer
     init(authService: AuthServiceProtocol = AuthService.shared) {
         self.authService = authService
         
@@ -64,13 +64,14 @@ final class SignUpViewModel: ObservableObject {
     }
 }
 
-//  MARK: Email Validation
+//  MARK: - Email Validation
 enum EmailStatus: String {
     case empty = "Email cannot be empty",
          invalid = "Use a valid email address",
          unavailable = "This email address is already in use.",
          valid = ""
 }
+
 extension SignUpViewModel {
     private var isEmailEmptyPublisher: AnyPublisher<Bool, Never> {
         $email
@@ -125,7 +126,7 @@ extension SignUpViewModel {
     }
 }
 
-//  MARK: Password Validation
+//  MARK: - Password Validation
 enum PasswordStatus: String {
     case empty = "Password cannot be empty",
          short = "Password is too short. Use 8 characters or more",
