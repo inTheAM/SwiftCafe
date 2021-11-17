@@ -26,4 +26,13 @@ final class MockAuthService: AuthServiceProtocol {
             completion(.failure)
         }
     }
+    
+    func signIn(email: String, password: String, completion: @escaping (AuthResult) -> Void) {
+        if email == User.sample.email && password == User.sample.password {
+            completion(.success)
+            Self.token = "1234567"
+        } else {
+            completion(.failure)
+        }
+    }
 }
