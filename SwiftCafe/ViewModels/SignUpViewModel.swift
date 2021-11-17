@@ -12,17 +12,17 @@ final class SignUpViewModel: ObservableObject {
     private let authService: AuthServiceProtocol
     private var cancellables = Set<AnyCancellable>()
     
-//    MARK: - Inputs
+//    MARK: Inputs
     @Published var email = ""
     
     
-//    MARK: - Validation
+//    MARK: Validation
     @Published var isEmailValid = false
     
-//    MARK: - Inline Errors
+//    MARK: Inline Errors
     @Published var emailErrorDescription = ""
     
-//    MARK: - Initializer
+//    MARK: Initializer
     init(authService: AuthServiceProtocol = AuthService.shared) {
         self.authService = authService
         
@@ -44,7 +44,7 @@ final class SignUpViewModel: ObservableObject {
     }
 }
 
-//  MARK: - Email Validation
+//  MARK: Email Validation
 enum EmailStatus: String {
     case empty = "Email cannot be empty",
          invalid = "Use a valid email address",
