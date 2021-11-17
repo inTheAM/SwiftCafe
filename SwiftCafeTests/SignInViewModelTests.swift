@@ -43,6 +43,18 @@ final class SignInViewModelTests: XCTestCase {
         XCTAssertFalse(isFormValid)
     }
     
+    func testFormValidationWithEmptyPassword() throws {
+        let isFormValidPublisher = viewModel.$isFormValid
+            .dropFirst()
+            .first()
+        
+        viewModel.email = "email"
+        viewModel.password = ""
+        
+        let isFormValid = try awaitResult(from: isFormValidPublisher)
+        XCTAssertFalse(isFormValid)
+    }
+    
     
 //    MARK: - Teardown
     override func tearDownWithError() throws {
