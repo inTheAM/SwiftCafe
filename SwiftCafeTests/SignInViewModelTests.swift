@@ -18,7 +18,18 @@ final class SignInViewModelTests: XCTestCase {
         viewModel = SignInViewModel(authService: service)
     }
     
-    
+//    MARK: - Form Validation Tests
+    func testFormIsValidatedWithFilledInputs() throws {
+        let isFormValidPublisher = viewModel.$isFormValid
+            .dropFirst()
+            .first()
+        
+        viewModel.email = "email"
+        viewModel.password = "123"
+        
+        let isFormValid = try awaitResult(from: isFormValidPublisher)
+        XCTAssertTrue(isFormValid)
+    }
     
     
 //    MARK: - Teardown
