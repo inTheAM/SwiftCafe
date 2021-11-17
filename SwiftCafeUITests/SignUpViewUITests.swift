@@ -26,7 +26,9 @@ final class SignUpViewUITests: XCTestCase {
         email.tap()
         email.typeText("testuser3@test.com")
         let password = app.secureTextFields["password"]
-        XCTAssert(password.exists)
+        let repeatPassword = app.secureTextFields["repeatpassword"]
+        XCTAssert(password.waitForExistence(timeout: 1))
+        XCTAssert(repeatPassword.exists)
     }
     
 //    MARK: - Teardown
