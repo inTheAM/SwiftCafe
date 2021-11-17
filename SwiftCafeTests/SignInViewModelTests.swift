@@ -68,6 +68,18 @@ final class SignInViewModelTests: XCTestCase {
         XCTAssertEqual(error, FormStatus.emailEmpty.rawValue)
     }
     
+    func testSignInErrorWithEmptyPassword() throws {
+        let signInErrorPublisher = viewModel.$signInErrorDescription
+            .dropFirst()
+            .first()
+        
+        viewModel.email = "someemail"
+        viewModel.password = ""
+        
+        let error = try awaitResult(from: signInErrorPublisher)
+        XCTAssertEqual(error, FormStatus.passwordEmpty.rawValue)
+    }
+    
 //    MARK: - Teardown
     override func tearDownWithError() throws {
         viewModel = nil
