@@ -12,15 +12,20 @@ final class SignUpViewModel: ObservableObject {
     private let authService: AuthServiceProtocol
     private var cancellables = Set<AnyCancellable>()
     
+    private let passwordPredicate = NSPredicate(format: "SELF MATCHES %@", "^(?=.*[a-z])(?=.*[0-9])(?=.*[S@$#!%*?&]).{8,}$")
+    
 //    MARK: Inputs
     @Published var email = ""
-    
+    @Published var password = ""
+    @Published var repeatedPassword = ""
     
 //    MARK: Validation
     @Published var isEmailValid = false
+    @Published var isPasswordValid = false
     
 //    MARK: Inline Errors
     @Published var emailErrorDescription = ""
+    @Published var passwordErrorDescription = ""
     
 //    MARK: Initializer
     init(authService: AuthServiceProtocol = AuthService.shared) {
@@ -40,6 +45,21 @@ final class SignUpViewModel: ObservableObject {
                 }
             }
             .assign(to: \.isEmailValid, on: self)
+            .store(in: &cancellables)
+        
+        isPasswordInputValidPublisher
+            .receive(on: RunLoop.main)
+            .map { status in
+                switch status {
+                case .valid:
+                    self.passwordErrorDescription = ""
+                    return true
+                default:
+                    self.passwordErrorDescription = status.rawValue
+                    return false
+                }
+            }
+            .assign(to: \.isPasswordValid, on: self)
             .store(in: &cancellables)
     }
 }
@@ -98,6 +118,77 @@ extension SignUpViewModel {
                 }
                 if !isAvailable {
                     return .unavailable
+                }
+                return .valid
+            }
+            .eraseToAnyPublisher()
+    }
+}
+
+//  MARK: Password Validation
+enum PasswordStatus: String {
+    case empty = "Password cannot be empty",
+         short = "Password is too short. Use 8 characters or more",
+         weak = "Password must contain at least one number and one special character",
+         passwordsDoNotMatch = "Passwords do not match",
+         valid = ""
+}
+
+extension SignUpViewModel {
+    private var isPasswordEmptyPublisher: AnyPublisher<Bool, Never> {
+        $password
+            .debounce(for: 0.5, scheduler: RunLoop.main)
+            .removeDuplicates()
+            .map { password in
+                password.isEmpty
+            }
+            .eraseToAnyPublisher()
+    }
+    
+    private var isPasswordShortPublisher: AnyPublisher<Bool, Never> {
+        $password
+            .debounce(for: 0.5, scheduler: RunLoop.main)
+            .removeDuplicates()
+            .map { password in
+                password.count < 8
+            }
+            .eraseToAnyPublisher()
+    }
+    
+    private var isPasswordStrongPublisher: AnyPublisher<Bool, Never> {
+        $password
+            .dropFirst()
+            .removeDuplicates()
+            .debounce(for: 0.5, scheduler: RunLoop.main)
+            .map { password in
+                self.passwordPredicate.evaluate(with: password)
+            }
+            .eraseToAnyPublisher()
+    }
+    
+    private var arePasswordsEqualPublisher: AnyPublisher<Bool, Never> {
+        Publishers.CombineLatest($password, $repeatedPassword)
+            .debounce(for: 0.5, scheduler: RunLoop.main)
+            .map { password, repeatedPassword in
+                password == repeatedPassword
+            }
+            .eraseToAnyPublisher()
+    }
+    
+    private var isPasswordInputValidPublisher: AnyPublisher<PasswordStatus, Never> {
+        Publishers.CombineLatest4(isPasswordEmptyPublisher, isPasswordShortPublisher, isPasswordStrongPublisher, arePasswordsEqualPublisher)
+            .map { isEmpty, isShort, isStrong, areEqual in
+                if isEmpty {
+                    return .empty
+                }
+                if isShort {
+                    return .short
+                }
+                if !isStrong {
+                    return .weak
+                }
+                if !areEqual {
+                    return .passwordsDoNotMatch
                 }
                 return .valid
             }
