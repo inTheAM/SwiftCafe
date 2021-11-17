@@ -17,4 +17,17 @@ final class MenuViewModel: ObservableObject {
     init(menuService: MenuServiceProtocol = MenuService()) {
         self.menuService = menuService
     }
+    
+//    MARK: - Fetching Menu
+    func fetchMenu(_ completion: @escaping ()->()) {
+        menuService.fetchMenu() { [weak self] result in
+            switch result {
+            case .success(let sections):
+                self?.sections = sections
+                completion()
+            case .failure(let error):
+                print("MenuService-Error", error.rawValue)
+            }
+        }
+    }
 }
