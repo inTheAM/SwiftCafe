@@ -27,6 +27,7 @@
 		E2C0A232274510DF003CB51B /* SignInViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C0A231274510DF003CB51B /* SignInViewModelTests.swift */; };
 		E2C0A2342745115C003CB51B /* SignInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C0A2332745115C003CB51B /* SignInViewModel.swift */; };
 		E2C0A23627453214003CB51B /* SignUpViewUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C0A23527453214003CB51B /* SignUpViewUITests.swift */; };
+		E2C0A23827453459003CB51B /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C0A23727453459003CB51B /* SignUpView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +71,7 @@
 		E2C0A231274510DF003CB51B /* SignInViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewModelTests.swift; sourceTree = "<group>"; };
 		E2C0A2332745115C003CB51B /* SignInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewModel.swift; sourceTree = "<group>"; };
 		E2C0A23527453214003CB51B /* SignUpViewUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewUITests.swift; sourceTree = "<group>"; };
+		E2C0A23727453459003CB51B /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -183,6 +185,7 @@
 			isa = PBXGroup;
 			children = (
 				E2C0A1EB2744F7E5003CB51B /* ContentView.swift */,
+				E2C0A23727453459003CB51B /* SignUpView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -364,6 +367,7 @@
 				E2C0A2222744FC47003CB51B /* NetworkManager.swift in Sources */,
 				E2C0A21C2744FACF003CB51B /* AuthService.swift in Sources */,
 				E2C0A1EC2744F7E5003CB51B /* ContentView.swift in Sources */,
+				E2C0A23827453459003CB51B /* SignUpView.swift in Sources */,
 				E2C0A23027450F65003CB51B /* AuthError.swift in Sources */,
 				E2C0A21E2744FB21003CB51B /* SignUpViewModel.swift in Sources */,
 				E2C0A2202744FC06003CB51B /* User.swift in Sources */,
