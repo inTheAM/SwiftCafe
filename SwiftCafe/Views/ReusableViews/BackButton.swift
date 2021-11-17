@@ -17,6 +17,6 @@ struct BackButton: View {
                 .font(.title2)
                 .foregroundColor(.primary)
         }
-        .accessibilityIdentifier("back")
+        .accessibilityIdentifier("back button")
     }
 }
