@@ -5,8 +5,7 @@
 //  Created by Ahmed Mgua on 17/11/2021.
 //
 
-import Foundation
-
+@testable import SwiftCafe
 
 struct MockMenuService: MenuServiceProtocol {
     
