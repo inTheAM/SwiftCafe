@@ -31,6 +31,11 @@ final class SignInViewUITests: XCTestCase {
         XCTAssert(email.exists)
     }
     
+    func testPasswordFieldExists() throws {
+        let password = app.textFields["password"]
+        XCTAssert(password.exists)
+    }
+    
 //    MARK: - Teardown
     override func tearDownWithError() throws {
         app.terminate()
