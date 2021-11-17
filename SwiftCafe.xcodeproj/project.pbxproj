@@ -26,6 +26,7 @@
 		E2C0A22E274503E6003CB51B /* XCTestCase+Await.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C0A22D274503E6003CB51B /* XCTestCase+Await.swift */; };
 		E2C0A23027450F65003CB51B /* AuthError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C0A22F27450F65003CB51B /* AuthError.swift */; };
 		E2C0A232274510DF003CB51B /* SignInViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C0A231274510DF003CB51B /* SignInViewModelTests.swift */; };
+		E2C0A2342745115C003CB51B /* SignInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C0A2332745115C003CB51B /* SignInViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +69,7 @@
 		E2C0A22D274503E6003CB51B /* XCTestCase+Await.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+Await.swift"; sourceTree = "<group>"; };
 		E2C0A22F27450F65003CB51B /* AuthError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthError.swift; sourceTree = "<group>"; };
 		E2C0A231274510DF003CB51B /* SignInViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewModelTests.swift; sourceTree = "<group>"; };
+		E2C0A2332745115C003CB51B /* SignInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -172,6 +174,7 @@
 			isa = PBXGroup;
 			children = (
 				E2C0A21D2744FB21003CB51B /* SignUpViewModel.swift */,
+				E2C0A2332745115C003CB51B /* SignInViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -365,6 +368,7 @@
 				E2C0A21E2744FB21003CB51B /* SignUpViewModel.swift in Sources */,
 				E2C0A2202744FC06003CB51B /* User.swift in Sources */,
 				E2C0A1EA2744F7E5003CB51B /* SwiftCafeApp.swift in Sources */,
+				E2C0A2342745115C003CB51B /* SignInViewModel.swift in Sources */,
 				E2C0A22927450027003CB51B /* APIService.swift in Sources */,
 				E2C0A2272744FE61003CB51B /* Token.swift in Sources */,
 			);
