@@ -32,6 +32,30 @@ struct SignInView: View {
                 )
                 .padding(.bottom)
                 .accessibilityIdentifier("email")
+            
+            SecureField("Password", text: $viewModel.password)
+                .autocapitalization(.none)
+                .padding()
+                .background(
+                    RoundedRectangle(cornerRadius: 10)
+                        .stroke(lineWidth: 2)
+                        .foregroundColor(.primary.opacity(0.3))
+                )
+                .accessibilityIdentifier("password")
+            
+            HStack {
+                Text(viewModel.signInErrorDescription)
+                    .font(.caption)
+                    .foregroundColor(.red)
+                Spacer()
+            }.padding(.bottom)
+            
+            HStack {
+                NavigationLink("Don't have an account?", destination: SignUpView(isLoggedIn: $isLoggedIn))
+                    .font(.caption)
+                    .accessibilityIdentifier("go to signup")
+                Spacer()
+            }.padding(.bottom)
         }
     }
 }
