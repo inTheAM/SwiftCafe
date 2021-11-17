@@ -43,6 +43,7 @@
 		E2C0A25427458135003CB51B /* MenuSection+Samples.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C0A25327458135003CB51B /* MenuSection+Samples.swift */; };
 		E2C0A2562745818F003CB51B /* Food+Samples.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C0A2552745818F003CB51B /* Food+Samples.swift */; };
 		E2C0A2582745827D003CB51B /* MenuViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C0A2572745827D003CB51B /* MenuViewModelTests.swift */; };
+		E2C0A25A27458316003CB51B /* MenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C0A25927458316003CB51B /* MenuViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -102,6 +103,7 @@
 		E2C0A25327458135003CB51B /* MenuSection+Samples.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MenuSection+Samples.swift"; sourceTree = "<group>"; };
 		E2C0A2552745818F003CB51B /* Food+Samples.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Food+Samples.swift"; sourceTree = "<group>"; };
 		E2C0A2572745827D003CB51B /* MenuViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewModelTests.swift; sourceTree = "<group>"; };
+		E2C0A25927458316003CB51B /* MenuViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -215,6 +217,7 @@
 			children = (
 				E2C0A21D2744FB21003CB51B /* SignUpViewModel.swift */,
 				E2C0A2332745115C003CB51B /* SignInViewModel.swift */,
+				E2C0A25927458316003CB51B /* MenuViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -435,6 +438,7 @@
 				E2C0A25227458046003CB51B /* Extra.swift in Sources */,
 				E2C0A1EC2744F7E5003CB51B /* HomeView.swift in Sources */,
 				E2C0A24427457630003CB51B /* Color.swift in Sources */,
+				E2C0A25A27458316003CB51B /* MenuViewModel.swift in Sources */,
 				E2C0A23827453459003CB51B /* SignUpView.swift in Sources */,
 				E2C0A23027450F65003CB51B /* AuthError.swift in Sources */,
 				E2C0A21E2744FB21003CB51B /* SignUpViewModel.swift in Sources */,
