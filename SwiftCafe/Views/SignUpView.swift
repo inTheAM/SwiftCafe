@@ -45,7 +45,8 @@ struct SignUpView: View {
                         .autocapitalization(.none)
                         .padding()
                         .overlayDivider()
-                        .accessibilityIdentifier("password")
+                        .accessibilityIdentifier("password input")
+                    
                     SecureField("Confirm password", text: $viewModel.repeatedPassword)
                         .autocapitalization(.none)
                         .padding()

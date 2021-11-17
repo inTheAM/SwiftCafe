@@ -32,7 +32,7 @@ struct SignInView: View {
                             .foregroundColor(.primary.opacity(0.3))
                     )
                     .padding(.bottom)
-                    .accessibilityIdentifier("email")
+                    .accessibilityIdentifier("email input")
                 
                 SecureField("Password", text: $viewModel.password)
                     .autocapitalization(.none)
@@ -42,7 +42,7 @@ struct SignInView: View {
                             .stroke(lineWidth: 2)
                             .foregroundColor(.primary.opacity(0.3))
                     )
-                    .accessibilityIdentifier("password")
+                    .accessibilityIdentifier("password input")
                 
                 HStack {
                     Text(viewModel.signInErrorDescription)
@@ -57,6 +57,22 @@ struct SignInView: View {
                         .accessibilityIdentifier("go to signup")
                     Spacer()
                 }.padding(.bottom)
+                
+                Spacer()
+                
+                Button("Sign in") {
+                    viewModel.signIn() {
+                        isLoggedIn = true
+                    }
+                }.font(.body.bold())
+                    .foregroundColor(.white)
+                    .padding(10)
+                    .background(Color.blue.cornerRadius(20))
+                    .grayscale(viewModel.isFormValid ? 0 : 1)
+                    .disabled(!viewModel.isFormValid)
+                    .accessibilityIdentifier("sign in")
+                
+                Spacer()
             }
         }
     }
