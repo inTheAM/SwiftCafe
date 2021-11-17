@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		E2C0A1EA2744F7E5003CB51B /* SwiftCafeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C0A1E92744F7E5003CB51B /* SwiftCafeApp.swift */; };
-		E2C0A1EC2744F7E5003CB51B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C0A1EB2744F7E5003CB51B /* ContentView.swift */; };
+		E2C0A1EC2744F7E5003CB51B /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C0A1EB2744F7E5003CB51B /* HomeView.swift */; };
 		E2C0A1EE2744F7E7003CB51B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E2C0A1ED2744F7E7003CB51B /* Assets.xcassets */; };
 		E2C0A1F12744F7E7003CB51B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E2C0A1F02744F7E7003CB51B /* Preview Assets.xcassets */; };
 		E2C0A1FB2744F7E7003CB51B /* SignUpViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C0A1FA2744F7E7003CB51B /* SignUpViewModelTests.swift */; };
@@ -54,7 +54,7 @@
 /* Begin PBXFileReference section */
 		E2C0A1E62744F7E5003CB51B /* SwiftCafe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftCafe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2C0A1E92744F7E5003CB51B /* SwiftCafeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftCafeApp.swift; sourceTree = "<group>"; };
-		E2C0A1EB2744F7E5003CB51B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		E2C0A1EB2744F7E5003CB51B /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		E2C0A1ED2744F7E7003CB51B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E2C0A1F02744F7E7003CB51B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		E2C0A1F62744F7E7003CB51B /* SwiftCafeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftCafeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -194,7 +194,7 @@
 		E2C0A2152744F830003CB51B /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				E2C0A1EB2744F7E5003CB51B /* ContentView.swift */,
+				E2C0A1EB2744F7E5003CB51B /* HomeView.swift */,
 				E2C0A23727453459003CB51B /* SignUpView.swift */,
 				E2C0A23F274548DA003CB51B /* SignInView.swift */,
 				E2C0A23C2745381C003CB51B /* ReusableViews */,
@@ -395,7 +395,7 @@
 				E2C0A2252744FC97003CB51B /* RequestError.swift in Sources */,
 				E2C0A2222744FC47003CB51B /* NetworkManager.swift in Sources */,
 				E2C0A21C2744FACF003CB51B /* AuthService.swift in Sources */,
-				E2C0A1EC2744F7E5003CB51B /* ContentView.swift in Sources */,
+				E2C0A1EC2744F7E5003CB51B /* HomeView.swift in Sources */,
 				E2C0A23827453459003CB51B /* SignUpView.swift in Sources */,
 				E2C0A23027450F65003CB51B /* AuthError.swift in Sources */,
 				E2C0A21E2744FB21003CB51B /* SignUpViewModel.swift in Sources */,
