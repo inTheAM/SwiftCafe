@@ -44,6 +44,10 @@
 		E2C0A2562745818F003CB51B /* Food+Samples.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C0A2552745818F003CB51B /* Food+Samples.swift */; };
 		E2C0A2582745827D003CB51B /* MenuViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C0A2572745827D003CB51B /* MenuViewModelTests.swift */; };
 		E2C0A25A27458316003CB51B /* MenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C0A25927458316003CB51B /* MenuViewModel.swift */; };
+		E2C0A25C274586BF003CB51B /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C0A25B274586BF003CB51B /* MenuView.swift */; };
+		E2C0A25E2745872C003CB51B /* OffsetKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C0A25D2745872C003CB51B /* OffsetKey.swift */; };
+		E2C0A26027458A56003CB51B /* MenuSectionsSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C0A25F27458A56003CB51B /* MenuSectionsSelector.swift */; };
+		E2C0A26227458E82003CB51B /* MenuSectionsSelectorUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C0A26127458E82003CB51B /* MenuSectionsSelectorUITests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -104,6 +108,10 @@
 		E2C0A2552745818F003CB51B /* Food+Samples.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Food+Samples.swift"; sourceTree = "<group>"; };
 		E2C0A2572745827D003CB51B /* MenuViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewModelTests.swift; sourceTree = "<group>"; };
 		E2C0A25927458316003CB51B /* MenuViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewModel.swift; sourceTree = "<group>"; };
+		E2C0A25B274586BF003CB51B /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
+		E2C0A25D2745872C003CB51B /* OffsetKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OffsetKey.swift; sourceTree = "<group>"; };
+		E2C0A25F27458A56003CB51B /* MenuSectionsSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuSectionsSelector.swift; sourceTree = "<group>"; };
+		E2C0A26127458E82003CB51B /* MenuSectionsSelectorUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuSectionsSelectorUITests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -193,6 +201,7 @@
 			children = (
 				E2C0A23527453214003CB51B /* SignUpViewUITests.swift */,
 				E2C0A24127454908003CB51B /* SignInViewUITests.swift */,
+				E2C0A26127458E82003CB51B /* MenuSectionsSelectorUITests.swift */,
 				E2C0A2062744F7E7003CB51B /* SwiftCafeUITestsLaunchTests.swift */,
 			);
 			path = SwiftCafeUITests;
@@ -228,6 +237,8 @@
 				E2C0A1EB2744F7E5003CB51B /* HomeView.swift */,
 				E2C0A23727453459003CB51B /* SignUpView.swift */,
 				E2C0A23F274548DA003CB51B /* SignInView.swift */,
+				E2C0A25B274586BF003CB51B /* MenuView.swift */,
+				E2C0A25F27458A56003CB51B /* MenuSectionsSelector.swift */,
 				E2C0A23C2745381C003CB51B /* ReusableViews */,
 			);
 			path = Views;
@@ -247,6 +258,7 @@
 			isa = PBXGroup;
 			children = (
 				E2C0A2212744FC47003CB51B /* NetworkManager.swift */,
+				E2C0A25D2745872C003CB51B /* OffsetKey.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -428,6 +440,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E2C0A23B2745372E003CB51B /* View.swift in Sources */,
+				E2C0A25C274586BF003CB51B /* MenuView.swift in Sources */,
 				E2C0A2502745801F003CB51B /* OptionGroup.swift in Sources */,
 				E2C0A2252744FC97003CB51B /* RequestError.swift in Sources */,
 				E2C0A2222744FC47003CB51B /* NetworkManager.swift in Sources */,
@@ -437,6 +450,8 @@
 				E2C0A21C2744FACF003CB51B /* AuthService.swift in Sources */,
 				E2C0A25227458046003CB51B /* Extra.swift in Sources */,
 				E2C0A1EC2744F7E5003CB51B /* HomeView.swift in Sources */,
+				E2C0A26027458A56003CB51B /* MenuSectionsSelector.swift in Sources */,
+				E2C0A25E2745872C003CB51B /* OffsetKey.swift in Sources */,
 				E2C0A24427457630003CB51B /* Color.swift in Sources */,
 				E2C0A25A27458316003CB51B /* MenuViewModel.swift in Sources */,
 				E2C0A23827453459003CB51B /* SignUpView.swift in Sources */,
@@ -475,6 +490,7 @@
 			files = (
 				E2C0A23627453214003CB51B /* SignUpViewUITests.swift in Sources */,
 				E2C0A2072744F7E7003CB51B /* SwiftCafeUITestsLaunchTests.swift in Sources */,
+				E2C0A26227458E82003CB51B /* MenuSectionsSelectorUITests.swift in Sources */,
 				E2C0A24227454908003CB51B /* SignInViewUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -8,10 +8,10 @@
 import SwiftUI
 
 struct HomeView: View {
-    @State private var isLoggedIn = false
+    @State private var isLoggedIn = true
     var body: some View {
         if isLoggedIn {
-            
+            MenuView()
         } else {
             SignInView(isLoggedIn: $isLoggedIn)
         }
