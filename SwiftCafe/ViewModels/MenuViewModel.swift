@@ -12,6 +12,7 @@ final class MenuViewModel: ObservableObject {
     
 //    MARK: - Sections
     @Published var sections = [MenuSection]()
+    @Published var activeSection = ""
     
 //    MARK: - Initializer
     init(menuService: MenuServiceProtocol = MenuService()) {
@@ -19,12 +20,12 @@ final class MenuViewModel: ObservableObject {
     }
     
 //    MARK: - Fetching Menu
-    func fetchMenu(_ completion: @escaping ()->()) {
+    func fetchMenu() {
         menuService.fetchMenu() { [weak self] result in
             switch result {
             case .success(let sections):
                 self?.sections = sections
-                completion()
+                self?.activeSection = sections[0].name
             case .failure(let error):
                 print("MenuService-Error", error.rawValue)
             }
