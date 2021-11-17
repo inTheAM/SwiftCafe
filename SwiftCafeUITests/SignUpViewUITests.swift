@@ -13,6 +13,8 @@ final class SignUpViewUITests: XCTestCase {
 //    MARK: - Setup
     override func setUpWithError() throws {
         app.launch()
+        let signUpLink = app.buttons["go to signup"]
+        signUpLink.tap()
     }
     
 //    MARK: - Tests
@@ -37,7 +39,7 @@ final class SignUpViewUITests: XCTestCase {
         emailField.typeText("testuser3@test.com")
         let passwordField = app.secureTextFields["password input"]
         let repeatPasswordField = app.secureTextFields["repeat password"]
-        XCTAssert(passwordField.waitForExistence(timeout: 1))
+        XCTAssert(passwordField.waitForExistence(timeout: 5))
         XCTAssert(repeatPasswordField.exists)
     }
     
