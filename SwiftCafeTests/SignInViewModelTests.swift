@@ -113,6 +113,17 @@ final class SignInViewModelTests: XCTestCase {
         XCTAssertFalse(isSignedIn)
     }
     
+    func testFailedSignInUpdatesInlineError() throws {
+        let signInErrorPublisher = viewModel.$signInErrorDescription
+            .first()
+        viewModel.email = "wrongemail@gmail.com"
+        viewModel.password = "Passwordetc"
+        viewModel.signIn() {}
+        
+        let error = try awaitResult(from: signInErrorPublisher)
+        XCTAssertEqual(error, AuthError.signInFailed.rawValue)
+    }
+    
 //    MARK: - Teardown
     override func tearDownWithError() throws {
         viewModel = nil
