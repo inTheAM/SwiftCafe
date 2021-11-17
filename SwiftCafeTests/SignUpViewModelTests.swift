@@ -49,6 +49,16 @@ final class SignUpViewModelTests: XCTestCase {
         XCTAssertEqual(error, EmailStatus.empty.rawValue)
     }
     
+    func testEmailValidationInlineErrorForInvalidEmail() throws {
+        let isEmailValidPublisher = viewModel.$emailErrorDescription
+            .dropFirst()
+            .first()
+        
+        viewModel.email = "testemail"
+        let error = try awaitResult(from: isEmailValidPublisher)
+        XCTAssertEqual(error, EmailStatus.invalid.rawValue)
+    }
+    
 //    MARK: Teardown
     override func tearDownWithError() throws {
         viewModel = nil
