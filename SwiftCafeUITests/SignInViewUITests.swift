@@ -16,7 +16,15 @@ final class SignInViewUITests: XCTestCase {
     }
     
 //    MARK: - Tests
+    func testSwiftCafeTextExists() throws {
+        let text = app.staticTexts["SwiftCafe"]
+        XCTAssert(text.exists)
+    }
     
+    func testSwiftCafeLogoExists() throws {
+        let image = app.images["logo"]
+        XCTAssert(image.exists)
+    }
     
 //    MARK: - Teardown
     override func tearDownWithError() throws {
