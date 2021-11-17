@@ -8,14 +8,14 @@
 import Foundation
 
 protocol MenuServiceProtocol {
-    func fetchMenu(for outlet: UUID, completion: @escaping (Result<[MenuSection], RequestError>) -> Void)
+    func fetchMenu(completion: @escaping (Result<[MenuSection], RequestError>) -> Void)
 }
 
 struct MenuService: MenuServiceProtocol {
-    private let path = "outlets"
+    private let path = "menu"
     
-    func fetchMenu(for outletID: UUID, completion: @escaping (Result<[MenuSection], RequestError>) -> Void) {
-        NetWorkManager.makeGetRequest([MenuSection].self, path: path + "/\(outletID)/sections", authType: .none) { result in
+    func fetchMenu(completion: @escaping (Result<[MenuSection], RequestError>) -> Void) {
+        NetWorkManager.makeGetRequest([MenuSection].self, path: path + "/sections", authType: .none) { result in
             switch result {
             case .success(let sections):
                 completion(.success(sections))
