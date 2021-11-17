@@ -28,6 +28,8 @@
 		E2C0A2342745115C003CB51B /* SignInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C0A2332745115C003CB51B /* SignInViewModel.swift */; };
 		E2C0A23627453214003CB51B /* SignUpViewUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C0A23527453214003CB51B /* SignUpViewUITests.swift */; };
 		E2C0A23827453459003CB51B /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C0A23727453459003CB51B /* SignUpView.swift */; };
+		E2C0A23B2745372E003CB51B /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C0A23A2745372E003CB51B /* View.swift */; };
+		E2C0A23E2745382B003CB51B /* BackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C0A23D2745382B003CB51B /* BackButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +74,8 @@
 		E2C0A2332745115C003CB51B /* SignInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewModel.swift; sourceTree = "<group>"; };
 		E2C0A23527453214003CB51B /* SignUpViewUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewUITests.swift; sourceTree = "<group>"; };
 		E2C0A23727453459003CB51B /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
+		E2C0A23A2745372E003CB51B /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
+		E2C0A23D2745382B003CB51B /* BackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +127,7 @@
 			isa = PBXGroup;
 			children = (
 				E2C0A1E92744F7E5003CB51B /* SwiftCafeApp.swift */,
+				E2C0A23927453726003CB51B /* Extensions */,
 				E2C0A2232744FC84003CB51B /* Errors */,
 				E2C0A2172744F84C003CB51B /* Utility */,
 				E2C0A2162744F83D003CB51B /* Services */,
@@ -186,6 +191,7 @@
 			children = (
 				E2C0A1EB2744F7E5003CB51B /* ContentView.swift */,
 				E2C0A23727453459003CB51B /* SignUpView.swift */,
+				E2C0A23C2745381C003CB51B /* ReusableViews */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -231,6 +237,22 @@
 				E2C0A22D274503E6003CB51B /* XCTestCase+Await.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		E2C0A23927453726003CB51B /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				E2C0A23A2745372E003CB51B /* View.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		E2C0A23C2745381C003CB51B /* ReusableViews */ = {
+			isa = PBXGroup;
+			children = (
+				E2C0A23D2745382B003CB51B /* BackButton.swift */,
+			);
+			path = ReusableViews;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -363,6 +385,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E2C0A23B2745372E003CB51B /* View.swift in Sources */,
 				E2C0A2252744FC97003CB51B /* RequestError.swift in Sources */,
 				E2C0A2222744FC47003CB51B /* NetworkManager.swift in Sources */,
 				E2C0A21C2744FACF003CB51B /* AuthService.swift in Sources */,
@@ -374,6 +397,7 @@
 				E2C0A1EA2744F7E5003CB51B /* SwiftCafeApp.swift in Sources */,
 				E2C0A2342745115C003CB51B /* SignInViewModel.swift in Sources */,
 				E2C0A22927450027003CB51B /* APIService.swift in Sources */,
+				E2C0A23E2745382B003CB51B /* BackButton.swift in Sources */,
 				E2C0A2272744FE61003CB51B /* Token.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -547,6 +571,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -576,6 +601,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
