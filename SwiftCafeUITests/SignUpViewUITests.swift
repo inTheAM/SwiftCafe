@@ -27,27 +27,27 @@ final class SignUpViewUITests: XCTestCase {
     }
     
     func testEmailTextFieldExists() throws {
-        let email = app.textFields["email"]
-        XCTAssert(email.exists)
+        let emailField = app.textFields["email input"]
+        XCTAssert(emailField.exists)
     }
     
     func testPasswordTextFieldsAppearOnEmailValidation() throws {
-        let email = app.textFields["email"]
-        email.tap()
-        email.typeText("testuser3@test.com")
-        let password = app.secureTextFields["password"]
-        let repeatPassword = app.secureTextFields["repeatpassword"]
-        XCTAssert(password.waitForExistence(timeout: 1))
-        XCTAssert(repeatPassword.exists)
+        let emailField = app.textFields["email input"]
+        emailField.tap()
+        emailField.typeText("testuser3@test.com")
+        let passwordField = app.secureTextFields["password input"]
+        let repeatPasswordField = app.secureTextFields["repeat password"]
+        XCTAssert(passwordField.waitForExistence(timeout: 1))
+        XCTAssert(repeatPasswordField.exists)
     }
     
     func testSignUpButtonAppearsOnEmailValidation() throws {
-        let email = app.textFields["email"]
-        email.tap()
-        email.typeText("testuser3@test.com")
-        let signup = app.buttons["signup"]
-        XCTAssert(signup.waitForExistence(timeout: 1))
-        XCTAssertFalse(signup.isEnabled)
+        let emailField = app.textFields["email input"]
+        emailField.tap()
+        emailField.typeText("testuser3@test.com")
+        let signupButton = app.buttons["sign up"]
+        XCTAssert(signupButton.waitForExistence(timeout: 1))
+        XCTAssertFalse(signupButton.isEnabled)
     }
     
 //    MARK: - Teardown
