@@ -79,6 +79,18 @@ final class SignUpViewModelTests: XCTestCase {
         XCTAssertEqual(error, EmailStatus.valid.rawValue)
     }
     
+//    MARK: Password Validation tests
+    func testPasswordValidationWithValidPassword() throws {
+        let isPasswordValidPublisher = viewModel.$isPasswordValid
+            .dropFirst()
+            .first()
+        viewModel.password = "Password@123"
+        viewModel.repeatedPassword = "Password@123"
+        
+        let isPasswordValid = try awaitResult(from: isPasswordValidPublisher)
+        XCTAssertTrue(isPasswordValid)
+    }
+    
 //    MARK: Teardown
     override func tearDownWithError() throws {
         viewModel = nil
