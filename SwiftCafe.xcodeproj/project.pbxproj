@@ -30,6 +30,8 @@
 		E2C0A23827453459003CB51B /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C0A23727453459003CB51B /* SignUpView.swift */; };
 		E2C0A23B2745372E003CB51B /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C0A23A2745372E003CB51B /* View.swift */; };
 		E2C0A23E2745382B003CB51B /* BackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C0A23D2745382B003CB51B /* BackButton.swift */; };
+		E2C0A240274548DA003CB51B /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C0A23F274548DA003CB51B /* SignInView.swift */; };
+		E2C0A24227454908003CB51B /* SignInViewUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C0A24127454908003CB51B /* SignInViewUITests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,6 +78,8 @@
 		E2C0A23727453459003CB51B /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		E2C0A23A2745372E003CB51B /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
 		E2C0A23D2745382B003CB51B /* BackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackButton.swift; sourceTree = "<group>"; };
+		E2C0A23F274548DA003CB51B /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
+		E2C0A24127454908003CB51B /* SignInViewUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewUITests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,6 +167,7 @@
 			isa = PBXGroup;
 			children = (
 				E2C0A23527453214003CB51B /* SignUpViewUITests.swift */,
+				E2C0A24127454908003CB51B /* SignInViewUITests.swift */,
 				E2C0A2062744F7E7003CB51B /* SwiftCafeUITestsLaunchTests.swift */,
 			);
 			path = SwiftCafeUITests;
@@ -191,6 +196,7 @@
 			children = (
 				E2C0A1EB2744F7E5003CB51B /* ContentView.swift */,
 				E2C0A23727453459003CB51B /* SignUpView.swift */,
+				E2C0A23F274548DA003CB51B /* SignInView.swift */,
 				E2C0A23C2745381C003CB51B /* ReusableViews */,
 			);
 			path = Views;
@@ -394,6 +400,7 @@
 				E2C0A23027450F65003CB51B /* AuthError.swift in Sources */,
 				E2C0A21E2744FB21003CB51B /* SignUpViewModel.swift in Sources */,
 				E2C0A2202744FC06003CB51B /* User.swift in Sources */,
+				E2C0A240274548DA003CB51B /* SignInView.swift in Sources */,
 				E2C0A1EA2744F7E5003CB51B /* SwiftCafeApp.swift in Sources */,
 				E2C0A2342745115C003CB51B /* SignInViewModel.swift in Sources */,
 				E2C0A22927450027003CB51B /* APIService.swift in Sources */,
@@ -420,6 +427,7 @@
 			files = (
 				E2C0A23627453214003CB51B /* SignUpViewUITests.swift in Sources */,
 				E2C0A2072744F7E7003CB51B /* SwiftCafeUITestsLaunchTests.swift in Sources */,
+				E2C0A24227454908003CB51B /* SignInViewUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

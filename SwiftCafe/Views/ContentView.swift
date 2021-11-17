@@ -10,7 +10,7 @@ import SwiftUI
 struct ContentView: View {
     @State private var isLoggedIn = false
     var body: some View {
-        SignUpView(isLoggedIn: $isLoggedIn)
+        SignInView(isLoggedIn: $isLoggedIn)
     }
 }
 
