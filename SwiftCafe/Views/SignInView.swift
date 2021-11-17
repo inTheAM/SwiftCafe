@@ -12,16 +12,27 @@ struct SignInView: View {
     @Binding var isLoggedIn: Bool
     
     var body: some View {
-        VStack(spacing: 30) {
-            Text("SwiftCafe")
+        VStack {
+            VStack(spacing: 30) {
+                Text("SwiftCafe")
+                
+                Image(systemName: "mappin.and.ellipse")
+                    .accessibilityIdentifier("logo")
+            }
+            .font(.system(size: 40, weight: .bold, design: .rounded))
+            .padding(48)
             
-            Image(systemName: "mappin.and.ellipse")
-                .accessibilityIdentifier("logo")
+            TextField("Email", text: $viewModel.email)
+                .autocapitalization(.none)
+                .padding()
+                .background(
+                    RoundedRectangle(cornerRadius: 10)
+                        .stroke(lineWidth: 2)
+                        .foregroundColor(.primary.opacity(0.3))
+                )
+                .padding(.bottom)
+                .accessibilityIdentifier("email")
         }
-        .font(.system(size: 40, weight: .bold, design: .rounded))
-        .padding(48)
-        
-        
     }
 }
 
