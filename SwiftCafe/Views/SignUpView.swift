@@ -31,7 +31,6 @@ struct SignUpView: View {
                         .foregroundColor(viewModel.isEmailValid ? .green.opacity(0.5) : .primary.opacity(0.3))
                 )
                 .accessibilityIdentifier("email")
-                .padding(.top, 180)
             
             HStack {
                 Text(viewModel.emailErrorDescription)
