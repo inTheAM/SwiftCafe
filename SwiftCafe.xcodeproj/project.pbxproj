@@ -12,7 +12,6 @@
 		E2C0A1EE2744F7E7003CB51B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E2C0A1ED2744F7E7003CB51B /* Assets.xcassets */; };
 		E2C0A1F12744F7E7003CB51B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E2C0A1F02744F7E7003CB51B /* Preview Assets.xcassets */; };
 		E2C0A1FB2744F7E7003CB51B /* SignUpViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C0A1FA2744F7E7003CB51B /* SignUpViewModelTests.swift */; };
-		E2C0A2052744F7E7003CB51B /* SwiftCafeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C0A2042744F7E7003CB51B /* SwiftCafeUITests.swift */; };
 		E2C0A2072744F7E7003CB51B /* SwiftCafeUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C0A2062744F7E7003CB51B /* SwiftCafeUITestsLaunchTests.swift */; };
 		E2C0A21A2744F98A003CB51B /* MockAuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C0A2192744F98A003CB51B /* MockAuthService.swift */; };
 		E2C0A21C2744FACF003CB51B /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C0A21B2744FACF003CB51B /* AuthService.swift */; };
@@ -56,7 +55,6 @@
 		E2C0A1F62744F7E7003CB51B /* SwiftCafeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftCafeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2C0A1FA2744F7E7003CB51B /* SignUpViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModelTests.swift; sourceTree = "<group>"; };
 		E2C0A2002744F7E7003CB51B /* SwiftCafeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftCafeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		E2C0A2042744F7E7003CB51B /* SwiftCafeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftCafeUITests.swift; sourceTree = "<group>"; };
 		E2C0A2062744F7E7003CB51B /* SwiftCafeUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftCafeUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		E2C0A2192744F98A003CB51B /* MockAuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockAuthService.swift; sourceTree = "<group>"; };
 		E2C0A21B2744FACF003CB51B /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
@@ -157,7 +155,6 @@
 		E2C0A2032744F7E7003CB51B /* SwiftCafeUITests */ = {
 			isa = PBXGroup;
 			children = (
-				E2C0A2042744F7E7003CB51B /* SwiftCafeUITests.swift */,
 				E2C0A23527453214003CB51B /* SignUpViewUITests.swift */,
 				E2C0A2062744F7E7003CB51B /* SwiftCafeUITestsLaunchTests.swift */,
 			);
@@ -393,7 +390,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E2C0A2052744F7E7003CB51B /* SwiftCafeUITests.swift in Sources */,
 				E2C0A23627453214003CB51B /* SignUpViewUITests.swift in Sources */,
 				E2C0A2072744F7E7003CB51B /* SwiftCafeUITestsLaunchTests.swift in Sources */,
 			);

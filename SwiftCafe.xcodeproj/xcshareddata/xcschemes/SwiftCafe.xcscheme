@@ -39,6 +39,21 @@
                ReferencedContainer = "container:SwiftCafe.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "E2C0A1FF2744F7E7003CB51B"
+               BuildableName = "SwiftCafeUITests.xctest"
+               BlueprintName = "SwiftCafeUITests"
+               ReferencedContainer = "container:SwiftCafe.xcodeproj">
+            </BuildableReference>
+            <SkippedTests>
+               <Test
+                  Identifier = "SwiftCafeUITestsLaunchTests">
+               </Test>
+            </SkippedTests>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction
