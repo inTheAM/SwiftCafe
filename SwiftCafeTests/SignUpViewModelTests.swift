@@ -79,7 +79,7 @@ final class SignUpViewModelTests: XCTestCase {
         XCTAssertEqual(error, EmailStatus.valid.rawValue)
     }
     
-//    MARK: - Password Validation tests
+//    MARK: - Password Validation Tests
     func testPasswordValidationWithValidPassword() throws {
         let isPasswordValidPublisher = viewModel.$isPasswordValid
             .dropFirst()
@@ -171,6 +171,17 @@ final class SignUpViewModelTests: XCTestCase {
         viewModel.repeatedPassword = "Password@123"
         let isFormValid = try awaitResult(from: isFormValidPublisher)
         XCTAssertTrue(isFormValid)
+    }
+    
+//    MARK: - SignUp Tests
+    func testSigningUpWithValidCredentials() throws {
+        viewModel.email = "wrongemail@gmail.com"
+        viewModel.password = "Passwordetc"
+        var isSignedIn = false
+        viewModel.signUp {
+            isSignedIn = true
+        }
+        XCTAssertTrue(isSignedIn)
     }
     
 //    MARK: Teardown
