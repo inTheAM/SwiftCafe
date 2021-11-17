@@ -15,6 +15,15 @@
 		E2C0A2052744F7E7003CB51B /* SwiftCafeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C0A2042744F7E7003CB51B /* SwiftCafeUITests.swift */; };
 		E2C0A2072744F7E7003CB51B /* SwiftCafeUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C0A2062744F7E7003CB51B /* SwiftCafeUITestsLaunchTests.swift */; };
 		E2C0A21A2744F98A003CB51B /* MockAuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C0A2192744F98A003CB51B /* MockAuthService.swift */; };
+		E2C0A21C2744FACF003CB51B /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C0A21B2744FACF003CB51B /* AuthService.swift */; };
+		E2C0A21E2744FB21003CB51B /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C0A21D2744FB21003CB51B /* SignUpViewModel.swift */; };
+		E2C0A2202744FC06003CB51B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C0A21F2744FC06003CB51B /* User.swift */; };
+		E2C0A2222744FC47003CB51B /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C0A2212744FC47003CB51B /* NetworkManager.swift */; };
+		E2C0A2252744FC97003CB51B /* RequestError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C0A2242744FC97003CB51B /* RequestError.swift */; };
+		E2C0A2272744FE61003CB51B /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C0A2262744FE61003CB51B /* Token.swift */; };
+		E2C0A22927450027003CB51B /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C0A22827450027003CB51B /* APIService.swift */; };
+		E2C0A22C2745017B003CB51B /* User+Sample.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C0A22B2745017B003CB51B /* User+Sample.swift */; };
+		E2C0A22E274503E6003CB51B /* XCTestCase+Await.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C0A22D274503E6003CB51B /* XCTestCase+Await.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +55,15 @@
 		E2C0A2042744F7E7003CB51B /* SwiftCafeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftCafeUITests.swift; sourceTree = "<group>"; };
 		E2C0A2062744F7E7003CB51B /* SwiftCafeUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftCafeUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		E2C0A2192744F98A003CB51B /* MockAuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockAuthService.swift; sourceTree = "<group>"; };
+		E2C0A21B2744FACF003CB51B /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		E2C0A21D2744FB21003CB51B /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
+		E2C0A21F2744FC06003CB51B /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		E2C0A2212744FC47003CB51B /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		E2C0A2242744FC97003CB51B /* RequestError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestError.swift; sourceTree = "<group>"; };
+		E2C0A2262744FE61003CB51B /* Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
+		E2C0A22827450027003CB51B /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
+		E2C0A22B2745017B003CB51B /* User+Sample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+Sample.swift"; sourceTree = "<group>"; };
+		E2C0A22D274503E6003CB51B /* XCTestCase+Await.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+Await.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +115,7 @@
 			isa = PBXGroup;
 			children = (
 				E2C0A1E92744F7E5003CB51B /* SwiftCafeApp.swift */,
+				E2C0A2232744FC84003CB51B /* Errors */,
 				E2C0A2172744F84C003CB51B /* Utility */,
 				E2C0A2162744F83D003CB51B /* Services */,
 				E2C0A2152744F830003CB51B /* Views */,
@@ -119,6 +138,7 @@
 		E2C0A1F92744F7E7003CB51B /* SwiftCafeTests */ = {
 			isa = PBXGroup;
 			children = (
+				E2C0A22A27450167003CB51B /* Extensions */,
 				E2C0A2182744F935003CB51B /* MockServices */,
 				E2C0A1FA2744F7E7003CB51B /* SignUpViewModelTests.swift */,
 			);
@@ -137,6 +157,8 @@
 		E2C0A2132744F816003CB51B /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				E2C0A21F2744FC06003CB51B /* User.swift */,
+				E2C0A2262744FE61003CB51B /* Token.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -144,6 +166,7 @@
 		E2C0A2142744F823003CB51B /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				E2C0A21D2744FB21003CB51B /* SignUpViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -159,6 +182,8 @@
 		E2C0A2162744F83D003CB51B /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				E2C0A22827450027003CB51B /* APIService.swift */,
+				E2C0A21B2744FACF003CB51B /* AuthService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -166,6 +191,7 @@
 		E2C0A2172744F84C003CB51B /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				E2C0A2212744FC47003CB51B /* NetworkManager.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -176,6 +202,23 @@
 				E2C0A2192744F98A003CB51B /* MockAuthService.swift */,
 			);
 			path = MockServices;
+			sourceTree = "<group>";
+		};
+		E2C0A2232744FC84003CB51B /* Errors */ = {
+			isa = PBXGroup;
+			children = (
+				E2C0A2242744FC97003CB51B /* RequestError.swift */,
+			);
+			path = Errors;
+			sourceTree = "<group>";
+		};
+		E2C0A22A27450167003CB51B /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				E2C0A22B2745017B003CB51B /* User+Sample.swift */,
+				E2C0A22D274503E6003CB51B /* XCTestCase+Await.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -308,8 +351,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E2C0A2252744FC97003CB51B /* RequestError.swift in Sources */,
+				E2C0A2222744FC47003CB51B /* NetworkManager.swift in Sources */,
+				E2C0A21C2744FACF003CB51B /* AuthService.swift in Sources */,
 				E2C0A1EC2744F7E5003CB51B /* ContentView.swift in Sources */,
+				E2C0A21E2744FB21003CB51B /* SignUpViewModel.swift in Sources */,
+				E2C0A2202744FC06003CB51B /* User.swift in Sources */,
 				E2C0A1EA2744F7E5003CB51B /* SwiftCafeApp.swift in Sources */,
+				E2C0A22927450027003CB51B /* APIService.swift in Sources */,
+				E2C0A2272744FE61003CB51B /* Token.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -318,7 +368,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				E2C0A1FB2744F7E7003CB51B /* SignUpViewModelTests.swift in Sources */,
+				E2C0A22E274503E6003CB51B /* XCTestCase+Await.swift in Sources */,
 				E2C0A21A2744F98A003CB51B /* MockAuthService.swift in Sources */,
+				E2C0A22C2745017B003CB51B /* User+Sample.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
