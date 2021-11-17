@@ -26,6 +26,11 @@ final class SignInViewUITests: XCTestCase {
         XCTAssert(image.exists)
     }
     
+    func testEmailTextFieldExists() throws {
+        let email = app.textFields["email"]
+        XCTAssert(email.exists)
+    }
+    
 //    MARK: - Teardown
     override func tearDownWithError() throws {
         app.terminate()
