@@ -21,8 +21,24 @@ enum AuthResult {
 
 final class AuthService {
     private let path = "users"
+    
+//    MARK: - Token
+    private let keychainKey = "CARTER-API-KEY"
+    var token: String? {
+        get {
+          Keychain.load(key: keychainKey)
+        }
+        set {
+          if let newToken = newValue {
+            Keychain.save(key: keychainKey, data: newToken)
+          } else {
+            Keychain.delete(key: keychainKey)
+          }
+        }
+    }
+    
+//    MARK: - Singleton
     static let shared = AuthService()
-    var token: String? = nil
     private init() {}
 }
 

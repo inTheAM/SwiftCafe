@@ -26,6 +26,7 @@ final class MenuViewUITests: XCTestCase {
         XCTAssert(app.buttons["Food 1"].exists)
     }
     
+    
 //    MARK: - Teardown
     override func tearDownWithError() throws {
         app.terminate()

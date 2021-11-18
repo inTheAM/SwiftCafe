@@ -57,6 +57,7 @@
 		E2C0A27327463C62003CB51B /* MockMenuService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C0A24527457CC9003CB51B /* MockMenuService.swift */; };
 		E2C0A27427463C62003CB51B /* MockAuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C0A2192744F98A003CB51B /* MockAuthService.swift */; };
 		E2C0A277274652A2003CB51B /* XCUIApplication+Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C0A276274652A2003CB51B /* XCUIApplication+Environment.swift */; };
+		E2C0A27927465455003CB51B /* Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C0A27827465455003CB51B /* Keychain.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -125,6 +126,7 @@
 		E2C0A267274628D8003CB51B /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		E2C0A26A274639F6003CB51B /* AuthServiceFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthServiceFactory.swift; sourceTree = "<group>"; };
 		E2C0A276274652A2003CB51B /* XCUIApplication+Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCUIApplication+Environment.swift"; sourceTree = "<group>"; };
+		E2C0A27827465455003CB51B /* Keychain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keychain.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -275,6 +277,7 @@
 			children = (
 				E2C0A2212744FC47003CB51B /* NetworkManager.swift */,
 				E2C0A25D2745872C003CB51B /* OffsetKey.swift */,
+				E2C0A27827465455003CB51B /* Keychain.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -506,6 +509,7 @@
 				E2C0A26B274639F6003CB51B /* AuthServiceFactory.swift in Sources */,
 				E2C0A2272744FE61003CB51B /* Token.swift in Sources */,
 				E2C0A27027463C5C003CB51B /* MenuSection+Samples.swift in Sources */,
+				E2C0A27927465455003CB51B /* Keychain.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
