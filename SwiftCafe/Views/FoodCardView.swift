@@ -37,11 +37,11 @@ struct FoodCardView: View {
             }
             .frame(maxHeight: 80)
             .cardify()
-            .accessibilityIdentifier(food.name)
             .fullScreenCover(isPresented: $showDetails)    {
                 Text("Food details")
             }
         }
+        .accessibilityIdentifier(food.name)
         .buttonStyle(PlainButtonStyle())
     }
 }
