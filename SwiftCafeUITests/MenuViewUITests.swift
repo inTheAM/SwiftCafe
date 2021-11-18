@@ -1,5 +1,5 @@
 //
-//  MenuSectionsSelectorUITests.swift
+//  MenuViewUITests.swift
 //  SwiftCafeUITests
 //
 //  Created by Ahmed Mgua on 17/11/2021.
@@ -8,7 +8,7 @@
 @testable import SwiftCafe
 import XCTest
 
-final class MenuSectionsSelectorUITests: XCTestCase {
+final class MenuViewUITests: XCTestCase {
     let app = XCUIApplication()
     
 //    MARK: - Setup
