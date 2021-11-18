@@ -24,4 +24,11 @@ extension View    {
                 offsetHandler(rect)
             }
     }
+    
+    func cardify()    ->    some View    {
+        return self
+            .background(Color(UIColor.systemBackground).overlay(Color.white.opacity(0.2)))
+            .clipShape(RoundedRectangle(cornerRadius: 10))
+            .shadow(radius: 3)
+    }
 }
