@@ -8,7 +8,7 @@
 import XCTest
 
 extension XCUIApplication {
-    func launch(isSignup: Bool) {
+    func launchWithEnvironment(isSignup: Bool = false) {
         if isSignup {
             self.launchEnvironment = ["ENV": "TEST_SIGNUP"]
         } else {
