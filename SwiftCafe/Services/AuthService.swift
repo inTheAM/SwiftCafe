@@ -31,11 +31,6 @@ extension AuthService: AuthServiceProtocol {
     
 //    MARK: - Email Availability
     func checkEmailAvailability(email: String, completion: @escaping (Bool) -> Void) {
-        #warning("FIND A WAY TO EXTRACT DEBUG LOGIC")
-        #if DEBUG
-        completion(true)
-        return
-        #else
         let validationData = User.ValidateData(email: email)
         NetWorkManager.makePostRequestWithoutReturn(sending: validationData, path: "users/validate", authType: .none) { result in
             switch result {
@@ -45,7 +40,6 @@ extension AuthService: AuthServiceProtocol {
                 completion(false)
             }
         }
-        #endif
     }
     
 //    MARK: - Sign Up

@@ -30,7 +30,7 @@ final class SignUpViewModel: ObservableObject {
     @Published var signUpErrorDescription = ""
     
 //    MARK: - Initializer
-    init(authService: AuthServiceProtocol = AuthService.shared) {
+    init(authService: AuthServiceProtocol = AuthServiceFactory.create()) {
         self.authService = authService
         
         isEmailInputValidPublisher
