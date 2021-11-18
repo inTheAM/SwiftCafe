@@ -14,6 +14,7 @@ final class SignUpViewUITests: XCTestCase {
     override func setUpWithError() throws {
         app.launch()
         let signUpLink = app.buttons["go to signup"]
+        app.launchEnvironment = ["ENV": "TEST"]
         signUpLink.tap()
     }
     
