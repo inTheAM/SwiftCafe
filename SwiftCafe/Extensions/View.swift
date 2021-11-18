@@ -13,12 +13,15 @@ extension View    {
     }
     
     func readOffset(_ offsetHandler: @escaping (_ rect: CGRect) -> ()) -> some View {
-        GeometryReader { geometry in
-            self
-                .preference(key: OffsetKey.self, value: geometry.frame(in: .named("ScrollView")))
-        }
-        .onPreferenceChange(OffsetKey.self) { rect in
-            offsetHandler(rect)
-        }
+        return self
+            .overlay (
+                GeometryReader { geometry in
+                    Color.clear
+                        .preference(key: OffsetKey.self, value: geometry.frame(in: .named("ScrollView")))
+                }
+            )
+            .onPreferenceChange(OffsetKey.self) { rect in
+                offsetHandler(rect)
+            }
     }
 }
