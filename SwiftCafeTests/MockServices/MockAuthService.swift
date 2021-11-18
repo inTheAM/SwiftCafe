@@ -8,7 +8,7 @@
 @testable import SwiftCafe
 
 final class MockAuthService: AuthServiceProtocol {
-    static var token: String?
+    var token: String?
     
     func checkEmailAvailability(email: String, completion: @escaping (Bool) -> Void) {
         if email == User.sample.email {
@@ -21,7 +21,7 @@ final class MockAuthService: AuthServiceProtocol {
     func signUp(email: String, password: String, completion: @escaping (AuthResult) -> Void) {
         if email != User.sample.email && !email.hasPrefix("fail") {
             completion(.success)
-            Self.token = "token"
+            token = "token"
         } else {
             completion(.failure)
         }
@@ -30,7 +30,7 @@ final class MockAuthService: AuthServiceProtocol {
     func signIn(email: String, password: String, completion: @escaping (AuthResult) -> Void) {
         if email == User.sample.email && password == User.sample.password {
             completion(.success)
-            Self.token = "1234567"
+            token = "token"
         } else {
             completion(.failure)
         }

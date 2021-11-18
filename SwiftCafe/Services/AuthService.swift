@@ -8,7 +8,7 @@
 import Foundation
 
 protocol AuthServiceProtocol {
-    static var token: String? { get set }
+    var token: String? { get set }
     func checkEmailAvailability(email: String, completion: @escaping (Bool) -> Void)
     func signUp(email: String, password: String, completion: @escaping (AuthResult) -> Void)
     func signIn(email: String, password: String, completion: @escaping (AuthResult) -> Void)
@@ -22,12 +22,11 @@ enum AuthResult {
 final class AuthService {
     private let path = "users"
     static let shared = AuthService()
-    
+    var token: String? = nil
     private init() {}
 }
 
 extension AuthService: AuthServiceProtocol {
-    static var token: String? = nil
     
 //    MARK: - Email Availability
     func checkEmailAvailability(email: String, completion: @escaping (Bool) -> Void) {
@@ -49,7 +48,7 @@ extension AuthService: AuthServiceProtocol {
         NetWorkManager.makePostRequestWithReturn(sending: user, receiving: Token.self, path: "users/signup", authType: .none) { result in
             switch result {
             case .success(let token):
-                Self.token = token.value
+                self.token = token.value
                 completion(.success)
                 
             case .failure:
@@ -68,7 +67,7 @@ extension AuthService: AuthServiceProtocol {
         NetWorkManager.makePostRequestWithReturn(sending: "", receiving: Token.self, path: path + "/signin", authType: .basic(value: loginString)) { result in
             switch result {
             case .success(let token):
-                Self.token = token.value
+                self.token = token.value
                 completion(.success)
                 
             case .failure:

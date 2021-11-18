@@ -37,7 +37,7 @@ struct NetWorkManager:    NetworkManagerProtocol    {
             case .basic(let value):
                 request.addValue("Basic \(value)", forHTTPHeaderField: "Authorization")
             case .bearer:
-                guard let token = AuthService.token else {
+                guard let token = AuthService.shared.token else {
                     DispatchQueue.main.async {
                         completion(.failure(.unauthorizedRequest))
                     }
@@ -84,7 +84,7 @@ struct NetWorkManager:    NetworkManagerProtocol    {
             case .basic(let value):
                 request.addValue("Basic \(value)", forHTTPHeaderField: "Authorization")
             case .bearer:
-                guard let token = AuthService.token else {
+                guard let token = AuthService.shared.token else {
                     DispatchQueue.main.async {
                         completion(.failure(.unauthorizedRequest))
                     }
@@ -131,7 +131,7 @@ struct NetWorkManager:    NetworkManagerProtocol    {
             case .basic(let value):
                 request.addValue("Basic \(value)", forHTTPHeaderField: "Authorization")
             case .bearer:
-                guard let token = AuthService.token else {
+                guard let token = AuthService.shared.token else {
                     DispatchQueue.main.async {
                         completion(.failure(.unauthorizedRequest))
                     }
