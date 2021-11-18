@@ -51,9 +51,8 @@ struct MenuSectionsSelector: View {
                     }
                 }
                 .padding(.horizontal)
-                .padding(.vertical,    10)
-                
             }
+            .padding(.vertical, 10)
             .background(
                 ZStack {
                     Color.systemBackground
