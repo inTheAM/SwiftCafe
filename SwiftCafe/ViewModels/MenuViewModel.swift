@@ -15,7 +15,7 @@ final class MenuViewModel: ObservableObject {
     @Published var activeSection = ""
     
 //    MARK: - Initializer
-    init(menuService: MenuServiceProtocol = MenuService()) {
+    init(menuService: MenuServiceProtocol = MenuServiceFactory.create()) {
         self.menuService = menuService
     }
     

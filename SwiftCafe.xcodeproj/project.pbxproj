@@ -58,6 +58,7 @@
 		E2C0A27427463C62003CB51B /* MockAuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C0A2192744F98A003CB51B /* MockAuthService.swift */; };
 		E2C0A277274652A2003CB51B /* XCUIApplication+Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C0A276274652A2003CB51B /* XCUIApplication+Environment.swift */; };
 		E2C0A27927465455003CB51B /* Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C0A27827465455003CB51B /* Keychain.swift */; };
+		E2C0A27B274654DB003CB51B /* MenuServiceFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C0A27A274654DB003CB51B /* MenuServiceFactory.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -127,6 +128,7 @@
 		E2C0A26A274639F6003CB51B /* AuthServiceFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthServiceFactory.swift; sourceTree = "<group>"; };
 		E2C0A276274652A2003CB51B /* XCUIApplication+Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCUIApplication+Environment.swift"; sourceTree = "<group>"; };
 		E2C0A27827465455003CB51B /* Keychain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keychain.swift; sourceTree = "<group>"; };
+		E2C0A27A274654DB003CB51B /* MenuServiceFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuServiceFactory.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -333,6 +335,7 @@
 			isa = PBXGroup;
 			children = (
 				E2C0A26A274639F6003CB51B /* AuthServiceFactory.swift */,
+				E2C0A27A274654DB003CB51B /* MenuServiceFactory.swift */,
 			);
 			path = ServiceFactories;
 			sourceTree = "<group>";
@@ -504,6 +507,7 @@
 				E2C0A1EA2744F7E5003CB51B /* SwiftCafeApp.swift in Sources */,
 				E2C0A2342745115C003CB51B /* SignInViewModel.swift in Sources */,
 				E2C0A22927450027003CB51B /* APIService.swift in Sources */,
+				E2C0A27B274654DB003CB51B /* MenuServiceFactory.swift in Sources */,
 				E2C0A23E2745382B003CB51B /* BackButton.swift in Sources */,
 				E2C0A27327463C62003CB51B /* MockMenuService.swift in Sources */,
 				E2C0A26B274639F6003CB51B /* AuthServiceFactory.swift in Sources */,
