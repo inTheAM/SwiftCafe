@@ -50,6 +50,12 @@
 		E2C0A26227458E82003CB51B /* MenuViewUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C0A26127458E82003CB51B /* MenuViewUITests.swift */; };
 		E2C0A2642746269B003CB51B /* FoodCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C0A2632746269B003CB51B /* FoodCardView.swift */; };
 		E2C0A268274628D8003CB51B /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C0A267274628D8003CB51B /* HeaderView.swift */; };
+		E2C0A26B274639F6003CB51B /* AuthServiceFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C0A26A274639F6003CB51B /* AuthServiceFactory.swift */; };
+		E2C0A27027463C5C003CB51B /* MenuSection+Samples.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C0A25327458135003CB51B /* MenuSection+Samples.swift */; };
+		E2C0A27127463C5C003CB51B /* Food+Samples.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C0A2552745818F003CB51B /* Food+Samples.swift */; };
+		E2C0A27227463C5C003CB51B /* User+Sample.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C0A22B2745017B003CB51B /* User+Sample.swift */; };
+		E2C0A27327463C62003CB51B /* MockMenuService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C0A24527457CC9003CB51B /* MockMenuService.swift */; };
+		E2C0A27427463C62003CB51B /* MockAuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C0A2192744F98A003CB51B /* MockAuthService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -116,6 +122,7 @@
 		E2C0A26127458E82003CB51B /* MenuViewUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewUITests.swift; sourceTree = "<group>"; };
 		E2C0A2632746269B003CB51B /* FoodCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodCardView.swift; sourceTree = "<group>"; };
 		E2C0A267274628D8003CB51B /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
+		E2C0A26A274639F6003CB51B /* AuthServiceFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthServiceFactory.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -170,6 +177,7 @@
 				E2C0A23927453726003CB51B /* Extensions */,
 				E2C0A2232744FC84003CB51B /* Errors */,
 				E2C0A2172744F84C003CB51B /* Utility */,
+				E2C0A269274639D8003CB51B /* ServiceFactories */,
 				E2C0A2162744F83D003CB51B /* Services */,
 				E2C0A2152744F830003CB51B /* Views */,
 				E2C0A2142744F823003CB51B /* ViewModels */,
@@ -315,6 +323,14 @@
 			path = ReusableViews;
 			sourceTree = "<group>";
 		};
+		E2C0A269274639D8003CB51B /* ServiceFactories */ = {
+			isa = PBXGroup;
+			children = (
+				E2C0A26A274639F6003CB51B /* AuthServiceFactory.swift */,
+			);
+			path = ServiceFactories;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -445,6 +461,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E2C0A27427463C62003CB51B /* MockAuthService.swift in Sources */,
 				E2C0A23B2745372E003CB51B /* View.swift in Sources */,
 				E2C0A25C274586BF003CB51B /* MenuView.swift in Sources */,
 				E2C0A2502745801F003CB51B /* OptionGroup.swift in Sources */,
@@ -464,7 +481,9 @@
 				E2C0A23027450F65003CB51B /* AuthError.swift in Sources */,
 				E2C0A21E2744FB21003CB51B /* SignUpViewModel.swift in Sources */,
 				E2C0A24E27457F94003CB51B /* Option.swift in Sources */,
+				E2C0A27227463C5C003CB51B /* User+Sample.swift in Sources */,
 				E2C0A2202744FC06003CB51B /* User.swift in Sources */,
+				E2C0A27127463C5C003CB51B /* Food+Samples.swift in Sources */,
 				E2C0A268274628D8003CB51B /* HeaderView.swift in Sources */,
 				E2C0A2642746269B003CB51B /* FoodCardView.swift in Sources */,
 				E2C0A240274548DA003CB51B /* SignInView.swift in Sources */,
@@ -472,7 +491,10 @@
 				E2C0A2342745115C003CB51B /* SignInViewModel.swift in Sources */,
 				E2C0A22927450027003CB51B /* APIService.swift in Sources */,
 				E2C0A23E2745382B003CB51B /* BackButton.swift in Sources */,
+				E2C0A27327463C62003CB51B /* MockMenuService.swift in Sources */,
+				E2C0A26B274639F6003CB51B /* AuthServiceFactory.swift in Sources */,
 				E2C0A2272744FE61003CB51B /* Token.swift in Sources */,
+				E2C0A27027463C5C003CB51B /* MenuSection+Samples.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
