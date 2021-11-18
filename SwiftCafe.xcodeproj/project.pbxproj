@@ -56,6 +56,7 @@
 		E2C0A27227463C5C003CB51B /* User+Sample.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C0A22B2745017B003CB51B /* User+Sample.swift */; };
 		E2C0A27327463C62003CB51B /* MockMenuService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C0A24527457CC9003CB51B /* MockMenuService.swift */; };
 		E2C0A27427463C62003CB51B /* MockAuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C0A2192744F98A003CB51B /* MockAuthService.swift */; };
+		E2C0A277274652A2003CB51B /* XCUIApplication+Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C0A276274652A2003CB51B /* XCUIApplication+Environment.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -123,6 +124,7 @@
 		E2C0A2632746269B003CB51B /* FoodCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodCardView.swift; sourceTree = "<group>"; };
 		E2C0A267274628D8003CB51B /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		E2C0A26A274639F6003CB51B /* AuthServiceFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthServiceFactory.swift; sourceTree = "<group>"; };
+		E2C0A276274652A2003CB51B /* XCUIApplication+Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCUIApplication+Environment.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -211,6 +213,7 @@
 		E2C0A2032744F7E7003CB51B /* SwiftCafeUITests */ = {
 			isa = PBXGroup;
 			children = (
+				E2C0A27527465290003CB51B /* Extensions */,
 				E2C0A23527453214003CB51B /* SignUpViewUITests.swift */,
 				E2C0A24127454908003CB51B /* SignInViewUITests.swift */,
 				E2C0A26127458E82003CB51B /* MenuViewUITests.swift */,
@@ -329,6 +332,14 @@
 				E2C0A26A274639F6003CB51B /* AuthServiceFactory.swift */,
 			);
 			path = ServiceFactories;
+			sourceTree = "<group>";
+		};
+		E2C0A27527465290003CB51B /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				E2C0A276274652A2003CB51B /* XCUIApplication+Environment.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -519,6 +530,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E2C0A23627453214003CB51B /* SignUpViewUITests.swift in Sources */,
+				E2C0A277274652A2003CB51B /* XCUIApplication+Environment.swift in Sources */,
 				E2C0A2072744F7E7003CB51B /* SwiftCafeUITestsLaunchTests.swift in Sources */,
 				E2C0A26227458E82003CB51B /* MenuViewUITests.swift in Sources */,
 				E2C0A24227454908003CB51B /* SignInViewUITests.swift in Sources */,
