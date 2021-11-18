@@ -12,7 +12,7 @@ extension Food {
     static func createItems() -> [Food] {
         var items = [Food]()
         for i in 1...Int.random(in: 3...6) {
-            items.append(Food(id: UUID(), name: "item \(i)", details: "item details", options: [], extras: [], price: 1000, imageURL: "", stockQuantity: 20))
+            items.append(Food(id: UUID(), name: "Food \(i)", details: "Food details", options: [], extras: [], price: 1000, imageURL: "", stockQuantity: 20))
         }
         return items
     }

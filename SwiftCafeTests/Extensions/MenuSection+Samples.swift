@@ -14,7 +14,7 @@ extension MenuSection {
     static func createSections() -> [MenuSection] {
         var sections = [MenuSection]()
         for i in 1...3 {
-            var section = MenuSection(id: UUID(), name: "section \(i)", items: [])
+            var section = MenuSection(id: UUID(), name: "Section \(i)", items: [])
             section.items = Food.createItems()
             sections.append(section)
         }
