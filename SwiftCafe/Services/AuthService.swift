@@ -47,7 +47,11 @@ extension AuthService: AuthServiceProtocol {
 // MARK: - Email Availability
     func checkEmailAvailability(email: String, completion: @escaping (Bool) -> Void) {
         let validationData = User.ValidateData(email: email)
-        NetWorkManager.makePostRequestWithoutReturn(sending: validationData, path: "users/validate", authType: .none) { result in
+        NetWorkManager.makePostRequestWithoutReturn(
+            sending: validationData,
+            path: "users/validate",
+            authType: .none
+        ) { result in
             switch result {
             case .success:
                 completion(true)
@@ -61,7 +65,12 @@ extension AuthService: AuthServiceProtocol {
     func signUp(email: String, password: String, completion: @escaping (AuthResult) -> Void) {
         let user = User.CreateData(email: email, password: password)
 
-        NetWorkManager.makePostRequestWithReturn(sending: user, receiving: Token.self, path: "users/signup", authType: .none) { result in
+        NetWorkManager.makePostRequestWithReturn(
+            sending: user,
+            receiving: Token.self,
+            path: "users/signup",
+            authType: .none
+        ) { result in
             switch result {
             case .success(let token):
                 self.token = token.value
@@ -80,7 +89,12 @@ extension AuthService: AuthServiceProtocol {
             return
         }
 
-        NetWorkManager.makePostRequestWithReturn(sending: "", receiving: Token.self, path: path + "/signin", authType: .basic(value: loginString)) { result in
+        NetWorkManager.makePostRequestWithReturn(
+            sending: "",
+            receiving: Token.self,
+            path: path + "/signin",
+            authType: .basic(value: loginString)
+        ) { result in
             switch result {
             case .success(let token):
                 self.token = token.value

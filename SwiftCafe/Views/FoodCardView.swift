@@ -13,7 +13,7 @@ struct FoodCardView: View {
     var body: some View {
         Button(action: {
             showDetails    =    true
-        }) {
+        }, label: {
             HStack(alignment: .top, spacing: 0) {
                 VStack(alignment: .leading) {
                     Text(food.name)
@@ -40,7 +40,7 @@ struct FoodCardView: View {
             .fullScreenCover(isPresented: $showDetails) {
                 Text("Food details")
             }
-        }
+        })
         .accessibilityIdentifier(food.name)
         .buttonStyle(PlainButtonStyle())
     }

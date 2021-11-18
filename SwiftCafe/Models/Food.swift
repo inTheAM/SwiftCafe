@@ -20,7 +20,7 @@ struct Food: Identifiable {
 
 // MARK: - Equatable Conformance
 extension Food: Equatable {
-    static func ==(lhs: Food, rhs: Food) -> Bool {
+    static func == (lhs: Food, rhs: Food) -> Bool {
         lhs.id == rhs.id
     }
 }

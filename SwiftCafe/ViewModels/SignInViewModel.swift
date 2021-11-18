@@ -89,7 +89,7 @@ extension SignInViewModel {
 
 // MARK: - Sign In
 extension SignInViewModel {
-    func signIn(completion: @escaping ()->Void) {
+    func signIn(completion: @escaping () -> Void) {
         authService.signIn(email: email, password: password) { result in
             switch result {
             case .success:

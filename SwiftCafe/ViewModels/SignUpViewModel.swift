@@ -12,8 +12,10 @@ final class SignUpViewModel: ObservableObject {
     private let authService: AuthServiceProtocol
     private var cancellables = Set<AnyCancellable>()
 
+// swiftlint:disable line_length
     private let passwordPredicate = NSPredicate(format: "SELF MATCHES %@", "^(?=.*[a-z])(?=.*[0-9])(?=.*[S@$#!%*?&]).{8,}$")
-
+// swiftlint:enable line_length
+    
 // MARK: - Inputs
     @Published var email = ""
     @Published var password = ""
@@ -184,7 +186,10 @@ extension SignUpViewModel {
     }
 
     private var isPasswordInputValidPublisher: AnyPublisher<PasswordStatus, Never> {
-        Publishers.CombineLatest4(isPasswordEmptyPublisher, isPasswordShortPublisher, isPasswordStrongPublisher, arePasswordsEqualPublisher)
+        Publishers.CombineLatest4(isPasswordEmptyPublisher,
+                                  isPasswordShortPublisher,
+                                  isPasswordStrongPublisher,
+                                  arePasswordsEqualPublisher)
             .map { isEmpty, isShort, isStrong, areEqual in
                 if isEmpty {
                     return .empty
@@ -217,7 +222,7 @@ extension SignUpViewModel {
 
 // MARK: - Sign Up
 extension SignUpViewModel {
-    func signUp(completion: @escaping ()->Void) {
+    func signUp(completion: @escaping () -> Void) {
         authService.signUp(email: email, password: password) { result in
             switch result {
             case .success:

@@ -24,12 +24,13 @@ struct MenuSectionsSelector: View {
                                     pageProxy.scrollTo(viewModel.activeSection, anchor: UnitPoint(x: 0, y: 0.1))
                                 }
                             }
-                        }) {
+                        }, label: {
                             VStack {
                                 Text(section.name)
                                     .font(viewModel.activeSection    ==    section.name    ?    .headline    :    .body)
                                     .bold()
-                                    .foregroundColor(viewModel.activeSection    ==    section.name    ?    .primary    :    .secondary.opacity(0.6))
+                                    .foregroundColor(
+                                        viewModel.activeSection == section.name ? .primary : .secondary.opacity(0.6))
                                     .padding(.horizontal, 10)
                                     .padding(.vertical, 5)
                                     .id(section.name)
@@ -47,7 +48,7 @@ struct MenuSectionsSelector: View {
                                         .drawingGroup()
                                 }
                             }
-                        }.accessibilityIdentifier(section.name)
+                        }).accessibilityIdentifier(section.name)
                     }
                 }
                 .padding(.horizontal)

@@ -14,7 +14,7 @@ struct MenuSection: Identifiable, Codable {
 }
 
 extension MenuSection: Equatable {
-    static func    ==(lhs: MenuSection, rhs: MenuSection) -> Bool {
-        lhs.id    ==    rhs.id
+    static func == (lhs: MenuSection, rhs: MenuSection) -> Bool {
+        lhs.id == rhs.id
     }
 }

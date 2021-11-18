@@ -8,7 +8,12 @@
 import Foundation
 
 protocol NetworkManagerProtocol {
-    static func makeGetRequest<T: Decodable>(_ type: T.Type, path: String, authType: RequestAuthType, completion:    @escaping (Result<T, RequestError>) -> Void)
+    static func makeGetRequest<T: Decodable>(
+        _ type: T.Type,
+        path: String,
+        authType: RequestAuthType,
+        completion:    @escaping (Result<T, RequestError>) -> Void
+    )
 }
 
 enum RequestAuthType {
@@ -19,7 +24,12 @@ enum RequestAuthType {
 
 struct NetWorkManager: NetworkManagerProtocol {
     private static let authService = AuthService.shared
-    static func makeGetRequest<T: Decodable>(_ type: T.Type, path: String, authType: RequestAuthType, completion:    @escaping (Result<T, RequestError>) -> Void) {
+    static func makeGetRequest<T: Decodable>(
+        _ type: T.Type,
+        path: String,
+        authType: RequestAuthType,
+        completion:    @escaping (Result<T, RequestError>) -> Void
+    ) {
         DispatchQueue.global(qos: .userInteractive).async {
             guard let url    =    APIService.baseURL?.appendingPathComponent(path)    else {
                 DispatchQueue.main.async {
@@ -119,7 +129,12 @@ struct NetWorkManager: NetworkManagerProtocol {
         }
     }
 
-    static func makePostRequestWithoutReturn<SendData: Codable>(sending payload: SendData, path: String, authType: RequestAuthType, completion: @escaping (Result<Void, RequestError>) -> Void) {
+    static func makePostRequestWithoutReturn<SendData: Codable>(
+        sending payload: SendData,
+        path: String,
+        authType: RequestAuthType,
+        completion: @escaping (Result<Void, RequestError>) -> Void
+    ) {
         DispatchQueue.global(qos: .userInteractive).async {
             guard let url    =    APIService.baseURL?.appendingPathComponent(path)    else {
                 DispatchQueue.main.async {

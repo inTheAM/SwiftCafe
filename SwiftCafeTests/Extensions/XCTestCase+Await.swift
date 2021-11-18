@@ -32,7 +32,10 @@ extension XCTestCase {
         waitForExpectations(timeout: timeout)
         cancellable.cancel()
 
-        let unwrappedResult = try XCTUnwrap(result, "Awaited publisher did not produce any output", file: file, line: line)
+        let unwrappedResult = try XCTUnwrap(result,
+                                            "Awaited publisher did not produce any output",
+                                            file: file,
+                                            line: line)
 
         return try unwrappedResult.get()
     }
