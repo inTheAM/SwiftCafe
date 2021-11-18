@@ -12,7 +12,7 @@ final class SignInViewUITests: XCTestCase {
     
 //    MARK: - Setup
     override func setUpWithError() throws {
-        app.launch()
+        app.launchWithEnvironment(isSignup: true)
     }
     
 //    MARK: - Tests
