@@ -9,19 +9,19 @@ import Foundation
 
 final class MenuViewModel: ObservableObject {
     private let menuService: MenuServiceProtocol
-    
-//    MARK: - Sections
+
+// MARK: - Sections
     @Published var sections = [MenuSection]()
     @Published var activeSection = ""
-    
-//    MARK: - Initializer
+
+// MARK: - Initializer
     init(menuService: MenuServiceProtocol = MenuServiceFactory.create()) {
         self.menuService = menuService
     }
-    
-//    MARK: - Fetching Menu
+
+// MARK: - Fetching Menu
     func fetchMenu() {
-        menuService.fetchMenu() { [weak self] result in
+        menuService.fetchMenu { [weak self] result in
             switch result {
             case .success(let sections):
                 self?.sections = sections

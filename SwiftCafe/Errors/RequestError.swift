@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum RequestError: String,Error    {
+enum RequestError: String, Error {
     case invalidURL =   "Invalid URL.",
          invalidDataFromServer =   "No data from server.",
          invalidResponseFromServer = "Invalid response from server.",

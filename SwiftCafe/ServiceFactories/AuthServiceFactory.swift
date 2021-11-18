@@ -10,7 +10,7 @@ import Foundation
 struct AuthServiceFactory {
     static func create() -> AuthServiceProtocol {
         let environment = ProcessInfo.processInfo.environment["ENV"]
-        
+
         switch environment {
         case "TEST_SIGNUP":
             return MockAuthService()

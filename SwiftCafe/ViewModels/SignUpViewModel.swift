@@ -11,28 +11,28 @@ import Foundation
 final class SignUpViewModel: ObservableObject {
     private let authService: AuthServiceProtocol
     private var cancellables = Set<AnyCancellable>()
-    
+
     private let passwordPredicate = NSPredicate(format: "SELF MATCHES %@", "^(?=.*[a-z])(?=.*[0-9])(?=.*[S@$#!%*?&]).{8,}$")
-    
-//    MARK: - Inputs
+
+// MARK: - Inputs
     @Published var email = ""
     @Published var password = ""
     @Published var repeatedPassword = ""
-    
-//    MARK: - Validation
+
+// MARK: - Validation
     @Published var isEmailValid = false
     @Published var isPasswordValid = false
     @Published var isFormValid = false
-    
-//    MARK: - Inline Errors
+
+// MARK: - Inline Errors
     @Published var emailErrorDescription = ""
     @Published var passwordErrorDescription = ""
     @Published var signUpErrorDescription = ""
-    
-//    MARK: - Initializer
+
+// MARK: - Initializer
     init(authService: AuthServiceProtocol = AuthServiceFactory.create()) {
         self.authService = authService
-        
+
         isEmailInputValidPublisher
             .receive(on: RunLoop.main)
             .map { status in
@@ -48,7 +48,7 @@ final class SignUpViewModel: ObservableObject {
             }
             .assign(to: \.isEmailValid, on: self)
             .store(in: &cancellables)
-        
+
         isPasswordInputValidPublisher
             .receive(on: RunLoop.main)
             .map { status in
@@ -63,7 +63,7 @@ final class SignUpViewModel: ObservableObject {
             }
             .assign(to: \.isPasswordValid, on: self)
             .store(in: &cancellables)
-        
+
         isFormValidPublisher
             .receive(on: RunLoop.main)
             .assign(to: \.isFormValid, on: self)
@@ -71,7 +71,7 @@ final class SignUpViewModel: ObservableObject {
     }
 }
 
-//  MARK: - Email Validation
+// MARK: - Email Validation
 enum EmailStatus: String {
     case empty = "Email cannot be empty",
          invalid = "Use a valid email address",
@@ -89,7 +89,7 @@ extension SignUpViewModel {
             }
             .eraseToAnyPublisher()
     }
-    
+
     private var isEmailAvailablePublisher: AnyPublisher<Bool, Never> {
         $email
             .dropFirst()
@@ -103,7 +103,7 @@ extension SignUpViewModel {
                 }
             }.eraseToAnyPublisher()
     }
-    
+
     private var isEmailValidPublisher: AnyPublisher<Bool, Never> {
         $email
             .dropFirst()
@@ -114,7 +114,7 @@ extension SignUpViewModel {
             }
             .eraseToAnyPublisher()
     }
-    
+
     private var isEmailInputValidPublisher: AnyPublisher<EmailStatus, Never> {
         Publishers.CombineLatest3(isEmailEmptyPublisher, isEmailAvailablePublisher, isEmailValidPublisher)
             .map { isEmpty, isAvailable, isValid in
@@ -133,7 +133,7 @@ extension SignUpViewModel {
     }
 }
 
-//  MARK: - Password Validation
+// MARK: - Password Validation
 enum PasswordStatus: String {
     case empty = "Password cannot be empty",
          short = "Password is too short. Use 8 characters or more",
@@ -152,7 +152,7 @@ extension SignUpViewModel {
             }
             .eraseToAnyPublisher()
     }
-    
+
     private var isPasswordShortPublisher: AnyPublisher<Bool, Never> {
         $password
             .debounce(for: 0.5, scheduler: RunLoop.main)
@@ -162,7 +162,7 @@ extension SignUpViewModel {
             }
             .eraseToAnyPublisher()
     }
-    
+
     private var isPasswordStrongPublisher: AnyPublisher<Bool, Never> {
         $password
             .dropFirst()
@@ -173,7 +173,7 @@ extension SignUpViewModel {
             }
             .eraseToAnyPublisher()
     }
-    
+
     private var arePasswordsEqualPublisher: AnyPublisher<Bool, Never> {
         Publishers.CombineLatest($password, $repeatedPassword)
             .debounce(for: 0.5, scheduler: RunLoop.main)
@@ -182,7 +182,7 @@ extension SignUpViewModel {
             }
             .eraseToAnyPublisher()
     }
-    
+
     private var isPasswordInputValidPublisher: AnyPublisher<PasswordStatus, Never> {
         Publishers.CombineLatest4(isPasswordEmptyPublisher, isPasswordShortPublisher, isPasswordStrongPublisher, arePasswordsEqualPublisher)
             .map { isEmpty, isShort, isStrong, areEqual in
@@ -215,9 +215,9 @@ extension SignUpViewModel {
     }
 }
 
-//  MARK: - Sign Up
+// MARK: - Sign Up
 extension SignUpViewModel {
-    func signUp(completion: @escaping ()->()) {
+    func signUp(completion: @escaping ()->Void) {
         authService.signUp(email: email, password: password) { result in
             switch result {
             case .success:

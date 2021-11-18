@@ -7,14 +7,14 @@
 
 import SwiftUI
 
-extension View    {    
-    func overlayDivider()    ->    some View    {
-        return self.overlay(Divider(),    alignment: .bottom)
+extension View {
+    func overlayDivider()    ->    some View {
+        return self.overlay(Divider(), alignment: .bottom)
     }
-    
-    func readOffset(_ offsetHandler: @escaping (_ rect: CGRect) -> ()) -> some View {
+
+    func readOffset(_ offsetHandler: @escaping (_ rect: CGRect) -> Void) -> some View {
         return self
-            .overlay (
+            .overlay(
                 GeometryReader { geometry in
                     Color.clear
                         .preference(key: OffsetKey.self, value: geometry.frame(in: .named("ScrollView")))
@@ -24,8 +24,8 @@ extension View    {
                 offsetHandler(rect)
             }
     }
-    
-    func cardify()    ->    some View    {
+
+    func cardify()    ->    some View {
         return self
             .background(Color(UIColor.systemBackground).overlay(Color.white.opacity(0.2)))
             .clipShape(RoundedRectangle(cornerRadius: 10))

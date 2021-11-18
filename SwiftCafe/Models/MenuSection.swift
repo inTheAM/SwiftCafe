@@ -7,14 +7,14 @@
 
 import Foundation
 
-struct MenuSection:    Identifiable,    Codable    {
-    var id:    UUID
-    var name:    String
+struct MenuSection: Identifiable, Codable {
+    var id: UUID
+    var name: String
     var items: [Food]
 }
 
-extension MenuSection: Equatable    {
-    static func    ==(lhs:    MenuSection,    rhs:    MenuSection)    ->    Bool    {
+extension MenuSection: Equatable {
+    static func    ==(lhs: MenuSection, rhs: MenuSection) -> Bool {
         lhs.id    ==    rhs.id
     }
 }

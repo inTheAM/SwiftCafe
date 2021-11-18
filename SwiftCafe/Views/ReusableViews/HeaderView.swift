@@ -9,8 +9,8 @@ import SwiftUI
 
 struct HeaderView: View {
     let title: String
-    
-    var body: some View    {
+
+    var body: some View {
         HStack {
             Text(title)
                 .font(.title.bold())

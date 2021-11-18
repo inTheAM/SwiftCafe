@@ -10,7 +10,7 @@ import SwiftUI
 struct SignInView: View {
     @StateObject var viewModel = SignInViewModel()
     @Binding var isLoggedIn: Bool
-    
+
     var body: some View {
         NavigationView {
             ZStack {
@@ -19,17 +19,17 @@ struct SignInView: View {
                 LinearGradient(colors: [.blue, .purple], startPoint: .top, endPoint: .bottom)
                     .ignoresSafeArea()
                     .opacity(0.7)
-                
+
                 VStack {
                     VStack(spacing: 30) {
                         Text("SwiftCafe")
-                        
+
                         Image(systemName: "mappin.and.ellipse")
                             .accessibilityIdentifier("logo")
                     }
                     .font(.system(size: 40, weight: .bold, design: .rounded))
                     .padding(48)
-                    
+
                     TextField("Email", text: $viewModel.email)
                         .autocapitalization(.none)
                         .padding()
@@ -40,7 +40,7 @@ struct SignInView: View {
                         )
                         .padding(.bottom)
                         .accessibilityIdentifier("email input")
-                    
+
                     SecureField("Password", text: $viewModel.password)
                         .autocapitalization(.none)
                         .padding()
@@ -50,25 +50,25 @@ struct SignInView: View {
                                 .foregroundColor(.primary.opacity(0.3))
                         )
                         .accessibilityIdentifier("password input")
-                    
+
                     HStack {
                         Text(viewModel.signInErrorDescription)
                             .font(.caption)
                             .foregroundColor(.red)
                         Spacer()
                     }.padding(.bottom)
-                    
+
                     HStack {
                         NavigationLink("Don't have an account?", destination: SignUpView(isLoggedIn: $isLoggedIn))
                             .font(.subheadline.bold())
                             .accessibilityIdentifier("go to signup")
                         Spacer()
                     }.padding(.bottom)
-                    
+
                     Spacer()
-                    
+
                     Button("Sign in") {
-                        viewModel.signIn() {
+                        viewModel.signIn {
                             isLoggedIn = true
                         }
                     }.font(.body.bold())
@@ -78,7 +78,7 @@ struct SignInView: View {
                         .grayscale(viewModel.isFormValid ? 0 : 1)
                         .disabled(!viewModel.isFormValid)
                         .accessibilityIdentifier("sign in")
-                    
+
                     Spacer()
                 }
                 .animation(.default)
@@ -89,4 +89,3 @@ struct SignInView: View {
         }
     }
 }
-

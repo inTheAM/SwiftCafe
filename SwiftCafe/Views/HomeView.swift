@@ -9,7 +9,7 @@ import SwiftUI
 
 struct HomeView: View {
     @State private var isLoggedIn = AuthServiceFactory.create().token != nil
-    
+
     var body: some View {
         if isLoggedIn {
             MenuView()

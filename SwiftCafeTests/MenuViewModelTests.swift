@@ -10,14 +10,14 @@ import XCTest
 
 final class MenuViewModelTests: XCTestCase {
     private var viewModel: MenuViewModel!
-    
-//    MARK: - Setup
+
+// MARK: - Setup
     override func setUpWithError() throws {
         let menuService = MockMenuService()
         viewModel = MenuViewModel(menuService: menuService)
     }
-    
-//    MARK: - Tests
+
+// MARK: - Tests
     func testFetchingMenu() throws {
         viewModel.fetchMenu()
         XCTAssertEqual(self.viewModel.sections.count, MenuSection.samples.count)
@@ -25,8 +25,8 @@ final class MenuViewModelTests: XCTestCase {
         XCTAssertEqual(self.viewModel.sections[1].name, MenuSection.samples[1].name)
         XCTAssertEqual(self.viewModel.sections[2].items.last?.id, MenuSection.samples[2].items.last?.id)
     }
-    
-    //    MARK: - Teardown
+
+    // MARK: - Teardown
     override func tearDownWithError() throws {
         viewModel = nil
     }

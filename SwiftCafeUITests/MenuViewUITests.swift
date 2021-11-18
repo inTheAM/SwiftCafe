@@ -10,24 +10,23 @@ import XCTest
 
 final class MenuViewUITests: XCTestCase {
     let app = XCUIApplication()
-    
-//    MARK: - Setup
+
+// MARK: - Setup
     override func setUpWithError() throws {
         app.launchWithEnvironment()
     }
-    
-//    MARK: - Tests
+
+// MARK: - Tests
     func testSectionSelectorsExist() throws {
         XCTAssert(app.buttons["Section 1"].exists)
         XCTAssert(app.buttons["Section 2"].exists)
     }
-    
+
     func testFoodCardsExist() throws {
         XCTAssert(app.buttons["Food 1"].exists)
     }
-    
-    
-//    MARK: - Teardown
+
+// MARK: - Teardown
     override func tearDownWithError() throws {
         app.terminate()
     }

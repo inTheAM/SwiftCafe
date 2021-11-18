@@ -9,25 +9,25 @@ import XCTest
 
 final class SignUpViewUITests: XCTestCase {
     let app = XCUIApplication()
-    
-//    MARK: - Setup
+
+// MARK: - Setup
     override func setUpWithError() throws {
         app.launchWithEnvironment(isSignup: true)
         let signUpLink = app.buttons["go to signup"]
         signUpLink.tap()
     }
-    
-//    MARK: - Tests
+
+// MARK: - Tests
     func testNavigationTitleExists() throws {
         let navTitle = app.navigationBars.staticTexts["Sign up"]
         XCTAssert(navTitle.exists)
     }
-    
+
     func testEmailTextFieldExists() throws {
         let emailField = app.textFields["email input"]
         XCTAssert(emailField.exists)
     }
-    
+
     func testPasswordTextFieldsAppearOnEmailValidation() throws {
         let emailField = app.textFields["email input"]
         emailField.tap()
@@ -37,7 +37,7 @@ final class SignUpViewUITests: XCTestCase {
         XCTAssert(passwordField.waitForExistence(timeout: 5))
         XCTAssert(repeatPasswordField.exists)
     }
-    
+
     func testSignUpButtonAppearsOnEmailValidation() throws {
         let emailField = app.textFields["email input"]
         emailField.tap()
@@ -46,8 +46,8 @@ final class SignUpViewUITests: XCTestCase {
         XCTAssert(signupButton.waitForExistence(timeout: 1))
         XCTAssertFalse(signupButton.isEnabled)
     }
-    
-//    MARK: - Teardown
+
+// MARK: - Teardown
     override func tearDownWithError() throws {
         app.terminate()
     }

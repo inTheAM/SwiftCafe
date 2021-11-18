@@ -18,16 +18,16 @@ struct Food: Identifiable {
     var stockQuantity: Int
 }
 
-//  MARK: -    Equatable Conformance
-extension Food:  Equatable   {
-    static func ==(lhs: Food, rhs: Food) -> Bool    {
+// MARK: - Equatable Conformance
+extension Food: Equatable {
+    static func ==(lhs: Food, rhs: Food) -> Bool {
         lhs.id == rhs.id
     }
 }
 
-//  MARK: -    Codable Conformance
-extension Food:  Codable {
-    enum CodingKeys:    CodingKey   {
+// MARK: - Codable Conformance
+extension Food: Codable {
+    enum CodingKeys: CodingKey {
         case id,
              name,
              details,
@@ -38,10 +38,10 @@ extension Food:  Codable {
              stockQuantity
     }
 
-    func encode(to    encoder:    Encoder)    throws    {
+    func encode(to    encoder: Encoder)    throws {
         var container    =    encoder.container(keyedBy: CodingKeys.self)
 
-        try container.encode(id,    forKey:    .id)
+        try container.encode(id, forKey: .id)
         try container.encode(name, forKey: .name)
         try container.encode(details, forKey: .details)
         try container.encode(options, forKey: .options)
@@ -51,10 +51,10 @@ extension Food:  Codable {
         try container.encode(stockQuantity, forKey: .stockQuantity)
     }
 
-    init(from decoder:    Decoder)    throws    {
+    init(from decoder: Decoder)    throws {
         let container    =    try    decoder.container(keyedBy: CodingKeys.self)
 
-        id    =    try container.decode(UUID.self,    forKey:    .id)
+        id    =    try container.decode(UUID.self, forKey: .id)
         name    =    try    container.decode(String.self, forKey: .name)
         details    =    try    container.decode(String.self, forKey: .details)
         options =   try container.decode([OptionGroup].self, forKey: .options)

@@ -13,13 +13,13 @@ protocol MenuServiceProtocol {
 
 struct MenuService: MenuServiceProtocol {
     private let path = "menu"
-    
+
     func fetchMenu(completion: @escaping (Result<[MenuSection], RequestError>) -> Void) {
         NetWorkManager.makeGetRequest([MenuSection].self, path: path + "/sections", authType: .none) { result in
             switch result {
             case .success(let sections):
                 completion(.success(sections))
-                
+
             case .failure(let error):
                 completion(.failure(error))
             }

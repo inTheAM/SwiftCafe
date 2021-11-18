@@ -21,8 +21,8 @@ enum AuthResult {
 
 final class AuthService {
     private let path = "users"
-    
-//    MARK: - Token
+
+// MARK: - Token
     private let keychainKey = "CARTER-API-KEY"
     var token: String? {
         get {
@@ -36,15 +36,15 @@ final class AuthService {
           }
         }
     }
-    
-//    MARK: - Singleton
+
+// MARK: - Singleton
     static let shared = AuthService()
     private init() {}
 }
 
 extension AuthService: AuthServiceProtocol {
-    
-//    MARK: - Email Availability
+
+// MARK: - Email Availability
     func checkEmailAvailability(email: String, completion: @escaping (Bool) -> Void) {
         let validationData = User.ValidateData(email: email)
         NetWorkManager.makePostRequestWithoutReturn(sending: validationData, path: "users/validate", authType: .none) { result in
@@ -56,40 +56,40 @@ extension AuthService: AuthServiceProtocol {
             }
         }
     }
-    
-//    MARK: - Sign Up
+
+// MARK: - Sign Up
     func signUp(email: String, password: String, completion: @escaping (AuthResult) -> Void) {
         let user = User.CreateData(email: email, password: password)
-        
+
         NetWorkManager.makePostRequestWithReturn(sending: user, receiving: Token.self, path: "users/signup", authType: .none) { result in
             switch result {
             case .success(let token):
                 self.token = token.value
                 completion(.success)
-                
+
             case .failure:
                 completion(.failure)
             }
         }
     }
-    
-//    MARK: - Sign In
+
+// MARK: - Sign In
     func signIn(email: String, password: String, completion: @escaping (AuthResult) -> Void) {
         guard let loginString = "\(email):\(password)".data(using: .utf8)?.base64EncodedString() else {
             completion(.failure)
             return
         }
-        
+
         NetWorkManager.makePostRequestWithReturn(sending: "", receiving: Token.self, path: path + "/signin", authType: .basic(value: loginString)) { result in
             switch result {
             case .success(let token):
                 self.token = token.value
                 completion(.success)
-                
+
             case .failure:
                 completion(.failure)
             }
         }
-        
+
     }
 }

@@ -10,7 +10,7 @@ import Foundation
 struct MenuServiceFactory {
     static func create() -> MenuServiceProtocol {
         let environment = ProcessInfo.processInfo.environment["ENV"]
-        
+
         switch environment {
         case "TEST":
             return MockMenuService()

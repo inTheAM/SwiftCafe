@@ -18,7 +18,7 @@ struct SignUpView: View {
             LinearGradient(colors: [.blue, .purple], startPoint: .top, endPoint: .bottom)
                 .ignoresSafeArea()
                 .opacity(0.7)
-            
+
             VStack {
                 TextField("Email", text: $viewModel.email)
                     .autocapitalization(.none)
@@ -29,14 +29,14 @@ struct SignUpView: View {
                             .foregroundColor(viewModel.isEmailValid ? .green.opacity(0.5) : .primary.opacity(0.3))
                     )
                     .accessibilityIdentifier("email input")
-                
+
                 HStack {
                     Text(viewModel.emailErrorDescription)
                         .font(.caption)
                         .foregroundColor(.red)
                     Spacer()
                 }.padding(.bottom)
-                
+
                 if viewModel.isEmailValid {
                     VStack(spacing: 0) {
                         SecureField("Password", text: $viewModel.password)
@@ -44,29 +44,29 @@ struct SignUpView: View {
                             .padding()
                             .overlayDivider()
                             .accessibilityIdentifier("password input")
-                        
+
                         SecureField("Confirm password", text: $viewModel.repeatedPassword)
                             .autocapitalization(.none)
                             .padding()
                             .accessibilityIdentifier("repeat password")
-                        
+
                     }.background(
                         RoundedRectangle(cornerRadius: 10)
                             .stroke(lineWidth: 2)
                             .foregroundColor(viewModel.isPasswordValid ? .green.opacity(0.5) : .primary.opacity(0.3))
                     )
-                    
+
                     HStack {
                         Text(viewModel.passwordErrorDescription)
                             .font(.caption)
                             .foregroundColor(.red)
                         Spacer()
                     }.padding(.bottom)
-                    
+
                     Spacer()
-                    
+
                     Button("Sign up") {
-                        viewModel.signUp() {
+                        viewModel.signUp {
                             isLoggedIn = true
                         }
                     }.font(.body.bold())
@@ -92,4 +92,3 @@ struct SignUpView: View {
         }
     }
 }
-
