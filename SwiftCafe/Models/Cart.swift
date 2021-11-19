@@ -22,6 +22,22 @@ final class Cart: ObservableObject {
 }
 
 extension Cart {
+    func addToCart(_ food: Food, quantity: Int) {
+        isModifying = true
+        cartService.addToCart(food, quantity: quantity) { [weak self] result in
+            switch result {
+            case .success(let cartEntry):
+                    self?.contents.append(cartEntry)
+                    self?.isModifying = false
+            case .failure(let error):
+                print(error.rawValue)
+                self?.isModifying = false
+                }
+        }
+    }
+}
+
+extension Cart {
     struct Entry: Identifiable, Codable {
         let id: UUID
         let food: Food
