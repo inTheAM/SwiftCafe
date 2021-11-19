@@ -28,6 +28,7 @@ struct CartButton: View {
                             .clipShape(Circle())
                     )
                 }
+                .accessibilityIdentifier("Cart")
             }.padding()
         }
         .fullScreenCover(isPresented: $showCart) {
