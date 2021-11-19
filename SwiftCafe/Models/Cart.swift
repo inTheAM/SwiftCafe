@@ -38,7 +38,7 @@ extension Cart {
         }
     }
 
-    func addToCart(_ food: Food, quantity: Int) {
+    func add(_ food: Food, quantity: Int) {
         isModifying = true
         cartService.addToCart(food, quantity: quantity) { [weak self] result in
             switch result {
@@ -52,7 +52,7 @@ extension Cart {
         }
     }
 
-    func removeFromCart(_ food: Food) {
+    func remove(_ food: Food) {
         isModifying = true
         if let index = contents.firstIndex(where: { $0.food.id == food.id }) {
             cartService.removeFromCart(contents[index]) { [weak self] result in
@@ -65,6 +65,10 @@ extension Cart {
                 }
             }
         }
+    }
+
+    func contains(_ food: Food) -> Bool {
+        contents.contains(where: {$0.food.id == food.id})
     }
 }
 

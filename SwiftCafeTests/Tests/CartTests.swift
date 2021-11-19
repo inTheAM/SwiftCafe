@@ -49,8 +49,8 @@ final class CartTests: XCTestCase {
         let food = MenuSection.samples[0].items[0]
         let food2 = MenuSection.samples[0].items[1]
         let quantity = 3
-        cart.addToCart(food, quantity: quantity)
-        cart.addToCart(food2, quantity: quantity)
+        cart.add(food, quantity: quantity)
+        cart.add(food2, quantity: quantity)
         cart.remove(food)
 
         let contents = try awaitResult(from: contentsPublisher)
@@ -58,11 +58,11 @@ final class CartTests: XCTestCase {
         XCTAssertEqual(contents.count, 1)
         XCTAssertEqual(contents[0].food.id, food2.id)
     }
-    
+
     func testCheckingCartContainsFood() throws {
         let food = MenuSection.samples[0].items[0]
         let quantity = 3
-        cart.addToCart(food, quantity: quantity)
+        cart.add(food, quantity: quantity)
         let isInCart = cart.contains(food)
         XCTAssertTrue(isInCart)
     }
