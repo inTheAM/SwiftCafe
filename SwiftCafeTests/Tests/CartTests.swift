@@ -18,6 +18,17 @@ final class CartTests: XCTestCase {
     }
 
 // MARK: - Tests
+    func testFetchingCartContents() throws {
+        let contentsPublisher = cart.$contents
+            .first()
+        cart.fetchContents()
+
+        let contents = try awaitResult(from: contentsPublisher)
+        XCTAssertEqual(contents.count, Cart.Entry.samples.count)
+        XCTAssertEqual(contents[0].id, Cart.Entry.samples[0].id)
+        XCTAssertEqual(contents[0].quantity, Cart.Entry.samples[0].quantity)
+    }
+    
     func testAddingItemToCart() throws {
         let contentsPublisher = cart.$contents
             .first()
