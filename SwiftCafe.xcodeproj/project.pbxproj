@@ -65,6 +65,7 @@
 		E2C0A28527478FF9003CB51B /* MockCartService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C0A28327478FF9003CB51B /* MockCartService.swift */; };
 		E2C0A28727479072003CB51B /* CartEntry+Samples.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C0A28627479072003CB51B /* CartEntry+Samples.swift */; };
 		E2C0A28827479072003CB51B /* CartEntry+Samples.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C0A28627479072003CB51B /* CartEntry+Samples.swift */; };
+		E2C0A28B27479266003CB51B /* CartTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C0A28927479266003CB51B /* CartTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -139,6 +140,7 @@
 		E2C0A28127478EE6003CB51B /* CartService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartService.swift; sourceTree = "<group>"; };
 		E2C0A28327478FF9003CB51B /* MockCartService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCartService.swift; sourceTree = "<group>"; };
 		E2C0A28627479072003CB51B /* CartEntry+Samples.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CartEntry+Samples.swift"; sourceTree = "<group>"; };
+		E2C0A28927479266003CB51B /* CartTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -363,6 +365,7 @@
 				E2C0A1FA2744F7E7003CB51B /* SignUpViewModelTests.swift */,
 				E2C0A231274510DF003CB51B /* SignInViewModelTests.swift */,
 				E2C0A2572745827D003CB51B /* MenuViewModelTests.swift */,
+				E2C0A28927479266003CB51B /* CartTests.swift */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -587,6 +590,7 @@
 				E2C0A21A2744F98A003CB51B /* MockAuthService.swift in Sources */,
 				E2C0A22C2745017B003CB51B /* User+Sample.swift in Sources */,
 				E2C0A28527478FF9003CB51B /* MockCartService.swift in Sources */,
+				E2C0A28B27479266003CB51B /* CartTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
