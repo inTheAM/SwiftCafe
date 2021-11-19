@@ -22,6 +22,22 @@ final class Cart: ObservableObject {
 }
 
 extension Cart {
+    func fetchContents() {
+        isLoading = true
+        cartService.fetchContents { [weak self] result in
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let contents):
+                    self?.contents  =   contents
+                    self?.isLoading = false
+
+                case .failure:
+                    self?.isLoading = false
+                }
+            }
+        }
+    }
+
     func addToCart(_ food: Food, quantity: Int) {
         isModifying = true
         cartService.addToCart(food, quantity: quantity) { [weak self] result in

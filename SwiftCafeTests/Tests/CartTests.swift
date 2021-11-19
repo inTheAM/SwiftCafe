@@ -20,6 +20,7 @@ final class CartTests: XCTestCase {
 // MARK: - Tests
     func testFetchingCartContents() throws {
         let contentsPublisher = cart.$contents
+            .dropFirst()
             .first()
         cart.fetchContents()
 
