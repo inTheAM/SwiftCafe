@@ -69,6 +69,8 @@
 		E2C0A28D27479312003CB51B /* CartServiceFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C0A28C27479311003CB51B /* CartServiceFactory.swift */; };
 		E2C0A29027479F4F003CB51B /* CartButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C0A28F27479F4F003CB51B /* CartButton.swift */; };
 		E2C0A2932747A147003CB51B /* CartViewUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C0A2922747A147003CB51B /* CartViewUITests.swift */; };
+		E2C0A2952747A41B003CB51B /* CartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C0A2942747A41B003CB51B /* CartView.swift */; };
+		E2C0A2972747A5DB003CB51B /* DoneButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C0A2962747A5DB003CB51B /* DoneButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -147,6 +149,8 @@
 		E2C0A28C27479311003CB51B /* CartServiceFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartServiceFactory.swift; sourceTree = "<group>"; };
 		E2C0A28F27479F4F003CB51B /* CartButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartButton.swift; sourceTree = "<group>"; };
 		E2C0A2922747A147003CB51B /* CartViewUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewUITests.swift; sourceTree = "<group>"; };
+		E2C0A2942747A41B003CB51B /* CartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartView.swift; sourceTree = "<group>"; };
+		E2C0A2962747A5DB003CB51B /* DoneButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoneButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -273,6 +277,7 @@
 				E2C0A25B274586BF003CB51B /* MenuView.swift */,
 				E2C0A25F27458A56003CB51B /* MenuSectionsSelector.swift */,
 				E2C0A2632746269B003CB51B /* FoodCardView.swift */,
+				E2C0A2942747A41B003CB51B /* CartView.swift */,
 				E2C0A28F27479F4F003CB51B /* CartButton.swift */,
 				E2C0A23C2745381C003CB51B /* ReusableViews */,
 			);
@@ -344,6 +349,7 @@
 			isa = PBXGroup;
 			children = (
 				E2C0A23D2745382B003CB51B /* BackButton.swift */,
+				E2C0A2962747A5DB003CB51B /* DoneButton.swift */,
 				E2C0A267274628D8003CB51B /* HeaderView.swift */,
 			);
 			path = ReusableViews;
@@ -558,12 +564,14 @@
 				E2C0A25227458046003CB51B /* Extra.swift in Sources */,
 				E2C0A1EC2744F7E5003CB51B /* HomeView.swift in Sources */,
 				E2C0A26027458A56003CB51B /* MenuSectionsSelector.swift in Sources */,
+				E2C0A2972747A5DB003CB51B /* DoneButton.swift in Sources */,
 				E2C0A25E2745872C003CB51B /* OffsetKey.swift in Sources */,
 				E2C0A24427457630003CB51B /* Color.swift in Sources */,
 				E2C0A25A27458316003CB51B /* MenuViewModel.swift in Sources */,
 				E2C0A23827453459003CB51B /* SignUpView.swift in Sources */,
 				E2C0A23027450F65003CB51B /* AuthError.swift in Sources */,
 				E2C0A21E2744FB21003CB51B /* SignUpViewModel.swift in Sources */,
+				E2C0A2952747A41B003CB51B /* CartView.swift in Sources */,
 				E2C0A24E27457F94003CB51B /* Option.swift in Sources */,
 				E2C0A28727479072003CB51B /* CartEntry+Samples.swift in Sources */,
 				E2C0A27227463C5C003CB51B /* User+Sample.swift in Sources */,
