@@ -30,7 +30,7 @@ final class CartTests: XCTestCase {
         XCTAssertEqual(contents[0].quantity, Cart.Entry.samples[0].quantity)
     }
 
-    func testAddingItemToCart() throws {
+    func testAddingFoodToCart() throws {
         let contentsPublisher = cart.$contents
             .first()
         let food = MenuSection.samples[0].items[0]
@@ -40,6 +40,23 @@ final class CartTests: XCTestCase {
         let contents = try awaitResult(from: contentsPublisher)
         XCTAssertEqual(contents[0].food.id, food.id)
         XCTAssertEqual(contents[0].quantity, quantity)
+    }
+    
+    func testRemovingFoodFromCart() throws {
+        let contentsPublisher = cart.$contents
+            .first()
+        
+        let food = MenuSection.samples[0].items[0]
+        let food2 = MenuSection.samples[0].items[1]
+        let quantity = 3
+        cart.addToCart(food, quantity: quantity)
+        cart.addToCart(food2, quantity: quantity)
+        cart.removeFromCart(food)
+        
+        let contents = try awaitResult(from: contentsPublisher)
+        
+        XCTAssertEqual(contents.count, 1)
+        XCTAssertEqual(contents[0].food.id, food2.id)
     }
 
 // MARK: - Teardown
