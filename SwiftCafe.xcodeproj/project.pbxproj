@@ -68,7 +68,7 @@
 		E2C0A28B27479266003CB51B /* CartTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C0A28927479266003CB51B /* CartTests.swift */; };
 		E2C0A28D27479312003CB51B /* CartServiceFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C0A28C27479311003CB51B /* CartServiceFactory.swift */; };
 		E2C0A29027479F4F003CB51B /* CartButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C0A28F27479F4F003CB51B /* CartButton.swift */; };
-		E2C0A29127479F4F003CB51B /* CartButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C0A28F27479F4F003CB51B /* CartButton.swift */; };
+		E2C0A2932747A147003CB51B /* CartViewUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C0A2922747A147003CB51B /* CartViewUITests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -146,6 +146,7 @@
 		E2C0A28927479266003CB51B /* CartTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartTests.swift; sourceTree = "<group>"; };
 		E2C0A28C27479311003CB51B /* CartServiceFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartServiceFactory.swift; sourceTree = "<group>"; };
 		E2C0A28F27479F4F003CB51B /* CartButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartButton.swift; sourceTree = "<group>"; };
+		E2C0A2922747A147003CB51B /* CartViewUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewUITests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -383,6 +384,7 @@
 				E2C0A23527453214003CB51B /* SignUpViewUITests.swift */,
 				E2C0A24127454908003CB51B /* SignInViewUITests.swift */,
 				E2C0A26127458E82003CB51B /* MenuViewUITests.swift */,
+				E2C0A2922747A147003CB51B /* CartViewUITests.swift */,
 				E2C0A2062744F7E7003CB51B /* SwiftCafeUITestsLaunchTests.swift */,
 			);
 			path = Tests;
@@ -590,7 +592,6 @@
 			files = (
 				E2C0A1FB2744F7E7003CB51B /* SignUpViewModelTests.swift in Sources */,
 				E2C0A22E274503E6003CB51B /* XCTestCase+Await.swift in Sources */,
-				E2C0A29127479F4F003CB51B /* CartButton.swift in Sources */,
 				E2C0A2582745827D003CB51B /* MenuViewModelTests.swift in Sources */,
 				E2C0A24627457CC9003CB51B /* MockMenuService.swift in Sources */,
 				E2C0A28827479072003CB51B /* CartEntry+Samples.swift in Sources */,
@@ -610,6 +611,7 @@
 			files = (
 				E2C0A23627453214003CB51B /* SignUpViewUITests.swift in Sources */,
 				E2C0A277274652A2003CB51B /* XCUIApplication+Environment.swift in Sources */,
+				E2C0A2932747A147003CB51B /* CartViewUITests.swift in Sources */,
 				E2C0A2072744F7E7003CB51B /* SwiftCafeUITestsLaunchTests.swift in Sources */,
 				E2C0A26227458E82003CB51B /* MenuViewUITests.swift in Sources */,
 				E2C0A24227454908003CB51B /* SignInViewUITests.swift in Sources */,
