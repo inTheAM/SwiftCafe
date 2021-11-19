@@ -12,7 +12,7 @@ final class SignUpViewUITests: XCTestCase {
 
 // MARK: - Setup
     override func setUpWithError() throws {
-        app.launchWithEnvironment(isSignup: true)
+        app.launchWithTestEnvironment(isSignup: true)
         let signUpLink = app.buttons["go to signup"]
         signUpLink.tap()
     }

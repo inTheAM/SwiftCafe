@@ -15,7 +15,7 @@ final class SignUpViewModel: ObservableObject {
 // swiftlint:disable line_length
     private let passwordPredicate = NSPredicate(format: "SELF MATCHES %@", "^(?=.*[a-z])(?=.*[0-9])(?=.*[S@$#!%*?&]).{8,}$")
 // swiftlint:enable line_length
-    
+
 // MARK: - Inputs
     @Published var email = ""
     @Published var password = ""

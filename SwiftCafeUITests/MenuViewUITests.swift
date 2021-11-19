@@ -13,7 +13,7 @@ final class MenuViewUITests: XCTestCase {
 
 // MARK: - Setup
     override func setUpWithError() throws {
-        app.launchWithEnvironment()
+        app.launchWithTestEnvironment()
     }
 
 // MARK: - Tests
