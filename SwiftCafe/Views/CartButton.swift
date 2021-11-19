@@ -14,13 +14,13 @@ struct CartButton: View {
             Spacer()
             HStack {
                 Spacer()
-                Button(action: {showCart = true})    {
+                Button(action: {showCart = true}) {
                     HStack {
                         Image(systemName: "bag.fill")
                             .font(.title)
-                        
+
                     }
-                    .foregroundColor(Color.systemBackground)
+                    .foregroundColor(.systemBackground)
                     .padding()
                     .frame(width: 60, height: 60)
                     .background(
@@ -32,7 +32,7 @@ struct CartButton: View {
             }.padding()
         }
         .fullScreenCover(isPresented: $showCart) {
-            
+
         }
     }
 }
