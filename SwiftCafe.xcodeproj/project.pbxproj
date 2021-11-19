@@ -209,9 +209,7 @@
 			children = (
 				E2C0A22A27450167003CB51B /* Extensions */,
 				E2C0A2182744F935003CB51B /* MockServices */,
-				E2C0A1FA2744F7E7003CB51B /* SignUpViewModelTests.swift */,
-				E2C0A231274510DF003CB51B /* SignInViewModelTests.swift */,
-				E2C0A2572745827D003CB51B /* MenuViewModelTests.swift */,
+				E2C0A27F27478E86003CB51B /* Tests */,
 			);
 			path = SwiftCafeTests;
 			sourceTree = "<group>";
@@ -220,10 +218,7 @@
 			isa = PBXGroup;
 			children = (
 				E2C0A27527465290003CB51B /* Extensions */,
-				E2C0A23527453214003CB51B /* SignUpViewUITests.swift */,
-				E2C0A24127454908003CB51B /* SignInViewUITests.swift */,
-				E2C0A26127458E82003CB51B /* MenuViewUITests.swift */,
-				E2C0A2062744F7E7003CB51B /* SwiftCafeUITestsLaunchTests.swift */,
+				E2C0A28027478E9A003CB51B /* Tests */,
 			);
 			path = SwiftCafeUITests;
 			sourceTree = "<group>";
@@ -349,6 +344,27 @@
 				E2C0A276274652A2003CB51B /* XCUIApplication+Environment.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		E2C0A27F27478E86003CB51B /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				E2C0A1FA2744F7E7003CB51B /* SignUpViewModelTests.swift */,
+				E2C0A231274510DF003CB51B /* SignInViewModelTests.swift */,
+				E2C0A2572745827D003CB51B /* MenuViewModelTests.swift */,
+			);
+			path = Tests;
+			sourceTree = "<group>";
+		};
+		E2C0A28027478E9A003CB51B /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				E2C0A23527453214003CB51B /* SignUpViewUITests.swift */,
+				E2C0A24127454908003CB51B /* SignInViewUITests.swift */,
+				E2C0A26127458E82003CB51B /* MenuViewUITests.swift */,
+				E2C0A2062744F7E7003CB51B /* SwiftCafeUITestsLaunchTests.swift */,
+			);
+			path = Tests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
