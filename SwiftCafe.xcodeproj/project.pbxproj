@@ -67,7 +67,6 @@
 		E2C0A28827479072003CB51B /* CartEntry+Samples.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C0A28627479072003CB51B /* CartEntry+Samples.swift */; };
 		E2C0A28B27479266003CB51B /* CartTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C0A28927479266003CB51B /* CartTests.swift */; };
 		E2C0A28D27479312003CB51B /* CartServiceFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C0A28C27479311003CB51B /* CartServiceFactory.swift */; };
-		E2C0A28E27479312003CB51B /* CartServiceFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C0A28C27479311003CB51B /* CartServiceFactory.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -589,7 +588,6 @@
 				E2C0A2582745827D003CB51B /* MenuViewModelTests.swift in Sources */,
 				E2C0A24627457CC9003CB51B /* MockMenuService.swift in Sources */,
 				E2C0A28827479072003CB51B /* CartEntry+Samples.swift in Sources */,
-				E2C0A28E27479312003CB51B /* CartServiceFactory.swift in Sources */,
 				E2C0A232274510DF003CB51B /* SignInViewModelTests.swift in Sources */,
 				E2C0A25427458135003CB51B /* MenuSection+Samples.swift in Sources */,
 				E2C0A2562745818F003CB51B /* Food+Samples.swift in Sources */,

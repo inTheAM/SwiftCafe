@@ -8,10 +8,17 @@
 import Foundation
 
 final class Cart: ObservableObject {
+    private let cartService: CartServiceProtocol
+
 // MARK: - Cart contents
     @Published var contents = [Cart.Entry]()
     @Published var isLoading = false
     @Published var isModifying = false
+
+// MARK: - Initializer
+    init(cartService: CartServiceProtocol = CartServiceFactory.create()) {
+        self.cartService = cartService
+    }
 }
 
 extension Cart {

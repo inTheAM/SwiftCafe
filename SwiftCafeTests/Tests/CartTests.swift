@@ -10,8 +10,8 @@ import XCTest
 
 final class CartTests: XCTestCase {
     private var cart: Cart!
-    
-//    MARK: - Setup
+
+// MARK: - Setup
     override func setUpWithError() throws {
         let cartService = MockCartService()
         cart = Cart(cartService: cartService)
