@@ -23,7 +23,13 @@ final class MenuViewUITests: XCTestCase {
     }
 
     func testFoodCardsExist() throws {
-        XCTAssert(app.buttons["Food 1"].exists)
+        let foodCard = app.buttons["Food 1"]
+        XCTAssert(foodCard.exists)
+    }
+
+    func testCartButtonExists() throws {
+        let cartButton = app.buttons["Cart"]
+        XCTAssert(cartButton.exists)
     }
 
 // MARK: - Teardown
