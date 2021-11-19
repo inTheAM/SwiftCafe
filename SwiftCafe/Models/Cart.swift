@@ -14,9 +14,8 @@ final class Cart: ObservableObject {
     @Published var isModifying = false
 }
 
-
 extension Cart {
-    struct Entry: Identifiable {
+    struct Entry: Identifiable, Codable {
         let id: UUID
         let food: Food
         let quantity: Int
@@ -25,7 +24,7 @@ extension Cart {
 
 extension Cart.Entry {
     struct CreateData: Codable {
-        let merchandiseID: UUID
+        let foodID: UUID
         let quantity: Int
     }
     
