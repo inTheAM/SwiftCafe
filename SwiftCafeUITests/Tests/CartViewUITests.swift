@@ -19,7 +19,10 @@ final class CartViewUITests: XCTestCase {
     }
 
 // MARK: - Tests
-    
+    func testNavigationTitleExists() throws {
+        let navTitle = app.navigationBars.staticTexts["Your bag"]
+        XCTAssert(navTitle.exists)
+    }
 // MARK: - Teardown
     override func tearDownWithError() throws {
         app.terminate()
