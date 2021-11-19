@@ -8,7 +8,7 @@
 import Foundation
 
 final class Cart: ObservableObject {
-//    MARK: - Cart contents
+// MARK: - Cart contents
     @Published var contents = [Cart.Entry]()
     @Published var isLoading = false
     @Published var isModifying = false
@@ -27,7 +27,7 @@ extension Cart.Entry {
         let foodID: UUID
         let quantity: Int
     }
-    
+
     struct RemoveData: Codable {
         let id: UUID
     }

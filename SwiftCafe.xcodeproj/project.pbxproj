@@ -61,6 +61,10 @@
 		E2C0A27B274654DB003CB51B /* MenuServiceFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C0A27A274654DB003CB51B /* MenuServiceFactory.swift */; };
 		E2C0A27E27478B52003CB51B /* Cart.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C0A27D27478B52003CB51B /* Cart.swift */; };
 		E2C0A28227478EE6003CB51B /* CartService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C0A28127478EE6003CB51B /* CartService.swift */; };
+		E2C0A28427478FF9003CB51B /* MockCartService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C0A28327478FF9003CB51B /* MockCartService.swift */; };
+		E2C0A28527478FF9003CB51B /* MockCartService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C0A28327478FF9003CB51B /* MockCartService.swift */; };
+		E2C0A28727479072003CB51B /* CartEntry+Samples.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C0A28627479072003CB51B /* CartEntry+Samples.swift */; };
+		E2C0A28827479072003CB51B /* CartEntry+Samples.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C0A28627479072003CB51B /* CartEntry+Samples.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -133,6 +137,8 @@
 		E2C0A27A274654DB003CB51B /* MenuServiceFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuServiceFactory.swift; sourceTree = "<group>"; };
 		E2C0A27D27478B52003CB51B /* Cart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cart.swift; sourceTree = "<group>"; };
 		E2C0A28127478EE6003CB51B /* CartService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartService.swift; sourceTree = "<group>"; };
+		E2C0A28327478FF9003CB51B /* MockCartService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCartService.swift; sourceTree = "<group>"; };
+		E2C0A28627479072003CB51B /* CartEntry+Samples.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CartEntry+Samples.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -290,6 +296,7 @@
 			children = (
 				E2C0A2192744F98A003CB51B /* MockAuthService.swift */,
 				E2C0A24527457CC9003CB51B /* MockMenuService.swift */,
+				E2C0A28327478FF9003CB51B /* MockCartService.swift */,
 			);
 			path = MockServices;
 			sourceTree = "<group>";
@@ -309,6 +316,7 @@
 				E2C0A22B2745017B003CB51B /* User+Sample.swift */,
 				E2C0A25327458135003CB51B /* MenuSection+Samples.swift */,
 				E2C0A2552745818F003CB51B /* Food+Samples.swift */,
+				E2C0A28627479072003CB51B /* CartEntry+Samples.swift */,
 				E2C0A22D274503E6003CB51B /* XCTestCase+Await.swift */,
 			);
 			path = Extensions;
@@ -528,6 +536,7 @@
 				E2C0A2252744FC97003CB51B /* RequestError.swift in Sources */,
 				E2C0A2222744FC47003CB51B /* NetworkManager.swift in Sources */,
 				E2C0A24827457D0E003CB51B /* MenuService.swift in Sources */,
+				E2C0A28427478FF9003CB51B /* MockCartService.swift in Sources */,
 				E2C0A28227478EE6003CB51B /* CartService.swift in Sources */,
 				E2C0A24C27457E2A003CB51B /* Food.swift in Sources */,
 				E2C0A24A27457DEE003CB51B /* MenuSection.swift in Sources */,
@@ -542,6 +551,7 @@
 				E2C0A23027450F65003CB51B /* AuthError.swift in Sources */,
 				E2C0A21E2744FB21003CB51B /* SignUpViewModel.swift in Sources */,
 				E2C0A24E27457F94003CB51B /* Option.swift in Sources */,
+				E2C0A28727479072003CB51B /* CartEntry+Samples.swift in Sources */,
 				E2C0A27227463C5C003CB51B /* User+Sample.swift in Sources */,
 				E2C0A2202744FC06003CB51B /* User.swift in Sources */,
 				E2C0A27127463C5C003CB51B /* Food+Samples.swift in Sources */,
@@ -570,11 +580,13 @@
 				E2C0A22E274503E6003CB51B /* XCTestCase+Await.swift in Sources */,
 				E2C0A2582745827D003CB51B /* MenuViewModelTests.swift in Sources */,
 				E2C0A24627457CC9003CB51B /* MockMenuService.swift in Sources */,
+				E2C0A28827479072003CB51B /* CartEntry+Samples.swift in Sources */,
 				E2C0A232274510DF003CB51B /* SignInViewModelTests.swift in Sources */,
 				E2C0A25427458135003CB51B /* MenuSection+Samples.swift in Sources */,
 				E2C0A2562745818F003CB51B /* Food+Samples.swift in Sources */,
 				E2C0A21A2744F98A003CB51B /* MockAuthService.swift in Sources */,
 				E2C0A22C2745017B003CB51B /* User+Sample.swift in Sources */,
+				E2C0A28527478FF9003CB51B /* MockCartService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
