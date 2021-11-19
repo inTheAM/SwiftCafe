@@ -60,6 +60,7 @@
 		E2C0A27927465455003CB51B /* Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C0A27827465455003CB51B /* Keychain.swift */; };
 		E2C0A27B274654DB003CB51B /* MenuServiceFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C0A27A274654DB003CB51B /* MenuServiceFactory.swift */; };
 		E2C0A27E27478B52003CB51B /* Cart.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C0A27D27478B52003CB51B /* Cart.swift */; };
+		E2C0A28227478EE6003CB51B /* CartService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C0A28127478EE6003CB51B /* CartService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -131,6 +132,7 @@
 		E2C0A27827465455003CB51B /* Keychain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keychain.swift; sourceTree = "<group>"; };
 		E2C0A27A274654DB003CB51B /* MenuServiceFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuServiceFactory.swift; sourceTree = "<group>"; };
 		E2C0A27D27478B52003CB51B /* Cart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cart.swift; sourceTree = "<group>"; };
+		E2C0A28127478EE6003CB51B /* CartService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -268,6 +270,7 @@
 				E2C0A22827450027003CB51B /* APIService.swift */,
 				E2C0A21B2744FACF003CB51B /* AuthService.swift */,
 				E2C0A24727457D0E003CB51B /* MenuService.swift */,
+				E2C0A28127478EE6003CB51B /* CartService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -525,6 +528,7 @@
 				E2C0A2252744FC97003CB51B /* RequestError.swift in Sources */,
 				E2C0A2222744FC47003CB51B /* NetworkManager.swift in Sources */,
 				E2C0A24827457D0E003CB51B /* MenuService.swift in Sources */,
+				E2C0A28227478EE6003CB51B /* CartService.swift in Sources */,
 				E2C0A24C27457E2A003CB51B /* Food.swift in Sources */,
 				E2C0A24A27457DEE003CB51B /* MenuSection.swift in Sources */,
 				E2C0A21C2744FACF003CB51B /* AuthService.swift in Sources */,
