@@ -34,7 +34,7 @@ struct CartButton: View {
             }.padding()
         }
         .fullScreenCover(isPresented: $showCart) {
-
+            CartView()
         }
     }
 }
