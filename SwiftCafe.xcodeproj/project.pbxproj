@@ -59,6 +59,7 @@
 		E2C0A277274652A2003CB51B /* XCUIApplication+Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C0A276274652A2003CB51B /* XCUIApplication+Environment.swift */; };
 		E2C0A27927465455003CB51B /* Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C0A27827465455003CB51B /* Keychain.swift */; };
 		E2C0A27B274654DB003CB51B /* MenuServiceFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C0A27A274654DB003CB51B /* MenuServiceFactory.swift */; };
+		E2C0A27E27478B52003CB51B /* Cart.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C0A27D27478B52003CB51B /* Cart.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -129,6 +130,7 @@
 		E2C0A276274652A2003CB51B /* XCUIApplication+Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCUIApplication+Environment.swift"; sourceTree = "<group>"; };
 		E2C0A27827465455003CB51B /* Keychain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keychain.swift; sourceTree = "<group>"; };
 		E2C0A27A274654DB003CB51B /* MenuServiceFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuServiceFactory.swift; sourceTree = "<group>"; };
+		E2C0A27D27478B52003CB51B /* Cart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cart.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -235,6 +237,7 @@
 				E2C0A24B27457E2A003CB51B /* Food.swift */,
 				E2C0A24F2745801F003CB51B /* OptionGroup.swift */,
 				E2C0A24D27457F94003CB51B /* Option.swift */,
+				E2C0A27D27478B52003CB51B /* Cart.swift */,
 				E2C0A25127458046003CB51B /* Extra.swift */,
 			);
 			path = Models;
@@ -535,6 +538,7 @@
 				E2C0A2272744FE61003CB51B /* Token.swift in Sources */,
 				E2C0A27027463C5C003CB51B /* MenuSection+Samples.swift in Sources */,
 				E2C0A27927465455003CB51B /* Keychain.swift in Sources */,
+				E2C0A27E27478B52003CB51B /* Cart.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
