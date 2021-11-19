@@ -23,7 +23,7 @@ final class AuthService {
     private let path = "users"
 
 // MARK: - Token
-    private let keychainKey = "CARTER-API-KEY"
+    private let keychainKey = "SWIFTCAFE-API-KEY"
     var token: String? {
         get {
           Keychain.load(key: keychainKey)
@@ -43,7 +43,6 @@ final class AuthService {
 }
 
 extension AuthService: AuthServiceProtocol {
-
 // MARK: - Email Availability
     func checkEmailAvailability(email: String, completion: @escaping (Bool) -> Void) {
         let validationData = User.ValidateData(email: email)
