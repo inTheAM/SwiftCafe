@@ -28,7 +28,7 @@ final class CartTests: XCTestCase {
         XCTAssertEqual(contents[0].id, Cart.Entry.samples[0].id)
         XCTAssertEqual(contents[0].quantity, Cart.Entry.samples[0].quantity)
     }
-    
+
     func testAddingItemToCart() throws {
         let contentsPublisher = cart.$contents
             .first()

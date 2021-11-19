@@ -9,7 +9,7 @@ import Foundation
 @testable import SwiftCafe
 
 struct MockCartService: CartServiceProtocol {
-    func fetchCart(completion: @escaping (Result<[Cart.Entry], RequestError>) -> Void) {
+    func fetchContents(completion: @escaping (Result<[Cart.Entry], RequestError>) -> Void) {
         completion(.success(Cart.Entry.samples))
     }
 

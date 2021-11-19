@@ -8,7 +8,7 @@
 import Foundation
 
 protocol CartServiceProtocol {
-    func fetchCart(completion: @escaping (Result<[Cart.Entry], RequestError>) -> Void)
+    func fetchContents(completion: @escaping (Result<[Cart.Entry], RequestError>) -> Void)
     func addToCart(_ food: Food, quantity: Int, completion: @escaping (Result<Cart.Entry, RequestError>) -> Void)
     func removeFromCart(_ cartEntry: Cart.Entry, completion: @escaping (Result<Void, RequestError>) -> Void)
 }
@@ -16,7 +16,7 @@ protocol CartServiceProtocol {
 struct CartService: CartServiceProtocol {
     private let path = "carts"
 
-    func fetchCart(completion: @escaping (Result<[Cart.Entry], RequestError>) -> Void) {
+    func fetchContents(completion: @escaping (Result<[Cart.Entry], RequestError>) -> Void) {
         NetWorkManager.makeGetRequest([Cart.Entry].self, path: path + "/cart", authType: .bearer) { result in
             switch result {
             case .success(let cart):
