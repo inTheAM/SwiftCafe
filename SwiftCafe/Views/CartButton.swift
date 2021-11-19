@@ -14,7 +14,9 @@ struct CartButton: View {
             Spacer()
             HStack {
                 Spacer()
-                Button(action: {showCart = true}) {
+                Button(action: {
+                    showCart = true
+                }, label: {
                     HStack {
                         Image(systemName: "bag.fill")
                             .font(.title)
@@ -27,7 +29,7 @@ struct CartButton: View {
                         Color.primary
                             .clipShape(Circle())
                     )
-                }
+                })
                 .accessibilityIdentifier("Cart")
             }.padding()
         }

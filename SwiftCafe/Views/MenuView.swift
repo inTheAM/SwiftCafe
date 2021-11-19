@@ -12,36 +12,39 @@ struct MenuView: View {
     @State private var isFlashing = false
 
     var body: some View {
-        ScrollViewReader { pageProxy in
-            VStack(spacing: 0) {
-                MenuSectionsSelector(viewModel: viewModel, pageProxy: pageProxy)
-                ScrollView(showsIndicators: false) {
-                    LazyVStack(spacing: 0, pinnedViews: [.sectionHeaders]) {
-                        ForEach(viewModel.sections) { section in
-                            Section(header: HeaderView(title: section.name)) {
-                                VStack {
-                                    ForEach(section.items) { food in
-                                        FoodCardView(food: food)
+        ZStack {
+            ScrollViewReader { pageProxy in
+                VStack(spacing: 0) {
+                    MenuSectionsSelector(viewModel: viewModel, pageProxy: pageProxy)
+                    ScrollView(showsIndicators: false) {
+                        LazyVStack(spacing: 0, pinnedViews: [.sectionHeaders]) {
+                            ForEach(viewModel.sections) { section in
+                                Section(header: HeaderView(title: section.name)) {
+                                    VStack {
+                                        ForEach(section.items) { food in
+                                            FoodCardView(food: food)
+                                        }
                                     }
+                                    .padding()
+                                    .overlay(flash(section.name))
+
                                 }
-                                .padding()
-                                .overlay(flash(section.name))
+                                .id(section.name)
+                                .overlayDivider()
+                                .readOffset { rect in
+                                    activateSection(section, in: rect)
+                                }
+                            }
 
-                            }
-                            .id(section.name)
-                            .overlayDivider()
-                            .readOffset { rect in
-                                activateSection(section, in: rect)
-                            }
                         }
+                        .onAppear {
+                            viewModel.fetchMenu()
+                        }
+                    }
 
-                    }
-                    .onAppear {
-                        viewModel.fetchMenu()
-                    }
                 }
-
             }
+            CartButton()
         }
     }
 
