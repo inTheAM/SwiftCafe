@@ -16,4 +16,9 @@ final class CartTests: XCTestCase {
         let cartService = MockCartService()
         cart = Cart(cartService: cartService)
     }
+
+// MARK: - Teardown
+    override func tearDownWithError() throws {
+        cart = nil
+    }
 }
