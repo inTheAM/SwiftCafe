@@ -51,6 +51,21 @@ extension Cart {
                 }
         }
     }
+
+    func removeFromCart(_ food: Food) {
+        isModifying = true
+        if let index = contents.firstIndex(where: { $0.food.id == food.id }) {
+            cartService.removeFromCart(contents[index]) { [weak self] result in
+                switch result {
+                case .success:
+                    self?.contents.remove(at: index)
+                    self?.isModifying = false
+                case .failure:
+                    self?.isModifying = false
+                }
+            }
+        }
+    }
 }
 
 extension Cart {
