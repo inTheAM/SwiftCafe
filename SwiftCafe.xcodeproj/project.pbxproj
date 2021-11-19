@@ -67,6 +67,8 @@
 		E2C0A28827479072003CB51B /* CartEntry+Samples.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C0A28627479072003CB51B /* CartEntry+Samples.swift */; };
 		E2C0A28B27479266003CB51B /* CartTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C0A28927479266003CB51B /* CartTests.swift */; };
 		E2C0A28D27479312003CB51B /* CartServiceFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C0A28C27479311003CB51B /* CartServiceFactory.swift */; };
+		E2C0A29027479F4F003CB51B /* CartButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C0A28F27479F4F003CB51B /* CartButton.swift */; };
+		E2C0A29127479F4F003CB51B /* CartButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C0A28F27479F4F003CB51B /* CartButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -143,6 +145,7 @@
 		E2C0A28627479072003CB51B /* CartEntry+Samples.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CartEntry+Samples.swift"; sourceTree = "<group>"; };
 		E2C0A28927479266003CB51B /* CartTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartTests.swift; sourceTree = "<group>"; };
 		E2C0A28C27479311003CB51B /* CartServiceFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartServiceFactory.swift; sourceTree = "<group>"; };
+		E2C0A28F27479F4F003CB51B /* CartButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -269,6 +272,7 @@
 				E2C0A25B274586BF003CB51B /* MenuView.swift */,
 				E2C0A25F27458A56003CB51B /* MenuSectionsSelector.swift */,
 				E2C0A2632746269B003CB51B /* FoodCardView.swift */,
+				E2C0A28F27479F4F003CB51B /* CartButton.swift */,
 				E2C0A23C2745381C003CB51B /* ReusableViews */,
 			);
 			path = Views;
@@ -540,6 +544,7 @@
 				E2C0A25C274586BF003CB51B /* MenuView.swift in Sources */,
 				E2C0A2502745801F003CB51B /* OptionGroup.swift in Sources */,
 				E2C0A2252744FC97003CB51B /* RequestError.swift in Sources */,
+				E2C0A29027479F4F003CB51B /* CartButton.swift in Sources */,
 				E2C0A2222744FC47003CB51B /* NetworkManager.swift in Sources */,
 				E2C0A24827457D0E003CB51B /* MenuService.swift in Sources */,
 				E2C0A28427478FF9003CB51B /* MockCartService.swift in Sources */,
@@ -585,6 +590,7 @@
 			files = (
 				E2C0A1FB2744F7E7003CB51B /* SignUpViewModelTests.swift in Sources */,
 				E2C0A22E274503E6003CB51B /* XCTestCase+Await.swift in Sources */,
+				E2C0A29127479F4F003CB51B /* CartButton.swift in Sources */,
 				E2C0A2582745827D003CB51B /* MenuViewModelTests.swift in Sources */,
 				E2C0A24627457CC9003CB51B /* MockMenuService.swift in Sources */,
 				E2C0A28827479072003CB51B /* CartEntry+Samples.swift in Sources */,
