@@ -7,7 +7,7 @@
 
 import Foundation
 @testable import SwiftCafe
-
+// swiftlint:disable line_length
 extension Food {
     static func createItems() -> [Food] {
         var items = [Food]()

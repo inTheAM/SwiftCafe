@@ -39,6 +39,7 @@ struct FoodCardView: View {
             }
             .frame(height: 120)
             .cardify()
+            .padding(.vertical, 5)
             .fullScreenCover(isPresented: $showDetails) {
                 Text("Food details")
             }

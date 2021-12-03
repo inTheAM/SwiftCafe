@@ -33,6 +33,7 @@ struct ImageAsync: View {
     }
 }
 
+// swiftlint:disable line_length
 struct ImageAsync_Previews: PreviewProvider {
     static var previews: some View {
         ImageAsync(imageURL: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTP68GaMxj6iSn18pYEVZyW0lLLYgbEzbdmFQ&usqp=CAU")
