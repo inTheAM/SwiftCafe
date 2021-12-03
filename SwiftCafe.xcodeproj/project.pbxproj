@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		E28ED3162759D91F00C0BB35 /* Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28ED3152759D91F00C0BB35 /* Double.swift */; };
 		E28ED3182759E25C00C0BB35 /* RemoteImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28ED3172759E25C00C0BB35 /* RemoteImage.swift */; };
+		E28ED31C2759E3BE00C0BB35 /* ImageAsync.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28ED31B2759E3BE00C0BB35 /* ImageAsync.swift */; };
 		E2C0A1EA2744F7E5003CB51B /* SwiftCafeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C0A1E92744F7E5003CB51B /* SwiftCafeApp.swift */; };
 		E2C0A1EC2744F7E5003CB51B /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C0A1EB2744F7E5003CB51B /* HomeView.swift */; };
 		E2C0A1EE2744F7E7003CB51B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E2C0A1ED2744F7E7003CB51B /* Assets.xcassets */; };
@@ -95,6 +96,7 @@
 /* Begin PBXFileReference section */
 		E28ED3152759D91F00C0BB35 /* Double.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Double.swift; sourceTree = "<group>"; };
 		E28ED3172759E25C00C0BB35 /* RemoteImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteImage.swift; sourceTree = "<group>"; };
+		E28ED31B2759E3BE00C0BB35 /* ImageAsync.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAsync.swift; sourceTree = "<group>"; };
 		E2C0A1E62744F7E5003CB51B /* SwiftCafe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftCafe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2C0A1E92744F7E5003CB51B /* SwiftCafeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftCafeApp.swift; sourceTree = "<group>"; };
 		E2C0A1EB2744F7E5003CB51B /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -357,6 +359,7 @@
 				E2C0A23D2745382B003CB51B /* BackButton.swift */,
 				E2C0A2962747A5DB003CB51B /* DoneButton.swift */,
 				E2C0A267274628D8003CB51B /* HeaderView.swift */,
+				E28ED31B2759E3BE00C0BB35 /* ImageAsync.swift */,
 			);
 			path = ReusableViews;
 			sourceTree = "<group>";
@@ -553,6 +556,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E28ED31C2759E3BE00C0BB35 /* ImageAsync.swift in Sources */,
 				E2C0A27427463C62003CB51B /* MockAuthService.swift in Sources */,
 				E2C0A23B2745372E003CB51B /* View.swift in Sources */,
 				E2C0A25C274586BF003CB51B /* MenuView.swift in Sources */,
