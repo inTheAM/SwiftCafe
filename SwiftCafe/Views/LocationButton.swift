@@ -9,6 +9,7 @@ import SwiftUI
 
 struct LocationButton: View {
     @State private var showLocation = false
+    @State private var scale: CGFloat = 0.2
     var body: some View {
         Button {
             showLocation = true
@@ -16,6 +17,8 @@ struct LocationButton: View {
             HStack {
                 Image(systemName: "location.fill")
                     .font(.subheadline)
+                    .scaleEffect(scale)
+                    .animation(.spring().repeatForever(), value: scale)
                 Text("Location here")
 
             }.font(.subheadline.bold())
@@ -24,6 +27,9 @@ struct LocationButton: View {
         .padding(.horizontal, 5)
         .foregroundColor(.primary)
         .accessibilityIdentifier("Location")
+        .onAppear {
+            scale = 1
+        }
         .fullScreenCover(isPresented: $showLocation) {
 
         }
