@@ -7,8 +7,8 @@
 
 import Foundation
 
-extension Double    {
-    func format(_    places:    Int)    ->    String    {
+extension Double {
+    func format(_    places: Int) -> String {
         return String(format: "%.\(places)f", self)
     }
 }

@@ -64,7 +64,7 @@ struct MenuSectionsSelector: View {
             }
         }
     }
-    
+
     private func scrollTo(_ section: MenuSection, proxy: ScrollViewProxy, pageProxy: ScrollViewProxy) {
         if viewModel.activeSection != section.name {
             viewModel.activeSection    =    section.name

@@ -26,7 +26,7 @@ struct MenuView: View {
                                             }
                                         }
                                         .padding()
-                                        
+
                                     }
                                     .id(section.name)
                                     .overlayDivider(.top)
@@ -34,14 +34,14 @@ struct MenuView: View {
                                         activateSection(section, in: rect)
                                     }
                                 }
-                                
+
                             }
                             .padding(.bottom, 76)
                             .onAppear {
                                 viewModel.fetchMenu()
                             }
                         }
-                        
+
                     }
                 }
                 CartButton()

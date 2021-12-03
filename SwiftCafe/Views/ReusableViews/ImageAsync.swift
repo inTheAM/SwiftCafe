@@ -7,21 +7,19 @@
 
 import SwiftUI
 
-struct ImageAsync:    View    {
-    @ObservedObject    var remoteImage:    RemoteImage
-    @Binding var accentColor:    Color?
-    
-    init(imageURL:    String,    accentColor:    Binding<Color?>    =    .constant(nil))    {
+struct ImageAsync: View {
+    @ObservedObject    var remoteImage: RemoteImage
+
+    init(imageURL: String) {
         self.remoteImage    =    .init(imageURL: imageURL)
-        self._accentColor    =    accentColor
     }
-    
-    var body: some View    {
-        if remoteImage.isLoaded    {
+
+    var body: some View {
+        if remoteImage.isLoaded {
             Image(uiImage: remoteImage.image)
                 .resizable()
                 .aspectRatio(1, contentMode: .fit)
-        }    else    {
+        } else {
             ZStack {
                 Rectangle()
                     .redacted(reason: .placeholder)

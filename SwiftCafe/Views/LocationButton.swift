@@ -10,21 +10,22 @@ import SwiftUI
 struct LocationButton: View {
     @State private var showLocation = false
     var body: some View {
-        Button(action: {
+        Button {
             showLocation = true
-        })    {
+        } label: {
             HStack {
                 Image(systemName: "location.fill")
                     .font(.subheadline)
                 Text("Location here")
-                
+
             }.font(.subheadline.bold())
                 .foregroundColor(.primary)
         }
         .padding(.horizontal, 5)
         .foregroundColor(.primary)
+        .accessibilityIdentifier("Location")
         .fullScreenCover(isPresented: $showLocation) {
-            
+
         }
     }
 }

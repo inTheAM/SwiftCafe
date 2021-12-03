@@ -16,23 +16,23 @@ struct FoodCardView: View {
         }, label: {
             HStack(alignment: .top, spacing: 0) {
                 ImageAsync(imageURL: food.imageURL)
-                
+
                 VStack(alignment: .leading) {
                     Text(food.name)
                         .font(.caption)
                         .bold()
-                    
+
                     Text(food.details)
                         .font(.caption2)
-                    
+
                     Spacer(minLength: 0)
                     HStack {
                         Spacer()
-                        
+
                         Text("$\(food.price)")
                             .font(.body.bold())
                             .foregroundColor(.primary)
-                        
+
                     }
 
                 }.padding(10)
