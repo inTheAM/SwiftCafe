@@ -10,6 +10,6 @@ import Foundation
 
 struct MockFoodDetailsService: FoodDetailsServiceProtocol {
     func fetchOptions(for foodID: UUID, completion: @escaping (Result<[OptionGroup], RequestError>) -> Void) {
-        completion(.success(OptionGroup.createItems()))
+        completion(.success(OptionGroup.samples))
     }
 }

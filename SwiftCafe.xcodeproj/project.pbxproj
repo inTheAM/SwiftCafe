@@ -17,6 +17,7 @@
 		E28ED3262759FDF600C0BB35 /* MockFoodDetailsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28ED3242759FDE500C0BB35 /* MockFoodDetailsService.swift */; };
 		E28ED3282759FE2200C0BB35 /* FoodDetailsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28ED3272759FE2200C0BB35 /* FoodDetailsService.swift */; };
 		E28ED32A2759FE6900C0BB35 /* FoodDetailsServiceFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28ED3292759FE6900C0BB35 /* FoodDetailsServiceFactory.swift */; };
+		E29B2BAA275A172B00118DAC /* FoodDetailsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29B2BA9275A172B00118DAC /* FoodDetailsViewModelTests.swift */; };
 		E2C0A1EA2744F7E5003CB51B /* SwiftCafeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C0A1E92744F7E5003CB51B /* SwiftCafeApp.swift */; };
 		E2C0A1EC2744F7E5003CB51B /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C0A1EB2744F7E5003CB51B /* HomeView.swift */; };
 		E2C0A1EE2744F7E7003CB51B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E2C0A1ED2744F7E7003CB51B /* Assets.xcassets */; };
@@ -109,6 +110,7 @@
 		E28ED3242759FDE500C0BB35 /* MockFoodDetailsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockFoodDetailsService.swift; sourceTree = "<group>"; };
 		E28ED3272759FE2200C0BB35 /* FoodDetailsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodDetailsService.swift; sourceTree = "<group>"; };
 		E28ED3292759FE6900C0BB35 /* FoodDetailsServiceFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodDetailsServiceFactory.swift; sourceTree = "<group>"; };
+		E29B2BA9275A172B00118DAC /* FoodDetailsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodDetailsViewModelTests.swift; sourceTree = "<group>"; };
 		E2C0A1E62744F7E5003CB51B /* SwiftCafe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftCafe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2C0A1E92744F7E5003CB51B /* SwiftCafeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftCafeApp.swift; sourceTree = "<group>"; };
 		E2C0A1EB2744F7E5003CB51B /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -405,6 +407,7 @@
 				E2C0A1FA2744F7E7003CB51B /* SignUpViewModelTests.swift */,
 				E2C0A231274510DF003CB51B /* SignInViewModelTests.swift */,
 				E2C0A2572745827D003CB51B /* MenuViewModelTests.swift */,
+				E29B2BA9275A172B00118DAC /* FoodDetailsViewModelTests.swift */,
 				E2C0A28927479266003CB51B /* CartTests.swift */,
 			);
 			path = Tests;
@@ -642,6 +645,7 @@
 				E2C0A232274510DF003CB51B /* SignInViewModelTests.swift in Sources */,
 				E2C0A25427458135003CB51B /* MenuSection+Samples.swift in Sources */,
 				E2C0A2562745818F003CB51B /* Food+Samples.swift in Sources */,
+				E29B2BAA275A172B00118DAC /* FoodDetailsViewModelTests.swift in Sources */,
 				E2C0A21A2744F98A003CB51B /* MockAuthService.swift in Sources */,
 				E2C0A22C2745017B003CB51B /* User+Sample.swift in Sources */,
 				E2C0A28527478FF9003CB51B /* MockCartService.swift in Sources */,
