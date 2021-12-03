@@ -18,6 +18,8 @@ struct HeaderView: View {
         }
         .padding(.horizontal)
         .padding(.vertical, 8)
+        .overlayDivider(.top)
+        .overlayDivider(.bottom)
         .background(
             ZStack {
                 Color.systemBackground

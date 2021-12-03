@@ -56,7 +56,6 @@ struct MenuSectionsSelector: View {
                     Color.white.opacity(0.2)
                 }
             )
-            .overlayDivider(.bottom)
             .onChange(of: viewModel.activeSection) { section in
                 withAnimation {
                     proxy.scrollTo(section, anchor: UnitPoint(x: 0.6, y: 0))
