@@ -18,11 +18,7 @@ struct MenuSectionsSelector: View {
                     ForEach(viewModel.sections, id: \.name) {    section    in
                         Button(action: {
                             withAnimation(.easeInOut(duration: 0.2)) {
-                                if viewModel.activeSection != section.name {
-                                    viewModel.activeSection    =    section.name
-                                    proxy.scrollTo(viewModel.activeSection, anchor: UnitPoint(x: 0.6, y: 0))
-                                    pageProxy.scrollTo(viewModel.activeSection, anchor: UnitPoint(x: 0, y: 0.1))
-                                }
+                                scrollTo(section, proxy: proxy, pageProxy: pageProxy)
                             }
                         }, label: {
                             VStack {
@@ -60,12 +56,20 @@ struct MenuSectionsSelector: View {
                     Color.white.opacity(0.2)
                 }
             )
-            .overlayDivider()
+            .overlayDivider(.bottom)
             .onChange(of: viewModel.activeSection) { section in
                 withAnimation {
                     proxy.scrollTo(section, anchor: UnitPoint(x: 0.6, y: 0))
                 }
             }
+        }
+    }
+    
+    private func scrollTo(_ section: MenuSection, proxy: ScrollViewProxy, pageProxy: ScrollViewProxy) {
+        if viewModel.activeSection != section.name {
+            viewModel.activeSection    =    section.name
+            proxy.scrollTo(viewModel.activeSection, anchor: UnitPoint(x: 0.6, y: 0))
+            pageProxy.scrollTo(viewModel.activeSection, anchor: UnitPoint(x: 0, y: 0.1))
         }
     }
 }
