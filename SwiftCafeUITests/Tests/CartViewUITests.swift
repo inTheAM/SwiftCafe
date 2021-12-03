@@ -28,6 +28,13 @@ final class CartViewUITests: XCTestCase {
         let doneButton = app.buttons["Done"]
         XCTAssert(doneButton.exists)
     }
+
+    func testDoneButtonDismissesCartView() throws {
+        let doneButton = app.buttons["Done"]
+        doneButton.tap()
+        XCTAssertFalse(doneButton.exists)
+    }
+
 // MARK: - Teardown
     override func tearDownWithError() throws {
         app.terminate()
