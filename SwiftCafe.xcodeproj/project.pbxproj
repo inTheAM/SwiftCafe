@@ -20,6 +20,8 @@
 		E29B2BAA275A172B00118DAC /* FoodDetailsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29B2BA9275A172B00118DAC /* FoodDetailsViewModelTests.swift */; };
 		E29B2BAC275A196200118DAC /* FoodDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29B2BAB275A196200118DAC /* FoodDetailsViewModel.swift */; };
 		E29B2BAE275A31EF00118DAC /* FoodDetailsViewUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29B2BAD275A31EF00118DAC /* FoodDetailsViewUITests.swift */; };
+		E29B2BB0275A396100118DAC /* FoodDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29B2BAF275A396100118DAC /* FoodDetailsView.swift */; };
+		E29B2BB2275AD48000118DAC /* CloseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29B2BB1275AD48000118DAC /* CloseButton.swift */; };
 		E2C0A1EA2744F7E5003CB51B /* SwiftCafeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C0A1E92744F7E5003CB51B /* SwiftCafeApp.swift */; };
 		E2C0A1EC2744F7E5003CB51B /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C0A1EB2744F7E5003CB51B /* HomeView.swift */; };
 		E2C0A1EE2744F7E7003CB51B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E2C0A1ED2744F7E7003CB51B /* Assets.xcassets */; };
@@ -115,6 +117,8 @@
 		E29B2BA9275A172B00118DAC /* FoodDetailsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodDetailsViewModelTests.swift; sourceTree = "<group>"; };
 		E29B2BAB275A196200118DAC /* FoodDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodDetailsViewModel.swift; sourceTree = "<group>"; };
 		E29B2BAD275A31EF00118DAC /* FoodDetailsViewUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodDetailsViewUITests.swift; sourceTree = "<group>"; };
+		E29B2BAF275A396100118DAC /* FoodDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodDetailsView.swift; sourceTree = "<group>"; };
+		E29B2BB1275AD48000118DAC /* CloseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloseButton.swift; sourceTree = "<group>"; };
 		E2C0A1E62744F7E5003CB51B /* SwiftCafe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftCafe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2C0A1E92744F7E5003CB51B /* SwiftCafeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftCafeApp.swift; sourceTree = "<group>"; };
 		E2C0A1EB2744F7E5003CB51B /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -303,6 +307,7 @@
 				E2C0A25B274586BF003CB51B /* MenuView.swift */,
 				E2C0A25F27458A56003CB51B /* MenuSectionsSelector.swift */,
 				E2C0A2632746269B003CB51B /* FoodCardView.swift */,
+				E29B2BAF275A396100118DAC /* FoodDetailsView.swift */,
 				E2C0A2942747A41B003CB51B /* CartView.swift */,
 				E2C0A28F27479F4F003CB51B /* CartButton.swift */,
 				E28ED31D2759E70100C0BB35 /* LocationButton.swift */,
@@ -382,6 +387,7 @@
 				E2C0A23D2745382B003CB51B /* BackButton.swift */,
 				E2C0A2962747A5DB003CB51B /* DoneButton.swift */,
 				E2C0A267274628D8003CB51B /* HeaderView.swift */,
+				E29B2BB1275AD48000118DAC /* CloseButton.swift */,
 				E28ED31B2759E3BE00C0BB35 /* ImageAsync.swift */,
 			);
 			path = ReusableViews;
@@ -597,6 +603,7 @@
 				E2C0A28227478EE6003CB51B /* CartService.swift in Sources */,
 				E28ED3162759D91F00C0BB35 /* Double.swift in Sources */,
 				E2C0A28D27479312003CB51B /* CartServiceFactory.swift in Sources */,
+				E29B2BB2275AD48000118DAC /* CloseButton.swift in Sources */,
 				E2C0A24C27457E2A003CB51B /* Food.swift in Sources */,
 				E2C0A24A27457DEE003CB51B /* MenuSection.swift in Sources */,
 				E2C0A21C2744FACF003CB51B /* AuthService.swift in Sources */,
@@ -625,6 +632,7 @@
 				E28ED31E2759E70100C0BB35 /* LocationButton.swift in Sources */,
 				E2C0A2342745115C003CB51B /* SignInViewModel.swift in Sources */,
 				E2C0A22927450027003CB51B /* APIService.swift in Sources */,
+				E29B2BB0275A396100118DAC /* FoodDetailsView.swift in Sources */,
 				E2C0A27B274654DB003CB51B /* MenuServiceFactory.swift in Sources */,
 				E2C0A23E2745382B003CB51B /* BackButton.swift in Sources */,
 				E2C0A27327463C62003CB51B /* MockMenuService.swift in Sources */,
