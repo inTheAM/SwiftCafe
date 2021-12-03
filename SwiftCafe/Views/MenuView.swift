@@ -11,39 +11,42 @@ struct MenuView: View {
     @StateObject var viewModel = MenuViewModel()
 
     var body: some View {
-        ZStack {
-            ScrollViewReader { pageProxy in
-                VStack(spacing: 0) {
-                    MenuSectionsSelector(viewModel: viewModel, pageProxy: pageProxy)
-                    ScrollView(showsIndicators: false) {
-                        LazyVStack(spacing: 0, pinnedViews: [.sectionHeaders]) {
-                            ForEach(viewModel.sections) { section in
-                                Section(header: HeaderView(title: section.name)) {
-                                    VStack {
-                                        ForEach(section.items) { food in
-                                            FoodCardView(food: food)
+        NavigationView {
+            ZStack {
+                ScrollViewReader { pageProxy in
+                    VStack(spacing: 0) {
+                        MenuSectionsSelector(viewModel: viewModel, pageProxy: pageProxy)
+                        ScrollView(showsIndicators: false) {
+                            LazyVStack(spacing: 0, pinnedViews: [.sectionHeaders]) {
+                                ForEach(viewModel.sections) { section in
+                                    Section(header: HeaderView(title: section.name)) {
+                                        VStack {
+                                            ForEach(section.items) { food in
+                                                FoodCardView(food: food)
+                                            }
                                         }
+                                        .padding()
+                                        
                                     }
-                                    .padding()
-
+                                    .id(section.name)
+                                    .overlayDivider(.top)
+                                    .readOffset { rect in
+                                        activateSection(section, in: rect)
+                                    }
                                 }
-                                .id(section.name)
-                                .overlayDivider(.top)
-                                .readOffset { rect in
-                                    activateSection(section, in: rect)
-                                }
+                                
                             }
-
+                            .padding(.bottom, 76)
+                            .onAppear {
+                                viewModel.fetchMenu()
+                            }
                         }
-                        .padding(.bottom, 76)
-                        .onAppear {
-                            viewModel.fetchMenu()
-                        }
+                        
                     }
-
                 }
+                CartButton()
             }
-            CartButton()
+            .navigationBarTitleDisplayMode(.inline)
         }
     }
 
