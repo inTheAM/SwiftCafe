@@ -9,7 +9,6 @@ import SwiftUI
 
 struct MenuView: View {
     @StateObject var viewModel = MenuViewModel()
-    @State private var isFlashing = false
 
     var body: some View {
         ZStack {
@@ -26,7 +25,6 @@ struct MenuView: View {
                                         }
                                     }
                                     .padding()
-                                    .overlay(flash(section.name))
 
                                 }
                                 .id(section.name)
@@ -46,12 +44,6 @@ struct MenuView: View {
                 }
             }
             CartButton()
-        }
-    }
-
-    @ViewBuilder private func flash (_ section: String) -> some View {
-        if isFlashing && section == viewModel.activeSection {
-            Color.primary.opacity(0.1)
         }
     }
 
