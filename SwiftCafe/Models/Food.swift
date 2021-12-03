@@ -13,7 +13,7 @@ struct Food: Identifiable {
     var details: String
     var options: [OptionGroup]
     var extras: [Extra]
-    var price: Double
+    var price: Int
     var imageURL: String
     var stockQuantity: Int
 }
@@ -59,7 +59,7 @@ extension Food: Codable {
         details    =    try    container.decode(String.self, forKey: .details)
         options =   try container.decode([OptionGroup].self, forKey: .options)
         extras =   try container.decode([Extra].self, forKey: .options)
-        price    =    try container.decode(Double.self, forKey: .price)
+        price    =    try container.decode(Int.self, forKey: .price)
         imageURL    =    try    container.decode(String.self, forKey: .imageURL)
         stockQuantity    =    try    container.decode(Int.self, forKey: .stockQuantity)
     }
