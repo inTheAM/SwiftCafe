@@ -9,5 +9,7 @@ import Foundation
 @testable import SwiftCafe
 
 struct MockFoodDetailsService: FoodDetailsServiceProtocol {
-    
+    func fetchOptions(for foodID: UUID, completion: @escaping (Result<[OptionGroup], RequestError>) -> Void) {
+        completion(.success(OptionGroup.createItems()))
+    }
 }
