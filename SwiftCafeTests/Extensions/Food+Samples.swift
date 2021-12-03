@@ -19,7 +19,7 @@ extension Food {
                      options: [],
                      extras: [],
                      price: 1000,
-                     imageURL: "",
+                     imageURL: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTP68GaMxj6iSn18pYEVZyW0lLLYgbEzbdmFQ&usqp=CAU",
                      stockQuantity: 20))
         }
         return items
