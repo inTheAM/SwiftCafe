@@ -13,7 +13,7 @@ final class MenuViewUITests: XCTestCase {
 
 // MARK: - Setup
     override func setUpWithError() throws {
-        app.launchWithTestEnvironment()
+        app.launchInTestEnvironment()
     }
 
 // MARK: - Tests
@@ -30,6 +30,11 @@ final class MenuViewUITests: XCTestCase {
     func testCartButtonExists() throws {
         let cartButton = app.buttons["Cart"]
         XCTAssert(cartButton.exists)
+    }
+
+    func testLocationButtonExists() throws {
+        let locationButton = app.buttons["Location"]
+        XCTAssert(locationButton.exists)
     }
 
 // MARK: - Teardown

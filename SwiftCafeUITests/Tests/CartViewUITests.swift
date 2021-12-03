@@ -13,7 +13,7 @@ final class CartViewUITests: XCTestCase {
 
 // MARK: - Setup
     override func setUpWithError() throws {
-        app.launchWithTestEnvironment()
+        app.launchInTestEnvironment()
         let cartButton = app.buttons["Cart"]
         cartButton.tap()
     }

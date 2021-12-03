@@ -22,7 +22,6 @@ struct ImageAsync: View {
         } else {
             ZStack {
                 Rectangle()
-                    .redacted(reason: .placeholder)
                     .foregroundColor(.gray)
                     .aspectRatio(contentMode: .fit)
                     .opacity(0.5)
