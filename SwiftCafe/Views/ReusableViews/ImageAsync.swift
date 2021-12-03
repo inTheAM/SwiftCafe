@@ -30,6 +30,7 @@ struct ImageAsync:    View    {
                     .opacity(0.5)
                 Image(systemName: "photo")
                     .renderingMode(.original)
+                    .foregroundColor(.black.opacity(0.6))
             }
         }
     }

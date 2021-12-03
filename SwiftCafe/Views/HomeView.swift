@@ -11,13 +11,11 @@ struct HomeView: View {
     @State private var isLoggedIn = AuthServiceFactory.create().token != nil
 
     var body: some View {
-        NavigationView {
             if isLoggedIn {
                 MenuView()
             } else {
                 SignInView(isLoggedIn: $isLoggedIn)
             }
-        }
     }
 }
 
