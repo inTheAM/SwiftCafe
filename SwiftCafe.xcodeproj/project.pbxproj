@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E28ED3162759D91F00C0BB35 /* Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28ED3152759D91F00C0BB35 /* Double.swift */; };
 		E2C0A1EA2744F7E5003CB51B /* SwiftCafeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C0A1E92744F7E5003CB51B /* SwiftCafeApp.swift */; };
 		E2C0A1EC2744F7E5003CB51B /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C0A1EB2744F7E5003CB51B /* HomeView.swift */; };
 		E2C0A1EE2744F7E7003CB51B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E2C0A1ED2744F7E7003CB51B /* Assets.xcassets */; };
@@ -91,6 +92,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E28ED3152759D91F00C0BB35 /* Double.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Double.swift; sourceTree = "<group>"; };
 		E2C0A1E62744F7E5003CB51B /* SwiftCafe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftCafe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2C0A1E92744F7E5003CB51B /* SwiftCafeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftCafeApp.swift; sourceTree = "<group>"; };
 		E2C0A1EB2744F7E5003CB51B /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -341,6 +343,7 @@
 			children = (
 				E2C0A23A2745372E003CB51B /* View.swift */,
 				E2C0A24327457630003CB51B /* Color.swift */,
+				E28ED3152759D91F00C0BB35 /* Double.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -557,6 +560,7 @@
 				E2C0A24827457D0E003CB51B /* MenuService.swift in Sources */,
 				E2C0A28427478FF9003CB51B /* MockCartService.swift in Sources */,
 				E2C0A28227478EE6003CB51B /* CartService.swift in Sources */,
+				E28ED3162759D91F00C0BB35 /* Double.swift in Sources */,
 				E2C0A28D27479312003CB51B /* CartServiceFactory.swift in Sources */,
 				E2C0A24C27457E2A003CB51B /* Food.swift in Sources */,
 				E2C0A24A27457DEE003CB51B /* MenuSection.swift in Sources */,
