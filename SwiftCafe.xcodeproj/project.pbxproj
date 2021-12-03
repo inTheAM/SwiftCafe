@@ -13,6 +13,10 @@
 		E28ED31E2759E70100C0BB35 /* LocationButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28ED31D2759E70100C0BB35 /* LocationButton.swift */; };
 		E28ED3202759FBD400C0BB35 /* OptionGroup+Samples.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28ED31F2759FBD400C0BB35 /* OptionGroup+Samples.swift */; };
 		E28ED3212759FBEE00C0BB35 /* OptionGroup+Samples.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28ED31F2759FBD400C0BB35 /* OptionGroup+Samples.swift */; };
+		E28ED3252759FDE500C0BB35 /* MockFoodDetailsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28ED3242759FDE500C0BB35 /* MockFoodDetailsService.swift */; };
+		E28ED3262759FDF600C0BB35 /* MockFoodDetailsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28ED3242759FDE500C0BB35 /* MockFoodDetailsService.swift */; };
+		E28ED3282759FE2200C0BB35 /* FoodDetailsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28ED3272759FE2200C0BB35 /* FoodDetailsService.swift */; };
+		E28ED32A2759FE6900C0BB35 /* FoodDetailsServiceFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28ED3292759FE6900C0BB35 /* FoodDetailsServiceFactory.swift */; };
 		E2C0A1EA2744F7E5003CB51B /* SwiftCafeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C0A1E92744F7E5003CB51B /* SwiftCafeApp.swift */; };
 		E2C0A1EC2744F7E5003CB51B /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C0A1EB2744F7E5003CB51B /* HomeView.swift */; };
 		E2C0A1EE2744F7E7003CB51B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E2C0A1ED2744F7E7003CB51B /* Assets.xcassets */; };
@@ -102,6 +106,9 @@
 		E28ED31B2759E3BE00C0BB35 /* ImageAsync.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAsync.swift; sourceTree = "<group>"; };
 		E28ED31D2759E70100C0BB35 /* LocationButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationButton.swift; sourceTree = "<group>"; };
 		E28ED31F2759FBD400C0BB35 /* OptionGroup+Samples.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "OptionGroup+Samples.swift"; sourceTree = "<group>"; };
+		E28ED3242759FDE500C0BB35 /* MockFoodDetailsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockFoodDetailsService.swift; sourceTree = "<group>"; };
+		E28ED3272759FE2200C0BB35 /* FoodDetailsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodDetailsService.swift; sourceTree = "<group>"; };
+		E28ED3292759FE6900C0BB35 /* FoodDetailsServiceFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodDetailsServiceFactory.swift; sourceTree = "<group>"; };
 		E2C0A1E62744F7E5003CB51B /* SwiftCafe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftCafe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2C0A1E92744F7E5003CB51B /* SwiftCafeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftCafeApp.swift; sourceTree = "<group>"; };
 		E2C0A1EB2744F7E5003CB51B /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -304,6 +311,7 @@
 				E2C0A21B2744FACF003CB51B /* AuthService.swift */,
 				E2C0A24727457D0E003CB51B /* MenuService.swift */,
 				E2C0A28127478EE6003CB51B /* CartService.swift */,
+				E28ED3272759FE2200C0BB35 /* FoodDetailsService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -324,6 +332,7 @@
 				E2C0A2192744F98A003CB51B /* MockAuthService.swift */,
 				E2C0A24527457CC9003CB51B /* MockMenuService.swift */,
 				E2C0A28327478FF9003CB51B /* MockCartService.swift */,
+				E28ED3242759FDE500C0BB35 /* MockFoodDetailsService.swift */,
 			);
 			path = MockServices;
 			sourceTree = "<group>";
@@ -377,6 +386,7 @@
 				E2C0A26A274639F6003CB51B /* AuthServiceFactory.swift */,
 				E2C0A27A274654DB003CB51B /* MenuServiceFactory.swift */,
 				E2C0A28C27479311003CB51B /* CartServiceFactory.swift */,
+				E28ED3292759FE6900C0BB35 /* FoodDetailsServiceFactory.swift */,
 			);
 			path = ServiceFactories;
 			sourceTree = "<group>";
@@ -568,6 +578,7 @@
 				E2C0A23B2745372E003CB51B /* View.swift in Sources */,
 				E2C0A25C274586BF003CB51B /* MenuView.swift in Sources */,
 				E2C0A2502745801F003CB51B /* OptionGroup.swift in Sources */,
+				E28ED32A2759FE6900C0BB35 /* FoodDetailsServiceFactory.swift in Sources */,
 				E2C0A2252744FC97003CB51B /* RequestError.swift in Sources */,
 				E2C0A29027479F4F003CB51B /* CartButton.swift in Sources */,
 				E2C0A2222744FC47003CB51B /* NetworkManager.swift in Sources */,
@@ -579,8 +590,10 @@
 				E2C0A24C27457E2A003CB51B /* Food.swift in Sources */,
 				E2C0A24A27457DEE003CB51B /* MenuSection.swift in Sources */,
 				E2C0A21C2744FACF003CB51B /* AuthService.swift in Sources */,
+				E28ED3262759FDF600C0BB35 /* MockFoodDetailsService.swift in Sources */,
 				E2C0A25227458046003CB51B /* Extra.swift in Sources */,
 				E2C0A1EC2744F7E5003CB51B /* HomeView.swift in Sources */,
+				E28ED3282759FE2200C0BB35 /* FoodDetailsService.swift in Sources */,
 				E2C0A26027458A56003CB51B /* MenuSectionsSelector.swift in Sources */,
 				E2C0A2972747A5DB003CB51B /* DoneButton.swift in Sources */,
 				E2C0A25E2745872C003CB51B /* OffsetKey.swift in Sources */,
@@ -619,6 +632,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E28ED3252759FDE500C0BB35 /* MockFoodDetailsService.swift in Sources */,
 				E2C0A1FB2744F7E7003CB51B /* SignUpViewModelTests.swift in Sources */,
 				E2C0A22E274503E6003CB51B /* XCTestCase+Await.swift in Sources */,
 				E2C0A2582745827D003CB51B /* MenuViewModelTests.swift in Sources */,
