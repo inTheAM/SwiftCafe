@@ -9,9 +9,11 @@ import SwiftUI
 
 @main
 struct SwiftCafeApp: App {
+    @ObservedObject var cart = Cart()
     var body: some Scene {
         WindowGroup {
             HomeView()
+                .environmentObject(cart)
         }
     }
 }
