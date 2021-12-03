@@ -17,21 +17,21 @@ struct ImageAsync:    View    {
     }
     
     var body: some View    {
-//        if remoteImage.isLoaded    {
+        if remoteImage.isLoaded    {
             Image(uiImage: remoteImage.image)
                 .resizable()
                 .aspectRatio(1, contentMode: .fit)
-//        }    else    {
-//            ZStack {
-//                Rectangle()
-//                    .redacted(reason: .placeholder)
-//                    .foregroundColor(.gray)
-//                    .aspectRatio(contentMode: .fit)
-//                    .opacity(0.5)
-//                Image(systemName: "photo")
-//                    .renderingMode(.original)
-//            }
-//        }
+        }    else    {
+            ZStack {
+                Rectangle()
+                    .redacted(reason: .placeholder)
+                    .foregroundColor(.gray)
+                    .aspectRatio(contentMode: .fit)
+                    .opacity(0.5)
+                Image(systemName: "photo")
+                    .renderingMode(.original)
+            }
+        }
     }
 }
 
