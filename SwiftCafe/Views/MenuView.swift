@@ -47,6 +47,11 @@ struct MenuView: View {
                 CartButton()
             }
             .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    LocationButton()
+                }
+            }
         }
     }
 

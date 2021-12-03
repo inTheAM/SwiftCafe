@@ -10,6 +10,7 @@
 		E28ED3162759D91F00C0BB35 /* Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28ED3152759D91F00C0BB35 /* Double.swift */; };
 		E28ED3182759E25C00C0BB35 /* RemoteImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28ED3172759E25C00C0BB35 /* RemoteImage.swift */; };
 		E28ED31C2759E3BE00C0BB35 /* ImageAsync.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28ED31B2759E3BE00C0BB35 /* ImageAsync.swift */; };
+		E28ED31E2759E70100C0BB35 /* LocationButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28ED31D2759E70100C0BB35 /* LocationButton.swift */; };
 		E2C0A1EA2744F7E5003CB51B /* SwiftCafeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C0A1E92744F7E5003CB51B /* SwiftCafeApp.swift */; };
 		E2C0A1EC2744F7E5003CB51B /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C0A1EB2744F7E5003CB51B /* HomeView.swift */; };
 		E2C0A1EE2744F7E7003CB51B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E2C0A1ED2744F7E7003CB51B /* Assets.xcassets */; };
@@ -97,6 +98,7 @@
 		E28ED3152759D91F00C0BB35 /* Double.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Double.swift; sourceTree = "<group>"; };
 		E28ED3172759E25C00C0BB35 /* RemoteImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteImage.swift; sourceTree = "<group>"; };
 		E28ED31B2759E3BE00C0BB35 /* ImageAsync.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAsync.swift; sourceTree = "<group>"; };
+		E28ED31D2759E70100C0BB35 /* LocationButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationButton.swift; sourceTree = "<group>"; };
 		E2C0A1E62744F7E5003CB51B /* SwiftCafe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftCafe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2C0A1E92744F7E5003CB51B /* SwiftCafeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftCafeApp.swift; sourceTree = "<group>"; };
 		E2C0A1EB2744F7E5003CB51B /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -286,6 +288,7 @@
 				E2C0A2632746269B003CB51B /* FoodCardView.swift */,
 				E2C0A2942747A41B003CB51B /* CartView.swift */,
 				E2C0A28F27479F4F003CB51B /* CartButton.swift */,
+				E28ED31D2759E70100C0BB35 /* LocationButton.swift */,
 				E2C0A23C2745381C003CB51B /* ReusableViews */,
 			);
 			path = Views;
@@ -592,6 +595,7 @@
 				E2C0A2642746269B003CB51B /* FoodCardView.swift in Sources */,
 				E2C0A240274548DA003CB51B /* SignInView.swift in Sources */,
 				E2C0A1EA2744F7E5003CB51B /* SwiftCafeApp.swift in Sources */,
+				E28ED31E2759E70100C0BB35 /* LocationButton.swift in Sources */,
 				E2C0A2342745115C003CB51B /* SignInViewModel.swift in Sources */,
 				E2C0A22927450027003CB51B /* APIService.swift in Sources */,
 				E2C0A27B274654DB003CB51B /* MenuServiceFactory.swift in Sources */,
