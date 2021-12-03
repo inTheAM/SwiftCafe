@@ -10,21 +10,26 @@ import XCTest
 
 final class FoodDetailsViewModelTests: XCTestCase {
     private var viewModel: FoodDetailsViewModel!
-    
-//    MARK: - Setup
+
+// MARK: - Setup
     override func setUpWithError() throws {
         let service = MockFoodDetailsService()
-        viewModel = FoodDetailsViewModel(service: service)
+        let food = MenuSection.samples[0].items[0]
+        viewModel = FoodDetailsViewModel(food: food, service: service)
     }
-    
-//    MARK: - Tests
+
+// MARK: - Tests
     func testFetchingOptions() throws {
+        let foodPublisher = viewModel.$food
+            .dropFirst()
+            .first()
         viewModel.fetchOptions()
-        XCTAssertEqual(viewModel.options.count, OptionGroup.samples.count)
-        XCTAssertEqual(viewModel.options[0].name, OptionGroup.samples[0].name)
+        let food = try awaitResult(from: foodPublisher)
+        XCTAssertEqual(food.options.count, OptionGroup.samples.count)
+        XCTAssertEqual(food.options[0].name, OptionGroup.samples[0].name)
     }
-    
-//    MARK: - Teardown
+
+// MARK: - Teardown
     override func tearDownWithError() throws {
         viewModel = nil
     }
