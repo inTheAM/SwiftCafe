@@ -8,8 +8,8 @@
 import SwiftUI
 
 extension View {
-    func overlayDivider()    ->    some View {
-        return self.overlay(Divider(), alignment: .bottom)
+    func overlayDivider(_ alignment: Alignment)    ->    some View {
+        return self.overlay(Divider(), alignment: alignment)
     }
 
     func readOffset(_ offsetHandler: @escaping (_ rect: CGRect) -> Void) -> some View {

@@ -30,13 +30,14 @@ struct MenuView: View {
 
                                 }
                                 .id(section.name)
-                                .overlayDivider()
+                                .overlayDivider(.top)
                                 .readOffset { rect in
                                     activateSection(section, in: rect)
                                 }
                             }
 
                         }
+                        .padding(.bottom, 76)
                         .onAppear {
                             viewModel.fetchMenu()
                         }
