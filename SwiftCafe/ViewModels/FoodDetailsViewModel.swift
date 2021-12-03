@@ -10,6 +10,26 @@ import Foundation
 final class FoodDetailsViewModel: ObservableObject {
     private let service: FoodDetailsServiceProtocol
     @Published var food: Food
+    @Published var quantity = 1
+
+    var name: String {
+        food.name
+    }
+    var details: String {
+        food.details
+    }
+    var imageURL: String {
+        food.imageURL
+    }
+    var stockQuantity: Int {
+        food.stockQuantity
+    }
+    var price: String {
+        "$\(food.price)"
+    }
+    var totalPrice: String {
+        "$\(food.price * quantity)"
+    }
 
     init(food: Food, service: FoodDetailsServiceProtocol = FoodDetailsServiceFactory.create()) {
         self.service = service
