@@ -19,11 +19,21 @@ final class MenuViewModelTests: XCTestCase {
 
 // MARK: - Tests
     func testFetchingMenu() throws {
+        let sectionsPublisher = viewModel.$sections
+            .first()
+        let activeSectionPublisher = viewModel.$activeSection
+            .first()
+
         viewModel.fetchMenu()
-        XCTAssertEqual(self.viewModel.sections.count, MenuSection.samples.count)
-        XCTAssertEqual(self.viewModel.sections[0].id, MenuSection.samples[0].id)
-        XCTAssertEqual(self.viewModel.sections[1].name, MenuSection.samples[1].name)
-        XCTAssertEqual(self.viewModel.sections[2].items.last?.id, MenuSection.samples[2].items.last?.id)
+
+        let sections = try awaitResult(from: sectionsPublisher)
+        let activeSection = try awaitResult(from: activeSectionPublisher)
+
+        XCTAssertEqual(sections.count, MenuSection.samples.count)
+        XCTAssertEqual(sections[0].id, MenuSection.samples[0].id)
+        XCTAssertEqual(activeSection, MenuSection.samples[0].name)
+        XCTAssertEqual(sections[1].name, MenuSection.samples[1].name)
+        XCTAssertEqual(sections[2].items.last?.id, MenuSection.samples[2].items.last?.id)
     }
 
     // MARK: - Teardown
