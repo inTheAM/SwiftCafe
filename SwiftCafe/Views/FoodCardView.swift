@@ -29,7 +29,6 @@ struct FoodCardView: View {
 
                         Text("\(food.price)")
                             .foregroundColor(.secondary)
-                            .strikethrough()
 
                     }
 
