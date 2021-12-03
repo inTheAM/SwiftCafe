@@ -13,10 +13,11 @@ struct HeaderView: View {
     var body: some View {
         HStack {
             Text(title)
-                .font(.title.bold())
+                .font(.title3.bold())
             Spacer()
         }
-        .padding()
+        .padding(.horizontal)
+        .padding(.vertical, 8)
         .background(
             ZStack {
                 Color.systemBackground
