@@ -11,6 +11,8 @@
 		E28ED3182759E25C00C0BB35 /* RemoteImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28ED3172759E25C00C0BB35 /* RemoteImage.swift */; };
 		E28ED31C2759E3BE00C0BB35 /* ImageAsync.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28ED31B2759E3BE00C0BB35 /* ImageAsync.swift */; };
 		E28ED31E2759E70100C0BB35 /* LocationButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28ED31D2759E70100C0BB35 /* LocationButton.swift */; };
+		E28ED3202759FBD400C0BB35 /* OptionGroup+Samples.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28ED31F2759FBD400C0BB35 /* OptionGroup+Samples.swift */; };
+		E28ED3212759FBEE00C0BB35 /* OptionGroup+Samples.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28ED31F2759FBD400C0BB35 /* OptionGroup+Samples.swift */; };
 		E2C0A1EA2744F7E5003CB51B /* SwiftCafeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C0A1E92744F7E5003CB51B /* SwiftCafeApp.swift */; };
 		E2C0A1EC2744F7E5003CB51B /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C0A1EB2744F7E5003CB51B /* HomeView.swift */; };
 		E2C0A1EE2744F7E7003CB51B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E2C0A1ED2744F7E7003CB51B /* Assets.xcassets */; };
@@ -99,6 +101,7 @@
 		E28ED3172759E25C00C0BB35 /* RemoteImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteImage.swift; sourceTree = "<group>"; };
 		E28ED31B2759E3BE00C0BB35 /* ImageAsync.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAsync.swift; sourceTree = "<group>"; };
 		E28ED31D2759E70100C0BB35 /* LocationButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationButton.swift; sourceTree = "<group>"; };
+		E28ED31F2759FBD400C0BB35 /* OptionGroup+Samples.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "OptionGroup+Samples.swift"; sourceTree = "<group>"; };
 		E2C0A1E62744F7E5003CB51B /* SwiftCafe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftCafe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2C0A1E92744F7E5003CB51B /* SwiftCafeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftCafeApp.swift; sourceTree = "<group>"; };
 		E2C0A1EB2744F7E5003CB51B /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -340,6 +343,7 @@
 				E2C0A22B2745017B003CB51B /* User+Sample.swift */,
 				E2C0A25327458135003CB51B /* MenuSection+Samples.swift */,
 				E2C0A2552745818F003CB51B /* Food+Samples.swift */,
+				E28ED31F2759FBD400C0BB35 /* OptionGroup+Samples.swift */,
 				E2C0A28627479072003CB51B /* CartEntry+Samples.swift */,
 				E2C0A22D274503E6003CB51B /* XCTestCase+Await.swift */,
 			);
@@ -606,6 +610,7 @@
 				E2C0A27027463C5C003CB51B /* MenuSection+Samples.swift in Sources */,
 				E28ED3182759E25C00C0BB35 /* RemoteImage.swift in Sources */,
 				E2C0A27927465455003CB51B /* Keychain.swift in Sources */,
+				E28ED3212759FBEE00C0BB35 /* OptionGroup+Samples.swift in Sources */,
 				E2C0A27E27478B52003CB51B /* Cart.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -619,6 +624,7 @@
 				E2C0A2582745827D003CB51B /* MenuViewModelTests.swift in Sources */,
 				E2C0A24627457CC9003CB51B /* MockMenuService.swift in Sources */,
 				E2C0A28827479072003CB51B /* CartEntry+Samples.swift in Sources */,
+				E28ED3202759FBD400C0BB35 /* OptionGroup+Samples.swift in Sources */,
 				E2C0A232274510DF003CB51B /* SignInViewModelTests.swift in Sources */,
 				E2C0A25427458135003CB51B /* MenuSection+Samples.swift in Sources */,
 				E2C0A2562745818F003CB51B /* Food+Samples.swift in Sources */,
