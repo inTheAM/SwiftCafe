@@ -41,7 +41,7 @@ struct FoodCardView: View {
             .cardify()
             .padding(.vertical, 5)
             .fullScreenCover(isPresented: $showDetails) {
-                Text("Food details")
+                FoodDetailsView(food: food)
             }
         })
         .accessibilityIdentifier(food.name)
