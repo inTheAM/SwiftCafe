@@ -15,6 +15,8 @@ struct FoodCardView: View {
             showDetails    =    true
         }, label: {
             HStack(alignment: .top, spacing: 0) {
+                ImageAsync(imageURL: food.imageURL)
+                
                 VStack(alignment: .leading) {
                     Text(food.name)
                         .font(.caption)
