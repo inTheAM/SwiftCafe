@@ -19,8 +19,7 @@ struct FoodCardView: View {
 
                 VStack(alignment: .leading) {
                     Text(food.name)
-                        .font(.caption)
-                        .bold()
+                        .font(.headline)
 
                     Text(food.details)
                         .font(.caption2)
