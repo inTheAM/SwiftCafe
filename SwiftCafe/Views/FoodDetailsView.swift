@@ -37,7 +37,7 @@ struct FoodDetailsView: View {
             .padding(.horizontal)
             .padding(.vertical, 8)
             .overlayDivider(.bottom)
-            
+
             FoodDetailsFooterView(viewModel: viewModel)
         }
     }

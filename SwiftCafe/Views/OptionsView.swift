@@ -11,7 +11,6 @@ struct OptionsView: View {
     @ObservedObject var viewModel: FoodDetailsViewModel
     let optionGroup: OptionGroup
     @State private var selection: Option?
-    @Namespace var namespace
 
     var body: some View {
         VStack(alignment: .leading) {
@@ -39,7 +38,7 @@ struct OptionsView: View {
                     HStack {
                         Text(option.name)
                         Spacer()
-                        CheckBox(isSelected: selection == option, namespace: namespace)
+                        CheckBox(isSelected: selection == option)
                     }
                 }
                 .buttonStyle(PlainButtonStyle())
@@ -48,7 +47,9 @@ struct OptionsView: View {
         }
         .padding(10)
         .cardify()
-        .padding()
+        .padding(.horizontal)
+        .padding(.vertical, 8)
+        .animation(.default)
     }
 }
 

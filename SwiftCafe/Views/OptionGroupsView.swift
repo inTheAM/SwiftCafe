@@ -20,7 +20,7 @@ struct OptionGroupsView: View {
                     OptionsView(viewModel: viewModel, optionGroup: optionGroup)
                 }
             }
-            .padding(.horizontal)
+//            .padding(.horizontal)
         }
     }
 }
