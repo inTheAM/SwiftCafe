@@ -96,11 +96,11 @@ final class SignInViewModelTests: XCTestCase {
     func testSigningInWithValidCredentials() throws {
         viewModel.email = User.sample.email
         viewModel.password = User.sample.password
-        var isSignedIn = false
+        let expectation = XCTestExpectation(description: "Sign in was successful")
         viewModel.signIn {
-            isSignedIn = true
+            expectation.fulfill()
         }
-        XCTAssertTrue(isSignedIn)
+        wait(for: [expectation], timeout: 10)
     }
 
     func testSigningInWithInvalidCredentials() throws {

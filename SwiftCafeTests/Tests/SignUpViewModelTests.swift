@@ -177,11 +177,11 @@ final class SignUpViewModelTests: XCTestCase {
     func testSigningUpWithValidCredentials() throws {
         viewModel.email = "wrongemail@gmail.com"
         viewModel.password = "Passwordetc"
-        var isSignedIn = false
+        let expectation = XCTestExpectation(description: "Sign in was successful")
         viewModel.signUp {
-            isSignedIn = true
+            expectation.fulfill()
         }
-        XCTAssertTrue(isSignedIn)
+        wait(for: [expectation], timeout: 10)
     }
 
     func testSigningUpWithInvalidCredentials() throws {

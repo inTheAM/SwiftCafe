@@ -7,7 +7,6 @@
 
 import SwiftUI
 
-
 struct CloseButton: View {
     @Binding var presentationMode: PresentationMode
     var body: some View {
