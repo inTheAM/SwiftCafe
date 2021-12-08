@@ -90,6 +90,7 @@
 		E2F4E3552760E107001D509C /* CheckBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F4E3542760E107001D509C /* CheckBox.swift */; };
 		E2F4E3572760E242001D509C /* OptionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F4E3562760E242001D509C /* OptionsView.swift */; };
 		E2F4E3592760E330001D509C /* FoodDetailsHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F4E3582760E330001D509C /* FoodDetailsHeaderView.swift */; };
+		E2F4E35B2760EE5E001D509C /* FoodDetailsFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F4E35A2760EE5E001D509C /* FoodDetailsFooterView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -187,6 +188,7 @@
 		E2F4E3542760E107001D509C /* CheckBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckBox.swift; sourceTree = "<group>"; };
 		E2F4E3562760E242001D509C /* OptionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsView.swift; sourceTree = "<group>"; };
 		E2F4E3582760E330001D509C /* FoodDetailsHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodDetailsHeaderView.swift; sourceTree = "<group>"; };
+		E2F4E35A2760EE5E001D509C /* FoodDetailsFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodDetailsFooterView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -317,6 +319,7 @@
 				E2C0A2632746269B003CB51B /* FoodCardView.swift */,
 				E29B2BAF275A396100118DAC /* FoodDetailsView.swift */,
 				E2F4E3582760E330001D509C /* FoodDetailsHeaderView.swift */,
+				E2F4E35A2760EE5E001D509C /* FoodDetailsFooterView.swift */,
 				E2F4E35227609458001D509C /* OptionGroupsView.swift */,
 				E2F4E3562760E242001D509C /* OptionsView.swift */,
 				E2C0A2942747A41B003CB51B /* CartView.swift */,
@@ -622,6 +625,7 @@
 				E28ED3262759FDF600C0BB35 /* MockFoodDetailsService.swift in Sources */,
 				E2C0A25227458046003CB51B /* Extra.swift in Sources */,
 				E2C0A1EC2744F7E5003CB51B /* HomeView.swift in Sources */,
+				E2F4E35B2760EE5E001D509C /* FoodDetailsFooterView.swift in Sources */,
 				E28ED3282759FE2200C0BB35 /* FoodDetailsService.swift in Sources */,
 				E2C0A26027458A56003CB51B /* MenuSectionsSelector.swift in Sources */,
 				E2C0A2972747A5DB003CB51B /* DoneButton.swift in Sources */,
