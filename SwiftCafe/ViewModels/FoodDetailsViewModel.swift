@@ -18,6 +18,9 @@ final class FoodDetailsViewModel: ObservableObject {
     var details: String {
         food.details
     }
+    var options: [OptionGroup] {
+        food.options
+    }
     var imageURL: String {
         food.imageURL
     }

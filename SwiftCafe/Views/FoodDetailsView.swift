@@ -20,25 +20,38 @@ struct FoodDetailsView: View {
         VStack {
             HStack(alignment: .top) {
                 ImageAsync(imageURL: viewModel.imageURL)
-                    .frame(width: 80, height: 80)
+                    .frame(width: 160, height: 160)
                     .accessibility(addTraits: .isImage)
                     .accessibilityIdentifier("\(viewModel.name) photo")
+                VStack {
+                    HStack {
+                        VStack(alignment: .leading) {
+                            Text(viewModel.name)
+                                .bold()
+                                .accessibilityIdentifier("\(viewModel.name) name header")
 
-                VStack(alignment: .leading) {
-                    Text(viewModel.name)
-                        .bold()
-                        .accessibilityIdentifier("\(viewModel.name) name header")
+                            Text(viewModel.details)
+                                .font(.caption)
+                                .accessibilityIdentifier("\(viewModel.details) details header")
+                        }
 
-                    Text(viewModel.details)
-                        .font(.caption)
-                        .accessibilityIdentifier("\(viewModel.details) details header")
+                        Spacer()
+
+                        CloseButton(presentationMode: presentationMode)
+                    }
+                    .padding(.top, 5)
+
+                    Spacer()
+                    HStack {
+                        Spacer()
+                        Text(viewModel.price)
+                            .bold()
+                            .foregroundColor(.primary)
+                    }
+                    .padding()
                 }
-                .padding(.top, 5)
-
-                Spacer()
-
-                CloseButton(presentationMode: presentationMode)
             }
+            .frame(height: 160)
             .accessibility(addTraits: .isHeader)
             .background(
                 Color(UIColor.systemBackground)
@@ -46,30 +59,45 @@ struct FoodDetailsView: View {
             .overlayDivider(.bottom)
             ScrollView(showsIndicators: false) {
                 VStack(alignment: .leading, spacing: 0) {
-                    Spacer()
+                    ForEach(viewModel.options, id: \.name) { optionGroup in
+                        DisclosureGroup(optionGroup.name, isExpanded: .constant(true)) {
+                            VStack(alignment: .leading) {
+                                ForEach(optionGroup.options, id: \.name) { option in
+                                    Text(option.name)
+                                }
+                            }
+                        }
 
-                    HStack {
-                        Spacer()
-                        Text(viewModel.price)
-                            .foregroundColor(.primary)
                     }
-                    .padding()
-                    .overlayDivider(.bottom)
-
-                }
-                HStack {
-                    Spacer()
-                    Text("\(viewModel.quantity)")
-                        .font(.title2)
-                        .bold()
-                        .padding(.horizontal, 10)
-                        .background(RoundedRectangle(cornerRadius: 10).stroke())
-                    Stepper("", value: $viewModel.quantity, in: 1...viewModel.stockQuantity)
-                        .accessibilityIdentifier("Quantity stepper")
                 }
                 .padding()
-                .overlayDivider(.bottom)
+
             }
+            .overlayDivider(.bottom)
+
+            HStack {
+                Spacer()
+                Text("\(viewModel.quantity)")
+                    .font(.title2)
+                    .bold()
+                    .padding(.horizontal, 10)
+                    .background(RoundedRectangle(cornerRadius: 10).stroke())
+                Stepper("", value: $viewModel.quantity, in: 1...viewModel.stockQuantity)
+                    .accessibilityIdentifier("Quantity stepper")
+            }
+            .padding()
+            .overlayDivider(.bottom)
+
+            HStack {
+                Text("Summary: ")
+                    .bold()
+                    .foregroundColor(.primary)
+
+                    Spacer()
+            }
+            .padding()
+            .overlayDivider(.bottom)
+
             HStack {
                 Text("Total: \(viewModel.totalPrice)")
                     .bold()
@@ -99,4 +127,3 @@ struct FoodDetailsView: View {
         }
     }
 }
-
