@@ -17,63 +17,12 @@ struct FoodDetailsView: View {
     }
 
     var body: some View {
-        VStack {
-            HStack(alignment: .top) {
-                ImageAsync(imageURL: viewModel.imageURL)
-                    .frame(width: 160, height: 160)
-                    .accessibility(addTraits: .isImage)
-                    .accessibilityIdentifier("\(viewModel.name) photo")
-                VStack {
-                    HStack {
-                        VStack(alignment: .leading) {
-                            Text(viewModel.name)
-                                .bold()
-                                .accessibilityIdentifier("\(viewModel.name) name header")
+        VStack(spacing: 0) {
+            FoodDetailsHeaderView(viewModel: viewModel, presentationMode: presentationMode)
+                .overlayDivider(.bottom)
 
-                            Text(viewModel.details)
-                                .font(.caption)
-                                .accessibilityIdentifier("\(viewModel.details) details header")
-                        }
-
-                        Spacer()
-
-                        CloseButton(presentationMode: presentationMode)
-                    }
-                    .padding(.top, 5)
-
-                    Spacer()
-                    HStack {
-                        Spacer()
-                        Text(viewModel.price)
-                            .bold()
-                            .foregroundColor(.primary)
-                    }
-                    .padding()
-                }
-            }
-            .frame(height: 160)
-            .accessibility(addTraits: .isHeader)
-            .background(
-                Color(UIColor.systemBackground)
-            )
-            .overlayDivider(.bottom)
-            ScrollView(showsIndicators: false) {
-                VStack(alignment: .leading, spacing: 0) {
-                    ForEach(viewModel.options, id: \.name) { optionGroup in
-                        DisclosureGroup(optionGroup.name, isExpanded: .constant(true)) {
-                            VStack(alignment: .leading) {
-                                ForEach(optionGroup.options, id: \.name) { option in
-                                    Text(option.name)
-                                }
-                            }
-                        }
-
-                    }
-                }
-                .padding()
-
-            }
-            .overlayDivider(.bottom)
+            OptionGroupsView(viewModel: viewModel)
+                .overlayDivider(.bottom)
 
             HStack {
                 Spacer()
@@ -85,45 +34,53 @@ struct FoodDetailsView: View {
                 Stepper("", value: $viewModel.quantity, in: 1...viewModel.stockQuantity)
                     .accessibilityIdentifier("Quantity stepper")
             }
-            .padding()
+            .padding(.horizontal)
+            .padding(.vertical, 8)
             .overlayDivider(.bottom)
-
-            HStack {
-                Text("Summary: ")
-                    .bold()
-                    .foregroundColor(.primary)
+            VStack {
+                HStack {
+                    Text("Summary: \(viewModel.selectionSummary)")
+                        .bold()
+                        .foregroundColor(.primary)
 
                     Spacer()
-            }
-            .padding()
-            .overlayDivider(.bottom)
-
-            HStack {
-                Text("Total: \(viewModel.totalPrice)")
-                    .bold()
-                    .accessibilityIdentifier("Total price")
-
-                Spacer()
-
-                Button {
-                    cart.contains(viewModel.food)  ?
-                    cart.remove(viewModel.food) :
-                    cart.add(viewModel.food, quantity: viewModel.quantity)
-
-                } label: {
-                    Text(cart.contains(viewModel.food) ?   "Remove from bag"  : "Add to bag")
-                        .font(.subheadline)
-                        .bold()
-                        .foregroundColor(cart.contains(viewModel.food) ? Color.white : Color(UIColor.systemBackground))
-                        .buttonStyle(PlainButtonStyle())
-                        .padding(10)
-                        .background(cart.contains(viewModel.food) ? Color.red : Color.primary)
-                        .cornerRadius(20)
                 }
-                .accessibilityIdentifier("Add to cart")
-                .disabled(cart.isModifying)
-            }.padding()
+                .padding(.horizontal)
+                .padding(.vertical, 8)
+                .overlayDivider(.bottom)
 
+                HStack {
+                    Text("Total: \(viewModel.totalPrice)")
+                        .bold()
+                        .accessibilityIdentifier("Total price")
+
+                    Spacer()
+
+                    Button {
+                        cart.contains(viewModel.food)  ?
+                        cart.remove(viewModel.food) :
+                        cart.add(viewModel.food, quantity: viewModel.quantity)
+
+                    } label: {
+                        Text(cart.contains(viewModel.food) ?   "Remove from bag"  : "Add to bag")
+                            .font(.subheadline)
+                            .bold()
+                            .foregroundColor(
+                                cart.contains(viewModel.food) ?
+                                Color.white :
+                                Color(UIColor.systemBackground)
+                            )
+                            .buttonStyle(PlainButtonStyle())
+                            .padding(10)
+                            .background(cart.contains(viewModel.food) ? Color.red : Color.primary)
+                            .cornerRadius(20)
+                    }
+                    .accessibilityIdentifier("Add to cart")
+                    .disabled(cart.isModifying)
+                }
+                .padding()
+            }
+            .background(Color.green.opacity(0.2).ignoresSafeArea())
         }
     }
 }

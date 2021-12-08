@@ -86,6 +86,10 @@
 		E2C0A2932747A147003CB51B /* CartViewUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C0A2922747A147003CB51B /* CartViewUITests.swift */; };
 		E2C0A2952747A41B003CB51B /* CartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C0A2942747A41B003CB51B /* CartView.swift */; };
 		E2C0A2972747A5DB003CB51B /* DoneButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C0A2962747A5DB003CB51B /* DoneButton.swift */; };
+		E2F4E35327609458001D509C /* OptionGroupsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F4E35227609458001D509C /* OptionGroupsView.swift */; };
+		E2F4E3552760E107001D509C /* CheckBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F4E3542760E107001D509C /* CheckBox.swift */; };
+		E2F4E3572760E242001D509C /* OptionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F4E3562760E242001D509C /* OptionsView.swift */; };
+		E2F4E3592760E330001D509C /* FoodDetailsHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F4E3582760E330001D509C /* FoodDetailsHeaderView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -179,6 +183,10 @@
 		E2C0A2922747A147003CB51B /* CartViewUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewUITests.swift; sourceTree = "<group>"; };
 		E2C0A2942747A41B003CB51B /* CartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartView.swift; sourceTree = "<group>"; };
 		E2C0A2962747A5DB003CB51B /* DoneButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoneButton.swift; sourceTree = "<group>"; };
+		E2F4E35227609458001D509C /* OptionGroupsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionGroupsView.swift; sourceTree = "<group>"; };
+		E2F4E3542760E107001D509C /* CheckBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckBox.swift; sourceTree = "<group>"; };
+		E2F4E3562760E242001D509C /* OptionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsView.swift; sourceTree = "<group>"; };
+		E2F4E3582760E330001D509C /* FoodDetailsHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodDetailsHeaderView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -308,6 +316,9 @@
 				E2C0A25F27458A56003CB51B /* MenuSectionsSelector.swift */,
 				E2C0A2632746269B003CB51B /* FoodCardView.swift */,
 				E29B2BAF275A396100118DAC /* FoodDetailsView.swift */,
+				E2F4E3582760E330001D509C /* FoodDetailsHeaderView.swift */,
+				E2F4E35227609458001D509C /* OptionGroupsView.swift */,
+				E2F4E3562760E242001D509C /* OptionsView.swift */,
 				E2C0A2942747A41B003CB51B /* CartView.swift */,
 				E2C0A28F27479F4F003CB51B /* CartButton.swift */,
 				E28ED31D2759E70100C0BB35 /* LocationButton.swift */,
@@ -389,6 +400,7 @@
 				E2C0A267274628D8003CB51B /* HeaderView.swift */,
 				E29B2BB1275AD48000118DAC /* CloseButton.swift */,
 				E28ED31B2759E3BE00C0BB35 /* ImageAsync.swift */,
+				E2F4E3542760E107001D509C /* CheckBox.swift */,
 			);
 			path = ReusableViews;
 			sourceTree = "<group>";
@@ -614,6 +626,7 @@
 				E2C0A26027458A56003CB51B /* MenuSectionsSelector.swift in Sources */,
 				E2C0A2972747A5DB003CB51B /* DoneButton.swift in Sources */,
 				E2C0A25E2745872C003CB51B /* OffsetKey.swift in Sources */,
+				E2F4E3552760E107001D509C /* CheckBox.swift in Sources */,
 				E2C0A24427457630003CB51B /* Color.swift in Sources */,
 				E2C0A25A27458316003CB51B /* MenuViewModel.swift in Sources */,
 				E2C0A23827453459003CB51B /* SignUpView.swift in Sources */,
@@ -621,9 +634,11 @@
 				E2C0A21E2744FB21003CB51B /* SignUpViewModel.swift in Sources */,
 				E2C0A2952747A41B003CB51B /* CartView.swift in Sources */,
 				E2C0A24E27457F94003CB51B /* Option.swift in Sources */,
+				E2F4E3592760E330001D509C /* FoodDetailsHeaderView.swift in Sources */,
 				E2C0A28727479072003CB51B /* CartEntry+Samples.swift in Sources */,
 				E2C0A27227463C5C003CB51B /* User+Sample.swift in Sources */,
 				E2C0A2202744FC06003CB51B /* User.swift in Sources */,
+				E2F4E3572760E242001D509C /* OptionsView.swift in Sources */,
 				E2C0A27127463C5C003CB51B /* Food+Samples.swift in Sources */,
 				E2C0A268274628D8003CB51B /* HeaderView.swift in Sources */,
 				E2C0A2642746269B003CB51B /* FoodCardView.swift in Sources */,
@@ -637,6 +652,7 @@
 				E2C0A23E2745382B003CB51B /* BackButton.swift in Sources */,
 				E2C0A27327463C62003CB51B /* MockMenuService.swift in Sources */,
 				E2C0A26B274639F6003CB51B /* AuthServiceFactory.swift in Sources */,
+				E2F4E35327609458001D509C /* OptionGroupsView.swift in Sources */,
 				E2C0A2272744FE61003CB51B /* Token.swift in Sources */,
 				E2C0A27027463C5C003CB51B /* MenuSection+Samples.swift in Sources */,
 				E28ED3182759E25C00C0BB35 /* RemoteImage.swift in Sources */,
