@@ -20,7 +20,6 @@ final class FoodDetailsViewUITests: XCTestCase {
 
 // MARK: - Tests
     func testFoodDetailsExist() throws {
-
         let foodImage = app.images["Food 1 photo"]
         let foodName = app.staticTexts["Food 1 name header"]
         let foodPrice = app.staticTexts["Total price"]
@@ -45,12 +44,18 @@ final class FoodDetailsViewUITests: XCTestCase {
         XCTAssert(optionGroupLabel.waitForExistence(timeout: 10))
         XCTAssert(option1.waitForExistence(timeout: 10))
     }
-    
+
     func testAddToBagButtonExists() throws {
         let addToBag = app.buttons["Add to bag"]
         XCTAssert(addToBag.waitForExistence(timeout: 10))
+        XCTAssertEqual(addToBag.label, "Add to bag")
     }
-    
+
+    func testAddToBagButtonChangesToRemoveWhenItemIsAdded() throws {
+        let addToBag = app.buttons["Add to bag"]
+        addToBag.tap()
+        XCTAssertEqual(addToBag.label, "Remove from bag")
+    }
 
 // MARK: - Teardown
     override func tearDownWithError() throws {
