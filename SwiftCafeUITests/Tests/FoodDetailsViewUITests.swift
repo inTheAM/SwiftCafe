@@ -48,7 +48,7 @@ final class FoodDetailsViewUITests: XCTestCase {
     
     func testAddToBagButtonExists() throws {
         let addToBag = app.buttons["Add to bag"]
-        addToBag.waitForExistence(timeout: 10)
+        XCTAssert(addToBag.waitForExistence(timeout: 10))
     }
     
 
