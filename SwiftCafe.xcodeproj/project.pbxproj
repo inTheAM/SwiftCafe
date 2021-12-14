@@ -17,6 +17,7 @@
 		E28ED3262759FDF600C0BB35 /* MockFoodDetailsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28ED3242759FDE500C0BB35 /* MockFoodDetailsService.swift */; };
 		E28ED3282759FE2200C0BB35 /* FoodDetailsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28ED3272759FE2200C0BB35 /* FoodDetailsService.swift */; };
 		E28ED32A2759FE6900C0BB35 /* FoodDetailsServiceFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28ED3292759FE6900C0BB35 /* FoodDetailsServiceFactory.swift */; };
+		E291B5DD27688EA400230F00 /* DisclosureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E291B5DC27688EA400230F00 /* DisclosureView.swift */; };
 		E29B2BAA275A172B00118DAC /* FoodDetailsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29B2BA9275A172B00118DAC /* FoodDetailsViewModelTests.swift */; };
 		E29B2BAC275A196200118DAC /* FoodDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29B2BAB275A196200118DAC /* FoodDetailsViewModel.swift */; };
 		E29B2BAE275A31EF00118DAC /* FoodDetailsViewUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29B2BAD275A31EF00118DAC /* FoodDetailsViewUITests.swift */; };
@@ -119,6 +120,7 @@
 		E28ED3242759FDE500C0BB35 /* MockFoodDetailsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockFoodDetailsService.swift; sourceTree = "<group>"; };
 		E28ED3272759FE2200C0BB35 /* FoodDetailsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodDetailsService.swift; sourceTree = "<group>"; };
 		E28ED3292759FE6900C0BB35 /* FoodDetailsServiceFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodDetailsServiceFactory.swift; sourceTree = "<group>"; };
+		E291B5DC27688EA400230F00 /* DisclosureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisclosureView.swift; sourceTree = "<group>"; };
 		E29B2BA9275A172B00118DAC /* FoodDetailsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodDetailsViewModelTests.swift; sourceTree = "<group>"; };
 		E29B2BAB275A196200118DAC /* FoodDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodDetailsViewModel.swift; sourceTree = "<group>"; };
 		E29B2BAD275A31EF00118DAC /* FoodDetailsViewUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodDetailsViewUITests.swift; sourceTree = "<group>"; };
@@ -404,6 +406,7 @@
 				E29B2BB1275AD48000118DAC /* CloseButton.swift */,
 				E28ED31B2759E3BE00C0BB35 /* ImageAsync.swift */,
 				E2F4E3542760E107001D509C /* CheckBox.swift */,
+				E291B5DC27688EA400230F00 /* DisclosureView.swift */,
 			);
 			path = ReusableViews;
 			sourceTree = "<group>";
@@ -658,6 +661,7 @@
 				E2C0A26B274639F6003CB51B /* AuthServiceFactory.swift in Sources */,
 				E2F4E35327609458001D509C /* OptionGroupsView.swift in Sources */,
 				E2C0A2272744FE61003CB51B /* Token.swift in Sources */,
+				E291B5DD27688EA400230F00 /* DisclosureView.swift in Sources */,
 				E2C0A27027463C5C003CB51B /* MenuSection+Samples.swift in Sources */,
 				E28ED3182759E25C00C0BB35 /* RemoteImage.swift in Sources */,
 				E2C0A27927465455003CB51B /* Keychain.swift in Sources */,

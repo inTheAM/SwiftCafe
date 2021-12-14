@@ -38,6 +38,7 @@ struct OptionsView: View {
                 } label: {
                     HStack {
                         Text(option.name)
+                            .font(.caption.bold())
                         Spacer()
                         CheckBox(isSelected: selection == option)
                     }
@@ -49,7 +50,7 @@ struct OptionsView: View {
         }
         .padding(10)
         .cardify()
-        .padding(.horizontal)
+        .padding(.horizontal, 8)
         .padding(.vertical, 8)
         .animation(.default)
     }

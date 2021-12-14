@@ -12,14 +12,14 @@ struct CheckBox: View {
     var body: some View {
         ZStack {
             Circle()
-                .stroke(lineWidth: 3)
+                .stroke(lineWidth: 2)
 
             if isSelected {
                 Circle()
-                    .padding(5)
+                    .padding(4)
             }
         }
-        .frame(width: 20, height: 20)
+        .frame(width: 16, height: 16)
     }
 }
 

@@ -22,8 +22,9 @@ struct FoodDetailsView: View {
                 .overlayDivider(.bottom)
 
             OptionGroupsView(viewModel: viewModel)
-                .overlayDivider(.bottom)
-
+                
+            
+            Spacer(minLength: 0)
             HStack {
                 Spacer()
                 Text("\(viewModel.quantity)")
@@ -37,8 +38,9 @@ struct FoodDetailsView: View {
             }
             .padding(.horizontal)
             .padding(.vertical, 8)
+            .overlayDivider(.top)
             .overlayDivider(.bottom)
-
+            
             FoodDetailsFooterView(viewModel: viewModel)
         }
     }

@@ -9,12 +9,9 @@ import SwiftUI
 
 struct OptionGroupsView: View {
     @ObservedObject var viewModel: FoodDetailsViewModel
+    @State private var optionsExpanded = false
     var body: some View {
-        VStack(alignment: .leading, spacing: 0) {
-            Text("Customize your order")
-                .bold()
-                .padding(.horizontal)
-                .padding(.vertical, 8)
+        DisclosureView(label: "Customize your order", isExpanded: $optionsExpanded) {
             ScrollView(showsIndicators: false) {
                 ForEach(viewModel.options, id: \.name) { optionGroup in
                     OptionsView(viewModel: viewModel, optionGroup: optionGroup)
