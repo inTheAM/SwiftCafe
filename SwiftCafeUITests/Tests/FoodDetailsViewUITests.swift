@@ -57,6 +57,14 @@ final class FoodDetailsViewUITests: XCTestCase {
         XCTAssertEqual(addToBag.label, "Remove from bag")
     }
 
+    func testQuantityStepperExistsAndUpdates() throws {
+        let stepper = app.steppers["Quantity stepper"]
+        let quantity = app.staticTexts["Quantity"]
+        XCTAssert(stepper.waitForExistence(timeout: 10))
+        stepper.tap()
+        XCTAssertEqual(quantity.label, "2")
+    }
+
 // MARK: - Teardown
     override func tearDownWithError() throws {
         app.terminate()
