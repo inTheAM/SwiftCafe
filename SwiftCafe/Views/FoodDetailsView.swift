@@ -11,7 +11,10 @@ struct FoodDetailsView: View {
     @EnvironmentObject var cart: Cart
     @ObservedObject var viewModel: FoodDetailsViewModel
     @Environment(\.presentationMode)    var presentationMode
-
+    
+    @State private var optionsExpanded = false
+    @State private var extrasExpanded = false
+    
     init(food: Food) {
         self.viewModel = FoodDetailsViewModel(food: food)
     }
@@ -21,8 +24,7 @@ struct FoodDetailsView: View {
             FoodDetailsHeaderView(viewModel: viewModel, presentationMode: presentationMode)
                 .overlayDivider(.bottom)
 
-            OptionGroupsView(viewModel: viewModel)
-                
+            OptionGroupsView(viewModel: viewModel, optionsExpanded: $optionsExpanded)
             
             Spacer(minLength: 0)
             HStack {
@@ -42,6 +44,16 @@ struct FoodDetailsView: View {
             .overlayDivider(.bottom)
             
             FoodDetailsFooterView(viewModel: viewModel)
+        }
+        .onChange(of: optionsExpanded) { isExpanded in
+            if isExpanded {
+                extrasExpanded = false
+            }
+        }
+        .onChange(of: extrasExpanded) { isExpanded in
+            if isExpanded {
+                optionsExpanded = false
+            }
         }
     }
 }

@@ -11,10 +11,10 @@ struct DisclosureView<Content: View>: View {
 //    The label for the disclosure group
     let label: String
     
-//    A Binding to the expansion state of the disclosure group
+//    A binding to the expansion state of the disclosure view
     @Binding var isExpanded: Bool
     
-//    The content displayed when the disclosure group is expanded
+//    The content displayed when the disclosure view is expanded
     let content: () -> Content
     
     var body: some View {
@@ -31,16 +31,16 @@ struct DisclosureView<Content: View>: View {
                         .renderingMode(.original)
                         .rotationEffect(.init(degrees: isExpanded ? 90 : 0))
                 }
-                .padding(.vertical, 8)
+                .padding()
                 .font(.subheadline.bold())
                 .foregroundColor(.primary)
             }
             if isExpanded {
                 content()
+                    .transition(.move(edge: .trailing))
             }
         }
-        .padding(.horizontal)
-        .animation(.spring())
+        .animation(.default)
     }
 }
 

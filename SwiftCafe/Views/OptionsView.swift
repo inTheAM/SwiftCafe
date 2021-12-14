@@ -16,7 +16,7 @@ struct OptionsView: View {
         VStack(alignment: .leading) {
             HStack {
                 Text(optionGroup.name)
-                    .bold()
+                    .font(.subheadline.bold())
                     .accessibilityIdentifier(optionGroup.name)
                 Spacer()
                 if selection != nil {
@@ -50,8 +50,6 @@ struct OptionsView: View {
         }
         .padding(10)
         .cardify()
-        .padding(.horizontal, 8)
-        .padding(.vertical, 8)
         .animation(.default)
     }
 }

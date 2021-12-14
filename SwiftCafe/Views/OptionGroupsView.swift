@@ -9,13 +9,15 @@ import SwiftUI
 
 struct OptionGroupsView: View {
     @ObservedObject var viewModel: FoodDetailsViewModel
-    @State private var optionsExpanded = false
+    @Binding var optionsExpanded: Bool
     var body: some View {
         DisclosureView(label: "Customize your order", isExpanded: $optionsExpanded) {
-            ScrollView(showsIndicators: false) {
+            ScrollView {
                 ForEach(viewModel.options, id: \.name) { optionGroup in
                     OptionsView(viewModel: viewModel, optionGroup: optionGroup)
                 }
+                .padding(.vertical, 8)
+                .padding(.horizontal)
             }
         }
     }
@@ -23,6 +25,6 @@ struct OptionGroupsView: View {
 
 struct OptionGroupView_Previews: PreviewProvider {
     static var previews: some View {
-        OptionGroupsView(viewModel: FoodDetailsViewModel(food: Food.createItems()[0]))
+        OptionGroupsView(viewModel: FoodDetailsViewModel(food: Food.createItems()[0]), optionsExpanded: .constant(true))
     }
 }
