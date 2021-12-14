@@ -17,6 +17,7 @@ struct OptionsView: View {
             HStack {
                 Text(optionGroup.name)
                     .bold()
+                    .accessibilityIdentifier(optionGroup.name)
                 Spacer()
                 if selection != nil {
                     Button("Clear") {
@@ -43,6 +44,7 @@ struct OptionsView: View {
                 }
                 .buttonStyle(PlainButtonStyle())
                 .animation(.default)
+                .accessibilityIdentifier("\(optionGroup.name) \(option.name)")
             }
         }
         .padding(10)
