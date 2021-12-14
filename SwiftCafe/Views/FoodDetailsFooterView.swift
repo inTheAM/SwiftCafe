@@ -49,7 +49,7 @@ struct FoodDetailsFooterView: View {
                         .background(cart.contains(viewModel.food) ? Color.red : Color.primary)
                         .cornerRadius(20)
                 }
-                .accessibilityIdentifier("Add to cart")
+                .accessibilityIdentifier("Add to bag")
                 .disabled(cart.isModifying)
             }
             .padding()

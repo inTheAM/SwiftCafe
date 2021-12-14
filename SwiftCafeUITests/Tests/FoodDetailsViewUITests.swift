@@ -45,6 +45,12 @@ final class FoodDetailsViewUITests: XCTestCase {
         XCTAssert(optionGroupLabel.waitForExistence(timeout: 10))
         XCTAssert(option1.waitForExistence(timeout: 10))
     }
+    
+    func testAddToBagButtonExists() throws {
+        let addToBag = app.buttons["Add to bag"]
+        addToBag.waitForExistence(timeout: 10)
+    }
+    
 
 // MARK: - Teardown
     override func tearDownWithError() throws {
