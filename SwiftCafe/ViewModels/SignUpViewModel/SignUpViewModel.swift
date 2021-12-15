@@ -8,7 +8,7 @@
 import Combine
 import Foundation
 
-/// The ViewModel that handles the Sign-up screen.
+/// The ViewModel that handles the `SignUpView` screen.
 final class SignUpViewModel: ObservableObject {
 
     /// The authentication service that handles requests for the view model.
@@ -55,8 +55,8 @@ final class SignUpViewModel: ObservableObject {
 
     // MARK: - Initializer
     /// The initializer for the view model.
-    /// - Parameter authService: An instance of a type that conforms to AuthServiceProtocol.
-    ///                          The default value is the return of the create method defined on AuthServiceFactory.
+    /// - Parameter authService: An instance of a type that conforms to `AuthServiceProtocol`.
+    ///                          The default value is the return of the create method defined on `AuthServiceFactory`.
     init(authService: AuthServiceProtocol = AuthServiceFactory.create()) {
         self.authService = authService
 
@@ -262,7 +262,7 @@ extension SignUpViewModel {
 
 // MARK: - Sign Up
 extension SignUpViewModel {
-    /// Uses the authService to make a sign-up request with the filled email and password details.
+    /// Uses the `authService` to make a sign-up request with the filled email and password details.
     /// - Parameter completion: A closure the method runs when the sign-up succeeds.
     ///                         The closure takes no parameters and returns nothing.
     /// In case of a failed sign-up, the `signUpErrorDescription` is updated with the error.

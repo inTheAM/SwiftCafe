@@ -8,7 +8,7 @@
 import Combine
 import Foundation
 
-/// The ViewModel that handles the Sign-in screen.
+/// The ViewModel that handles the `SignInView` screen.
 final class SignInViewModel: ObservableObject {
 
     /// The authentication service that handles requests for the view model.
@@ -35,8 +35,8 @@ final class SignInViewModel: ObservableObject {
 
 // MARK: - Initializer
     /// The initializer for the view model.
-    /// - Parameter authService: An instance of a type that conforms to AuthServiceProtocol.
-    ///                          The default value is the return of the create method defined on AuthServiceFactory.
+    /// - Parameter authService: An instance of a type that conforms to `AuthServiceProtocol`.
+    ///                          The default value is the return of the create method defined on `AuthServiceFactory`.
     init(authService: AuthServiceProtocol = AuthService.shared) {
         self.authService = authService
 
@@ -107,7 +107,7 @@ extension SignInViewModel {
 
 // MARK: - Sign In
 extension SignInViewModel {
-    /// Uses the authService to make a sign-in request with the filled email and password details.
+    /// Uses the `authService` to make a sign-in request with the filled email and password details.
     /// - Parameter completion: A closure the method runs when the sign-up succeeds.
     ///                         The closure takes no parameters and returns nothing.
     /// In case of a failed sign-in, the `signInErrorDescription` is updated with the error.
