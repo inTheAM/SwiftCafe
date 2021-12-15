@@ -19,7 +19,7 @@ struct CheckBox: View {
                     .padding(4)
             }
         }
-        .frame(width: 16, height: 16)
+        .frame(width: 20, height: 20)
     }
 }
 

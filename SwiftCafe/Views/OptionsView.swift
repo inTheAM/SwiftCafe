@@ -18,7 +18,9 @@ struct OptionsView: View {
                 Text(optionGroup.name)
                     .font(.subheadline.bold())
                     .accessibilityIdentifier(optionGroup.name)
+
                 Spacer()
+
                 if selection != nil {
                     Button("Clear") {
                         viewModel.removeOption(selection)
@@ -31,6 +33,7 @@ struct OptionsView: View {
             }
             Divider()
                 .padding(.horizontal, -10)
+
             ForEach(optionGroup.options) { option in
                 Button {
                     selection = option
@@ -39,12 +42,13 @@ struct OptionsView: View {
                     HStack {
                         Text(option.name)
                             .font(.caption.bold())
+
                         Spacer()
+
                         CheckBox(isSelected: selection == option)
                     }
                 }
                 .buttonStyle(PlainButtonStyle())
-                .animation(.default)
                 .accessibilityIdentifier("\(optionGroup.name) \(option.name)")
             }
         }

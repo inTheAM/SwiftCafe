@@ -11,10 +11,10 @@ struct FoodDetailsView: View {
     @EnvironmentObject var cart: Cart
     @ObservedObject var viewModel: FoodDetailsViewModel
     @Environment(\.presentationMode)    var presentationMode
-    
+
     @State private var optionsExpanded = false
     @State private var extrasExpanded = false
-    
+
     init(food: Food) {
         self.viewModel = FoodDetailsViewModel(food: food)
     }
@@ -25,7 +25,7 @@ struct FoodDetailsView: View {
                 .overlayDivider(.bottom)
 
             OptionGroupsView(viewModel: viewModel, optionsExpanded: $optionsExpanded)
-            
+
             Spacer(minLength: 0)
             HStack {
                 Spacer()
@@ -35,6 +35,7 @@ struct FoodDetailsView: View {
                     .padding(.horizontal, 10)
                     .background(RoundedRectangle(cornerRadius: 10).stroke())
                     .accessibilityIdentifier("Quantity")
+
                 Stepper("", value: $viewModel.quantity, in: 1...viewModel.stockQuantity)
                     .accessibilityIdentifier("Quantity stepper")
             }
@@ -42,7 +43,7 @@ struct FoodDetailsView: View {
             .padding(.vertical, 8)
             .overlayDivider(.top)
             .overlayDivider(.bottom)
-            
+
             FoodDetailsFooterView(viewModel: viewModel)
         }
         .onChange(of: optionsExpanded) { isExpanded in

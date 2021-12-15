@@ -16,6 +16,7 @@ struct MenuView: View {
                 ScrollViewReader { pageProxy in
                     VStack(spacing: 0) {
                         MenuSectionsSelector(viewModel: viewModel, pageProxy: pageProxy)
+
                         ScrollView(showsIndicators: false) {
                             LazyVStack(spacing: 0, pinnedViews: [.sectionHeaders]) {
                                 ForEach(viewModel.sections) { section in
@@ -25,7 +26,8 @@ struct MenuView: View {
                                                 FoodCardView(food: food)
                                             }
                                         }
-                                        .padding()
+                                        .padding(.vertical, 8)
+                                        .padding(.horizontal)
                                     }
                                     .id(section.name)
                                     .readOffset { rect in

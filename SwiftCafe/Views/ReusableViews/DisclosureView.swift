@@ -10,13 +10,13 @@ import SwiftUI
 struct DisclosureView<Content: View>: View {
 //    The label for the disclosure group
     let label: String
-    
+
 //    A binding to the expansion state of the disclosure view
     @Binding var isExpanded: Bool
-    
+
 //    The content displayed when the disclosure view is expanded
     let content: () -> Content
-    
+
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
             Button {
@@ -24,9 +24,9 @@ struct DisclosureView<Content: View>: View {
             } label: {
                 HStack {
                     Text(label)
-                    
+
                     Spacer()
-                    
+
                     Image(systemName: "chevron.right")
                         .renderingMode(.original)
                         .rotationEffect(.init(degrees: isExpanded ? 90 : 0))
@@ -35,6 +35,7 @@ struct DisclosureView<Content: View>: View {
                 .font(.subheadline.bold())
                 .foregroundColor(.primary)
             }
+            .accessibilityIdentifier("Expand button")
             if isExpanded {
                 content()
                     .transition(.move(edge: .trailing))

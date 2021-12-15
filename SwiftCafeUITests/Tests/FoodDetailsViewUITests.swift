@@ -38,6 +38,8 @@ final class FoodDetailsViewUITests: XCTestCase {
     }
 
     func testOptionGroupsExist() throws {
+        let showOptions = app.buttons["Expand button"]
+        showOptions.tap()
         let optionGroupLabel = app.staticTexts["Option group 1"]
         let option1 = app.buttons["Option group 1 Option 1"]
 
