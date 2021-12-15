@@ -23,6 +23,9 @@
 		E291B5E5276A08CF00230F00 /* MenuServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E291B5E4276A08CF00230F00 /* MenuServiceProtocol.swift */; };
 		E291B5E8276A0CD800230F00 /* CartServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E291B5E7276A0CD800230F00 /* CartServiceProtocol.swift */; };
 		E291B5EB276A110900230F00 /* FoodDetailsServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E291B5EA276A110900230F00 /* FoodDetailsServiceProtocol.swift */; };
+		E291B5EE276A297800230F00 /* PasswordStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = E291B5ED276A297800230F00 /* PasswordStatus.swift */; };
+		E291B5F0276A2A6E00230F00 /* EmailStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = E291B5EF276A2A6E00230F00 /* EmailStatus.swift */; };
+		E291B5F5276A348600230F00 /* FormStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = E291B5F4276A348600230F00 /* FormStatus.swift */; };
 		E29B2BAA275A172B00118DAC /* FoodDetailsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29B2BA9275A172B00118DAC /* FoodDetailsViewModelTests.swift */; };
 		E29B2BAC275A196200118DAC /* FoodDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29B2BAB275A196200118DAC /* FoodDetailsViewModel.swift */; };
 		E29B2BAE275A31EF00118DAC /* FoodDetailsViewUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29B2BAD275A31EF00118DAC /* FoodDetailsViewUITests.swift */; };
@@ -130,6 +133,9 @@
 		E291B5E4276A08CF00230F00 /* MenuServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuServiceProtocol.swift; sourceTree = "<group>"; };
 		E291B5E7276A0CD800230F00 /* CartServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartServiceProtocol.swift; sourceTree = "<group>"; };
 		E291B5EA276A110900230F00 /* FoodDetailsServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodDetailsServiceProtocol.swift; sourceTree = "<group>"; };
+		E291B5ED276A297800230F00 /* PasswordStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordStatus.swift; sourceTree = "<group>"; };
+		E291B5EF276A2A6E00230F00 /* EmailStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailStatus.swift; sourceTree = "<group>"; };
+		E291B5F4276A348600230F00 /* FormStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormStatus.swift; sourceTree = "<group>"; };
 		E29B2BA9275A172B00118DAC /* FoodDetailsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodDetailsViewModelTests.swift; sourceTree = "<group>"; };
 		E29B2BAB275A196200118DAC /* FoodDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodDetailsViewModel.swift; sourceTree = "<group>"; };
 		E29B2BAD275A31EF00118DAC /* FoodDetailsViewUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodDetailsViewUITests.swift; sourceTree = "<group>"; };
@@ -263,6 +269,25 @@
 			path = FoodDetailsService;
 			sourceTree = "<group>";
 		};
+		E291B5EC276A296200230F00 /* SignUpViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				E2C0A21D2744FB21003CB51B /* SignUpViewModel.swift */,
+				E291B5EF276A2A6E00230F00 /* EmailStatus.swift */,
+				E291B5ED276A297800230F00 /* PasswordStatus.swift */,
+			);
+			path = SignUpViewModel;
+			sourceTree = "<group>";
+		};
+		E291B5F3276A347500230F00 /* SignInViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				E2C0A2332745115C003CB51B /* SignInViewModel.swift */,
+				E291B5F4276A348600230F00 /* FormStatus.swift */,
+			);
+			path = SignInViewModel;
+			sourceTree = "<group>";
+		};
 		E2C0A1DD2744F7E5003CB51B = {
 			isa = PBXGroup;
 			children = (
@@ -346,8 +371,8 @@
 		E2C0A2142744F823003CB51B /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				E2C0A21D2744FB21003CB51B /* SignUpViewModel.swift */,
-				E2C0A2332745115C003CB51B /* SignInViewModel.swift */,
+				E291B5EC276A296200230F00 /* SignUpViewModel */,
+				E291B5F3276A347500230F00 /* SignInViewModel */,
 				E2C0A25927458316003CB51B /* MenuViewModel.swift */,
 				E29B2BAB275A196200118DAC /* FoodDetailsViewModel.swift */,
 				E28ED3172759E25C00C0BB35 /* RemoteImage.swift */,
@@ -693,6 +718,7 @@
 				E2C0A2202744FC06003CB51B /* User.swift in Sources */,
 				E291B5E02769EDD000230F00 /* AuthServiceProtocol.swift in Sources */,
 				E2F4E3572760E242001D509C /* OptionsView.swift in Sources */,
+				E291B5F5276A348600230F00 /* FormStatus.swift in Sources */,
 				E2C0A27127463C5C003CB51B /* Food+Samples.swift in Sources */,
 				E2C0A268274628D8003CB51B /* HeaderView.swift in Sources */,
 				E2C0A2642746269B003CB51B /* FoodCardView.swift in Sources */,
@@ -707,6 +733,7 @@
 				E2C0A27327463C62003CB51B /* MockMenuService.swift in Sources */,
 				E2C0A26B274639F6003CB51B /* AuthServiceFactory.swift in Sources */,
 				E2F4E35327609458001D509C /* OptionGroupsView.swift in Sources */,
+				E291B5F0276A2A6E00230F00 /* EmailStatus.swift in Sources */,
 				E2C0A2272744FE61003CB51B /* Token.swift in Sources */,
 				E291B5DD27688EA400230F00 /* DisclosureView.swift in Sources */,
 				E291B5E5276A08CF00230F00 /* MenuServiceProtocol.swift in Sources */,
@@ -714,6 +741,7 @@
 				E28ED3182759E25C00C0BB35 /* RemoteImage.swift in Sources */,
 				E2C0A27927465455003CB51B /* Keychain.swift in Sources */,
 				E28ED3212759FBEE00C0BB35 /* OptionGroup+Samples.swift in Sources */,
+				E291B5EE276A297800230F00 /* PasswordStatus.swift in Sources */,
 				E2C0A27E27478B52003CB51B /* Cart.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

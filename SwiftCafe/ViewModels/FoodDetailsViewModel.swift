@@ -84,7 +84,7 @@ final class FoodDetailsViewModel: ObservableObject {
                 case .success(let options):
                     self.food.options.append(contentsOf: options)
                 case .failure(let error):
-                    print("Food service error: ", error.rawValue)
+                    print("Food service error: ", error.description)
                 }
             }
         }

@@ -65,7 +65,7 @@ final class SignInViewModelTests: XCTestCase {
         viewModel.password = "123"
 
         let error = try awaitResult(from: signInErrorPublisher)
-        XCTAssertEqual(error, FormStatus.emailEmpty.rawValue)
+        XCTAssertEqual(error, FormStatus.emailEmpty.description)
     }
 
     func testSignInErrorWithEmptyPassword() throws {
@@ -77,7 +77,7 @@ final class SignInViewModelTests: XCTestCase {
         viewModel.password = ""
 
         let error = try awaitResult(from: signInErrorPublisher)
-        XCTAssertEqual(error, FormStatus.passwordEmpty.rawValue)
+        XCTAssertEqual(error, FormStatus.passwordEmpty.description)
     }
 
     func testSignInErrorWithFilledInputs() throws {
@@ -89,7 +89,7 @@ final class SignInViewModelTests: XCTestCase {
         viewModel.password = "123"
 
         let error = try awaitResult(from: signInErrorPublisher)
-        XCTAssertEqual(error, FormStatus.valid.rawValue)
+        XCTAssertEqual(error, FormStatus.valid.description)
     }
 
 // MARK: - SignIn Tests
@@ -121,7 +121,7 @@ final class SignInViewModelTests: XCTestCase {
         viewModel.signIn {}
 
         let error = try awaitResult(from: signInErrorPublisher)
-        XCTAssertEqual(error, AuthError.signInFailed.rawValue)
+        XCTAssertEqual(error, AuthError.signInFailed.description)
     }
 
 // MARK: - Teardown

@@ -46,7 +46,7 @@ final class SignUpViewModelTests: XCTestCase {
 
         viewModel.email = ""
         let error = try awaitResult(from: isEmailValidPublisher)
-        XCTAssertEqual(error, EmailStatus.empty.rawValue)
+        XCTAssertEqual(error, EmailStatus.empty.inlineError)
     }
 
     func testEmailValidationInlineErrorForInvalidEmail() throws {
@@ -56,7 +56,7 @@ final class SignUpViewModelTests: XCTestCase {
 
         viewModel.email = "testemail"
         let error = try awaitResult(from: isEmailValidPublisher)
-        XCTAssertEqual(error, EmailStatus.invalid.rawValue)
+        XCTAssertEqual(error, EmailStatus.invalid.inlineError)
     }
 
     func testEmailValidationInlineErrorForUnavailableEmail() throws {
@@ -66,7 +66,7 @@ final class SignUpViewModelTests: XCTestCase {
 
         viewModel.email = "testuser@test.com"
         let error = try awaitResult(from: isEmailValidPublisher)
-        XCTAssertEqual(error, EmailStatus.unavailable.rawValue)
+        XCTAssertEqual(error, EmailStatus.unavailable.inlineError)
     }
 
     func testEmailValidationInlineErrorForValidEmail() throws {
@@ -76,7 +76,7 @@ final class SignUpViewModelTests: XCTestCase {
 
         viewModel.email = "testuser3@test.com"
         let error = try awaitResult(from: isEmailValidPublisher)
-        XCTAssertEqual(error, EmailStatus.valid.rawValue)
+        XCTAssertEqual(error, EmailStatus.valid.inlineError)
     }
 
 // MARK: - Password Validation Tests
@@ -122,7 +122,7 @@ final class SignUpViewModelTests: XCTestCase {
         viewModel.password = ""
         viewModel.repeatedPassword = ""
         let error = try awaitResult(from: isPasswordEmptyPublisher)
-        XCTAssertEqual(error, PasswordStatus.empty.rawValue)
+        XCTAssertEqual(error, PasswordStatus.empty.inlineError)
     }
 
     func testPasswordValidationInlineErrorForWeakPassword() throws {
@@ -134,7 +134,7 @@ final class SignUpViewModelTests: XCTestCase {
         viewModel.repeatedPassword = "password"
 
         let error = try awaitResult(from: isPasswordWeakPublisher)
-        XCTAssertEqual(error, PasswordStatus.weak.rawValue)
+        XCTAssertEqual(error, PasswordStatus.weak.inlineError)
     }
 
     func testPasswordValidationInlineErrorForDifferentPasswords() throws {
@@ -146,7 +146,7 @@ final class SignUpViewModelTests: XCTestCase {
         viewModel.repeatedPassword = "password213@"
 
         let error = try awaitResult(from: passwordsDoNotMatchPublisher)
-        XCTAssertEqual(error, PasswordStatus.passwordsDoNotMatch.rawValue)
+        XCTAssertEqual(error, PasswordStatus.passwordsDoNotMatch.inlineError)
     }
 
     func testPasswordValidationInlineErrorForShortPassword() throws {
@@ -157,7 +157,7 @@ final class SignUpViewModelTests: XCTestCase {
         viewModel.password = "acsd"
         viewModel.repeatedPassword = "acsd"
         let error = try awaitResult(from: isPasswordShortPublisher)
-        XCTAssertEqual(error, PasswordStatus.short.rawValue)
+        XCTAssertEqual(error, PasswordStatus.short.inlineError)
     }
 
 // MARK: - Form Validation Tests
@@ -204,7 +204,7 @@ final class SignUpViewModelTests: XCTestCase {
 
         let error = try awaitResult(from: signUpErrorPublisher)
 
-        XCTAssertEqual(error, AuthError.signUpFailed.rawValue)
+        XCTAssertEqual(error, AuthError.signUpFailed.description)
     }
 
 // MARK: Teardown

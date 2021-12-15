@@ -8,33 +8,61 @@
 import Combine
 import Foundation
 
+/// The ViewModel that handles the Sign-up screen.
 final class SignUpViewModel: ObservableObject {
+
+    /// The authentication service that handles requests for the view model.
     private let authService: AuthServiceProtocol
+
+    /// The cancellables set that stores the publishers in this view model.
     private var cancellables = Set<AnyCancellable>()
 
 // swiftlint:disable line_length
+    /// The predicate that a password must pass to be considered strong.
+    /// A strong password contains at least 8 characters, a number and a special character.
     private let passwordPredicate = NSPredicate(format: "SELF MATCHES %@", "^(?=.*[a-z])(?=.*[0-9])(?=.*[S@$#!%*?&]).{8,}$")
 // swiftlint:enable line_length
 
 // MARK: - Inputs
+
+    /// The published input for the user's email address.
     @Published var email = ""
+
+    /// The published inputs for the user's password and a repeated password.
+    /// The two passwords must match.
     @Published var password = ""
     @Published var repeatedPassword = ""
 
 // MARK: - Validation
+    /// Indicates whether the email input is valid.
     @Published var isEmailValid = false
+
+    /// Indicates whether the password input is valid.
     @Published var isPasswordValid = false
+
+    /// Indicates whether the form has been filled correctly.
     @Published var isFormValid = false
 
 // MARK: - Inline Errors
+    /// An inline error displayed when the email input fails validation.
     @Published var emailErrorDescription = ""
+
+    /// An inline error displayed when the password input fails validation.
     @Published var passwordErrorDescription = ""
+
+    /// An inline error displayed when sign-up fails.
     @Published var signUpErrorDescription = ""
 
-// MARK: - Initializer
+    // MARK: - Initializer
+    /// The initializer for the view model.
+    /// - Parameter authService: An instance of a type that conforms to AuthServiceProtocol.
+    ///                          The default value is the return of the create method defined on AuthServiceFactory.
     init(authService: AuthServiceProtocol = AuthServiceFactory.create()) {
         self.authService = authService
 
+        /// Initializing the email validity publisher and storing it in the cancellables set.
+        /// The publisher is received on the main thread, assigned to `isEmailValid`
+        /// and stored in the cancellables set.
         isEmailInputValidPublisher
             .receive(on: RunLoop.main)
             .map { status in
@@ -51,6 +79,9 @@ final class SignUpViewModel: ObservableObject {
             .assign(to: \.isEmailValid, on: self)
             .store(in: &cancellables)
 
+        /// Initializing the password validity publisher.
+        /// The publisher is received on the main thread, assigned to `isPasswordValid`
+        /// and stored in the cancellables set.
         isPasswordInputValidPublisher
             .receive(on: RunLoop.main)
             .map { status in
@@ -59,13 +90,16 @@ final class SignUpViewModel: ObservableObject {
                     self.passwordErrorDescription = ""
                     return true
                 default:
-                    self.passwordErrorDescription = status.rawValue
+                    self.passwordErrorDescription = status.inlineError
                     return false
                 }
             }
             .assign(to: \.isPasswordValid, on: self)
             .store(in: &cancellables)
 
+        /// Initializing the form validity publisher.
+        /// The publisher is received on the main thread, assigned to `isFormValid`
+        /// and stored in the cancellables set.
         isFormValidPublisher
             .receive(on: RunLoop.main)
             .assign(to: \.isFormValid, on: self)
@@ -74,14 +108,9 @@ final class SignUpViewModel: ObservableObject {
 }
 
 // MARK: - Email Validation
-enum EmailStatus: String {
-    case empty = "Email cannot be empty",
-         invalid = "Use a valid email address",
-         unavailable = "This email address is already in use.",
-         valid = ""
-}
-
 extension SignUpViewModel {
+    /// A publisher that returns a boolean indicating
+    /// whether the email input is empty or not.
     private var isEmailEmptyPublisher: AnyPublisher<Bool, Never> {
         $email
             .dropFirst()
@@ -92,6 +121,8 @@ extension SignUpViewModel {
             .eraseToAnyPublisher()
     }
 
+    /// A publisher that returns a boolean value indicating
+    /// whether the email address is available for account creation or not.
     private var isEmailAvailablePublisher: AnyPublisher<Bool, Never> {
         $email
             .dropFirst()
@@ -106,6 +137,8 @@ extension SignUpViewModel {
             }.eraseToAnyPublisher()
     }
 
+    /// A publisher that returns a boolean value indicating
+    /// whether the email address is a valid address or not.
     private var isEmailValidPublisher: AnyPublisher<Bool, Never> {
         $email
             .dropFirst()
@@ -117,6 +150,8 @@ extension SignUpViewModel {
             .eraseToAnyPublisher()
     }
 
+    /// A publisher that combines `isEmailAvailablePublisher`, `isEmailAvailablePublisher` and `isEmailValidPublisher`
+    /// and returns an EmailStatus describing the current state of the email input
     private var isEmailInputValidPublisher: AnyPublisher<EmailStatus, Never> {
         Publishers.CombineLatest3(isEmailEmptyPublisher, isEmailAvailablePublisher, isEmailValidPublisher)
             .map { isEmpty, isAvailable, isValid in
@@ -136,15 +171,9 @@ extension SignUpViewModel {
 }
 
 // MARK: - Password Validation
-enum PasswordStatus: String {
-    case empty = "Password cannot be empty",
-         short = "Password is too short. Use 8 characters or more",
-         weak = "Password must contain at least one number and one special character",
-         passwordsDoNotMatch = "Passwords do not match",
-         valid = ""
-}
-
 extension SignUpViewModel {
+    /// A publisher that returns a boolean value indicating
+    /// whether the password input is empty or not.
     private var isPasswordEmptyPublisher: AnyPublisher<Bool, Never> {
         $password
             .debounce(for: 0.5, scheduler: RunLoop.main)
@@ -155,6 +184,8 @@ extension SignUpViewModel {
             .eraseToAnyPublisher()
     }
 
+    /// A publisher that returns a boolean value indicating
+    /// whether the password is short or not.
     private var isPasswordShortPublisher: AnyPublisher<Bool, Never> {
         $password
             .debounce(for: 0.5, scheduler: RunLoop.main)
@@ -165,6 +196,8 @@ extension SignUpViewModel {
             .eraseToAnyPublisher()
     }
 
+    /// A publisher that returns a boolean value indicating
+    /// whether the password is strong or not.
     private var isPasswordStrongPublisher: AnyPublisher<Bool, Never> {
         $password
             .dropFirst()
@@ -176,6 +209,8 @@ extension SignUpViewModel {
             .eraseToAnyPublisher()
     }
 
+    /// A publisher that returns a boolean value indicating
+    /// whether the two password inputs are equal or not.
     private var arePasswordsEqualPublisher: AnyPublisher<Bool, Never> {
         Publishers.CombineLatest($password, $repeatedPassword)
             .debounce(for: 0.5, scheduler: RunLoop.main)
@@ -185,6 +220,9 @@ extension SignUpViewModel {
             .eraseToAnyPublisher()
     }
 
+    /// A publisher that combines `isPasswordEmptyPublisher`, `isPasswordShortPublisher`,
+    /// `isPasswordStrongPublisher` and `arePasswordsEqualPublisher`
+    /// and returns a PasswordStatus describing the current state of the password input
     private var isPasswordInputValidPublisher: AnyPublisher<PasswordStatus, Never> {
         Publishers.CombineLatest4(isPasswordEmptyPublisher,
                                   isPasswordShortPublisher,
@@ -211,6 +249,8 @@ extension SignUpViewModel {
 
 // MARK: - Form Validation
 extension SignUpViewModel {
+    /// A publisher that returns a boolean value indicating
+    /// whether the filled form is valid or not.
     private var isFormValidPublisher: AnyPublisher<Bool, Never> {
         Publishers.CombineLatest(isEmailInputValidPublisher, isPasswordInputValidPublisher)
             .map { emailStatus, passwordStatus in
@@ -222,13 +262,17 @@ extension SignUpViewModel {
 
 // MARK: - Sign Up
 extension SignUpViewModel {
+    /// Uses the authService to make a sign-up request with the filled email and password details.
+    /// - Parameter completion: A closure the method runs when the sign-up succeeds.
+    ///                         The closure takes no parameters and returns nothing.
+    /// In case of a failed sign-up, the `signUpErrorDescription` is updated with the error.
     func signUp(completion: @escaping () -> Void) {
         authService.signUp(email: email, password: password) { result in
             switch result {
             case .success:
                 completion()
             case .failure:
-                self.signUpErrorDescription = AuthError.signUpFailed.rawValue
+                self.signUpErrorDescription = AuthError.signUpFailed.description
             }
         }
     }

@@ -45,10 +45,9 @@ extension Cart {
             case .success(let cartEntry):
                     self?.contents.append(cartEntry)
                     self?.isModifying = false
-            case .failure(let error):
-                print(error.rawValue)
+            case .failure:
                 self?.isModifying = false
-                }
+            }
         }
     }
 
