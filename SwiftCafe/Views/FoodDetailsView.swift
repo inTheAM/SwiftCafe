@@ -7,14 +7,27 @@
 
 import SwiftUI
 
+/// The view that shows the details for a food and
+/// lets the user select options and extras and
+/// add the food to the user's cart.
 struct FoodDetailsView: View {
+    
+    /// The cart instance in the environment.
     @EnvironmentObject var cart: Cart
+    
+    /// The `FoodDetailsViewModel` instance that manages this view.
     @ObservedObject var viewModel: FoodDetailsViewModel
+    
+    /// The presentation mode that dismisses this view.
     @Environment(\.presentationMode)    var presentationMode
 
+    /// The toggle for expanding the disclosure view containing the options for this food.
     @State private var optionsExpanded = false
+    
+    /// The toggle for expanding the disclosure view containing the extras for this food.
     @State private var extrasExpanded = false
 
+    /// Initializes the view model with a food.
     init(food: Food) {
         self.viewModel = FoodDetailsViewModel(food: food)
     }
