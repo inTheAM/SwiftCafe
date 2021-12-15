@@ -8,5 +8,6 @@
 import SwiftUI
 
 extension Color {
+    /// The system background color.
     static let systemBackground = Color(UIColor.systemBackground)
 }
