@@ -15,6 +15,8 @@ final class AuthService {
     private let keychainKey = "SWIFTCAFE-API-KEY"
 
     /// The token used to authorize requests.
+    /// A present value for the token means that the user is signed in.
+    /// A value of nil for the token indicates that the user's session expired.
     var token: String? {
         get {
           Keychain.load(key: keychainKey)
