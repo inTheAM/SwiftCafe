@@ -7,8 +7,13 @@
 
 import SwiftUI
 
+/// A button that dismisses the current view on the navigation stack.
+/// A chevron facing left.
 struct BackButton: View {
+
+    /// A binding for the presentation mode of the view to be dismissed.
     @Binding var presentationMode: PresentationMode
+
     var body: some View {
         Button {
             $presentationMode.wrappedValue.dismiss()

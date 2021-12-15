@@ -13,7 +13,7 @@ final class RemoteImage: ObservableObject {
     /// The url for the image to load.
     let imageURL: String
 
-    /// The image loaded from the url
+    /// The image loaded from the url.
     @Published var image    =    UIImage()
 
     /// The loading state of the image.

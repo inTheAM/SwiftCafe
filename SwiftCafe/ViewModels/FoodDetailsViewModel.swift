@@ -68,7 +68,7 @@ final class FoodDetailsViewModel: ObservableObject {
     init(food: Food, service: FoodDetailsServiceProtocol = FoodDetailsServiceFactory.create()) {
         self.foodDetailsService = service
         self.food = food
-        
+
         /// Initializing the selection summary publisher.
         /// The publisher is received on the main thread, assigned to `selectionSummary`
         /// and stored in the `cancellables` set.
@@ -105,7 +105,7 @@ final class FoodDetailsViewModel: ObservableObject {
             }
             .eraseToAnyPublisher()
     }
-    
+
 // MARK: - Fetching options
     /// Uses the `foodDetailsService` to fetch the options for the food for this view model.
     /// On success, the fetched options are assigned to the `options` array.
@@ -121,7 +121,8 @@ final class FoodDetailsViewModel: ObservableObject {
             }
         }
     }
-    
+
+// MARK: - Selecting options
     /// Selects an option for this food.
     /// If an option in the same option group is already selected,
     /// the existing selection is overwritten by the new option.
@@ -136,7 +137,8 @@ final class FoodDetailsViewModel: ObservableObject {
             selectedOptions.append(option)
         }
     }
-    
+
+// MARK: - Deselecting options
     /// Deselects an option for this food.
     /// - Parameter option: The option to remove from `selectedOptions`
     func removeOption(_ option: Option?) {

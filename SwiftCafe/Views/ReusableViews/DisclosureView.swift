@@ -7,14 +7,15 @@
 
 import SwiftUI
 
-struct DisclosureView<Content: View>: View {
-//    The label for the disclosure group
+/// A view that shows a disclosure group with a label and content.
+struct DisclosureView<Content>: View where Content: View {
+    /// The label for the disclosure group.
     let label: String
 
-//    A binding to the expansion state of the disclosure view
+    /// A binding to the expansion state of the disclosure view.
     @Binding var isExpanded: Bool
 
-//    The content displayed when the disclosure view is expanded
+    /// The content displayed when the disclosure view is expanded.
     let content: () -> Content
 
     var body: some View {
@@ -36,6 +37,7 @@ struct DisclosureView<Content: View>: View {
                 .foregroundColor(.primary)
             }
             .accessibilityIdentifier("Expand button")
+
             if isExpanded {
                 content()
                     .transition(.move(edge: .trailing))

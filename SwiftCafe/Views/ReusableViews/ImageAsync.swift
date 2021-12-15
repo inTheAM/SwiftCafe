@@ -7,11 +7,17 @@
 
 import SwiftUI
 
+/// A view that shows an image loaded asynchronously from a url.
+/// Displays a placeholder image while the image is loading.
 struct ImageAsync: View {
+
+    /// The `RemoteImage` instance that loads the image from the url.
     @ObservedObject    var remoteImage: RemoteImage
 
+    /// Initializes the `RemoteImage` instance with a url.
+    /// - Parameter imageURL: The url to load the image from.
     init(imageURL: String) {
-        self.remoteImage    =    .init(imageURL: imageURL)
+        self.remoteImage    =    RemoteImage(imageURL: imageURL)
     }
 
     var body: some View {
