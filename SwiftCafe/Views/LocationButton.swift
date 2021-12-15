@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-/// The button that toggles the presentation state of the location selection view.
+/// #The button that toggles the presentation state of the location selection view.
 struct LocationButton: View {
 
     /// The presentation state of the location selection view.

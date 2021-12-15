@@ -7,7 +7,7 @@
 
 import Foundation
 
-/// A service that handles the crud operations for the user's cart.
+/// #A service that handles the crud operations for the user's cart.
 struct CartService: CartServiceProtocol {
 
     /// Makes a network request to fetch the contents of the user's cart.

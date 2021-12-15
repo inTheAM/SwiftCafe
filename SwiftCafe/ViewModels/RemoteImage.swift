@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-/// A type that handles asynchronous loading of an image from a URL.
+/// #A type that handles asynchronous loading of an image from a URL.
 final class RemoteImage: ObservableObject {
 
     /// The url for the image to load.

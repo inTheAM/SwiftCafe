@@ -7,7 +7,7 @@
 
 import Foundation
 
-/// The result of an authentication request
+/// #The result of an authentication request
 enum AuthResult {
 
     /// A successful authentication result.

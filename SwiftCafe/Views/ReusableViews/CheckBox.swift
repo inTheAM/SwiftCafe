@@ -7,9 +7,9 @@
 
 import SwiftUI
 
-/// A view that shows selection.
-/// When selected, the existing stroked circle
-/// is filled with a solid circle with a spacing between the two circles.
+/// #A view that shows selection.
+/// ##When selected, the existing stroked circle
+/// ##is filled with a solid circle with a spacing between the two circles.
 struct CheckBox: View {
 
     /// A boolean value that indicates whether selection has occurred or not.

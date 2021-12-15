@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-/// A disclosure view that displays the option groups for this food.
+/// #A disclosure view that displays the option groups for this food.
 struct OptionGroupsView: View {
 
     /// The view model that manages the food details view.

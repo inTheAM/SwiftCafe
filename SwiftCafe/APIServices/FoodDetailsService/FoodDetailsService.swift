@@ -7,7 +7,7 @@
 
 import Foundation
 
-/// A service that handles fetching details of a selected item.
+/// #A service that handles fetching details of a selected item.
 struct FoodDetailsService: FoodDetailsServiceProtocol {
 
     /// Makes a network request to fetch the options for the selected food item.

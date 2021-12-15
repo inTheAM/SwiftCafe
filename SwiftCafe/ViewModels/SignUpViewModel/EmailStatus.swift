@@ -7,7 +7,7 @@
 
 import Foundation
 
-/// The validity status of the email input.
+/// #The validity status of the email input.
 enum EmailStatus: String {
 
     /// The email input is empty.

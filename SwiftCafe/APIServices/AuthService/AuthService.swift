@@ -7,8 +7,8 @@
 
 import Foundation
 
-/// A service that handles user authentication.
-/// Holds the token used to perform authorization in requests.
+/// #A service that handles user authentication.
+/// ##Holds the token used to perform authorization in requests.
 final class AuthService {
 
     /// The keychain identifier for token storage.

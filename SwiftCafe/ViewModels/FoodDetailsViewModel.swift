@@ -8,7 +8,7 @@
 import Combine
 import Foundation
 
-/// The View Model for the `FoodDetailsView` screen.
+/// #The View Model for the `FoodDetailsView` screen.
 final class FoodDetailsViewModel: ObservableObject {
     /// The service that handles requests for this view model.
     private let foodDetailsService: FoodDetailsServiceProtocol

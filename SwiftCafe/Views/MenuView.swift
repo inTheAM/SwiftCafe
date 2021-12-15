@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-/// The main view that displays the cafe menu.
+/// #The main view that displays the cafe menu.
 struct MenuView: View {
 
     /// The view model that manages this view.

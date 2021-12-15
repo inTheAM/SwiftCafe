@@ -7,7 +7,7 @@
 
 import Foundation
 
-/// A protocol for services that manage requests that involve cart operations.
+/// #A protocol for services that manage requests that involve cart operations.
 protocol CartServiceProtocol {
 
     /// A type representing a closure that takes a result containing either an array of Cart.Entry or a RequestError.

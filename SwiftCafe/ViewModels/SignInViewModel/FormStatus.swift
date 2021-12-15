@@ -7,7 +7,7 @@
 
 import Foundation
 
-/// The validity status of the form during sign-in.
+/// #The validity status of the form during sign-in.
 enum FormStatus {
 
     /// The email input is empty.

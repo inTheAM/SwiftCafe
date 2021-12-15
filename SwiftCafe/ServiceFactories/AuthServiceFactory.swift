@@ -7,9 +7,9 @@
 
 import Foundation
 
-/// A factory that creates a type that conforms to the AuthServiceProtocol
+/// #A factory that creates a type that conforms to the AuthServiceProtocol.
 struct AuthServiceFactory {
-    
+
     /// Creates a type that conforms to the AuthServiceProtocol depending on environment value for "ENV".
     /// - Returns: Either the shared AuthService instance or
     ///            a MockAuthService instance if the app is launched in testing.

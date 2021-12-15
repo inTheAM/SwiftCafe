@@ -7,7 +7,7 @@
 
 import Foundation
 
-/// The validity status of the password input.
+/// #The validity status of the password input.
 enum PasswordStatus: String {
     case empty
     case short

@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-/// A view that shows a list of options in which the user can only select one.
+/// #A view that shows a list of options in which the user can only select one.
 struct OptionsView: View {
 
     /// The view model that manages the food details view.

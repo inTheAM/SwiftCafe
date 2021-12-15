@@ -7,8 +7,8 @@
 
 import SwiftUI
 
-/// The header for the `FoodDetailsView`.
-/// Contains the food image, name, details and price.
+/// #The header for the `FoodDetailsView`.
+/// ##Contains the food image, name, details and price.
 struct FoodDetailsHeaderView: View {
 
     /// The view model that manages the food details view.

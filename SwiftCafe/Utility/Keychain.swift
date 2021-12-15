@@ -8,7 +8,7 @@
 import Foundation
 import Security
 
-/// Manages access to the Keychain storage on the user's device.
+/// #Manages access to the Keychain storage on the user's device.
 enum Keychain {
     @discardableResult
     /// Saves data to the keychain using the key provided

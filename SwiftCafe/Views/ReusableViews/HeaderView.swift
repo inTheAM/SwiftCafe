@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-/// A view that shows a text in a large font with a solid background.
+/// #A view that shows a text in a large font with a solid background.
 struct HeaderView: View {
 
     /// The title of the view.

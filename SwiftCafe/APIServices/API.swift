@@ -7,7 +7,7 @@
 
 import Foundation
 
-/// The endpoints for the api resources.
+/// #The endpoints for the api resources.
 enum API {
 
     /// The base URL for all API requests.

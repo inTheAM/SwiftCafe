@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-/// A view that shows a disclosure group with a label and content.
+/// #A view that shows a disclosure group with a label and content.
 struct DisclosureView<Content>: View where Content: View {
     /// The label for the disclosure group.
     let label: String

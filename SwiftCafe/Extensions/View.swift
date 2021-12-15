@@ -16,7 +16,7 @@ extension View {
         return self.overlay(Divider(), alignment: alignment)
     }
 
-    /// Overlays a GeoemtryReader onto the view to read the offset of the view
+    /// Overlays a GeometryReader onto the view to read the offset of the view
     /// when the user scrolls or swipes.
     /// - Parameter offsetHandler: A closure that takes a CGRect and returns nothing.
     /// - Returns: A new view with the GeometryReader overlaid.

@@ -7,7 +7,7 @@
 
 import Foundation
 
-/// A factory that returns a type conforming to the CartServiceProtocol
+/// #A factory that returns a type conforming to the CartServiceProtocol.
 struct CartServiceFactory {
 
     /// Creates a type that conforms to the CartServiceProtocol depending on environment value for "ENV".

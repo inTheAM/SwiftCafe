@@ -7,7 +7,7 @@
 
 import Foundation
 
-/// A protocol for services that handle fetching the menu.
+/// #A protocol for services that handle fetching the menu.
 protocol MenuServiceProtocol {
 
     /// A type representing a closure that takes a result containing either an array of MenuSection or a RequestError.

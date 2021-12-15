@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-/// The button that toggles the presentation state of the user's cart view.
+/// #The button that toggles the presentation state of the user's cart view.
 struct CartButton: View {
 
     /// The presentation state of the user's cart view.

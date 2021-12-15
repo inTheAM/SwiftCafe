@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-/// The view that handles user sign-up.
+/// #The view that handles user sign-up.
 struct SignInView: View {
 
     /// The view model that manages this view.

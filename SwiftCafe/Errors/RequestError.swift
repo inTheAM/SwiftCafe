@@ -7,7 +7,7 @@
 
 import Foundation
 
-/// The error received in case of a failure handling a network request.
+/// #The error received in case of a failure handling a network request.
 enum RequestError: Error {
     /// A failure caused by an invalid URL
     case invalidURL

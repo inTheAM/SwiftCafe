@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-/// The view that let's the user select the section to view.
+/// #The view that let's the user select the section to view.
 struct MenuSectionsSelector: View {
 
     /// The `MenuViewModel` instance that manages this view.

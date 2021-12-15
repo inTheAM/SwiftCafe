@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-/// The view that shows a summary of the food.
+/// #The view that shows a summary of the food.
 struct FoodCardView: View {
 
     /// The food to display

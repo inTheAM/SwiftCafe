@@ -7,7 +7,7 @@
 
 import Foundation
 
-/// The ViewModel that handles the `MenuView` screen.
+/// #The ViewModel that handles the `MenuView` screen.
 final class MenuViewModel: ObservableObject {
 
     /// The service that handles requests for the view model.

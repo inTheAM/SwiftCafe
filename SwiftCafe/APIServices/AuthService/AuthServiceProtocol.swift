@@ -7,7 +7,7 @@
 
 import Foundation
 
-/// A protocol for services that handle user authentication/authorization.
+/// #A protocol for services that handle user authentication/authorization.
 protocol AuthServiceProtocol {
 
     /// A type representing a closure that accepts a Boolean value and returns nothing.

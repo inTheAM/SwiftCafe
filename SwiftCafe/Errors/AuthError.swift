@@ -7,7 +7,7 @@
 
 import Foundation
 
-/// The error received in case of an authentication failure.
+/// #The error received in case of an authentication failure.
 enum AuthError: Error {
 
     case signUpFailed

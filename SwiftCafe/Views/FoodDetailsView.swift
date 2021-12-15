@@ -7,9 +7,9 @@
 
 import SwiftUI
 
-/// The view that shows the details for a food and
-/// lets the user select options and extras and
-/// add the food to the user's cart.
+/// #The view that shows the details for a food and
+/// #lets the user select options and extras and
+/// #add the food to the user's cart.
 struct FoodDetailsView: View {
 
     /// The cart instance in the environment.

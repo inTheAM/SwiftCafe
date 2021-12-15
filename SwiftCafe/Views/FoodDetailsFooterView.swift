@@ -7,9 +7,9 @@
 
 import SwiftUI
 
-/// The footer for the `FoodDetailsView`.
-/// Contains the summary for the options and extras selections,
-/// the total price and the add to cart button.
+/// #The footer for the `FoodDetailsView`.
+/// ##Contains the summary for the options and extras selections,
+/// ##the total price and the add to cart button.
 struct FoodDetailsFooterView: View {
 
     /// The view model that manages the food details view.

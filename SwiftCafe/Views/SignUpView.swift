@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-/// The view that handles user sign-up.
+/// #The view that handles user sign-up.
 struct SignUpView: View {
 
     /// The presentation mode used to dismiss this view.

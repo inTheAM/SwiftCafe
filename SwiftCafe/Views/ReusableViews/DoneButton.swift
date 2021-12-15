@@ -7,8 +7,8 @@
 
 import SwiftUI
 
-/// A button that dismisses the current view.
-/// Takes the appearance of the system `Done` button.
+/// #A button that dismisses the current view.
+/// ##Takes the appearance of the system `Done` button.
 struct DoneButton: View {
 
     /// A binding for the presentation mode of the view to be dismissed.

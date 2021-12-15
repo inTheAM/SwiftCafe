@@ -8,7 +8,7 @@
 import Combine
 import Foundation
 
-/// The ViewModel that handles the `SignInView` screen.
+/// #The ViewModel that handles the `SignInView` screen.
 final class SignInViewModel: ObservableObject {
 
     /// The authentication service that handles requests for the view model.

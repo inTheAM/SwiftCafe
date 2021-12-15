@@ -7,7 +7,7 @@
 
 import Foundation
 
-/// A service that handles fetching the menu.
+/// #A service that handles fetching the menu.
 struct MenuService: MenuServiceProtocol {
 
     /// Makes a network request to fetch the menu.

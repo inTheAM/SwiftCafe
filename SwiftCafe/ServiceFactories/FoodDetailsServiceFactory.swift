@@ -7,9 +7,9 @@
 
 import Foundation
 
-/// A factory that returns a type conforming to the FoodDetailsServiceProtocol
+/// #A factory that returns a type conforming to the FoodDetailsServiceProtocol.
 struct FoodDetailsServiceFactory {
-    
+
     /// Creates a type that conforms to the FoodDetailsServiceProtocol depending on environment value for "ENV".
     /// - Returns: Either a FoodDetailsService instance or
     ///            a MockFoodDetailsService instance if the app is launched in testing.

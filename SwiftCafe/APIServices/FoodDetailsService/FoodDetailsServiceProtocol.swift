@@ -7,7 +7,7 @@
 
 import Foundation
 
-/// A protocol for services that handle fetching details for a selected food item.
+/// #A protocol for services that handle fetching details for a selected food item.
 protocol FoodDetailsServiceProtocol {
 
     /// A type representing a closure that takes a result containing either an array of OptionGroup or a RequestError.
