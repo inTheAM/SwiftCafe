@@ -42,7 +42,7 @@ final class SignInViewModel: ObservableObject {
 
         /// Initializing the form validity publisher.
         /// The publisher is received on the main thread, assigned to `isFormValid`
-        /// and stored in the cancellables set.
+        /// and stored in the `cancellables` set.
         isFormValidPublisher
             .receive(on: RunLoop.main)
             .map { formStatus in

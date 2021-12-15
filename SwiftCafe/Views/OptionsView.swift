@@ -10,7 +10,7 @@ import SwiftUI
 struct OptionsView: View {
     @ObservedObject var viewModel: FoodDetailsViewModel
     let optionGroup: OptionGroup
-    @State private var selection: Option?
+    @State private var selectedOption: Option?
 
     var body: some View {
         VStack(alignment: .leading) {
@@ -21,10 +21,10 @@ struct OptionsView: View {
 
                 Spacer()
 
-                if selection != nil {
+                if selectedOption != nil {
                     Button("Clear") {
-                        viewModel.removeOption(selection)
-                        selection = nil
+                        viewModel.removeOption(selectedOption)
+                        selectedOption = nil
                     }
                     .buttonStyle(PlainButtonStyle())
                     .font(.subheadline.bold())
@@ -36,7 +36,7 @@ struct OptionsView: View {
 
             ForEach(optionGroup.options) { option in
                 Button {
-                    selection = option
+                    selectedOption = option
                     viewModel.selectOption(option)
                 } label: {
                     HStack {
@@ -45,7 +45,7 @@ struct OptionsView: View {
 
                         Spacer()
 
-                        CheckBox(isSelected: selection == option)
+                        CheckBox(isSelected: selectedOption == option)
                     }
                 }
                 .buttonStyle(PlainButtonStyle())

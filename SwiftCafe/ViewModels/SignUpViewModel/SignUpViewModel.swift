@@ -99,7 +99,7 @@ final class SignUpViewModel: ObservableObject {
 
         /// Initializing the form validity publisher.
         /// The publisher is received on the main thread, assigned to `isFormValid`
-        /// and stored in the cancellables set.
+        /// and stored in the `cancellables` set.
         isFormValidPublisher
             .receive(on: RunLoop.main)
             .assign(to: \.isFormValid, on: self)
@@ -150,8 +150,8 @@ extension SignUpViewModel {
             .eraseToAnyPublisher()
     }
 
-    /// A publisher that combines `isEmailAvailablePublisher`, `isEmailAvailablePublisher` and `isEmailValidPublisher`
-    /// and returns an EmailStatus describing the current state of the email input
+    /// A publisher that combines `isEmailAvailablePublisher`, `isEmailAvailablePublisher` and `isEmailValidPublisher`.
+    /// Returns an EmailStatus describing the current state of the email input.
     private var isEmailInputValidPublisher: AnyPublisher<EmailStatus, Never> {
         Publishers.CombineLatest3(isEmailEmptyPublisher, isEmailAvailablePublisher, isEmailValidPublisher)
             .map { isEmpty, isAvailable, isValid in
