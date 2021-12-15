@@ -7,9 +7,16 @@
 
 import SwiftUI
 
+/// The button that toggles the presentation state of the location selection view.
 struct LocationButton: View {
+
+    /// The presentation state of the location selection view.
     @State private var showLocation = false
+
+    /// The scale of the location icon.
+    /// Used to animate the location icon to scale up and down.
     @State private var scale: CGFloat = 0.2
+
     var body: some View {
         Button {
             showLocation = true

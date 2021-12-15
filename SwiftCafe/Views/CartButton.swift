@@ -7,8 +7,12 @@
 
 import SwiftUI
 
+/// The button that toggles the presentation state of the user's cart view.
 struct CartButton: View {
+
+    /// The presentation state of the user's cart view.
     @State private var showCart = false
+
     var body: some View {
         VStack {
             Spacer()

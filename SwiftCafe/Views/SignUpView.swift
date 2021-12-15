@@ -9,18 +9,18 @@ import SwiftUI
 
 /// The view that handles user sign-up.
 struct SignUpView: View {
-    
+
     /// The presentation mode used to dismiss this view.
     @Environment(\.presentationMode) var presentationMode
-    
+
     /// The view model that manages this view.
     /// An instance of `SignUpViewModel`
     @StateObject var viewModel = SignUpViewModel()
-    
+
     /// A binding to a boolean that indicates whether the user is signed in or not.
     /// A successful sign-up toggles the value to true.
     @Binding var isLoggedIn: Bool
-    
+
     var body: some View {
         ZStack {
             Color.black.opacity(0.7)

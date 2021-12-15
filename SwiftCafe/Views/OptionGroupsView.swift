@@ -7,9 +7,15 @@
 
 import SwiftUI
 
+/// A disclosure view that displays the option groups for this food.
 struct OptionGroupsView: View {
+
+    /// The view model that manages the food details view.
     @ObservedObject var viewModel: FoodDetailsViewModel
+
+    /// A binding to a boolean value that represents the expansion state of the disclosure view
     @Binding var optionsExpanded: Bool
+
     var body: some View {
         DisclosureView(label: "Customize your order", isExpanded: $optionsExpanded) {
             ScrollView {

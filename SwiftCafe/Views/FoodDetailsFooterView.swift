@@ -7,9 +7,17 @@
 
 import SwiftUI
 
+/// The footer for the `FoodDetailsView`.
+/// Contains the summary for the options and extras selections,
+/// the total price and the add to cart button.
 struct FoodDetailsFooterView: View {
+
+    /// The view model that manages the food details view.
     @ObservedObject var viewModel: FoodDetailsViewModel
+
+    /// The cart instance in the environment.
     @EnvironmentObject var cart: Cart
+
     var body: some View {
         VStack {
             HStack {
@@ -54,7 +62,6 @@ struct FoodDetailsFooterView: View {
             }
             .padding()
         }
-//        .background(Color.blue.opacity(0.2).ignoresSafeArea())
     }
 }
 

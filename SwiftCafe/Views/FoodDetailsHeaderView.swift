@@ -7,9 +7,16 @@
 
 import SwiftUI
 
+/// The header for the `FoodDetailsView`.
+/// Contains the food image, name, details and price.
 struct FoodDetailsHeaderView: View {
+
+    /// The view model that manages the food details view.
     @ObservedObject var viewModel: FoodDetailsViewModel
+
+    /// A binding to the presentation mode used to dismiss the parent view.
     @Binding var presentationMode: PresentationMode
+
     var body: some View {
         HStack(alignment: .top) {
             ImageAsync(imageURL: viewModel.imageURL)

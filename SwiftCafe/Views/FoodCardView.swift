@@ -9,13 +9,13 @@ import SwiftUI
 
 /// The view that shows a summary of the food.
 struct FoodCardView: View {
-    
+
     /// The food to display
     let food: Food
-    
+
     /// The toggle for presenting a fullscreenCover with the details for this food.
     @State private var showDetails    =    false
-    
+
     var body: some View {
         Button(action: {
             showDetails    =    true

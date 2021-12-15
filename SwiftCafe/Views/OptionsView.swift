@@ -7,9 +7,16 @@
 
 import SwiftUI
 
+/// A view that shows a list of options in which the user can only select one.
 struct OptionsView: View {
+
+    /// The view model that manages the food details view.
     @ObservedObject var viewModel: FoodDetailsViewModel
+
+    /// The option group to display.
     let optionGroup: OptionGroup
+
+    /// The selected option in this option group.
     @State private var selectedOption: Option?
 
     var body: some View {
