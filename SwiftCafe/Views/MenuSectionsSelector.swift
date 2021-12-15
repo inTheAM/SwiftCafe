@@ -7,10 +7,18 @@
 
 import SwiftUI
 
+/// The view that let's the user select the section to view.
 struct MenuSectionsSelector: View {
+    
+    /// The `MenuViewModel` instance that manages this view.
     @ObservedObject var viewModel: MenuViewModel
+    
+    /// A namespace for matching the geometry effect of the selector between sections.
     @Namespace var namespace
+    
+    /// The ScrollViewProxy for the parent of this view.
     var pageProxy: ScrollViewProxy
+    
     var body: some View {
         ScrollViewReader { proxy in
             ScrollView(.horizontal, showsIndicators: false) {

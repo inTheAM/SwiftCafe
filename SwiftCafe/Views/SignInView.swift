@@ -7,8 +7,15 @@
 
 import SwiftUI
 
+/// The view that handles user sign-up.
 struct SignInView: View {
+    
+    /// The view model that manages this view.
+    /// An instance of `SignInViewModel`
     @StateObject var viewModel = SignInViewModel()
+    
+    /// A binding to a boolean that indicates whether the user is signed in or not.
+    /// A successful sign-in toggles the value to true.
     @Binding var isLoggedIn: Bool
 
     var body: some View {

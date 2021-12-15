@@ -7,9 +7,17 @@
 
 import SwiftUI
 
+/// The main view that displays the cafe menu.
 struct MenuView: View {
+    
+    /// The view model that manages this view.
+    /// An instance of `MenuViewModel`.
     @StateObject var viewModel = MenuViewModel()
+    
+    /// The user's cart, injected into the environment.
     @ObservedObject var cart = Cart()
+    
+    /// The Menu overlaid with a button to show the user's cart.
     var body: some View {
         NavigationView {
             ZStack {
@@ -42,6 +50,7 @@ struct MenuView: View {
                         }
                     }
                 }
+                
                 CartButton()
             }
             .navigationBarTitleDisplayMode(.inline)
@@ -51,7 +60,7 @@ struct MenuView: View {
                 }
             }
         }
-            .environmentObject(cart)
+        .environmentObject(cart)
     }
 
     private func activateSection(_ section: MenuSection, in rect: CGRect) {
