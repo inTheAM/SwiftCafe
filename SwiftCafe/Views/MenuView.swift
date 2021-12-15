@@ -9,7 +9,7 @@ import SwiftUI
 
 struct MenuView: View {
     @StateObject var viewModel = MenuViewModel()
-
+    @ObservedObject var cart = Cart()
     var body: some View {
         NavigationView {
             ZStack {
@@ -51,6 +51,7 @@ struct MenuView: View {
                 }
             }
         }
+            .environmentObject(cart)
     }
 
     private func activateSection(_ section: MenuSection, in rect: CGRect) {

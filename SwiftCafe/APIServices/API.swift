@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct APIService {
+struct API {
     static let baseURL  =   URL(string: "http://127.0.0.1:8090/api/")
 
 }

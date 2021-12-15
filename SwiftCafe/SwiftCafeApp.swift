@@ -9,11 +9,14 @@ import SwiftUI
 
 @main
 struct SwiftCafeApp: App {
-    @ObservedObject var cart = Cart()
+    @State private var isLoggedIn = AuthServiceFactory.create().token != nil
     var body: some Scene {
         WindowGroup {
-            HomeView()
-                .environmentObject(cart)
+            if isLoggedIn {
+                MenuView()
+            } else {
+                SignInView(isLoggedIn: $isLoggedIn)
+            }
         }
     }
 }

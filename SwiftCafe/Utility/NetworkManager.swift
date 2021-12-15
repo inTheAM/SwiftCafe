@@ -31,7 +31,7 @@ struct NetWorkManager: NetworkManagerProtocol {
         completion:    @escaping (Result<T, RequestError>) -> Void
     ) {
         DispatchQueue.global(qos: .userInteractive).async {
-            guard let url    =    APIService.baseURL?.appendingPathComponent(path)    else {
+            guard let url    =    API.baseURL?.appendingPathComponent(path)    else {
                 DispatchQueue.main.async {
                     completion(.failure(.invalidURL))
                 }
@@ -84,7 +84,7 @@ struct NetWorkManager: NetworkManagerProtocol {
         authType: RequestAuthType,
         completion: @escaping (Result<ReceiveData, RequestError>) -> Void) {
         DispatchQueue.global(qos: .userInitiated).async {
-            guard let url    =    APIService.baseURL?.appendingPathComponent(path)    else {
+            guard let url    =    API.baseURL?.appendingPathComponent(path)    else {
                 DispatchQueue.main.async {
                     completion(.failure(.invalidURL))
                 }
@@ -136,7 +136,7 @@ struct NetWorkManager: NetworkManagerProtocol {
         completion: @escaping (Result<Void, RequestError>) -> Void
     ) {
         DispatchQueue.global(qos: .userInteractive).async {
-            guard let url    =    APIService.baseURL?.appendingPathComponent(path)    else {
+            guard let url    =    API.baseURL?.appendingPathComponent(path)    else {
                 DispatchQueue.main.async {
                     completion(.failure(.invalidURL))
                 }

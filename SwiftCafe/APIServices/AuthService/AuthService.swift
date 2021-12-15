@@ -7,23 +7,14 @@
 
 import Foundation
 
-protocol AuthServiceProtocol {
-    var token: String? { get set }
-    func checkEmailAvailability(email: String, completion: @escaping (Bool) -> Void)
-    func signUp(email: String, password: String, completion: @escaping (AuthResult) -> Void)
-    func signIn(email: String, password: String, completion: @escaping (AuthResult) -> Void)
-}
-
-enum AuthResult {
-    case success,
-         failure
-}
-
+/// A service that handles user authentication.
+/// Holds the token used to perform authorization in requests.
 final class AuthService {
-    private let path = "users"
 
-// MARK: - Token
+    /// The keychain identifier for token storage.
     private let keychainKey = "SWIFTCAFE-API-KEY"
+
+    /// The token used to authorize requests.
     var token: String? {
         get {
           Keychain.load(key: keychainKey)
@@ -37,15 +28,23 @@ final class AuthService {
         }
     }
 
-// MARK: - Singleton
+    /// The shared singleton instance of this service.
     static let shared = AuthService()
+
+    /// The private initializer for this service.
     private init() {}
 }
 
 extension AuthService: AuthServiceProtocol {
-// MARK: - Email Availability
-    func checkEmailAvailability(email: String, completion: @escaping (Bool) -> Void) {
+
+    /// Makes a network request to check whether an email address is available for use in account creation.
+    /// - Parameters:
+    ///   - email: The email address to check availability for.
+    ///   - completion: A closure the method runs when a result is received from the request.
+    ///                 The closure takes a boolean value that indicates whether the email address is available or not.
+    func checkEmailAvailability(email: String, completion: @escaping AvailabilityHandler) {
         let validationData = User.ValidateData(email: email)
+
         NetWorkManager.makePostRequestWithoutReturn(
             sending: validationData,
             path: "users/validate",
@@ -60,8 +59,13 @@ extension AuthService: AuthServiceProtocol {
         }
     }
 
-// MARK: - Sign Up
-    func signUp(email: String, password: String, completion: @escaping (AuthResult) -> Void) {
+    /// Makes a network request to sign up a user using the email address and the password provided.
+    /// - Parameters:
+    ///   - email: The email address to sign the user up with.
+    ///   - password: The password to authenticate the user with.
+    ///   - completion: A closure the method runs when a result is received from the request.
+    ///                 The closure takes an AuthResult value that indicates whether the sign-up was successful or not.
+    func signUp(email: String, password: String, completion: @escaping AuthResultHandler) {
         let user = User.CreateData(email: email, password: password)
 
         NetWorkManager.makePostRequestWithReturn(
@@ -81,8 +85,13 @@ extension AuthService: AuthServiceProtocol {
         }
     }
 
-// MARK: - Sign In
-    func signIn(email: String, password: String, completion: @escaping (AuthResult) -> Void) {
+    /// Makes a network request to sign in a user using the email address and the password provided
+    /// - Parameters:
+    ///   - email: The email address to sign the user in with.
+    ///   - password: The password to authenticate the user with.
+    ///   - completion: A closure the method runs when a result is received from the request.
+    ///                 The closure takes an AuthResult value that indicates whether the sign-in was successful or not.
+    func signIn(email: String, password: String, completion: @escaping AuthResultHandler) {
         guard let loginString = "\(email):\(password)".data(using: .utf8)?.base64EncodedString() else {
             completion(.failure)
             return
@@ -91,7 +100,7 @@ extension AuthService: AuthServiceProtocol {
         NetWorkManager.makePostRequestWithReturn(
             sending: "",
             receiving: Token.self,
-            path: path + "/signin",
+            path: "users/signin",
             authType: .basic(value: loginString)
         ) { result in
             switch result {
@@ -103,6 +112,5 @@ extension AuthService: AuthServiceProtocol {
                 completion(.failure)
             }
         }
-
     }
 }

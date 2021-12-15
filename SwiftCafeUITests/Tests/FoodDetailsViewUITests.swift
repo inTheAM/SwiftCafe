@@ -25,16 +25,12 @@ final class FoodDetailsViewUITests: XCTestCase {
         let foodPrice = app.staticTexts["Total price"]
         let foodDetails = app.staticTexts["Food details details header"]
         let closeButton = app.buttons["Close"]
-        let quantityStepper = app.steppers["Quantity stepper"]
-        let addToCartButton = app.buttons["Add to cart"]
 
         XCTAssert(foodImage.waitForExistence(timeout: 10))
         XCTAssert(foodName.waitForExistence(timeout: 10))
         XCTAssert(foodPrice.waitForExistence(timeout: 10))
         XCTAssert(foodDetails.waitForExistence(timeout: 10))
         XCTAssert(closeButton.waitForExistence(timeout: 10))
-        XCTAssert(quantityStepper.waitForExistence(timeout: 10))
-        XCTAssert(addToCartButton.waitForExistence(timeout: 10))
     }
 
     func testOptionGroupsExist() throws {
