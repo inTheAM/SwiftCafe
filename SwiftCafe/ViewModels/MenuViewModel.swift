@@ -24,7 +24,7 @@ final class MenuViewModel: ObservableObject {
     /// The initializer for the view model.
     /// - Parameter menuService: An instance of a type that conforms to `MenuServiceProtocol`.
     ///                          The default value is the return of the create method defined on `MenuServiceFactory`.
-    init(menuService: MenuServiceProtocol = MenuServiceFactory.create()) {
+    init(menuService: MenuServiceProtocol = MockMenuService() /*MenuServiceFactory.create()*/) {
         self.menuService = menuService
     }
 

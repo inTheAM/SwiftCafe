@@ -7,7 +7,20 @@
 
 import Foundation
 
-struct Option: Codable, Hashable, Identifiable {
-    var id: UUID = UUID()
-    var name: String
+/// #An option for customizing a food order.
+struct Option: Identifiable {
+    
+    /// The permanent identifier for the option.
+    let id: UUID
+    
+    /// The name of the option.
+    let name: String
+}
+
+// MARK: - Codable conformance
+extension Option: Decodable { }
+
+// MARK: - Equatable conformance
+extension Option: Equatable {
+    
 }

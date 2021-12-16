@@ -7,6 +7,9 @@
 
 import Foundation
 
+/// #The Token used to authorize requests from the application.
 struct Token: Codable {
-    var value: String
+
+    /// The value of the token .
+    let value: String
 }

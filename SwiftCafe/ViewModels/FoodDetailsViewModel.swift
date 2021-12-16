@@ -20,6 +20,9 @@ final class FoodDetailsViewModel: ObservableObject {
     /// The `Food` instance handled by this view model.
     @Published var food: Food
 
+    /// The option groups for this food item.
+    @Published var optionGroups = [OptionGroup]()
+
     /// The quantity of the `Food` Item to add to the user's cart.
     @Published var quantity = 1
 
@@ -37,10 +40,6 @@ final class FoodDetailsViewModel: ObservableObject {
     /// The details of the food.
     var details: String {
         food.details
-    }
-    /// The options for the food
-    var options: [OptionGroup] {
-        food.options
     }
     /// The url for the image showing the food
     var imageURL: String {
@@ -65,7 +64,7 @@ final class FoodDetailsViewModel: ObservableObject {
     ///   - food: The food to load data for
     ///   - service: An instance of a type that conforms to `FoodDetailsServiceProtocol`.
     ///              The default value is the return of the create method defined on `FoodDetailsServiceFactory`.
-    init(food: Food, service: FoodDetailsServiceProtocol = FoodDetailsServiceFactory.create()) {
+    init(food: Food, service: FoodDetailsServiceProtocol = MockFoodDetailsService()/*FoodDetailsServiceFactory.create()*/) {
         self.foodDetailsService = service
         self.food = food
 
@@ -114,7 +113,7 @@ final class FoodDetailsViewModel: ObservableObject {
             DispatchQueue.main.async {
                 switch result {
                 case .success(let options):
-                    self.food.options = options
+                    self.optionGroups = options
                 case .failure(let error):
                     print("Food service error: ", error.description)
                 }
@@ -128,7 +127,7 @@ final class FoodDetailsViewModel: ObservableObject {
     /// the existing selection is overwritten by the new option.
     /// - Parameter option: An option to mark for selection.
     func selectOption(_ option: Option) {
-        if let optionGroup = options.first(where: {$0.options.contains(option)}) {
+        if let optionGroup = optionGroups.first(where: {$0.options.contains(option)}) {
             for selectedOption in optionGroup.options where selectedOptions.contains(selectedOption) {
                 if let index = selectedOptions.firstIndex(of: selectedOption) {
                     selectedOptions.remove(at: index)

@@ -59,6 +59,9 @@ struct FoodDetailsView: View {
 
             FoodDetailsFooterView(viewModel: viewModel)
         }
+        .onAppear {
+            viewModel.fetchOptions()
+        }
         .onChange(of: optionsExpanded) { isExpanded in
             if isExpanded {
                 extrasExpanded = false

@@ -7,60 +7,39 @@
 
 import Foundation
 
+/// #A food item.
 struct Food: Identifiable {
-    var id: UUID
-    var name: String
-    var details: String
-    var options: [OptionGroup]
-    var extras: [Extra]
-    var price: Int
-    var imageURL: String
-    var stockQuantity: Int
+
+    /// The permanent identifier for the food item.
+    /// Satisfies conformance to Identifiable
+    let id: UUID
+    
+    /// The name of the food.
+    let name: String
+    
+    /// The description of the food.
+    let details: String
+    
+    /// The price for the food.
+    let price: Int
+    
+    /// The url for the image showing the food.
+    let imageURL: String
+    
+    /// The quantity available for this food.
+    let stockQuantity: Int
 }
 
-// MARK: - Equatable Conformance
+// MARK: - Equatable conformance.
 extension Food: Equatable {
+    
+    /// Compares two food items using their `id`.
+    /// - Returns: A boolean indicating whether the two
+    ///            food items are the same.
     static func == (lhs: Food, rhs: Food) -> Bool {
         lhs.id == rhs.id
     }
 }
 
-// MARK: - Codable Conformance
-extension Food: Codable {
-    enum CodingKeys: CodingKey {
-        case id,
-             name,
-             details,
-             options,
-             extras,
-             price,
-             imageURL,
-             stockQuantity
-    }
-
-    func encode(to    encoder: Encoder)    throws {
-        var container    =    encoder.container(keyedBy: CodingKeys.self)
-
-        try container.encode(id, forKey: .id)
-        try container.encode(name, forKey: .name)
-        try container.encode(details, forKey: .details)
-        try container.encode(options, forKey: .options)
-        try container.encode(extras, forKey: .extras)
-        try container.encode(price, forKey: .price)
-        try container.encode(imageURL, forKey: .imageURL)
-        try container.encode(stockQuantity, forKey: .stockQuantity)
-    }
-
-    init(from decoder: Decoder)    throws {
-        let container    =    try    decoder.container(keyedBy: CodingKeys.self)
-
-        id    =    try container.decode(UUID.self, forKey: .id)
-        name    =    try    container.decode(String.self, forKey: .name)
-        details    =    try    container.decode(String.self, forKey: .details)
-        options =   try container.decode([OptionGroup].self, forKey: .options)
-        extras =   try container.decode([Extra].self, forKey: .options)
-        price    =    try container.decode(Int.self, forKey: .price)
-        imageURL    =    try    container.decode(String.self, forKey: .imageURL)
-        stockQuantity    =    try    container.decode(Int.self, forKey: .stockQuantity)
-    }
-}
+// MARK: - Codable conformance.
+extension Food: Codable { }

@@ -20,13 +20,13 @@ final class FoodDetailsViewModelTests: XCTestCase {
 
 // MARK: - Tests
     func testFetchingOptions() throws {
-        let foodPublisher = viewModel.$food
+        let optionsPublisher = viewModel.$optionGroups
             .dropFirst()
             .first()
         viewModel.fetchOptions()
-        let food = try awaitResult(from: foodPublisher)
-        XCTAssertEqual(food.options.count, OptionGroup.samples.count)
-        XCTAssertEqual(food.options[0].name, OptionGroup.samples[0].name)
+        let options = try awaitResult(from: optionsPublisher)
+        XCTAssertEqual(options.count, OptionGroup.samples.count)
+        XCTAssertEqual(options[0].name, OptionGroup.samples[0].name)
     }
 
 // MARK: - Teardown

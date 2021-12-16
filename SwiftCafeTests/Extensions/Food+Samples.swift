@@ -16,8 +16,6 @@ extension Food {
                 Food(id: UUID(),
                      name: "Food \(num)",
                      details: "Food details",
-                     options: OptionGroup.createOptions(),
-                     extras: [],
                      price: 12,
                      imageURL: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTP68GaMxj6iSn18pYEVZyW0lLLYgbEzbdmFQ&usqp=CAU",
                      stockQuantity: 20))

@@ -7,20 +7,36 @@
 
 import Foundation
 
+/// #The User data.
 struct User: Codable {
-    var id: UUID
-    var email: String
+
+    /// The permanent identifier for this user.
+    let id: UUID
+
+    /// The email address associated with this user's account.
+    let email: String
 }
 
 extension User {
+
+    /// #The data used to create a new user.
     struct CreateData: Codable {
-        var email: String
-        var password: String
+
+        /// The email address to create an account with.
+        let email: String
+
+        /// The password to create an account with.
+        let password: String
     }
 }
 
 extension User {
+
+    /// #The data used to check for email address availability
+    /// #for account creation.
     struct ValidateData: Codable {
-        var email: String
+
+        /// The email address to check availability for.
+        let email: String
     }
 }

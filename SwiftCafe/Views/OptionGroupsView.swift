@@ -19,7 +19,7 @@ struct OptionGroupsView: View {
     var body: some View {
         DisclosureView(label: "Customize your order", isExpanded: $optionsExpanded) {
             ScrollView {
-                ForEach(viewModel.options, id: \.name) { optionGroup in
+                ForEach(viewModel.optionGroups, id: \.name) { optionGroup in
                     OptionsView(viewModel: viewModel, optionGroup: optionGroup)
                 }
                 .padding(.vertical, 8)
