@@ -44,7 +44,7 @@ struct FoodDetailsFooterView: View {
                     cart.add(viewModel.food, quantity: viewModel.quantity)
 
                 } label: {
-                    Text(cart.contains(viewModel.food) ?   "Remove from bag"  : "Add to bag")
+                    Text(cart.contains(viewModel.food) ?   "Remove from cart"  : "Add to cart")
                         .font(.subheadline)
                         .bold()
                         .foregroundColor(
@@ -57,7 +57,7 @@ struct FoodDetailsFooterView: View {
                         .background(cart.contains(viewModel.food) ? Color.red : Color.primary)
                         .cornerRadius(20)
                 }
-                .accessibilityIdentifier("Add to bag")
+                .accessibilityIdentifier("Add to cart")
                 .disabled(cart.isModifying)
             }
             .padding()

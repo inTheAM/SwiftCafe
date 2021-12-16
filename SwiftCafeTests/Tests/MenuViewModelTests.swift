@@ -8,16 +8,21 @@
 @testable import SwiftCafe
 import XCTest
 
+/// #Tests the MenuViewModel.
 final class MenuViewModelTests: XCTestCase {
+
+    /// The view model under test.
     private var viewModel: MenuViewModel!
 
-// MARK: - Setup
+    // MARK: - Setup
+    /// Sets up the viewModel with a mock menu service.
     override func setUpWithError() throws {
-        let menuService = MockMenuService()
-        viewModel = MenuViewModel(menuService: menuService)
+        let mockService = MockMenuService()
+        viewModel = MenuViewModel(menuService: mockService)
     }
 
-// MARK: - Tests
+    // MARK: - Tests
+    /// Tests fetching the menu
     func testFetchingMenu() throws {
         let sectionsPublisher = viewModel.$sections
             .first()
@@ -37,6 +42,7 @@ final class MenuViewModelTests: XCTestCase {
     }
 
     // MARK: - Teardown
+    /// Tears down the test view model.
     override func tearDownWithError() throws {
         viewModel = nil
     }

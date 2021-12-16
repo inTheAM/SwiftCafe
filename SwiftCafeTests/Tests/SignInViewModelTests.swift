@@ -11,7 +11,7 @@ import XCTest
 
 /// #Tests the SignInViewModel.
 final class SignInViewModelTests: XCTestCase {
-    
+
     /// The view model under test.
     private var viewModel: SignInViewModel!
 
@@ -106,7 +106,9 @@ final class SignInViewModelTests: XCTestCase {
     func testSigningInWithValidCredentials() throws {
         viewModel.email = User.sample.email
         viewModel.password = User.sample.password
+
         let expectation = XCTestExpectation(description: "Sign in was successful")
+
         viewModel.signIn {
             expectation.fulfill()
         }
@@ -117,11 +119,14 @@ final class SignInViewModelTests: XCTestCase {
     func testSigningInWithInvalidCredentials() throws {
         viewModel.email = "wrongemail@gmail.com"
         viewModel.password = "Passwordetc"
-        var isSignedIn = false
+
+        let expectation = XCTestExpectation(description: "Signed in successfully")
+        expectation.isInverted = true
+
         viewModel.signIn {
-            isSignedIn = true
+            expectation.fulfill()
         }
-        XCTAssertFalse(isSignedIn)
+        wait(for: [expectation], timeout: 5)
     }
 
 // MARK: - Sign In Error Tests
@@ -129,8 +134,10 @@ final class SignInViewModelTests: XCTestCase {
     func testFailedSignInUpdatesInlineError() throws {
         let signInErrorPublisher = viewModel.$signInErrorDescription
             .first()
+
         viewModel.email = "wrongemail@gmail.com"
         viewModel.password = "Passwordetc"
+
         viewModel.signIn {}
 
         let error = try awaitResult(from: signInErrorPublisher)

@@ -10,7 +10,7 @@ import XCTest
 
 /// #Tests the SignUpViewModel.
 final class SignUpViewModelTests: XCTestCase {
-    
+
     /// The view model under test.
     var viewModel: SignUpViewModel!
 
@@ -28,6 +28,7 @@ final class SignUpViewModelTests: XCTestCase {
             .first()
 
         viewModel.email = "testuser1@test.com"
+
         let isEmailValid = try awaitResult(from: isEmailValidPublisher)
         XCTAssertTrue(isEmailValid)
     }
@@ -39,6 +40,7 @@ final class SignUpViewModelTests: XCTestCase {
             .first()
 
         viewModel.email = "testuser@test.com"
+
         let isEmailValid = try awaitResult(from: isEmailValidPublisher)
         XCTAssertFalse(isEmailValid)
     }
@@ -51,6 +53,7 @@ final class SignUpViewModelTests: XCTestCase {
             .first()
 
         viewModel.email = ""
+
         let error = try awaitResult(from: isEmailValidPublisher)
         XCTAssertEqual(error, EmailStatus.empty.inlineError)
     }
@@ -62,6 +65,7 @@ final class SignUpViewModelTests: XCTestCase {
             .first()
 
         viewModel.email = "testemail"
+
         let error = try awaitResult(from: isEmailValidPublisher)
         XCTAssertEqual(error, EmailStatus.invalid.inlineError)
     }
@@ -73,6 +77,7 @@ final class SignUpViewModelTests: XCTestCase {
             .first()
 
         viewModel.email = "testuser@test.com"
+
         let error = try awaitResult(from: isEmailValidPublisher)
         XCTAssertEqual(error, EmailStatus.unavailable.inlineError)
     }
@@ -84,6 +89,7 @@ final class SignUpViewModelTests: XCTestCase {
             .first()
 
         viewModel.email = "testuser3@test.com"
+
         let error = try awaitResult(from: isEmailValidPublisher)
         XCTAssertEqual(error, EmailStatus.valid.inlineError)
     }
@@ -134,6 +140,7 @@ final class SignUpViewModelTests: XCTestCase {
 
         viewModel.password = ""
         viewModel.repeatedPassword = ""
+
         let error = try awaitResult(from: isPasswordEmptyPublisher)
         XCTAssertEqual(error, PasswordStatus.empty.inlineError)
     }
@@ -172,6 +179,7 @@ final class SignUpViewModelTests: XCTestCase {
 
         viewModel.password = "acsd"
         viewModel.repeatedPassword = "acsd"
+
         let error = try awaitResult(from: isPasswordShortPublisher)
         XCTAssertEqual(error, PasswordStatus.short.inlineError)
     }
@@ -186,6 +194,7 @@ final class SignUpViewModelTests: XCTestCase {
         viewModel.email = "testemail@gmail.com"
         viewModel.password = "Password@123"
         viewModel.repeatedPassword = "Password@123"
+
         let isFormValid = try awaitResult(from: isFormValidPublisher)
         XCTAssertTrue(isFormValid)
     }
@@ -195,7 +204,9 @@ final class SignUpViewModelTests: XCTestCase {
     func testSigningUpWithValidCredentials() throws {
         viewModel.email = "wrongemail@gmail.com"
         viewModel.password = "Passwordetc"
+
         let expectation = XCTestExpectation(description: "Sign in was successful")
+
         viewModel.signUp {
             expectation.fulfill()
         }
@@ -206,11 +217,14 @@ final class SignUpViewModelTests: XCTestCase {
     func testSigningUpWithInvalidCredentials() throws {
         viewModel.email = User.sample.email
         viewModel.password = User.sample.password
-        var isSignedIn = false
+
+        let expectation = XCTestExpectation(description: "Signed up successfully")
+        expectation.isInverted = true
+
         viewModel.signUp {
-            isSignedIn = true
+            expectation.fulfill()
         }
-        XCTAssertFalse(isSignedIn)
+        wait(for: [expectation], timeout: 5)
     }
 
     // MARK: - Sign Up Error Tests

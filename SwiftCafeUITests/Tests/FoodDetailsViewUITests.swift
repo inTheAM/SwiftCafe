@@ -8,18 +8,24 @@
 @testable import SwiftCafe
 import XCTest
 
+/// #Tests the FoodDetailsView.
 final class FoodDetailsViewUITests: XCTestCase {
+    /// The test application instance.
     let app = XCUIApplication()
 
-// MARK: - Setup
+    // MARK: - Setup
+    /// Launches the application in a test environment and
+    /// taps a food card to show the detail view.
     override func setUpWithError() throws {
         app.launchInTestEnvironment()
         let foodCard = app.buttons["Food 1"].firstMatch
         foodCard.tap()
     }
 
-// MARK: - Tests
-    func testFoodDetailsExist() throws {
+    // MARK: - Tests
+    /// Tests the food details header exists.
+    /// The header shows the image, name, price
+    func testFoodDetailsHeaderExist() throws {
         let foodImage = app.images["Food 1 photo"]
         let foodName = app.staticTexts["Food 1 name header"]
         let foodPrice = app.staticTexts["Total price"]
@@ -33,9 +39,12 @@ final class FoodDetailsViewUITests: XCTestCase {
         XCTAssert(closeButton.waitForExistence(timeout: 10))
     }
 
+    /// Tests the option groups disclosure view exists and
+    /// the option groups exist when the disclosure view is expanded.
     func testOptionGroupsExist() throws {
         let showOptions = app.buttons["Expand button"]
         showOptions.tap()
+
         let optionGroupLabel = app.staticTexts["Option group 1"]
         let option1 = app.buttons["Option group 1 Option 1"]
 
@@ -43,18 +52,23 @@ final class FoodDetailsViewUITests: XCTestCase {
         XCTAssert(option1.waitForExistence(timeout: 10))
     }
 
-    func testAddToBagButtonExists() throws {
-        let addToBag = app.buttons["Add to bag"]
-        XCTAssert(addToBag.waitForExistence(timeout: 10))
-        XCTAssertEqual(addToBag.label, "Add to bag")
+    /// Tests the `Add to cart` button exists.
+    func testAddToCartButtonExists() throws {
+        let addToCart = app.buttons["Add to cart"]
+        XCTAssert(addToCart.waitForExistence(timeout: 10))
+        XCTAssertEqual(addToCart.label, "Add to cart")
     }
 
+    /// Tests the label of the `Add to cart` button changes to
+    /// `Remove from cart` when an item is added to the cart.
     func testAddToBagButtonChangesToRemoveWhenItemIsAdded() throws {
-        let addToBag = app.buttons["Add to bag"]
-        addToBag.tap()
-        XCTAssertEqual(addToBag.label, "Remove from bag")
+        let addToCart = app.buttons["Add to cart"]
+        addToCart.tap()
+        XCTAssertEqual(addToCart.label, "Remove from cart")
     }
 
+    /// Tests the quantity stepper exists and
+    /// correctly updates the quantity label.
     func testQuantityStepperExistsAndUpdates() throws {
         let stepper = app.steppers["Quantity stepper"]
         let quantity = app.staticTexts["Quantity"]
@@ -63,7 +77,8 @@ final class FoodDetailsViewUITests: XCTestCase {
         XCTAssertEqual(quantity.label, "2")
     }
 
-// MARK: - Teardown
+    // MARK: - Teardown
+    /// Terminates the test application instance.
     override func tearDownWithError() throws {
         app.terminate()
     }
