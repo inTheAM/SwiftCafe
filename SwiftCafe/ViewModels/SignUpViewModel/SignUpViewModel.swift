@@ -72,7 +72,7 @@ final class SignUpViewModel: ObservableObject {
                     self.emailErrorDescription = ""
                     return true
                 default:
-                    self.emailErrorDescription = status.rawValue
+                    self.emailErrorDescription = status.inlineError
                     return false
                 }
             }
