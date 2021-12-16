@@ -23,4 +23,10 @@ extension Option: Decodable { }
 // MARK: - Equatable conformance
 extension Option: Equatable {
     
+    /// Compares two options using their `id`.
+    /// - Returns: A boolean indicating whether the two
+    ///            options are the same.
+    static func == (lhs: Option, rhs: Option) -> Bool {
+        lhs.id == rhs.id
+    }
 }

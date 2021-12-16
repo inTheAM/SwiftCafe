@@ -20,7 +20,7 @@ enum FormStatus {
     case valid
 
     /// The inline error displayed depending on the form status.
-    var description: String {
+    var inlineError: String {
         switch self {
         case .emailEmpty:
             return "Input your email address"

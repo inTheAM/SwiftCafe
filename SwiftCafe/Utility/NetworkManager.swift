@@ -77,7 +77,7 @@ struct NetWorkManager: NetworkManagerProtocol {
         }
     }
 
-    static func makePostRequestWithReturn<SendData: Codable, ReceiveData: Codable>(
+    static func makePostRequestWithReturn<SendData: Encodable, ReceiveData: Decodable>(
         sending payload: SendData,
         receiving: ReceiveData.Type,
         path: String,
@@ -129,7 +129,7 @@ struct NetWorkManager: NetworkManagerProtocol {
         }
     }
 
-    static func makePostRequestWithoutReturn<SendData: Codable>(
+    static func makePostRequestWithoutReturn<SendData: Encodable>(
         sending payload: SendData,
         path: String,
         authType: RequestAuthType,

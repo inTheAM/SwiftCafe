@@ -51,7 +51,7 @@ final class SignInViewModel: ObservableObject {
                     self.signInErrorDescription = ""
                     return true
                 default:
-                    self.signInErrorDescription = formStatus.description
+                    self.signInErrorDescription = formStatus.inlineError
                     return false
                 }
             }

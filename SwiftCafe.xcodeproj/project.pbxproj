@@ -358,11 +358,11 @@
 			children = (
 				E2C0A21F2744FC06003CB51B /* User.swift */,
 				E2C0A2262744FE61003CB51B /* Token.swift */,
+				E2C0A27D27478B52003CB51B /* Cart.swift */,
 				E2C0A24927457DEE003CB51B /* MenuSection.swift */,
 				E2C0A24B27457E2A003CB51B /* Food.swift */,
 				E2C0A24F2745801F003CB51B /* OptionGroup.swift */,
 				E2C0A24D27457F94003CB51B /* Option.swift */,
-				E2C0A27D27478B52003CB51B /* Cart.swift */,
 				E2C0A25127458046003CB51B /* Extra.swift */,
 			);
 			path = Models;

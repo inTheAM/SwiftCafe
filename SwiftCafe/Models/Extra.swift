@@ -7,7 +7,12 @@
 
 import Foundation
 
-struct Extra: Codable {
-    var name: String
-    var price: String
+/// #An extra option that can be added to an order.
+struct Extra: Decodable {
+    
+    /// The name of the extra option.
+    let name: String
+    
+    ///  The price of the extra option.
+    let price: String
 }
