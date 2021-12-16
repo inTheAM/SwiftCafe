@@ -9,7 +9,12 @@ import Foundation
 @testable import SwiftCafe
 
 extension OptionGroup {
+
+    /// Sample option groups.
     static let samples = createOptions()
+
+    /// Creates sample option groups.
+    /// - Returns: An array of `OptionGroup`.
     static func createOptions() -> [OptionGroup] {
         var groups = [OptionGroup]()
         for num in 1...Int.random(in: 2...4) {
@@ -17,7 +22,7 @@ extension OptionGroup {
             for index in 1...Int.random(in: 2...4) {
                 options.append(Option(id: UUID(), name: "Option \(index)"))
             }
-            
+
             let group = OptionGroup(name: "Option group \(num)", options: options)
             groups.append(group)
         }

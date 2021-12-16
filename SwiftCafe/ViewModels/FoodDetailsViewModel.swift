@@ -64,7 +64,7 @@ final class FoodDetailsViewModel: ObservableObject {
     ///   - food: The food to load data for
     ///   - service: An instance of a type that conforms to `FoodDetailsServiceProtocol`.
     ///              The default value is the return of the create method defined on `FoodDetailsServiceFactory`.
-    init(food: Food, service: FoodDetailsServiceProtocol = MockFoodDetailsService()/*FoodDetailsServiceFactory.create()*/) {
+    init(food: Food, service: FoodDetailsServiceProtocol = FoodDetailsServiceFactory.create()) {
         self.foodDetailsService = service
         self.food = food
 

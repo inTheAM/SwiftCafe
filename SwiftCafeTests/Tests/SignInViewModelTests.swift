@@ -14,8 +14,7 @@ final class SignInViewModelTests: XCTestCase {
 
 // MARK: - Setup
     override func setUpWithError() throws {
-        let service = MockAuthService()
-        viewModel = SignInViewModel(authService: service)
+        viewModel = SignInViewModel(authService: MockAuthService.shared)
     }
 
 // MARK: - Form Validation Tests

@@ -13,8 +13,7 @@ final class SignUpViewModelTests: XCTestCase {
 
 // MARK: - Setup
     override func setUpWithError() throws {
-        let service = MockAuthService()
-        viewModel = SignUpViewModel(authService: service)
+        viewModel = SignUpViewModel(authService: MockAuthService.shared)
     }
 
 // MARK: - Email Validation Tests

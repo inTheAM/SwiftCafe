@@ -8,5 +8,6 @@
 @testable import SwiftCafe
 
 extension User {
+    /// A sample user.
     static let sample = User.CreateData(email: "testuser@test.com", password: "password@123")
 }

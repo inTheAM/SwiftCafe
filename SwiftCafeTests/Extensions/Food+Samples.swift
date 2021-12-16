@@ -9,6 +9,9 @@ import Foundation
 @testable import SwiftCafe
 // swiftlint:disable line_length
 extension Food {
+
+    /// Creates sample food items.
+    /// - Returns: An array of `Food` items.
     static func createItems() -> [Food] {
         var items = [Food]()
         for num in 1...Int.random(in: 3...6) {

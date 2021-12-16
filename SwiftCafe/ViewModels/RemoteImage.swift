@@ -48,6 +48,8 @@ extension RemoteImage: Hashable {
 
 // MARK: - Equatable conformance
 extension RemoteImage: Equatable {
+    /// Compares two `RemoteImage` instances using their `imageURL` properties.
+    /// - Returns: A boolean indicating whether the two instances are the same.
     static func == (lhs: RemoteImage, rhs: RemoteImage) -> Bool {
         lhs.imageURL    ==    rhs.imageURL
     }

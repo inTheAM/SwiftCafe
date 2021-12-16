@@ -26,7 +26,7 @@ extension MenuSection: Decodable { }
 
 // MARK: - Equatable conformance.
 extension MenuSection: Equatable {
-    
+
     /// Compares two menu sections using their `id`.
     /// - Returns: A boolean indicating whether the two
     ///            menu sections are the same.

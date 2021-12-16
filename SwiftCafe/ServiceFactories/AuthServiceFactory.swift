@@ -20,9 +20,9 @@ struct AuthServiceFactory {
 
         switch environment {
         case "TEST_SIGNUP":
-            return MockAuthService()
+            return MockAuthService.shared
         case "TEST":
-            let mockAuthService = MockAuthService()
+            let mockAuthService = MockAuthService.shared
             mockAuthService.token = "token"
             return mockAuthService
         default:

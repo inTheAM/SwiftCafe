@@ -9,10 +9,10 @@ import Foundation
 
 /// #An option for customizing a food order.
 struct Option: Identifiable {
-    
+
     /// The permanent identifier for the option.
     let id: UUID
-    
+
     /// The name of the option.
     let name: String
 }
@@ -22,7 +22,7 @@ extension Option: Decodable { }
 
 // MARK: - Equatable conformance
 extension Option: Equatable {
-    
+
     /// Compares two options using their `id`.
     /// - Returns: A boolean indicating whether the two
     ///            options are the same.

@@ -66,7 +66,8 @@ extension AuthService: AuthServiceProtocol {
     ///   - email: The email address to sign the user up with.
     ///   - password: The password to authenticate the user with.
     ///   - completion: A closure the method runs when a result is received from the request.
-    ///                 The closure takes an AuthResult value that indicates whether the sign-up was successful or not.
+    ///                 The closure takes an `AuthResult` value that indicates
+    ///                 whether the sign-up was successful or not.
     func signUp(email: String, password: String, completion: @escaping AuthResultHandler) {
         let user = User.CreateData(email: email, password: password)
 
@@ -92,7 +93,8 @@ extension AuthService: AuthServiceProtocol {
     ///   - email: The email address to sign the user in with.
     ///   - password: The password to authenticate the user with.
     ///   - completion: A closure the method runs when a result is received from the request.
-    ///                 The closure takes an AuthResult value that indicates whether the sign-in was successful or not.
+    ///                 The closure takes an `AuthResult` value that indicates
+    ///                 whether the sign-in was successful or not.
     func signIn(email: String, password: String, completion: @escaping AuthResultHandler) {
         guard let loginString = "\(email):\(password)".data(using: .utf8)?.base64EncodedString() else {
             completion(.failure)

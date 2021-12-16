@@ -11,10 +11,10 @@ import Foundation
 /// #adding it to the user's cart.
 /// #Only one option can be selected at a time.
 struct OptionGroup: Decodable {
-    
+
     /// The name for the group of options.
     let name: String
-    
+
     /// The options to select from.
     let options: [Option]
 }
