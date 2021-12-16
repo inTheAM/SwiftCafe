@@ -9,15 +9,20 @@ import Combine
 @testable import SwiftCafe
 import XCTest
 
+/// #Tests the SignInViewModel.
 final class SignInViewModelTests: XCTestCase {
+    
+    /// The view model under test.
     private var viewModel: SignInViewModel!
 
 // MARK: - Setup
+    /// Sets up the view model with a mock authentication service.
     override func setUpWithError() throws {
         viewModel = SignInViewModel(authService: MockAuthService.shared)
     }
 
 // MARK: - Form Validation Tests
+    /// Tests whether the view model validates form when both email and password inputs are filled.
     func testFormIsValidatedWithFilledInputs() throws {
         let isFormValidPublisher = viewModel.$isFormValid
             .dropFirst()
@@ -30,6 +35,7 @@ final class SignInViewModelTests: XCTestCase {
         XCTAssertTrue(isFormValid)
     }
 
+    /// Tests whether the view model does not validate the form when the email input is empty.
     func testFormValidationWithEmptyEmail() throws {
         let isFormValidPublisher = viewModel.$isFormValid
             .dropFirst()
@@ -42,6 +48,7 @@ final class SignInViewModelTests: XCTestCase {
         XCTAssertFalse(isFormValid)
     }
 
+    /// Tests whether the view model does not validate the form when the password input is empty.
     func testFormValidationWithEmptyPassword() throws {
         let isFormValidPublisher = viewModel.$isFormValid
             .dropFirst()
@@ -55,6 +62,7 @@ final class SignInViewModelTests: XCTestCase {
     }
 
 // MARK: - Form Error Tests
+    /// Tests whether the inline error is correctly updated for an empty email input.
     func testSignInErrorWithEmptyEmail() throws {
         let signInErrorPublisher = viewModel.$signInErrorDescription
             .dropFirst()
@@ -67,6 +75,7 @@ final class SignInViewModelTests: XCTestCase {
         XCTAssertEqual(error, FormStatus.emailEmpty.inlineError)
     }
 
+    /// Tests whether the inline error is correctly updated for an empty password input.
     func testSignInErrorWithEmptyPassword() throws {
         let signInErrorPublisher = viewModel.$signInErrorDescription
             .dropFirst()
@@ -79,6 +88,7 @@ final class SignInViewModelTests: XCTestCase {
         XCTAssertEqual(error, FormStatus.passwordEmpty.inlineError)
     }
 
+    /// Tests whether the inline error is correctly updated for filled email and password inputs.
     func testSignInErrorWithFilledInputs() throws {
         let signInErrorPublisher = viewModel.$signInErrorDescription
             .dropFirst()
@@ -92,6 +102,7 @@ final class SignInViewModelTests: XCTestCase {
     }
 
 // MARK: - SignIn Tests
+    /// Tests signing in a user with valid credentials.
     func testSigningInWithValidCredentials() throws {
         viewModel.email = User.sample.email
         viewModel.password = User.sample.password
@@ -102,6 +113,7 @@ final class SignInViewModelTests: XCTestCase {
         wait(for: [expectation], timeout: 10)
     }
 
+    /// Tests signing in a user with a non-registered email address.
     func testSigningInWithInvalidCredentials() throws {
         viewModel.email = "wrongemail@gmail.com"
         viewModel.password = "Passwordetc"
@@ -112,6 +124,8 @@ final class SignInViewModelTests: XCTestCase {
         XCTAssertFalse(isSignedIn)
     }
 
+// MARK: - Sign In Error Tests
+    /// Tests whether the inline error is correctly updated for a failed sign-in.
     func testFailedSignInUpdatesInlineError() throws {
         let signInErrorPublisher = viewModel.$signInErrorDescription
             .first()
@@ -124,6 +138,7 @@ final class SignInViewModelTests: XCTestCase {
     }
 
 // MARK: - Teardown
+    /// Tears down the test view model.
     override func tearDownWithError() throws {
         viewModel = nil
     }
