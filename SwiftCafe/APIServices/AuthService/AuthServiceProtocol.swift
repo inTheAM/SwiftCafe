@@ -14,8 +14,8 @@ protocol AuthServiceProtocol {
     typealias AvailabilityHandler = (_ isAvailable: Bool) -> Void
 
     /// A token used in request authorization.
-    /// A present value for the token means that the user is signed in.
-    /// A value of nil for the token indicates that the user's session expired.
+    /// A value for the token means that the user is signed in.
+    /// If the token is nil then the user's session expired.
     var token: String? { get set }
 
     /// Checks whether an email address is available for use in account creation.

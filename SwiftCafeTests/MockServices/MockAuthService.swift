@@ -8,7 +8,7 @@
 @testable import SwiftCafe
 import UIKit
 
-/// #A mock implementation of an `AuthService`.
+/// #A mock implementation of `AuthService`.
 final class MockAuthService: AuthServiceProtocol {
     /// The shared singleton instance of the mock service.
     static let shared = MockAuthService()
@@ -16,7 +16,12 @@ final class MockAuthService: AuthServiceProtocol {
     /// The private initializer for the mock service.
     private init() {}
 
-    /// The token value used to test sign-up/sign-in success.
+    /// The token value used to switch between
+    /// testing sign-up/sign-in and the rest of the app.
+    /// A value for the token means that the user is signed in and the app
+    /// launches to the MenuView.
+    /// If the token is nil then the user's session expired and the app launches to the SignInView and
+    /// sign-up/sign-in testing can proceed.
     var token: String?
 
     /// Compares an email address to the sample user's email address to mock

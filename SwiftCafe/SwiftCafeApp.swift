@@ -11,9 +11,9 @@ import SwiftUI
 /// #The entry point for the application.
 struct SwiftCafeApp: App {
 
-    /// The state that represents whether the user is signed in or not.
-    /// A present value for the token means that the user is signed in.
-    /// A value of nil for the token indicates that the user's session expired.
+    /// A boolean state that represents whether the user is signed in or not.
+    /// A value for the token means that the user is signed in.
+    /// If the token is nil then the user's session expired.
     @State private var isLoggedIn = AuthServiceFactory.create().token != nil
 
     var body: some Scene {

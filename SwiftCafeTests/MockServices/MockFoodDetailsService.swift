@@ -8,7 +8,7 @@
 import Foundation
 @testable import SwiftCafe
 
-/// #A mock implementation of `FoodDetailsService`
+/// #A mock implementation of `FoodDetailsService`.
 struct MockFoodDetailsService: FoodDetailsServiceProtocol {
 
     /// Mocks fetching option groups for a food item by passing sample option groups.

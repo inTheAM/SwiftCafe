@@ -73,6 +73,7 @@ final class SignUpViewUITests: XCTestCase {
         repeatPasswordField.typeText("Password@123")
 
         let signupButton = app.buttons["sign up"]
+        XCTAssert(signupButton.waitForExistence(timeout: 5))
         XCTAssertTrue(signupButton.isEnabled)
     }
 

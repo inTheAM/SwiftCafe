@@ -8,7 +8,7 @@
 import Foundation
 @testable import SwiftCafe
 
-/// #A mock implementation of `MenuService`
+/// #A mock implementation of `MenuService`.
 struct MockMenuService: MenuServiceProtocol {
 
     /// Mocks fetching the menu by passing the sample menu sections.
