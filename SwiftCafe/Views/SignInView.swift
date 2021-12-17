@@ -16,7 +16,7 @@ struct SignInView: View {
 
     /// A binding to a boolean that indicates whether the user is signed in or not.
     /// A successful sign-in toggles the value to true.
-    @Binding var isLoggedIn: Bool
+    @Binding var isSignedIn: Bool
 
     var body: some View {
         NavigationView {
@@ -66,7 +66,7 @@ struct SignInView: View {
                     }.padding(.bottom)
 
                     HStack {
-                        NavigationLink("Don't have an account?", destination: SignUpView(isLoggedIn: $isLoggedIn))
+                        NavigationLink("Don't have an account?", destination: SignUpView(isSignedIn: $isSignedIn))
                             .font(.subheadline.bold())
                             .accessibilityIdentifier("go to signup")
                         Spacer()
@@ -76,7 +76,7 @@ struct SignInView: View {
 
                     Button("Sign in") {
                         viewModel.signIn {
-                            isLoggedIn = true
+                            isSignedIn = true
                         }
                     }.font(.body.bold())
                         .foregroundColor(.white)

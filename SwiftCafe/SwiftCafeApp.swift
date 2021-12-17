@@ -14,14 +14,14 @@ struct SwiftCafeApp: App {
     /// A boolean state that represents whether the user is signed in or not.
     /// A value for the token means that the user is signed in.
     /// If the token is nil then the user's session expired.
-    @State private var isLoggedIn = AuthServiceFactory.create().token != nil
+    @State private var isSignedIn = AuthServiceFactory.create().token != nil
 
     var body: some Scene {
         WindowGroup {
-            if isLoggedIn {
+            if isSignedIn {
                 MenuView()
             } else {
-                SignInView(isLoggedIn: $isLoggedIn)
+                SignInView(isSignedIn: $isSignedIn)
             }
         }
     }

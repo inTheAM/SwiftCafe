@@ -19,7 +19,7 @@ struct SignUpView: View {
 
     /// A binding to a boolean that indicates whether the user is signed in or not.
     /// A successful sign-up toggles the value to true.
-    @Binding var isLoggedIn: Bool
+    @Binding var isSignedIn: Bool
 
     var body: some View {
         ZStack {
@@ -77,7 +77,7 @@ struct SignUpView: View {
 
                     Button("Sign up") {
                         viewModel.signUp {
-                            isLoggedIn = true
+                            isSignedIn = true
                         }
                     }.font(.body.bold())
                         .foregroundColor(.white)
