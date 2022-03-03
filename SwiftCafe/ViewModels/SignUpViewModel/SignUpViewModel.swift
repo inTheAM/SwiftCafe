@@ -37,6 +37,8 @@ final class SignUpViewModel: ObservableObject {
     /// Indicates whether the email input is valid.
     @Published var isEmailValid = false
 
+    @Published var isEmailAvailable = false
+
     /// Indicates whether the password input is valid.
     @Published var isPasswordValid = false
 
@@ -60,9 +62,20 @@ final class SignUpViewModel: ObservableObject {
     init(authService: AuthServiceProtocol = AuthServiceFactory.create()) {
         self.authService = authService
 
-        /// Initializing the email validity publisher and storing it in the cancellables set.
-        /// The publisher is received on the main thread, assigned to `isEmailValid`
-        /// and stored in the cancellables set.
+        isEmailInputValidPublisher
+            .receive(on: RunLoop.main)
+            .map { status -> Bool in
+                switch status {
+                case .valid:
+                    break
+                default:
+                    self.emailErrorDescription = status.description
+                }
+                return status == .valid
+            }
+            .assign(to: \.isEmailValid, on: self)
+            .store(in: &cancellables)
+
         isEmailAvailablePublisher
             .receive(on: RunLoop.main)
             .map { result in
@@ -76,12 +89,9 @@ final class SignUpViewModel: ObservableObject {
                     return false
                 }
             }
-            .assign(to: \.isEmailValid, on: self)
+            .assign(to: \.isEmailAvailable, on: self)
             .store(in: &cancellables)
 
-        /// Initializing the password validity publisher.
-        /// The publisher is received on the main thread, assigned to `isPasswordValid`
-        /// and stored in the cancellables set.
         isPasswordInputValidPublisher
             .receive(on: RunLoop.main)
             .map { status in
@@ -152,19 +162,9 @@ extension SignUpViewModel {
     /// A publisher that returns a boolean value indicating
     /// whether the email address is available for account creation or not.
     private var isEmailAvailablePublisher: AnyPublisher<EmailCheckResult, Never> {
-        isEmailInputValidPublisher
+        $isEmailValid
             .debounce(for: 0.5, scheduler: RunLoop.main)
-            .map { status -> EmailInputStatus in
-                switch status {
-                case .valid:
-                    break
-                default:
-                    self.emailErrorDescription = status.description
-                }
-                return status
-            }
-
-            .filter { $0 == .valid }
+            .filter { $0 == true }
             .flatMap { _ in
                 self.authService.checkEmailAvailability(email: self.email)
             }

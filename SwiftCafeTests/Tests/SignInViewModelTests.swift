@@ -143,7 +143,7 @@ final class SignInViewModelTests: XCTestCase {
 
         let error = try awaitResult(from: signInErrorPublisher)
 
-        XCTAssertEqual(error, AuthResult.signInFailed.description)
+        XCTAssertEqual(error, AuthResult.invalidUsernameOrPassword.description)
     }
 
 // MARK: - Teardown
