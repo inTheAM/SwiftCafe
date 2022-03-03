@@ -85,4 +85,3 @@ extension Endpoint where AccessLevel == PrivateAccess,
         return Endpoint(path: "options/\(id.uuidString)")
     }
 }
-
