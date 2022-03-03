@@ -35,7 +35,7 @@ final class SignUpViewModelTests: XCTestCase {
 
     /// Tests whether the view model does not validate an unavailable email address.
     func testEmailValidationWithUnavailableEmail() throws {
-        let isEmailValidPublisher = viewModel.$isEmailValid
+        let isEmailValidPublisher = viewModel.$isEmailAvailable
             .dropFirst()
             .first()
 
