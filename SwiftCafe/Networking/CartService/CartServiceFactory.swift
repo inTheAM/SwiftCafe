@@ -8,7 +8,7 @@
 import Foundation
 
 /// #A factory that returns a type conforming to the CartServiceProtocol.
-struct CartServiceFactory {
+enum CartServiceFactory {
 
     /// Creates a type that conforms to the CartServiceProtocol depending on environment value for "ENV".
     /// - Returns: Either a CartService instance or

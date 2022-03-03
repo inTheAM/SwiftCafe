@@ -9,5 +9,5 @@
 
 extension User {
     /// A sample user.
-    static let sample = User.CreateData(email: "testuser@test.com", password: "password@123")
+    static let sample = User.SignInData(email: "testuser@test.com", password: "password@123")
 }

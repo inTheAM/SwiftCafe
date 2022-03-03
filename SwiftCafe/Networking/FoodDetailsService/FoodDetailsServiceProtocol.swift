@@ -5,6 +5,7 @@
 //  Created by Ahmed Mgua on 15/12/2021.
 //
 
+import Combine
 import Foundation
 
 /// #A protocol for services that handle fetching details for a selected food item.
@@ -20,5 +21,5 @@ protocol FoodDetailsServiceProtocol {
     ///   - completion: A closure the method runs when a result is received from the request.
     ///                 The closure takes the result of the request which may be
     ///                 an array of OptionGroup or a RequestError.
-    func fetchOptions(for foodID: UUID, completion: @escaping OptionsHandler)
+    func fetchOptions(for foodID: UUID) -> AnyPublisher<[OptionGroup], RequestError>
 }

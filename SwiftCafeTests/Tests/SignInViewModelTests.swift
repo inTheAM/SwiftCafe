@@ -72,7 +72,7 @@ final class SignInViewModelTests: XCTestCase {
         viewModel.password = "123"
 
         let error = try awaitResult(from: signInErrorPublisher)
-        XCTAssertEqual(error, FormStatus.emailEmpty.inlineError)
+        XCTAssertEqual(error, FormStatus.emailEmpty.description)
     }
 
     /// Tests whether the inline error is correctly updated for an empty password input.
@@ -85,7 +85,7 @@ final class SignInViewModelTests: XCTestCase {
         viewModel.password = ""
 
         let error = try awaitResult(from: signInErrorPublisher)
-        XCTAssertEqual(error, FormStatus.passwordEmpty.inlineError)
+        XCTAssertEqual(error, FormStatus.passwordEmpty.description)
     }
 
     /// Tests whether the inline error is correctly updated for filled email and password inputs.
@@ -98,7 +98,7 @@ final class SignInViewModelTests: XCTestCase {
         viewModel.password = "123"
 
         let error = try awaitResult(from: signInErrorPublisher)
-        XCTAssertEqual(error, FormStatus.valid.inlineError)
+        XCTAssertEqual(error, FormStatus.valid.description)
     }
 
 // MARK: - SignIn Tests
@@ -133,6 +133,7 @@ final class SignInViewModelTests: XCTestCase {
     /// Tests whether the inline error is correctly updated for a failed sign-in.
     func testFailedSignInUpdatesInlineError() throws {
         let signInErrorPublisher = viewModel.$signInErrorDescription
+            .dropFirst()
             .first()
 
         viewModel.email = "wrongemail@gmail.com"
@@ -141,7 +142,8 @@ final class SignInViewModelTests: XCTestCase {
         viewModel.signIn {}
 
         let error = try awaitResult(from: signInErrorPublisher)
-        XCTAssertEqual(error, AuthError.signInFailed.description)
+
+        XCTAssertEqual(error, AuthResult.signInFailed.description)
     }
 
 // MARK: - Teardown

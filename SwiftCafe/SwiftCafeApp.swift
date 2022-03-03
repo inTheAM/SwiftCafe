@@ -16,7 +16,7 @@ struct SwiftCafeApp: App {
     /// A value for the token means that the user is signed in and the app proceeds to the MenuView.
     /// If the token is nil then the user's session expired and the app proceeds to the SignInView.
     /// On successful sign-in, this state will be toggled to true and the MenuView will be presented.
-    @State private var isSignedIn = AuthServiceFactory.create().token != nil
+    @State private var isSignedIn = TokenStoreFactory.create().token != nil
 
     var body: some Scene {
         WindowGroup {

@@ -63,16 +63,16 @@ final class SignUpViewModel: ObservableObject {
         /// Initializing the email validity publisher and storing it in the cancellables set.
         /// The publisher is received on the main thread, assigned to `isEmailValid`
         /// and stored in the cancellables set.
-        isEmailInputValidPublisher
+        isEmailAvailablePublisher
             .receive(on: RunLoop.main)
-            .map { status in
-                print(status)
-                switch status {
-                case .valid:
-                    self.emailErrorDescription = ""
+            .map { result in
+                switch result {
+                case .available:
                     return true
+                case .unavailable:
+                    self.emailErrorDescription = result.description
+                    fallthrough
                 default:
-                    self.emailErrorDescription = status.inlineError
                     return false
                 }
             }
@@ -90,7 +90,7 @@ final class SignUpViewModel: ObservableObject {
                     self.passwordErrorDescription = ""
                     return true
                 default:
-                    self.passwordErrorDescription = status.inlineError
+                    self.passwordErrorDescription = status.description
                     return false
                 }
             }
@@ -122,24 +122,8 @@ extension SignUpViewModel {
     }
 
     /// A publisher that returns a boolean value indicating
-    /// whether the email address is available for account creation or not.
-    private var isEmailAvailablePublisher: AnyPublisher<Bool, Never> {
-        $email
-            .dropFirst()
-            .removeDuplicates()
-            .debounce(for: 0.5, scheduler: RunLoop.main)
-            .flatMap { email in
-                return Future { promise in
-                    self.authService.checkEmailAvailability(email: email) { isAvailable in
-                        return promise(.success(isAvailable))
-                    }
-                }
-            }.eraseToAnyPublisher()
-    }
-
-    /// A publisher that returns a boolean value indicating
     /// whether the email address is a valid address or not.
-    private var isEmailValidPublisher: AnyPublisher<Bool, Never> {
+    private var isEmailAddressValidPublisher: AnyPublisher<Bool, Never> {
         $email
             .dropFirst()
             .removeDuplicates()
@@ -150,21 +134,39 @@ extension SignUpViewModel {
             .eraseToAnyPublisher()
     }
 
-    /// A publisher that combines `isEmailAvailablePublisher`, `isEmailAvailablePublisher` and `isEmailValidPublisher`.
+    /// A publisher that combines `isEmailEmptyPublisher` and `isEmailAddressValidPublisher`.
     /// Returns an EmailStatus describing the current state of the email input.
-    private var isEmailInputValidPublisher: AnyPublisher<EmailStatus, Never> {
-        Publishers.CombineLatest3(isEmailEmptyPublisher, isEmailAvailablePublisher, isEmailValidPublisher)
-            .map { isEmpty, isAvailable, isValid in
+    private var isEmailInputValidPublisher: AnyPublisher<EmailInputStatus, Never> {
+        Publishers.CombineLatest(isEmailEmptyPublisher, isEmailAddressValidPublisher)
+            .map { isEmpty, isValid in
                 if isEmpty {
                     return .empty
                 }
                 if !isValid {
                     return .invalid
                 }
-                if !isAvailable {
-                    return .unavailable
-                }
                 return .valid
+            }
+            .eraseToAnyPublisher()
+    }
+    /// A publisher that returns a boolean value indicating
+    /// whether the email address is available for account creation or not.
+    private var isEmailAvailablePublisher: AnyPublisher<EmailCheckResult, Never> {
+        isEmailInputValidPublisher
+            .debounce(for: 0.5, scheduler: RunLoop.main)
+            .map { status -> EmailInputStatus in
+                switch status {
+                case .valid:
+                    break
+                default:
+                    self.emailErrorDescription = status.description
+                }
+                return status
+            }
+
+            .filter { $0 == .valid }
+            .flatMap { _ in
+                self.authService.checkEmailAvailability(email: self.email)
             }
             .eraseToAnyPublisher()
     }
@@ -223,7 +225,7 @@ extension SignUpViewModel {
     /// A publisher that combines `isPasswordEmptyPublisher`, `isPasswordShortPublisher`,
     /// `isPasswordStrongPublisher` and `arePasswordsEqualPublisher`
     /// and returns a PasswordStatus describing the current state of the password input
-    private var isPasswordInputValidPublisher: AnyPublisher<PasswordStatus, Never> {
+    private var isPasswordInputValidPublisher: AnyPublisher<PasswordInputStatus, Never> {
         Publishers.CombineLatest4(isPasswordEmptyPublisher,
                                   isPasswordShortPublisher,
                                   isPasswordStrongPublisher,
@@ -267,13 +269,16 @@ extension SignUpViewModel {
     ///                         The closure takes no parameters and returns nothing.
     /// In case of a failed sign-up, the `signUpErrorDescription` is updated with the error.
     func signUp(completion: @escaping () -> Void) {
-        authService.signUp(email: email, password: password) { result in
-            switch result {
-            case .success:
-                completion()
-            case .failure:
-                self.signUpErrorDescription = AuthError.signUpFailed.description
+        self.authService.signUp(email: self.email, password: self.password)
+            .receive(on: RunLoop.main)
+            .sink { result in
+                switch result {
+                case .success:
+                    completion()
+                default:
+                    self.signUpErrorDescription = result.description
+                }
             }
-        }
+            .store(in: &cancellables)
     }
 }

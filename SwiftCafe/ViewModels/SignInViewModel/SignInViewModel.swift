@@ -37,7 +37,7 @@ final class SignInViewModel: ObservableObject {
     /// The initializer for the view model.
     /// - Parameter authService: An instance of a type that conforms to `AuthServiceProtocol`.
     ///                          The default value is the return of the create method defined on `AuthServiceFactory`.
-    init(authService: AuthServiceProtocol = AuthService.shared) {
+    init(authService: AuthServiceProtocol = AuthServiceFactory.create()) {
         self.authService = authService
 
         /// Initializing the form validity publisher.
@@ -51,7 +51,7 @@ final class SignInViewModel: ObservableObject {
                     self.signInErrorDescription = ""
                     return true
                 default:
-                    self.signInErrorDescription = formStatus.inlineError
+                    self.signInErrorDescription = formStatus.description
                     return false
                 }
             }
@@ -110,15 +110,19 @@ extension SignInViewModel {
     /// Uses the `authService` to make a sign-in request with the filled email and password details.
     /// - Parameter completion: A closure the method runs when the sign-up succeeds.
     ///                         The closure takes no parameters and returns nothing.
-    /// In case of a failed sign-in, the `signInErrorDescription` is updated with the error.
+    ///                         In case of a failed sign-in, the `signInErrorDescription`
+    ///                         is updated with the error.
     func signIn(completion: @escaping () -> Void) {
-        authService.signIn(email: email, password: password) { result in
-            switch result {
-            case .success:
-                completion()
-            case .failure:
-                self.signInErrorDescription = AuthError.signInFailed.description
+        authService.signIn(email: email, password: password)
+            .receive(on: RunLoop.main)
+            .sink { result in
+                switch result {
+                case .success:
+                    completion()
+                default:
+                    self.signInErrorDescription = result.description
+                }
             }
-        }
+            .store(in: &cancellables)
     }
 }

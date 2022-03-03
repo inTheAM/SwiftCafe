@@ -20,7 +20,7 @@ struct User: Codable {
 extension User {
 
     /// #The data used to create a new user.
-    struct CreateData: Codable {
+    struct SignInData: Encodable {
 
         /// The email address to create an account with.
         let email: String
@@ -34,9 +34,13 @@ extension User {
 
     /// #The data used to check for email address availability
     /// #for account creation.
-    struct ValidateData: Codable {
+    struct EmailCheckData: Encodable {
 
         /// The email address to check availability for.
         let email: String
+    }
+
+    struct EmailCheckResult: Decodable {
+        let isAvailable: Bool
     }
 }

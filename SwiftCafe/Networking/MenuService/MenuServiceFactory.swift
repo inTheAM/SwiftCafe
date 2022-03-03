@@ -8,7 +8,7 @@
 import Foundation
 
 /// #A factory that returns a type conforming to the MenuServiceProtocol.
-struct MenuServiceFactory {
+enum MenuServiceFactory {
 
     /// Creates a type that conforms to the MenuServiceProtocol depending on environment value for "ENV".
     /// - Returns: Either a MenuService instance or

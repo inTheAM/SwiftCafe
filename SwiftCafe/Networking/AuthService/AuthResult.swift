@@ -1,33 +1,32 @@
 //
-//  AuthError.swift
+//  AuthResult.swift
 //  SwiftCafe
 //
-//  Created by Ahmed Mgua on 17/11/2021.
+//  Created by Ahmed Mgua on 15/12/2021.
 //
 
 import Foundation
 
-/// #The error received in case of an authentication failure.
-enum AuthError: Error {
-
-    /// An error during signing up.
+/// #The result of an authentication request
+enum AuthResult {
+    case success
+    case invalidUsernameOrPassword
     case signUpFailed
-
-    /// An error during signing in.
     case signInFailed
-
-    /// An error during signing out.
     case signOutFailed
 
-    /// The description of the error.
     var description: String {
         switch self {
         case .signUpFailed:
             return "There was a problem creating your account."
-        case .signInFailed:
+        case .invalidUsernameOrPassword:
             return "Your email or password is incorrect"
         case .signOutFailed:
             return "There was a problem signing out."
+        case .signInFailed:
+            return "There was a problem signing in."
+        case .success:
+            return ""
         }
     }
 }

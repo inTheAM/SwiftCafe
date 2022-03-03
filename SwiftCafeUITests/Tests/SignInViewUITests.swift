@@ -56,6 +56,21 @@ final class SignInViewUITests: XCTestCase {
         XCTAssert(signInButton.exists)
     }
 
+    /// Tests the `Sign up` button is enabled when the form is validated.
+    func testSignInButtonIsEnabledWhenFormIsValidated() throws {
+        let emailField = app.textFields["email input"]
+        emailField.tap()
+        emailField.typeText("testuser3@test.com")
+
+        let passwordField = app.secureTextFields["password input"]
+        passwordField.tap()
+        passwordField.typeText("Password@123")
+
+        let signinButton = app.buttons["sign in"]
+        XCTAssert(signinButton.waitForExistence(timeout: 5))
+        XCTAssertTrue(signinButton.isEnabled)
+    }
+
     /// Tests navigating to the `SignUpView`.
     func testNavigatingToSignUpView() throws {
         let signUpLink = app.buttons["go to signup"]

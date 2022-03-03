@@ -25,6 +25,7 @@ final class MenuViewModelTests: XCTestCase {
     /// Tests fetching the menu
     func testFetchingMenu() throws {
         let sectionsPublisher = viewModel.$sections
+            .dropFirst()
             .first()
         let activeSectionPublisher = viewModel.$activeSection
             .first()
@@ -33,7 +34,7 @@ final class MenuViewModelTests: XCTestCase {
 
         let sections = try awaitResult(from: sectionsPublisher)
         let activeSection = try awaitResult(from: activeSectionPublisher)
-
+print(activeSection)
         XCTAssertEqual(sections.count, MenuSection.samples.count)
         XCTAssertEqual(sections[0].id, MenuSection.samples[0].id)
         XCTAssertEqual(activeSection, MenuSection.samples[0].name)

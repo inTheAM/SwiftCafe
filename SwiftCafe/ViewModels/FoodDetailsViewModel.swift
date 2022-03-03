@@ -32,6 +32,8 @@ final class FoodDetailsViewModel: ObservableObject {
     /// A String describing the `Food`, quantity and options selected.
     @Published var selectionSummary: String = ""
 
+    @Published private(set) var error: String?
+
 // MARK: - Computed properties of the Food instance
     /// The name of the food.
     var name: String {
@@ -83,6 +85,7 @@ final class FoodDetailsViewModel: ObservableObject {
     /// options and quantity to add to cart.
     var selectionSummaryPublisher: AnyPublisher<String, Never> {
         Publishers.CombineLatest($quantity, $selectedOptions)
+            .subscribe(on: DispatchQueue.global(qos: .background))
             .map { quantity, options in
                 var summary = ""
                 summary += "\(quantity)x \(self.food.name) "
@@ -109,16 +112,16 @@ final class FoodDetailsViewModel: ObservableObject {
     /// Uses the `foodDetailsService` to fetch the options for the food for this view model.
     /// On success, the fetched options are assigned to the `options` array.
     func fetchOptions() {
-        foodDetailsService.fetchOptions(for: food.id) { result in
-            DispatchQueue.main.async {
-                switch result {
-                case .success(let options):
-                    self.optionGroups = options
-                case .failure(let error):
-                    print("Food service error: ", error.description)
-                }
+        foodDetailsService.fetchOptions(for: food.id)
+            .retry(3)
+            .catch { error ->  AnyPublisher<[OptionGroup], Never> in
+                self.error = "Failed to load options for this item"
+                return Just([OptionGroup]())
+                    .eraseToAnyPublisher()
             }
-        }
+            .receive(on: RunLoop.main)
+            .assign(to: \.optionGroups, on: self)
+            .store(in: &cancellables)
     }
 
 // MARK: - Selecting options

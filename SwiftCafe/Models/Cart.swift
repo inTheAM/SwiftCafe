@@ -5,6 +5,7 @@
 //  Created by Ahmed Mgua on 19/11/2021.
 //
 
+import Combine
 import Foundation
 
 /// #The user's cart.
@@ -13,15 +14,16 @@ final class Cart: ObservableObject {
     /// The service used to handle requests that perform cart operations.
     private let cartService: CartServiceProtocol
 
+    private var cancellables: Set<AnyCancellable> = .init()
+
 // MARK: - Cart contents
     /// The entries in the cart.
     @Published var contents = [Cart.Entry]()
 
-    /// The loading state of the cart.
-    @Published var isLoading = false
-
     /// Tracks whether the cart is currently being modified.
     @Published var isModifying = false
+
+    @Published private(set) var error: String?
 
     // MARK: - Initializer
     /// Creates the cart.
@@ -36,19 +38,18 @@ extension Cart {
     /// Fetches the contents of the cart.
     /// On success, the decoded cart entries are assigned to `contents`.
     func fetchContents() {
-        isLoading = true
-        cartService.fetchContents { [weak self] result in
-            DispatchQueue.main.async {
-                switch result {
-                case .success(let contents):
-                    self?.contents  =   contents
-                    self?.isLoading = false
-
-                case .failure:
-                    self?.isLoading = false
-                }
+        cartService.fetchContents()
+            .retry(3)
+            .catch { error ->  AnyPublisher<[Cart.Entry], Never> in
+                self.error = error.description
+                return Just([Cart.Entry]())
+                    .eraseToAnyPublisher()
             }
-        }
+            .receive(on: RunLoop.main)
+            .sink {  [weak self] contents in
+                self?.contents = contents
+            }
+            .store(in: &cancellables)
     }
 
     /// Adds an entry to the cart.
@@ -57,15 +58,21 @@ extension Cart {
     ///   - quantity: The quantity of the food to add to the cart.
     func add(_ food: Food, quantity: Int) {
         isModifying = true
-        cartService.addToCart(food, quantity: quantity) { [weak self] result in
-            switch result {
-            case .success(let cartEntry):
-                    self?.contents.append(cartEntry)
-                    self?.isModifying = false
-            case .failure:
+        cartService.addToCart(food, quantity: quantity)
+            .retry(3)
+            .catch { error ->  AnyPublisher<Cart.Entry?, Never> in
+                self.error = error.description
+                return Just(nil)
+                    .eraseToAnyPublisher()
+            }
+            .receive(on: RunLoop.main)
+            .sink {  [weak self] cartEntry in
+                guard let cartEntry = cartEntry else { return }
+                self?.contents.append(cartEntry)
+                print("ITEM ADDED", food.id)
                 self?.isModifying = false
             }
-        }
+            .store(in: &cancellables)
     }
 
     /// Removes an entry from the cart.
@@ -73,15 +80,24 @@ extension Cart {
     func remove(_ food: Food) {
         isModifying = true
         if let index = contents.firstIndex(where: { $0.food.id == food.id }) {
-            cartService.removeFromCart(contents[index]) { [weak self] result in
-                switch result {
-                case .success:
+            print("REMOVING ITEM")
+            cartService.removeFromCart(contents[index])
+                .retry(3)
+                .catch { [weak self] error ->  AnyPublisher<UUID?, Never> in
+                    self?.error = error.description
+                    return Just(nil)
+                        .eraseToAnyPublisher()
+                }
+                .receive(on: RunLoop.main)
+                .sink {  [weak self] foodID in
+                    guard foodID == food.id else { return }
+
                     self?.contents.remove(at: index)
                     self?.isModifying = false
-                case .failure:
-                    self?.isModifying = false
                 }
-            }
+                .store(in: &cancellables)
+        } else {
+            print("FAILED TO GET ITEM")
         }
     }
 
