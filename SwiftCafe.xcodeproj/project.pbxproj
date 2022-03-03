@@ -14,6 +14,7 @@
 		E233DDDF27D0C61F00F9FA00 /* TokenStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = E233DDDE27D0C61F00F9FA00 /* TokenStore.swift */; };
 		E233DDE227D0C66900F9FA00 /* TokenStoreProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E233DDE127D0C66900F9FA00 /* TokenStoreProtocol.swift */; };
 		E233DDE427D0C79C00F9FA00 /* TokenStoreFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = E233DDE327D0C79C00F9FA00 /* TokenStoreFactory.swift */; };
+		E233DDE727D0CCA200F9FA00 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = E233DDE627D0CCA200F9FA00 /* Endpoint.swift */; };
 		E28ED3162759D91F00C0BB35 /* Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28ED3152759D91F00C0BB35 /* Double.swift */; };
 		E28ED3182759E25C00C0BB35 /* RemoteImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28ED3172759E25C00C0BB35 /* RemoteImage.swift */; };
 		E28ED31C2759E3BE00C0BB35 /* ImageAsync.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28ED31B2759E3BE00C0BB35 /* ImageAsync.swift */; };
@@ -53,7 +54,6 @@
 		E2C0A2222744FC47003CB51B /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C0A2212744FC47003CB51B /* NetworkManager.swift */; };
 		E2C0A2252744FC97003CB51B /* RequestError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C0A2242744FC97003CB51B /* RequestError.swift */; };
 		E2C0A2272744FE61003CB51B /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C0A2262744FE61003CB51B /* Token.swift */; };
-		E2C0A22927450027003CB51B /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C0A22827450027003CB51B /* Endpoint.swift */; };
 		E2C0A22C2745017B003CB51B /* User+Sample.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C0A22B2745017B003CB51B /* User+Sample.swift */; };
 		E2C0A22E274503E6003CB51B /* XCTestCase+Await.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C0A22D274503E6003CB51B /* XCTestCase+Await.swift */; };
 		E2C0A232274510DF003CB51B /* SignInViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C0A231274510DF003CB51B /* SignInViewModelTests.swift */; };
@@ -134,6 +134,7 @@
 		E233DDDE27D0C61F00F9FA00 /* TokenStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenStore.swift; sourceTree = "<group>"; };
 		E233DDE127D0C66900F9FA00 /* TokenStoreProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenStoreProtocol.swift; sourceTree = "<group>"; };
 		E233DDE327D0C79C00F9FA00 /* TokenStoreFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenStoreFactory.swift; sourceTree = "<group>"; };
+		E233DDE627D0CCA200F9FA00 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		E28ED3152759D91F00C0BB35 /* Double.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Double.swift; sourceTree = "<group>"; };
 		E28ED3172759E25C00C0BB35 /* RemoteImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteImage.swift; sourceTree = "<group>"; };
 		E28ED31B2759E3BE00C0BB35 /* ImageAsync.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAsync.swift; sourceTree = "<group>"; };
@@ -174,7 +175,6 @@
 		E2C0A2212744FC47003CB51B /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		E2C0A2242744FC97003CB51B /* RequestError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestError.swift; sourceTree = "<group>"; };
 		E2C0A2262744FE61003CB51B /* Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
-		E2C0A22827450027003CB51B /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		E2C0A22B2745017B003CB51B /* User+Sample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+Sample.swift"; sourceTree = "<group>"; };
 		E2C0A22D274503E6003CB51B /* XCTestCase+Await.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+Await.swift"; sourceTree = "<group>"; };
 		E2C0A231274510DF003CB51B /* SignInViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewModelTests.swift; sourceTree = "<group>"; };
@@ -354,7 +354,6 @@
 			children = (
 				E2C0A1E92744F7E5003CB51B /* SwiftCafeApp.swift */,
 				E2C0A23927453726003CB51B /* Extensions */,
-				E2C0A2232744FC84003CB51B /* Errors */,
 				E2C0A2172744F84C003CB51B /* Utility */,
 				E2C0A2162744F83D003CB51B /* Networking */,
 				E2C0A2152744F830003CB51B /* Views */,
@@ -445,9 +444,9 @@
 		E2C0A2162744F83D003CB51B /* Networking */ = {
 			isa = PBXGroup;
 			children = (
-				E2C0A22827450027003CB51B /* Endpoint.swift */,
 				E2C0A2242744FC97003CB51B /* RequestError.swift */,
 				E2C0A2212744FC47003CB51B /* NetworkManager.swift */,
+				E233DDE627D0CCA200F9FA00 /* Endpoint.swift */,
 				E297805327CE35470074D329 /* RequestType.swift */,
 				E297805127CE34A70074D329 /* NetworkResponse.swift */,
 				E297804C27CDEEB60074D329 /* AccessLevelProtocol.swift */,
@@ -478,13 +477,6 @@
 				E28ED3242759FDE500C0BB35 /* MockFoodDetailsService.swift */,
 			);
 			path = MockServices;
-			sourceTree = "<group>";
-		};
-		E2C0A2232744FC84003CB51B /* Errors */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Errors;
 			sourceTree = "<group>";
 		};
 		E2C0A22A27450167003CB51B /* Extensions */ = {
@@ -758,6 +750,7 @@
 				E291B5E02769EDD000230F00 /* AuthServiceProtocol.swift in Sources */,
 				E2F4E3572760E242001D509C /* OptionsView.swift in Sources */,
 				E291B5F5276A348600230F00 /* FormStatus.swift in Sources */,
+				E233DDE727D0CCA200F9FA00 /* Endpoint.swift in Sources */,
 				E2C0A27127463C5C003CB51B /* Food+Samples.swift in Sources */,
 				E233DDE227D0C66900F9FA00 /* TokenStoreProtocol.swift in Sources */,
 				E2C0A268274628D8003CB51B /* HeaderView.swift in Sources */,
@@ -766,7 +759,6 @@
 				E2C0A1EA2744F7E5003CB51B /* SwiftCafeApp.swift in Sources */,
 				E28ED31E2759E70100C0BB35 /* LocationButton.swift in Sources */,
 				E2C0A2342745115C003CB51B /* SignInViewModel.swift in Sources */,
-				E2C0A22927450027003CB51B /* Endpoint.swift in Sources */,
 				E29B2BB0275A396100118DAC /* FoodDetailsView.swift in Sources */,
 				E2C0A27B274654DB003CB51B /* MenuServiceFactory.swift in Sources */,
 				E2C0A23E2745382B003CB51B /* BackButton.swift in Sources */,
