@@ -31,30 +31,37 @@ final class MenuViewModel: ObservableObject {
     ///                          The default value is the return of the create method defined on `MenuServiceFactory`.
     init(menuService: MenuServiceProtocol = MenuServiceFactory.create()) {
         self.menuService = menuService
-
-        $sections
-            .receive(on: RunLoop.main)
-            .compactMap { sections in
-                sections.first?.name
-            }
-            .assign(to: \.activeSection, on: self)
-            .store(in: &cancellables)
     }
 
     // MARK: - Fetching Menu
     /// Uses the `menuService` to fetch the menu.
     /// On success, the fetched sections are assigned to the `sections`
     /// and the `activeSection` is set to the first section in the array.
-    func fetchMenu() {
+    func fetchMenu(_ completion: @escaping ()->()) {
         menuService.fetchMenu()
             .retry(3)
+            .receive(on: RunLoop.main)
             .catch { error ->  AnyPublisher<[MenuSection], Never> in
                 self.error = "Failed to load menu"
                 return Just([MenuSection]())
                     .eraseToAnyPublisher()
             }
-            .receive(on: RunLoop.main)
-            .assign(to: \.sections, on: self)
+            .sink { sections in
+                self.sections = sections
+                self.activeSection = sections[0].name
+                completion()
+            }
+//            .assign(to: \.sections, on: self)
+            .store(in: &cancellables)
+    }
+    
+    func signOut(_ completion: @escaping () -> ()) {
+        AuthService.shared.signOut()
+            .filter { $0 == .success }
+            .sink { status in
+                TokenStore.setTokenValue(nil)
+                completion()
+            }
             .store(in: &cancellables)
     }
 }

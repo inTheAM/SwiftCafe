@@ -22,6 +22,7 @@ struct BackButton: View {
                 .font(.title2)
                 .foregroundColor(.primary)
         }
-        .accessibilityIdentifier("back button")
+        .accessibilityIdentifier("back-button")
+        .accessibilityLabel("back")
     }
 }

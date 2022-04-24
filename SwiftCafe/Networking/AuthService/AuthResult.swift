@@ -30,3 +30,7 @@ enum AuthResult {
         }
     }
 }
+
+extension AuthResult: Codable {
+    
+}

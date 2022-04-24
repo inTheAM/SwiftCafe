@@ -11,6 +11,11 @@ import UIKit
 
 /// #A mock implementation of `AuthService`.
 final class MockAuthService: AuthServiceProtocol {
+    func signOut() -> AnyPublisher<AuthResult, Never> {
+        Just(.success)
+            .eraseToAnyPublisher()
+    }
+    
     /// The shared singleton instance of the mock service.
     static let shared = MockAuthService()
 

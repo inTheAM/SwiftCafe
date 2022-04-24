@@ -21,7 +21,7 @@ struct SwiftCafeApp: App {
     var body: some Scene {
         WindowGroup {
             if isSignedIn {
-                MenuView()
+                MenuView(isSignedIn: $isSignedIn)
             } else {
                 SignInView(isSignedIn: $isSignedIn)
             }

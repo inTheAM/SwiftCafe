@@ -16,7 +16,7 @@ struct NetworkManager {
     private func makeURL(for path: String) -> URL? {
         var components = URLComponents()
         components.scheme = "http"
-        components.host = "http://127.0.0.1:8090/api/"
+        components.host = "127.0.0.1:8090/api/"
         components.path = path
         guard let url = components.url else {
             return nil
@@ -29,10 +29,9 @@ struct NetworkManager {
     ///   - requestType: The type of request being made ie "get" or "post" etc.
     ///   - url: The url for the request
     /// - Returns: A URLRequest.
-    private func makeRequest<AccessLevel: AccessLevelProtocol>(
+    private func makeRequest(
         _ requestType: RequestType,
-        for url: URL,
-        accessLevel: AccessLevel.Type = AccessLevel.self
+        for url: URL
     ) -> URLRequest? {
         var request = URLRequest(url: url)
         request.httpMethod  =   requestType.rawValue
@@ -56,46 +55,50 @@ struct NetworkManager {
     ///   - payload: The data to attach to the request's body.
     /// - Returns: A publisher that publishes the response of the request on success
     ///            or a `RequestError` in case of failure.
-    func makeRequestPublisher<AccessLevel, Payload, Response>(
-        _ requestType: RequestType,
-        endpoint: Endpoint<AccessLevel, Payload, Response>,
+    func makeRequestPublisher<Payload, Response>(
+        endpoint: Endpoint<Payload, Response>,
         payload: Payload? = nil
     ) -> AnyPublisher<Response, RequestError>
-    where AccessLevel: AccessLevelProtocol, Payload: Encodable, Response: Decodable {
-        guard let url = makeURL(for: endpoint.path) else {
+    where Payload: Encodable, Response: Decodable {
+        let url = endpoint.makeURL()
+        
+        guard var request = makeRequest(endpoint.httpMethod, for: url) else {
             return Fail(
                 error: RequestError.invalidURL
             ).eraseToAnyPublisher()
         }
-        guard var request = makeRequest(requestType, for: url, accessLevel: AccessLevel.self) else {
-            return Fail(
-                error: RequestError.invalidURL
-            ).eraseToAnyPublisher()
+        
+        switch endpoint.accessLevel {
+            case .basic(let authData):
+                print("ADDING LOGIN DATA")
+                request.addValue("Basic \(authData)", forHTTPHeaderField: "Authorization")
+            case .token:
+                if let token = TokenStore.token {
+                    request.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+                }
+            default:
+                break
         }
-        switch requestType {
-        case .get:
-            break
-        case .post:
-            guard let payload = payload else {
-                return Fail(error: RequestError.invalidURL)
-                    .eraseToAnyPublisher()
-            }
-            attach(payload, to: &request)
+        
+        switch endpoint.httpMethod {
+            case .post:
+                if let payload = payload  {
+                    attach(payload, to: &request)
+                }
+                
+            default:
+                break
         }
-
-        if AccessLevel.self == PrivateAccess.self,
-           let token = TokenStore.token {
-            request.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
-        }
-
         let decoder = JSONDecoder()
+        
         return URLSession.shared.dataTaskPublisher(for: request)
             .subscribe(on: DispatchQueue.global(qos: .background))
             .map(\.data)
             .decode(type: NetworkResponse<Response>.self, decoder: decoder)
             .map(\.result)
-            .mapError({ _ in
-                RequestError.invalidDataFromServer
+            .mapError({ error in
+                print("ERROR LOADING DATA: ", error)
+                return RequestError.invalidDataFromServer
             })
             .eraseToAnyPublisher()
     }

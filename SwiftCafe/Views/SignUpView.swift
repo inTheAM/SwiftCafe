@@ -36,7 +36,7 @@ struct SignUpView: View {
                     .background(
                         RoundedRectangle(cornerRadius: 10)
                             .stroke(lineWidth: 2)
-                            .foregroundColor(viewModel.isEmailValid ? .green.opacity(0.5) : .primary.opacity(0.3))
+                            .foregroundColor(viewModel.isEmailAvailable ? .green.opacity(0.5) : .primary.opacity(0.3))
                     )
                     .accessibilityIdentifier("email input")
 
@@ -47,7 +47,7 @@ struct SignUpView: View {
                     Spacer()
                 }.padding(.bottom)
 
-                if viewModel.isEmailValid {
+                if viewModel.isEmailAvailable {
                     VStack(spacing: 0) {
                         SecureField("Password", text: $viewModel.password)
                             .autocapitalization(.none)

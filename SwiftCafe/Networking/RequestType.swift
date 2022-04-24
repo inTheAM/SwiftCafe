@@ -11,5 +11,7 @@ import Foundation
 enum RequestType: String {
     case get = "GET",
 
-         post = "POST"
+         post = "POST",
+
+         delete = "DELETE"
 }

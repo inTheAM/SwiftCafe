@@ -20,10 +20,10 @@ final class SignInViewModel: ObservableObject {
 // MARK: - Inputs
 
     /// The published input for the user's email address.
-    @Published var email = ""
+    @Published var email = "ahmedmgua@gmail.com"
 
     /// The published input for the user's password.
-    @Published var password = ""
+    @Published var password = "password123!"
 
 // MARK: - Validation
     /// Indicates whether the email input is valid.

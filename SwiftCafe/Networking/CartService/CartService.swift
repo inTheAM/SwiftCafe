@@ -13,7 +13,7 @@ struct CartService: CartServiceProtocol {
 
     func fetchContents() -> AnyPublisher<[Cart.Entry], CartError> {
         networkManager
-            .makeRequestPublisher(.get, endpoint: .fetchCartContents)
+            .makeRequestPublisher(endpoint: .fetchCartContents)
             .mapError { _ in
                 return .failedToFetchContents
             }
@@ -24,7 +24,7 @@ struct CartService: CartServiceProtocol {
         let entry = Cart.Entry.CreateData(foodID: food.id, quantity: quantity)
 
         return networkManager
-            .makeRequestPublisher(.post, endpoint: .addItemToCart, payload: entry)
+            .makeRequestPublisher(endpoint: .addItemToCart, payload: entry)
             .mapError { _ in
                 return .failedToAddItem
             }
@@ -36,7 +36,7 @@ struct CartService: CartServiceProtocol {
         let payload = Cart.Entry.RemoveData(id: cartEntry.id)
 
         return networkManager
-            .makeRequestPublisher(.post, endpoint: .removeItemFromCart, payload: payload)
+            .makeRequestPublisher(endpoint: .removeItemFromCart, payload: payload)
             .map { _ in
                 return cartEntry.food.id
             }

@@ -15,19 +15,17 @@ struct MenuSectionsSelector: View {
 
     /// A namespace for matching the geometry effect of the selector between sections.
     @Namespace var namespace
-
-    /// The ScrollViewProxy for the parent of this view.
-    var pageProxy: ScrollViewProxy
+    
 
     var body: some View {
-        ScrollViewReader { proxy in
+                        ScrollViewReader { proxy in
             ScrollView(.horizontal, showsIndicators: false) {
+                
                 HStack {
                     ForEach(viewModel.sections, id: \.name) {    section    in
                         Button(action: {
-                            withAnimation(.easeInOut(duration: 0.2)) {
-                                scrollTo(section, proxy: proxy, pageProxy: pageProxy)
-                            }
+                            withAnimation { viewModel.activeSection    =    section.name }
+                            
                         }, label: {
                             VStack {
                                 Text(section.name)
@@ -56,6 +54,9 @@ struct MenuSectionsSelector: View {
                     }
                 }
                 .padding(.horizontal)
+                .onChange(of: viewModel.activeSection) { section in
+                    withAnimation { proxy.scrollTo(section, anchor: UnitPoint(x: 0.4, y: 0)) }
+                }
             }
             .padding(.vertical, 10)
             .background(
@@ -64,19 +65,6 @@ struct MenuSectionsSelector: View {
                     Color.white.opacity(0.2)
                 }
             )
-            .onChange(of: viewModel.activeSection) { section in
-                withAnimation {
-                    proxy.scrollTo(section, anchor: UnitPoint(x: 0.6, y: 0))
-                }
-            }
-        }
-    }
-
-    private func scrollTo(_ section: MenuSection, proxy: ScrollViewProxy, pageProxy: ScrollViewProxy) {
-        if viewModel.activeSection != section.name {
-            viewModel.activeSection    =    section.name
-            proxy.scrollTo(viewModel.activeSection, anchor: UnitPoint(x: 0.6, y: 0))
-            pageProxy.scrollTo(viewModel.activeSection, anchor: UnitPoint(x: 0, y: 0.1))
         }
     }
 }

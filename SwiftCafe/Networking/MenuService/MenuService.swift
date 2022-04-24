@@ -14,7 +14,7 @@ struct MenuService: MenuServiceProtocol {
     private let networkManager: NetworkManager = NetworkManager()
 
     func fetchMenu() -> AnyPublisher<[MenuSection], RequestError> {
-        networkManager.makeRequestPublisher(.get, endpoint: .fetchMenu)
+        networkManager.makeRequestPublisher(endpoint: .fetchMenu)
             .share()
             .eraseToAnyPublisher()
     }

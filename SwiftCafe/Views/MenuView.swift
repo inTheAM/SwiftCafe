@@ -16,47 +16,72 @@ struct MenuView: View {
 
     /// The user's cart, injected into the environment.
     @ObservedObject var cart = Cart()
+    
+    /// A binding to a boolean that indicates whether the user is signed in or not.
+    /// A successful sign-up toggles the value to true.
+    @Binding var isSignedIn: Bool
+    
+    /// A namespace for matching the geometry effect of the selector between sections.
+    @Namespace var namespace
+    
+//    @State private var activeSection = ""
 
     /// The Menu overlaid with a button to show the user's cart.
     var body: some View {
         NavigationView {
-            ZStack {
+            VStack(spacing: 0) {
+                MenuSectionsSelector(viewModel: viewModel)
+                
                 ScrollViewReader { pageProxy in
-                    VStack(spacing: 0) {
-                        MenuSectionsSelector(viewModel: viewModel, pageProxy: pageProxy)
-
-                        ScrollView(showsIndicators: false) {
-                            LazyVStack(spacing: 0, pinnedViews: [.sectionHeaders]) {
-                                ForEach(viewModel.sections) { section in
-                                    Section(header: HeaderView(title: section.name)) {
-                                        VStack {
-                                            ForEach(section.items) { food in
-                                                FoodCardView(food: food)
-                                            }
+                    ScrollView(.vertical, showsIndicators: false) {
+                        
+                        LazyVStack(spacing: 0, pinnedViews: [.sectionHeaders]) {
+                            ForEach(viewModel.sections) { section in
+                                Section(header: HeaderView(title: section.name)) {
+                                    VStack {
+                                        ForEach(section.items) { food in
+                                            FoodCardView(food: food)
                                         }
-                                        .padding(.vertical, 8)
-                                        .padding(.horizontal)
                                     }
-                                    .id(section.name)
-                                    .readOffset { rect in
-                                        activateSection(section, in: rect)
-                                    }
+                                    .padding(.vertical, 8)
+                                    .padding(.horizontal)
+                                }
+                                .id(section.name)
+                                .readOffset { rect in
+                                    activateSection(section, in: rect)
                                 }
                             }
-                            .padding(.bottom, 76)
-                            .onAppear {
-                                viewModel.fetchMenu()
+                        }
+                        .padding(.bottom, 76)
+                        .onAppear {
+                            viewModel.fetchMenu {
+                                viewModel.activeSection = viewModel.sections[0].name
                             }
                         }
+                        .onChange(of: viewModel.activeSection) { section in
+                            #warning("'withAnimation' breaks autoscroll")
+                            pageProxy.scrollTo(section, anchor: UnitPoint(x: 0, y: 0))
+                        }
+                        
                     }
+                    .accessibilityIdentifier("menu")
                 }
-
-                CartButton()
+                
             }
+            .overlay(CartButton())
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
                     LocationButton()
+                }
+                
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button("Sign out") {
+                        viewModel.signOut {
+                            isSignedIn = false
+                            print("Signed out")
+                        }
+                    }
                 }
             }
         }
@@ -72,6 +97,6 @@ struct MenuView: View {
 
 struct MenuView_Previews: PreviewProvider {
     static var previews: some View {
-        MenuView()
+        MenuView(isSignedIn: .constant(true))
     }
 }

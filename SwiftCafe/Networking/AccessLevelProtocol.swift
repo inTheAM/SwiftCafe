@@ -17,3 +17,9 @@ enum PrivateAccess: AccessLevelProtocol { }
 enum SignInAccess: AccessLevelProtocol { }
 
 enum SignUpAccess: AccessLevelProtocol { }
+
+enum AccessLevel {
+    case basic(_ authData: String)
+    case token
+    case publicAccess
+}

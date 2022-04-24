@@ -66,11 +66,13 @@ final class SignUpViewModel: ObservableObject {
             .receive(on: RunLoop.main)
             .map { status -> Bool in
                 switch status {
-                case .valid:
-                    break
-                default:
-                    self.emailErrorDescription = status.description
+                    case .valid:
+                        self.emailErrorDescription = ""
+                        break
+                    default:
+                        self.emailErrorDescription = status.description
                 }
+                print(status)
                 return status == .valid
             }
             .assign(to: \.isEmailValid, on: self)
@@ -79,6 +81,7 @@ final class SignUpViewModel: ObservableObject {
         isEmailAvailablePublisher
             .receive(on: RunLoop.main)
             .map { result in
+                print("EMAIL CHECK", result)
                 switch result {
                 case .available:
                     return true
@@ -125,9 +128,7 @@ extension SignUpViewModel {
         $email
             .dropFirst()
             .debounce(for: 1, scheduler: RunLoop.main)
-            .map {
-                $0.isEmpty
-            }
+            .map(\.isEmpty)
             .eraseToAnyPublisher()
     }
 
@@ -162,9 +163,9 @@ extension SignUpViewModel {
     /// A publisher that returns a boolean value indicating
     /// whether the email address is available for account creation or not.
     private var isEmailAvailablePublisher: AnyPublisher<EmailCheckResult, Never> {
-        $isEmailValid
+        isEmailInputValidPublisher
             .debounce(for: 0.5, scheduler: RunLoop.main)
-            .filter { $0 == true }
+            .filter { $0 == .valid }
             .flatMap { _ in
                 self.authService.checkEmailAvailability(email: self.email)
             }
@@ -180,9 +181,7 @@ extension SignUpViewModel {
         $password
             .debounce(for: 0.5, scheduler: RunLoop.main)
             .removeDuplicates()
-            .map { password in
-                password.isEmpty
-            }
+            .map(\.isEmpty)
             .eraseToAnyPublisher()
     }
 
@@ -254,9 +253,10 @@ extension SignUpViewModel {
     /// A publisher that returns a boolean value indicating
     /// whether the filled form is valid or not.
     private var isFormValidPublisher: AnyPublisher<Bool, Never> {
-        Publishers.CombineLatest(isEmailInputValidPublisher, isPasswordInputValidPublisher)
+        Publishers.CombineLatest(isEmailAvailablePublisher, isPasswordInputValidPublisher)
             .map { emailStatus, passwordStatus in
-                return emailStatus == .valid && passwordStatus == .valid
+                print("Checking email")
+                return emailStatus == .available && passwordStatus == .valid
             }
             .eraseToAnyPublisher()
     }

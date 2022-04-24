@@ -18,7 +18,7 @@ struct FoodDetailsService: FoodDetailsServiceProtocol {
     ///                 The closure takes the result of the request which may be
     ///                 an array of OptionGroup or a RequestError.
     func fetchOptions(for foodID: UUID) -> AnyPublisher<[OptionGroup], RequestError> {
-        networkManager.makeRequestPublisher(.get, endpoint: Endpoint.fetchItemOptions(foodID))
+        networkManager.makeRequestPublisher(endpoint: Endpoint.fetchItemOptions(foodID))
             .eraseToAnyPublisher()
     }
 }

@@ -21,10 +21,11 @@ final class AuthService {
 }
 
 extension AuthService: AuthServiceProtocol {
+    
     func checkEmailAvailability(email: String) -> AnyPublisher<EmailCheckResult, Never> {
         let email = User.EmailCheckData(email: email)
 
-        return networkManager.makeRequestPublisher(.post, endpoint: .checkEmail, payload: email)
+        return networkManager.makeRequestPublisher(endpoint: .checkEmail, payload: email)
             .map { result -> EmailCheckResult in
                 switch result.isAvailable {
                 case true:
@@ -45,8 +46,8 @@ extension AuthService: AuthServiceProtocol {
         let user = User.SignInData(email: email, password: password)
 
         return networkManager
-            .makeRequestPublisher(.post, endpoint: .signUp, payload: user)
-            .map { token in
+            .makeRequestPublisher(endpoint: .signUp, payload: user)
+            .map { token -> AuthResult in
                 TokenStore.setTokenValue(token)
                 return .success
             }
@@ -59,10 +60,10 @@ extension AuthService: AuthServiceProtocol {
     }
 
     func signIn(email: String, password: String) -> AnyPublisher<AuthResult, Never> {
-        let user = User.SignInData(email: email, password: password)
+        let authData = "\(email):\(password)".data(using: .utf8)!.base64EncodedString()
 
         return networkManager
-            .makeRequestPublisher(.post, endpoint: .signIn, payload: user)
+            .makeRequestPublisher(endpoint: .signIn(authData), payload: nil)
             .map { token in
                 TokenStore.setTokenValue(token)
                 return .success
@@ -70,6 +71,20 @@ extension AuthService: AuthServiceProtocol {
 
             .catch { _ -> AnyPublisher<AuthResult, Never> in
                 return Just(.signInFailed)
+                    .setFailureType(to: Never.self)
+                    .eraseToAnyPublisher()
+            }
+            .eraseToAnyPublisher()
+    }
+    
+    func signOut() -> AnyPublisher<AuthResult, Never> {
+        return networkManager.makeRequestPublisher(endpoint: .signOut)
+            
+            .map { _ in
+                AuthResult.success
+            }
+            .catch { _ -> AnyPublisher<AuthResult, Never> in
+                return Just(.signOutFailed)
                     .setFailureType(to: Never.self)
                     .eraseToAnyPublisher()
             }
