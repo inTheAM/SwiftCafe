@@ -15,7 +15,6 @@ struct Endpoint<Payload: Encodable, Response: Decodable> {
     let accessLevel: AccessLevel
     let mainPath: MainPath
     let path: String?
-    
 
     init(_ method: RequestType, accessLevel: AccessLevel = .token, mainPath: MainPath, path: String? = nil) {
         self.httpMethod = method
@@ -23,7 +22,7 @@ struct Endpoint<Payload: Encodable, Response: Decodable> {
         self.mainPath = mainPath
         self.path = path
     }
-    
+
     /// Creates a `URL` from a given path
     /// - Parameter path: The path to create a url from.
     /// - Returns: An optional URL.
@@ -33,14 +32,14 @@ struct Endpoint<Payload: Encodable, Response: Decodable> {
         components.host = "127.0.0.1"
         components.port = 8090
         components.path = "/api/\(mainPath.rawValue)/" + (path ?? "")
-        
+
         guard let url = components.url else {
             preconditionFailure("Invalid URL at \(components.path)")
         }
         print(url)
         return url
     }
-    
+
     enum MainPath: String {
         case users,
              menu,

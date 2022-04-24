@@ -61,13 +61,13 @@ struct NetworkManager {
     ) -> AnyPublisher<Response, RequestError>
     where Payload: Encodable, Response: Decodable {
         let url = endpoint.makeURL()
-        
+
         guard var request = makeRequest(endpoint.httpMethod, for: url) else {
             return Fail(
                 error: RequestError.invalidURL
             ).eraseToAnyPublisher()
         }
-        
+
         switch endpoint.accessLevel {
             case .basic(let authData):
                 print("ADDING LOGIN DATA")
@@ -79,18 +79,18 @@ struct NetworkManager {
             default:
                 break
         }
-        
+
         switch endpoint.httpMethod {
             case .post:
-                if let payload = payload  {
+                if let payload = payload {
                     attach(payload, to: &request)
                 }
-                
+
             default:
                 break
         }
         let decoder = JSONDecoder()
-        
+
         return URLSession.shared.dataTaskPublisher(for: request)
             .subscribe(on: DispatchQueue.global(qos: .background))
             .map(\.data)

@@ -15,7 +15,7 @@ final class MockAuthService: AuthServiceProtocol {
         Just(.success)
             .eraseToAnyPublisher()
     }
-    
+
     /// The shared singleton instance of the mock service.
     static let shared = MockAuthService()
 

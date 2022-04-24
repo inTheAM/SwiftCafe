@@ -21,7 +21,7 @@ final class AuthService {
 }
 
 extension AuthService: AuthServiceProtocol {
-    
+
     func checkEmailAvailability(email: String) -> AnyPublisher<EmailCheckResult, Never> {
         let email = User.EmailCheckData(email: email)
 
@@ -76,10 +76,10 @@ extension AuthService: AuthServiceProtocol {
             }
             .eraseToAnyPublisher()
     }
-    
+
     func signOut() -> AnyPublisher<AuthResult, Never> {
         return networkManager.makeRequestPublisher(endpoint: .signOut)
-            
+
             .map { _ in
                 AuthResult.success
             }

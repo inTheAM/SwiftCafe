@@ -16,14 +16,14 @@ struct MenuView: View {
 
     /// The user's cart, injected into the environment.
     @ObservedObject var cart = Cart()
-    
+
     /// A binding to a boolean that indicates whether the user is signed in or not.
     /// A successful sign-up toggles the value to true.
     @Binding var isSignedIn: Bool
-    
+
     /// A namespace for matching the geometry effect of the selector between sections.
     @Namespace var namespace
-    
+
 //    @State private var activeSection = ""
 
     /// The Menu overlaid with a button to show the user's cart.
@@ -31,10 +31,10 @@ struct MenuView: View {
         NavigationView {
             VStack(spacing: 0) {
                 MenuSectionsSelector(viewModel: viewModel)
-                
+
                 ScrollViewReader { pageProxy in
                     ScrollView(.vertical, showsIndicators: false) {
-                        
+
                         LazyVStack(spacing: 0, pinnedViews: [.sectionHeaders]) {
                             ForEach(viewModel.sections) { section in
                                 Section(header: HeaderView(title: section.name)) {
@@ -60,11 +60,11 @@ struct MenuView: View {
                             #warning("'withAnimation' breaks autoscroll")
                             pageProxy.scrollTo(section, anchor: UnitPoint(x: 0, y: 0))
                         }
-                        
+
                     }
                     .accessibilityIdentifier("menu")
                 }
-                
+
             }
             .overlay(CartButton())
             .navigationBarTitleDisplayMode(.inline)
@@ -72,7 +72,7 @@ struct MenuView: View {
                 ToolbarItem(placement: .navigationBarLeading) {
                     LocationButton()
                 }
-                
+
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button("Sign out") {
                         viewModel.signOut {

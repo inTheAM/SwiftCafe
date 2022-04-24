@@ -15,17 +15,16 @@ struct MenuSectionsSelector: View {
 
     /// A namespace for matching the geometry effect of the selector between sections.
     @Namespace var namespace
-    
 
     var body: some View {
                         ScrollViewReader { proxy in
             ScrollView(.horizontal, showsIndicators: false) {
-                
+
                 HStack {
                     ForEach(viewModel.sections, id: \.name) {    section    in
                         Button(action: {
                             withAnimation { viewModel.activeSection    =    section.name }
-                            
+
                         }, label: {
                             VStack {
                                 Text(section.name)

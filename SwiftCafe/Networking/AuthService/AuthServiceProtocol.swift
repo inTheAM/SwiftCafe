@@ -29,7 +29,6 @@ protocol AuthServiceProtocol {
     ///   - password: The password to unlock the account.
     /// - Returns: - A publisher that publishes the result of the request as an  `AuthResult`.
     func signIn(email: String, password: String) -> AnyPublisher<AuthResult, Never>
-    
-    
+
     func signOut() -> AnyPublisher<AuthResult, Never>
 }

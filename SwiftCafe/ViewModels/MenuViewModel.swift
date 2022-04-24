@@ -53,11 +53,11 @@ final class MenuViewModel: ObservableObject {
 //            .assign(to: \.sections, on: self)
             .store(in: &cancellables)
     }
-    
-    func signOut(_ completion: @escaping () -> ()) {
+
+    func signOut(_ completion: @escaping () -> Void) {
         AuthService.shared.signOut()
             .filter { $0 == .success }
-            .sink { status in
+            .sink { _ in
                 TokenStore.setTokenValue(nil)
                 completion()
             }

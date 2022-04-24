@@ -28,7 +28,7 @@ extension User {
         /// The password to create an account with.
         let password: String
     }
-    
+
     struct SignUpData: Encodable {
         let firstName: String
         let lastName: String
