@@ -74,11 +74,13 @@ final class SignUpViewModelTests: XCTestCase {
     func testEmailValidationInlineErrorForUnavailableEmail() throws {
         let isEmailValidPublisher = viewModel.$emailErrorDescription
             .dropFirst()
+            .dropFirst()
             .first()
 
-        viewModel.email = "testuser@test.com"
+        viewModel.email = User.sample.email
 
         let error = try awaitResult(from: isEmailValidPublisher)
+
         XCTAssertEqual(error, EmailCheckResult.unavailable.description)
     }
 
