@@ -37,7 +37,7 @@ final class MenuViewModel: ObservableObject {
     /// Uses the `menuService` to fetch the menu.
     /// On success, the fetched sections are assigned to the `sections`
     /// and the `activeSection` is set to the first section in the array.
-    func fetchMenu(_ completion: @escaping ()->()) {
+    func fetchMenu() {
         menuService.fetchMenu()
             .retry(3)
             .receive(on: RunLoop.main)
@@ -49,7 +49,6 @@ final class MenuViewModel: ObservableObject {
             .sink { sections in
                 self.sections = sections
                 self.activeSection = sections[0].name
-                completion()
             }
 //            .assign(to: \.sections, on: self)
             .store(in: &cancellables)

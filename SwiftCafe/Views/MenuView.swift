@@ -54,9 +54,7 @@ struct MenuView: View {
                         }
                         .padding(.bottom, 76)
                         .onAppear {
-                            viewModel.fetchMenu {
-                                viewModel.activeSection = viewModel.sections[0].name
-                            }
+                            viewModel.fetchMenu()
                         }
                         .onChange(of: viewModel.activeSection) { section in
                             #warning("'withAnimation' breaks autoscroll")
