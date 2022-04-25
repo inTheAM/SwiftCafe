@@ -20,7 +20,7 @@ struct DoneButton: View {
         }
         .font(.headline)
         .foregroundColor(.blue)
-        .accessibilityIdentifier("done")
-        .accessibilityLabel("done")
+        .accessibilityIdentifier("Done")
+        .accessibilityLabel("Done")
     }
 }
