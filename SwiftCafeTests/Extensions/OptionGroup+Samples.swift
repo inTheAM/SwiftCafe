@@ -20,10 +20,10 @@ extension OptionGroup {
         for num in 1...Int.random(in: 2...4) {
             var options = [Option]()
             for index in 1...Int.random(in: 2...4) {
-                options.append(Option(id: UUID(), name: "Option \(index)"))
+                options.append(Option(id: UUID(), name: "Option \(index)", priceDifference: 0.5))
             }
 
-            let group = OptionGroup(name: "Option group \(num)", options: options)
+            let group = OptionGroup(id: UUID(), name: "Option group \(num)", options: options)
             groups.append(group)
         }
         return groups

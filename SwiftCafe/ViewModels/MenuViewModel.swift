@@ -47,6 +47,7 @@ final class MenuViewModel: ObservableObject {
                     .eraseToAnyPublisher()
             }
             .sink { sections in
+                guard !sections.isEmpty else { return }
                 self.sections = sections
                 self.activeSection = sections[0].name
             }

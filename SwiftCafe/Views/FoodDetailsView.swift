@@ -49,7 +49,7 @@ struct FoodDetailsView: View {
                     .background(RoundedRectangle(cornerRadius: 10).stroke())
                     .accessibilityIdentifier("Quantity")
 
-                Stepper("", value: $viewModel.quantity, in: 1...viewModel.stockQuantity)
+                Stepper("", value: $viewModel.quantity, in: 1...10)
                     .accessibilityIdentifier("Quantity stepper")
             }
             .padding(.horizontal)

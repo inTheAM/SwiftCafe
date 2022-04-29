@@ -20,8 +20,7 @@ extension Food {
                      name: "Food \(num)",
                      details: "Food details",
                      price: 12,
-                     imageURL: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTP68GaMxj6iSn18pYEVZyW0lLLYgbEzbdmFQ&usqp=CAU",
-                     stockQuantity: 20))
+                     imageURL: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTP68GaMxj6iSn18pYEVZyW0lLLYgbEzbdmFQ&usqp=CAU"))
         }
         return items
     }

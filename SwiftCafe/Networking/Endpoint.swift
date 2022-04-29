@@ -43,7 +43,6 @@ struct Endpoint<Payload: Encodable, Response: Decodable> {
     enum MainPath: String {
         case users,
              menu,
-             options,
              cart
     }
 }
@@ -109,6 +108,6 @@ extension Endpoint where Payload == EmptyPayload,
 extension Endpoint where Payload == EmptyPayload,
                             Response == [OptionGroup] {
     static func fetchItemOptions(_ id: UUID) -> Self {
-        Endpoint(.get, mainPath: .options, path: "\(id.uuidString)")
+        Endpoint(.get, mainPath: .menu, path: "options/\(id.uuidString)")
     }
 }

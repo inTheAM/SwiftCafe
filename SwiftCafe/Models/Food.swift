@@ -21,13 +21,10 @@ struct Food: Identifiable {
     let details: String
 
     /// The price for the food.
-    let price: Int
+    let price: Double
 
     /// The url for the image showing the food.
     let imageURL: String
-
-    /// The quantity available for this food.
-    let stockQuantity: Int
 }
 
 // MARK: - Equatable conformance.

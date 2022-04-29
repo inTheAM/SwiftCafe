@@ -15,6 +15,8 @@ struct Option: Identifiable {
 
     /// The name of the option.
     let name: String
+    
+    let priceDifference: Double
 }
 
 // MARK: - Codable conformance

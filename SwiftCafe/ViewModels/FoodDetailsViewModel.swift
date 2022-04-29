@@ -47,17 +47,13 @@ final class FoodDetailsViewModel: ObservableObject {
     var imageURL: String {
         food.imageURL
     }
-    /// The stock quantity available for this food
-    var stockQuantity: Int {
-        food.stockQuantity
-    }
     /// A string describing the food price
     var price: String {
         "$\(food.price)"
     }
     /// A string representing the total price accommodating for the quantity and any extras.
     var totalPrice: String {
-        "$\(food.price * quantity)"
+        "$\(food.price * Double(quantity))"
     }
 
     // MARK: - Initializer
@@ -114,12 +110,12 @@ final class FoodDetailsViewModel: ObservableObject {
     func fetchOptions() {
         foodDetailsService.fetchOptions(for: food.id)
             .retry(3)
+            .receive(on: RunLoop.main)
             .catch { error ->  AnyPublisher<[OptionGroup], Never> in
                 self.error = "Failed to load options for this item"
                 return Just([OptionGroup]())
                     .eraseToAnyPublisher()
             }
-            .receive(on: RunLoop.main)
             .assign(to: \.optionGroups, on: self)
             .store(in: &cancellables)
     }

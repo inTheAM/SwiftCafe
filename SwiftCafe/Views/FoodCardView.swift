@@ -34,7 +34,7 @@ struct FoodCardView: View {
                     HStack {
                         Spacer()
 
-                        Text("$\(food.price)")
+                        Text("$\(food.price.format(2))")
                             .font(.body.bold())
                             .foregroundColor(.primary)
 
