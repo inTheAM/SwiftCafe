@@ -44,8 +44,10 @@ final class CartTests: XCTestCase {
             .collect(2)
             .first()
 
-        cart.add(testFood, quantity: 3)
-        cart.add(testFood2, quantity: 2)
+        let optionGroup = OptionGroup.samples[0]
+
+        cart.add(testFood, options: [optionGroup.options[0]], quantity: 3)
+        cart.add(testFood2, options: [optionGroup.options[0]], quantity: 2)
 
         let contentsResult = try awaitResult(from: contentsPublisher)
         XCTAssertEqual(contentsResult.count, 2)
@@ -67,8 +69,10 @@ final class CartTests: XCTestCase {
             .collect(2)
             .first()
 
-        cart.add(testFood, quantity: 3)
-        cart.add(testFood2, quantity: 2)
+        let optionGroup = OptionGroup.samples[0]
+
+        cart.add(testFood, options: [optionGroup.options[0]], quantity: 3)
+        cart.add(testFood2, options: [optionGroup.options[0]], quantity: 2)
         _ = try awaitResult(from: contentsPublisher)
 
         let postRemovalPublisher = cart.$contents

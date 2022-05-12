@@ -79,9 +79,14 @@ extension AuthService: AuthServiceProtocol {
 
     func signOut() -> AnyPublisher<AuthResult, Never> {
         return networkManager.makeRequestPublisher(endpoint: .signOut)
-
-            .map { _ in
-                AuthResult.success
+            .map { result in
+                switch result {
+                case .success:
+                    TokenStore.setTokenValue(nil)
+                    return .success
+                case .failure:
+                    return .signOutFailed
+                }
             }
             .catch { _ -> AnyPublisher<AuthResult, Never> in
                 return Just(.signOutFailed)

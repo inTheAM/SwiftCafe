@@ -15,12 +15,14 @@ struct Option: Identifiable {
 
     /// The name of the option.
     let name: String
-    
+
     let priceDifference: Double
+
+    let optionGroupID: UUID
 }
 
 // MARK: - Codable conformance
-extension Option: Decodable { }
+extension Option: Codable { }
 
 // MARK: - Equatable conformance
 extension Option: Equatable {

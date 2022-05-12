@@ -51,7 +51,6 @@ final class MenuViewModel: ObservableObject {
                 self.sections = sections
                 self.activeSection = sections[0].name
             }
-//            .assign(to: \.sections, on: self)
             .store(in: &cancellables)
     }
 
@@ -59,7 +58,6 @@ final class MenuViewModel: ObservableObject {
         AuthService.shared.signOut()
             .filter { $0 == .success }
             .sink { _ in
-                TokenStore.setTokenValue(nil)
                 completion()
             }
             .store(in: &cancellables)

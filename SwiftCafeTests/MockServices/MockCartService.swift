@@ -27,8 +27,8 @@ struct MockCartService: CartServiceProtocol {
     ///   - quantity: The quantity to add.
     ///   - completion: A closure the method runs to mock a successful addition.
     ///                 The closure takes a Result that contains a `Cart.Entry`.
-    func addToCart(_ food: Food, quantity: Int) -> AnyPublisher<Cart.Entry?, CartError> {
-        let entry = Cart.Entry(id: UUID(), food: food, quantity: quantity)
+    func addToCart(_ food: Food, options: [Option], quantity: Int) -> AnyPublisher<Cart.Entry?, CartError> {
+        let entry = Cart.Entry(id: UUID(), food: food, options: [Option](), quantity: quantity)
         return Just(entry)
             .setFailureType(to: CartError.self)
             .eraseToAnyPublisher()

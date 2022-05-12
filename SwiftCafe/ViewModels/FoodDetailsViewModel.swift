@@ -139,9 +139,8 @@ final class FoodDetailsViewModel: ObservableObject {
 // MARK: - Deselecting options
     /// Deselects an option for this food.
     /// - Parameter option: The option to remove from `selectedOptions`
-    func removeOption(_ option: Option?) {
-        if let option = option,
-           let index = selectedOptions.firstIndex(of: option) {
+    func removeOption(_ optionGroup: OptionGroup) {
+        if let index = selectedOptions.firstIndex(where: { $0.optionGroupID == optionGroup.id}) {
             selectedOptions.remove(at: index)
         }
     }

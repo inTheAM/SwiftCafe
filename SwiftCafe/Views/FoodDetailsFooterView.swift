@@ -41,7 +41,7 @@ struct FoodDetailsFooterView: View {
                 Button {
                     cart.contains(viewModel.food)  ?
                     cart.remove(viewModel.food) :
-                    cart.add(viewModel.food, quantity: viewModel.quantity)
+                    cart.add(viewModel.food, options: viewModel.selectedOptions, quantity: viewModel.quantity)
 
                 } label: {
                     Text(cart.contains(viewModel.food) ?   "Remove from cart"  : "Add to cart")

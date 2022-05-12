@@ -40,12 +40,12 @@ extension Cart {
     func fetchContents() {
         cartService.fetchContents()
             .retry(3)
+            .receive(on: RunLoop.main)
             .catch { error ->  AnyPublisher<[Cart.Entry], Never> in
                 self.error = error.description
                 return Just([Cart.Entry]())
                     .eraseToAnyPublisher()
             }
-            .receive(on: RunLoop.main)
             .sink {  [weak self] contents in
                 self?.contents = contents
             }
@@ -56,16 +56,16 @@ extension Cart {
     /// - Parameters:
     ///   - food: The food item to add to the cart.
     ///   - quantity: The quantity of the food to add to the cart.
-    func add(_ food: Food, quantity: Int) {
+    func add(_ food: Food, options: [Option], quantity: Int) {
         isModifying = true
-        cartService.addToCart(food, quantity: quantity)
+        cartService.addToCart(food, options: options, quantity: quantity)
             .retry(3)
+            .receive(on: RunLoop.main)
             .catch { error ->  AnyPublisher<Cart.Entry?, Never> in
                 self.error = error.description
                 return Just(nil)
                     .eraseToAnyPublisher()
             }
-            .receive(on: RunLoop.main)
             .sink {  [weak self] cartEntry in
                 guard let cartEntry = cartEntry else { return }
                 self?.contents.append(cartEntry)
@@ -83,12 +83,12 @@ extension Cart {
             print("REMOVING ITEM")
             cartService.removeFromCart(contents[index])
                 .retry(3)
+                .receive(on: RunLoop.main)
                 .catch { [weak self] error ->  AnyPublisher<UUID?, Never> in
                     self?.error = error.description
                     return Just(nil)
                         .eraseToAnyPublisher()
                 }
-                .receive(on: RunLoop.main)
                 .sink {  [weak self] foodID in
                     guard foodID == food.id else { return }
 
@@ -119,25 +119,33 @@ extension Cart {
         /// The food item in the cart entry.
         let food: Food
 
+        /// The options selected
+        let options: [Option]
+
         /// The quantity of the food item in the entry.
         let quantity: Int
     }
 }
 
 extension Cart.Entry {
-
+    typealias Quantity = Int
     /// The data used to create a cart entry.
     struct CreateData: Encodable {
 
         /// The identifier for the food item to create an entry for.
-        let foodID: UUID
+        let foodID: Food.ID
+
+        /// The options selected
+        let options: [Option.ID]
 
         /// The quantity of the food item in the entry.
-        let quantity: Int
+        let quantity: Quantity
     }
 
     /// The data used to remove a cart entry.
     struct RemoveData: Encodable {
-        let id: UUID
+
+        /// The id of the cart entry to remove from the user's cart.
+        let id: Cart.Entry.ID
     }
 }

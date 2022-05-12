@@ -55,6 +55,7 @@ final class SignUpViewModel: ObservableObject {
     /// An inline error displayed when sign-up fails.
     @Published var signUpErrorDescription = ""
 
+    // swiftlint:disable function_body_length
     // MARK: - Initializer
     /// The initializer for the view model.
     /// - Parameter authService: An instance of a type that conforms to `AuthServiceProtocol`.
@@ -66,11 +67,10 @@ final class SignUpViewModel: ObservableObject {
             .receive(on: RunLoop.main)
             .map { status -> Bool in
                 switch status {
-                    case .valid:
-                        self.emailErrorDescription = ""
-                        break
-                    default:
-                        self.emailErrorDescription = status.description
+                case .valid:
+                    self.emailErrorDescription = ""
+                default:
+                    self.emailErrorDescription = status.description
                 }
                 print(status)
                 return status == .valid
@@ -119,7 +119,7 @@ final class SignUpViewModel: ObservableObject {
             .store(in: &cancellables)
     }
 }
-
+// swiftlint:enable function_body_length
 // MARK: - Email Validation
 extension SignUpViewModel {
     /// A publisher that returns a boolean indicating
@@ -138,7 +138,7 @@ extension SignUpViewModel {
         $email
             .dropFirst()
             .removeDuplicates()
-            .debounce(for: 0.5, scheduler: RunLoop.main)
+            .debounce(for: 1, scheduler: RunLoop.main)
             .map { email in
                 email.count > 9 && email.contains("@") && email.contains(".com")
             }
@@ -164,7 +164,7 @@ extension SignUpViewModel {
     /// whether the email address is available for account creation or not.
     private var isEmailAvailablePublisher: AnyPublisher<EmailCheckResult, Never> {
         isEmailInputValidPublisher
-            .debounce(for: 0.5, scheduler: RunLoop.main)
+            .debounce(for: 1, scheduler: RunLoop.main)
             .filter { $0 == .valid }
             .flatMap { _ in
                 self.authService.checkEmailAvailability(email: self.email)
@@ -179,7 +179,7 @@ extension SignUpViewModel {
     /// whether the password input is empty or not.
     private var isPasswordEmptyPublisher: AnyPublisher<Bool, Never> {
         $password
-            .debounce(for: 0.5, scheduler: RunLoop.main)
+            .debounce(for: 1, scheduler: RunLoop.main)
             .removeDuplicates()
             .map(\.isEmpty)
             .eraseToAnyPublisher()
@@ -189,7 +189,7 @@ extension SignUpViewModel {
     /// whether the password is short or not.
     private var isPasswordShortPublisher: AnyPublisher<Bool, Never> {
         $password
-            .debounce(for: 0.5, scheduler: RunLoop.main)
+            .debounce(for: 1, scheduler: RunLoop.main)
             .removeDuplicates()
             .map { password in
                 password.count < 8
@@ -203,7 +203,7 @@ extension SignUpViewModel {
         $password
             .dropFirst()
             .removeDuplicates()
-            .debounce(for: 0.5, scheduler: RunLoop.main)
+            .debounce(for: 1, scheduler: RunLoop.main)
             .map { password in
                 self.passwordPredicate.evaluate(with: password)
             }
@@ -214,7 +214,7 @@ extension SignUpViewModel {
     /// whether the two password inputs are equal or not.
     private var arePasswordsEqualPublisher: AnyPublisher<Bool, Never> {
         Publishers.CombineLatest($password, $repeatedPassword)
-            .debounce(for: 0.5, scheduler: RunLoop.main)
+            .debounce(for: 1, scheduler: RunLoop.main)
             .map { password, repeatedPassword in
                 password == repeatedPassword
             }

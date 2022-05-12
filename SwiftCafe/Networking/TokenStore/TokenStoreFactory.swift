@@ -17,13 +17,13 @@ enum TokenStoreFactory {
         let environment = ProcessInfo.processInfo.environment["ENV"]
 
         switch environment {
-            case "TEST_SIGNUP":
-                return TokenStoreStub.self
-            case "TEST":
-                TokenStoreStub.token = "token"
-                return TokenStoreStub.self
-            default:
-                return TokenStore.self
+        case "TEST_SIGNUP":
+            return TokenStoreStub.self
+        case "TEST":
+            TokenStoreStub.token = "token"
+            return TokenStoreStub.self
+        default:
+            return TokenStore.self
         }
     }
 }

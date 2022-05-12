@@ -13,15 +13,16 @@ struct CartService: CartServiceProtocol {
 
     func fetchContents() -> AnyPublisher<[Cart.Entry], CartError> {
         networkManager
-            .makeRequestPublisher(endpoint: .fetchCartContents)
+            .makeRequestPublisher(endpoint: .fetchCartContents, payload: nil)
             .mapError { _ in
                 return .failedToFetchContents
             }
             .eraseToAnyPublisher()
     }
 
-    func addToCart(_ food: Food, quantity: Int) -> AnyPublisher<Cart.Entry?, CartError> {
-        let entry = Cart.Entry.CreateData(foodID: food.id, quantity: quantity)
+    func addToCart(_ food: Food, options: [Option], quantity: Int) -> AnyPublisher<Cart.Entry?, CartError> {
+        let optionIDs = options.map { $0.id }
+        let entry = Cart.Entry.CreateData(foodID: food.id, options: optionIDs, quantity: quantity)
 
         return networkManager
             .makeRequestPublisher(endpoint: .addItemToCart, payload: entry)

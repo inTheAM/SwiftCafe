@@ -18,12 +18,18 @@ extension OptionGroup {
     static func createOptions() -> [OptionGroup] {
         var groups = [OptionGroup]()
         for num in 1...Int.random(in: 2...4) {
+            let groupID = UUID()
             var options = [Option]()
             for index in 1...Int.random(in: 2...4) {
-                options.append(Option(id: UUID(), name: "Option \(index)", priceDifference: 0.5))
+                options.append(
+                    Option(id: UUID(),
+                           name: "Option \(index)",
+                           priceDifference: 0.5,
+                           optionGroupID: groupID)
+                )
             }
 
-            let group = OptionGroup(id: UUID(), name: "Option group \(num)", options: options)
+            let group = OptionGroup(id: groupID, name: "Option group \(num)", options: options)
             groups.append(group)
         }
         return groups

@@ -57,7 +57,7 @@ struct NetworkManager {
     ///            or a `RequestError` in case of failure.
     func makeRequestPublisher<Payload, Response>(
         endpoint: Endpoint<Payload, Response>,
-        payload: Payload? = nil
+        payload: Payload?
     ) -> AnyPublisher<Response, RequestError>
     where Payload: Encodable, Response: Decodable {
         let url = endpoint.makeURL()
@@ -69,35 +69,84 @@ struct NetworkManager {
         }
 
         switch endpoint.accessLevel {
-            case .basic(let authData):
-                print("ADDING LOGIN DATA")
-                request.addValue("Basic \(authData)", forHTTPHeaderField: "Authorization")
-            case .token:
-                if let token = TokenStore.token {
-                    request.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
-                }
-            default:
-                break
+        case .basic(let authData):
+            print("ADDING LOGIN DATA")
+            request.addValue("Basic \(authData)", forHTTPHeaderField: "Authorization")
+        case .token:
+            if let token = TokenStore.token {
+                request.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+            }
+        default:
+            break
         }
 
         switch endpoint.httpMethod {
-            case .post:
-                if let payload = payload {
-                    attach(payload, to: &request)
-                }
+        case .post:
+            if let payload = payload {
+                attach(payload, to: &request)
+            }
 
-            default:
-                break
+        default:
+            break
         }
+        dump(request)
         let decoder = JSONDecoder()
 
         return URLSession.shared.dataTaskPublisher(for: request)
             .subscribe(on: DispatchQueue.global(qos: .background))
             .map(\.data)
             .decode(type: NetworkResponse<Response>.self, decoder: decoder)
-            .map(\.result)
+            .map {
+                dump($0)
+                return $0.result
+            }
             .mapError({ error in
-                print("ERROR LOADING DATA: ", error)
+                dump(error, name: "ERROR LOADING DATA: ")
+                return RequestError.invalidDataFromServer
+            })
+            .eraseToAnyPublisher()
+    }
+
+    func makeRequestPublisher(
+        endpoint: Endpoint<EmptyPayload, EmptyResponse>
+    ) -> AnyPublisher<RequestResult, RequestError> {
+        let url = endpoint.makeURL()
+
+        guard var request = makeRequest(endpoint.httpMethod, for: url) else {
+            return Fail(
+                error: RequestError.invalidURL
+            ).eraseToAnyPublisher()
+        }
+
+        switch endpoint.accessLevel {
+        case .basic(let authData):
+            request.addValue("Basic \(authData)", forHTTPHeaderField: "Authorization")
+        case .token:
+            if let token = TokenStore.token {
+                request.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+            }
+        default:
+            break
+        }
+        dump(request)
+
+        return URLSession.shared.dataTaskPublisher(for: request)
+            .subscribe(on: DispatchQueue.global(qos: .background))
+            .map(\.response)
+            .map {
+                dump($0)
+                guard let response = $0 as? HTTPURLResponse else {
+                    return .failure
+                }
+                switch response.statusCode {
+                case 200:
+                    return .success
+                default:
+                    return .failure
+                }
+            }
+            .mapError({ error in
+                dump(error, name: "ERROR LOADING DATA: ")
                 return RequestError.invalidDataFromServer
             })
             .eraseToAnyPublisher()

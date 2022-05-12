@@ -30,11 +30,11 @@ struct OptionsView: View {
 
                 if selectedOption != nil {
                     Button("Clear") {
-                        viewModel.removeOption(selectedOption)
+                        viewModel.removeOption(optionGroup)
                         selectedOption = nil
                     }
                     .buttonStyle(PlainButtonStyle())
-                    .font(.subheadline.bold())
+                    .font(.caption.bold())
                     .foregroundColor(.red)
                 }
             }
@@ -52,11 +52,19 @@ struct OptionsView: View {
 
                         Spacer()
 
+                        Text("+ $\(option.priceDifference.format(2))")
+                            .font(.caption.bold())
+
                         CheckBox(isSelected: selectedOption == option)
                     }
                 }
                 .buttonStyle(PlainButtonStyle())
                 .accessibilityIdentifier("\(optionGroup.name) \(option.name)")
+                .onAppear {
+                    if viewModel.selectedOptions.contains(where: { $0.name == option.name}) {
+                        selectedOption = option
+                    }
+                }
             }
         }
         .padding(10)

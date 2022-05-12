@@ -20,7 +20,7 @@ protocol CartServiceProtocol {
     ///   - quantity: The quantity of the item to add to the user's cart.
     /// - Returns: A Publisher that publishes either a Cart.Entry if the request was
     ///            successful or a CartError if the request failed.
-    func addToCart(_ food: Food, quantity: Int) -> AnyPublisher<Cart.Entry?, CartError>
+    func addToCart(_ food: Food, options: [Option], quantity: Int) -> AnyPublisher<Cart.Entry?, CartError>
 
     /// Removes an entry from the user's cart.
     /// - Parameters:

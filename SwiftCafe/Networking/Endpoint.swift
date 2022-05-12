@@ -29,8 +29,8 @@ struct Endpoint<Payload: Encodable, Response: Decodable> {
     func makeURL() -> URL {
         var components = URLComponents()
         components.scheme = "http"
-        components.host = "127.0.0.1"
-        components.port = 8090
+        components.host = "localhost"
+        components.port = 8080
         components.path = "/api/\(mainPath.rawValue)/" + (path ?? "")
 
         guard let url = components.url else {
@@ -73,8 +73,13 @@ extension Endpoint where Payload == User.SignInData,
 
 /// #Signing out a user.
 extension Endpoint where Payload == EmptyPayload,
-                            Response == AuthResult {
+                            Response == EmptyResponse {
     static let signOut: Self = Endpoint(.delete, mainPath: .users, path: "session/")
+}
+
+extension Endpoint where Payload == EmptyPayload,
+                         Response == EmptyResponse {
+    static let deleteAccount: Self = Endpoint(.delete, accessLevel: .token, mainPath: .users)
 }
 
 // MARK: - CART ENDPOINTS:
