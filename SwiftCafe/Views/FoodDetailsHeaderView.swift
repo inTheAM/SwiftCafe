@@ -20,7 +20,7 @@ struct FoodDetailsHeaderView: View {
     var body: some View {
         HStack(alignment: .top) {
             ImageAsync(imageURL: viewModel.imageURL)
-                .frame(width: 160, height: 160)
+                .frame(width: 120, height: 120)
                 .accessibility(addTraits: .isImage)
                 .accessibilityIdentifier("\(viewModel.name) photo")
             VStack {

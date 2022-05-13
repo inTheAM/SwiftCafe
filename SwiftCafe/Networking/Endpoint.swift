@@ -36,14 +36,13 @@ struct Endpoint<Payload: Encodable, Response: Decodable> {
         guard let url = components.url else {
             preconditionFailure("Invalid URL at \(components.path)")
         }
-        print(url)
         return url
     }
 
     enum MainPath: String {
         case users,
              menu,
-             cart
+             carts
     }
 }
 
@@ -86,20 +85,20 @@ extension Endpoint where Payload == EmptyPayload,
 
 /// #Fetching the user's cart.
 extension Endpoint where Payload == EmptyPayload,
-                            Response == [Cart.Entry] {
-    static let fetchCartContents: Self = Endpoint(.get, mainPath: .cart)
+                            Response == Cart {
+    static let fetchCart: Self = Endpoint(.get, mainPath: .carts)
 }
 
 /// #Adding an item to the user's cart.
 extension Endpoint where Payload == Cart.Entry.CreateData,
                             Response == Cart.Entry? {
-    static let addItemToCart: Self = Endpoint(.post, mainPath: .cart)
+    static let addItemToCart: Self = Endpoint(.post, mainPath: .carts)
 }
 
 /// #Removing an item from the user's cart.
 extension Endpoint where Payload == Cart.Entry.RemoveData,
                             Response == EmptyResponse {
-    static let removeItemFromCart: Self = Endpoint(.delete, mainPath: .cart)
+    static let removeItemFromCart: Self = Endpoint(.delete, mainPath: .carts)
 }
 
 // MARK: - MENU & FOOD ENDPOINTS

@@ -16,7 +16,7 @@ struct FoodDetailsFooterView: View {
     @ObservedObject var viewModel: FoodDetailsViewModel
 
     /// The cart instance in the environment.
-    @EnvironmentObject var cart: Cart
+    @EnvironmentObject var cart: CartManager
 
     var body: some View {
         VStack {
@@ -66,7 +66,7 @@ struct FoodDetailsFooterView: View {
 }
 
 struct FoodDetailsFooterView_Previews: PreviewProvider {
-    @ObservedObject static var cart = Cart()
+    @ObservedObject static var cart = CartManager()
     static var previews: some View {
         FoodDetailsFooterView(viewModel: FoodDetailsViewModel(food: Food.createItems()[0]))
             .environmentObject(cart)

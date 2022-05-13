@@ -42,6 +42,7 @@
 		E29B2BAE275A31EF00118DAC /* FoodDetailsViewUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29B2BAD275A31EF00118DAC /* FoodDetailsViewUITests.swift */; };
 		E29B2BB0275A396100118DAC /* FoodDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29B2BAF275A396100118DAC /* FoodDetailsView.swift */; };
 		E29B2BB2275AD48000118DAC /* CloseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29B2BB1275AD48000118DAC /* CloseButton.swift */; };
+		E2BD1E57282E491F002751E3 /* CartManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2BD1E56282E491F002751E3 /* CartManager.swift */; };
 		E2BE0071282564BB0001A946 /* RequestResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2BE0070282564BB0001A946 /* RequestResult.swift */; };
 		E2C0A1EA2744F7E5003CB51B /* SwiftCafeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C0A1E92744F7E5003CB51B /* SwiftCafeApp.swift */; };
 		E2C0A1EE2744F7E7003CB51B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E2C0A1ED2744F7E7003CB51B /* Assets.xcassets */; };
@@ -161,6 +162,7 @@
 		E29B2BAD275A31EF00118DAC /* FoodDetailsViewUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodDetailsViewUITests.swift; sourceTree = "<group>"; };
 		E29B2BAF275A396100118DAC /* FoodDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodDetailsView.swift; sourceTree = "<group>"; };
 		E29B2BB1275AD48000118DAC /* CloseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloseButton.swift; sourceTree = "<group>"; };
+		E2BD1E56282E491F002751E3 /* CartManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartManager.swift; sourceTree = "<group>"; };
 		E2BE0070282564BB0001A946 /* RequestResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestResult.swift; sourceTree = "<group>"; };
 		E2C0A1E62744F7E5003CB51B /* SwiftCafe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftCafe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2C0A1E92744F7E5003CB51B /* SwiftCafeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftCafeApp.swift; sourceTree = "<group>"; };
@@ -416,6 +418,7 @@
 				E291B5EC276A296200230F00 /* SignUpViewModel */,
 				E291B5F3276A347500230F00 /* SignInViewModel */,
 				E2C0A25927458316003CB51B /* MenuViewModel.swift */,
+				E2BD1E56282E491F002751E3 /* CartManager.swift */,
 				E29B2BAB275A196200118DAC /* FoodDetailsViewModel.swift */,
 				E28ED3172759E25C00C0BB35 /* RemoteImage.swift */,
 			);
@@ -703,6 +706,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E28ED31C2759E3BE00C0BB35 /* ImageAsync.swift in Sources */,
+				E2BD1E57282E491F002751E3 /* CartManager.swift in Sources */,
 				E233DDD727CE512D00F9FA00 /* CartError.swift in Sources */,
 				E233DDDD27D0C00100F9FA00 /* TokenStoreStub.swift in Sources */,
 				E2C0A27427463C62003CB51B /* MockAuthService.swift in Sources */,

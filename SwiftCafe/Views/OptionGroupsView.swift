@@ -10,6 +10,7 @@ import SwiftUI
 /// #A disclosure view that displays the option groups for this food.
 struct OptionGroupsView: View {
 
+    @EnvironmentObject var cartManager: CartManager
     /// The view model that manages the food details view.
     @ObservedObject var viewModel: FoodDetailsViewModel
 
@@ -17,7 +18,7 @@ struct OptionGroupsView: View {
     @Binding var optionsExpanded: Bool
 
     var body: some View {
-        DisclosureView(label: "Customize your order", isExpanded: $optionsExpanded) {
+        DisclosureView(label: cartManager.contains(viewModel.food) ? "Selected options" : "Customize your order", isExpanded: $optionsExpanded) {
             ScrollView {
                 ForEach(viewModel.optionGroups, id: \.name) { optionGroup in
                     OptionsView(viewModel: viewModel, optionGroup: optionGroup)

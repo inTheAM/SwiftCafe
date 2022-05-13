@@ -12,10 +12,10 @@ import Foundation
 /// #A mock implementation of `CartService`.
 struct MockCartService: CartServiceProtocol {
 
-    /// Mocks fetching cart contents by passing sample cart entries.
+    /// Mocks fetching cart cartContents by passing sample cart entries.
     /// - Parameter completion: A closure the method runs to pass the sample cart entries.
     ///                         The closure takes an array of `Cart.Entry`.
-    func fetchContents() -> AnyPublisher<[Cart.Entry], CartError> {
+    func fetchCart() -> AnyPublisher<[Cart.Entry], CartError> {
         Just(Cart.Entry.samples)
             .setFailureType(to: CartError.self)
             .eraseToAnyPublisher()

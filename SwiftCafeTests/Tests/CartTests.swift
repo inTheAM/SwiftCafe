@@ -23,23 +23,23 @@ final class CartTests: XCTestCase {
     }
 
     // MARK: - Tests
-    /// Tests fetching the cart contents.
+    /// Tests fetching the cart cartContents.
     func test1_FetchingCartContents() throws {
-        let contentsPublisher = cart.$contents
+        let contentsPublisher = cart.$cartContents
             .dropFirst()
             .first()
 
         cart.fetchContents()
 
-        let contents = try awaitResult(from: contentsPublisher)
-        XCTAssertEqual(contents.count, Cart.Entry.samples.count)
-        XCTAssertEqual(contents[0].id, Cart.Entry.samples[0].id)
-        XCTAssertEqual(contents[0].quantity, Cart.Entry.samples[0].quantity)
+        let cartContents = try awaitResult(from: contentsPublisher)
+        XCTAssertEqual(cartContents.count, Cart.Entry.samples.count)
+        XCTAssertEqual(cartContents[0].id, Cart.Entry.samples[0].id)
+        XCTAssertEqual(cartContents[0].quantity, Cart.Entry.samples[0].quantity)
     }
 
     /// Tests adding an item to the cart.
     func test2_AddingFoodToCart() throws {
-        let contentsPublisher = cart.$contents
+        let contentsPublisher = cart.$cartContents
             .dropFirst()
             .collect(2)
             .first()
@@ -64,7 +64,7 @@ final class CartTests: XCTestCase {
 
     /// Tests removing an item from the cart.
     func test3_RemovingFoodFromCart() throws {
-        let contentsPublisher = cart.$contents
+        let contentsPublisher = cart.$cartContents
             .dropFirst()
             .collect(2)
             .first()
@@ -75,7 +75,7 @@ final class CartTests: XCTestCase {
         cart.add(testFood2, options: [optionGroup.options[0]], quantity: 2)
         _ = try awaitResult(from: contentsPublisher)
 
-        let postRemovalPublisher = cart.$contents
+        let postRemovalPublisher = cart.$cartContents
             .dropFirst()
             .first()
 

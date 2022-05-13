@@ -17,11 +17,15 @@ struct SwiftCafeApp: App {
     /// If the token is nil then the user's session expired and the app proceeds to the SignInView.
     /// On successful sign-in, this state will be toggled to true and the MenuView will be presented.
     @State private var isSignedIn = TokenStoreFactory.create().token != nil
+    
+    /// The user's cart, injected into the environment.
+    @StateObject var cartManager = CartManager()
 
     var body: some Scene {
         WindowGroup {
             if isSignedIn {
                 MenuView(isSignedIn: $isSignedIn)
+                    .environmentObject(cartManager)
             } else {
                 SignInView(isSignedIn: $isSignedIn)
             }

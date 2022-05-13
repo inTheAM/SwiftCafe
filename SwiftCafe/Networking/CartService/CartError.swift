@@ -15,7 +15,7 @@ enum CartError: Error {
     var description: String {
         switch self {
         case .failedToFetchContents:
-            return "There was a problem fetching the contents of your cart."
+            return "There was a problem fetching the cartContents of your cart."
         case .failedToAddItem:
             return "Failed to add item"
         case .failedToRemoveItem:

@@ -10,6 +10,8 @@ import SwiftUI
 /// #A view that shows a list of options in which the user can only select one.
 struct OptionsView: View {
 
+    @EnvironmentObject var cartManager: CartManager
+    
     /// The view model that manages the food details view.
     @ObservedObject var viewModel: FoodDetailsViewModel
 
@@ -41,28 +43,44 @@ struct OptionsView: View {
             Divider()
                 .padding(.horizontal, -10)
 
-            ForEach(optionGroup.options) { option in
-                Button {
-                    selectedOption = option
-                    viewModel.selectOption(option)
-                } label: {
+            if cartManager.contains(viewModel.food) {
+                if let option = viewModel.selectedOptions.first(where: { $0.optionGroupID == optionGroup.id } ) {
                     HStack {
                         Text(option.name)
                             .font(.caption.bold())
-
+                        
                         Spacer()
-
+                        
                         Text("+ $\(option.priceDifference.format(2))")
                             .font(.caption.bold())
-
-                        CheckBox(isSelected: selectedOption == option)
+                        
+                        CheckBox(isSelected: true)
                     }
                 }
-                .buttonStyle(PlainButtonStyle())
-                .accessibilityIdentifier("\(optionGroup.name) \(option.name)")
-                .onAppear {
-                    if viewModel.selectedOptions.contains(where: { $0.name == option.name}) {
+            } else {
+                ForEach(optionGroup.options) { option in
+                    Button {
                         selectedOption = option
+                        viewModel.selectOption(option)
+                    } label: {
+                        HStack {
+                            Text(option.name)
+                                .font(.caption.bold())
+                            
+                            Spacer()
+                            
+                            Text("+ $\(option.priceDifference.format(2))")
+                                .font(.caption.bold())
+                            
+                            CheckBox(isSelected: selectedOption == option)
+                        }
+                    }
+                    .buttonStyle(PlainButtonStyle())
+                    .accessibilityIdentifier("\(optionGroup.name) \(option.name)")
+                    .onAppear {
+                        if viewModel.selectedOptions.contains(where: { $0.name == option.name} ) {
+                            selectedOption = option
+                        }
                     }
                 }
             }

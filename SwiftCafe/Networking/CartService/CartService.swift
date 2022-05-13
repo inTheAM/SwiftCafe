@@ -11,12 +11,13 @@ import Foundation
 struct CartService: CartServiceProtocol {
     private let networkManager: NetworkManager = NetworkManager()
 
-    func fetchContents() -> AnyPublisher<[Cart.Entry], CartError> {
+    func fetchCart() -> AnyPublisher<[Cart.Entry], CartError> {
         networkManager
-            .makeRequestPublisher(endpoint: .fetchCartContents, payload: nil)
+            .makeRequestPublisher(endpoint: .fetchCart, payload: nil)
             .mapError { _ in
                 return .failedToFetchContents
             }
+            .map(\.contents)
             .eraseToAnyPublisher()
     }
 

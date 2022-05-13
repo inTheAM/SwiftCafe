@@ -13,9 +13,8 @@ struct MenuView: View {
     /// The view model that manages this view.
     /// An instance of `MenuViewModel`.
     @StateObject var viewModel = MenuViewModel()
-
-    /// The user's cart, injected into the environment.
-    @ObservedObject var cart = Cart()
+    
+    @EnvironmentObject var cartManager: CartManager
 
     /// A binding to a boolean that indicates whether the user is signed in or not.
     /// A successful sign-up toggles the value to true.
@@ -55,6 +54,7 @@ struct MenuView: View {
                         .padding(.bottom, 76)
                         .onAppear {
                             viewModel.fetchMenu()
+                            cartManager.fetchContents()
                         }
                         .onChange(of: viewModel.activeSection) { section in
                             #warning("'withAnimation' breaks autoscroll")
@@ -66,7 +66,7 @@ struct MenuView: View {
                 }
 
             }
-            .overlay(CartButton())
+            .overlay(CartButton().environmentObject(cartManager))
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
@@ -83,7 +83,6 @@ struct MenuView: View {
                 }
             }
         }
-        .environmentObject(cart)
     }
 
     private func activateSection(_ section: MenuSection, in rect: CGRect) {

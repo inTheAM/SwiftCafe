@@ -13,7 +13,7 @@ import SwiftUI
 struct FoodDetailsView: View {
 
     /// The cart instance in the environment.
-    @EnvironmentObject var cart: Cart
+    @EnvironmentObject var cartManager: CartManager
 
     /// The `FoodDetailsViewModel` instance that manages this view.
     @ObservedObject var viewModel: FoodDetailsViewModel
@@ -23,9 +23,6 @@ struct FoodDetailsView: View {
 
     /// The toggle for expanding the disclosure view containing the options for this food.
     @State private var optionsExpanded = false
-
-    /// The toggle for expanding the disclosure view containing the extras for this food.
-    @State private var extrasExpanded = false
 
     /// Initializes the view model with a food.
     init(food: Food) {
@@ -38,6 +35,7 @@ struct FoodDetailsView: View {
                 .overlayDivider(.bottom)
 
             OptionGroupsView(viewModel: viewModel, optionsExpanded: $optionsExpanded)
+                
 
             Spacer(minLength: 0)
             HStack {
@@ -61,15 +59,9 @@ struct FoodDetailsView: View {
         }
         .onAppear {
             viewModel.fetchOptions()
-        }
-        .onChange(of: optionsExpanded) { isExpanded in
-            if isExpanded {
-                extrasExpanded = false
-            }
-        }
-        .onChange(of: extrasExpanded) { isExpanded in
-            if isExpanded {
-                optionsExpanded = false
+            viewModel.selectedOptions = cartManager.selectedOptions(for: viewModel.food)
+            if cartManager.contains(viewModel.food) {
+                optionsExpanded = true
             }
         }
     }

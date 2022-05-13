@@ -11,8 +11,8 @@ import Foundation
 /// #A protocol for services that manage requests that involve cart operations.
 protocol CartServiceProtocol {
 
-    /// Fetches the contents of the user's cart.
-    func fetchContents() -> AnyPublisher<[Cart.Entry], CartError>
+    /// Fetches the cartContents of the user's cart.
+    func fetchCart() -> AnyPublisher<[Cart.Entry], CartError>
 
     /// Adds an item to the user's cart.
     /// - Parameters:
