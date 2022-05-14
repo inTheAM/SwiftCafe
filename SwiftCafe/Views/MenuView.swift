@@ -13,7 +13,7 @@ struct MenuView: View {
     /// The view model that manages this view.
     /// An instance of `MenuViewModel`.
     @StateObject var viewModel = MenuViewModel()
-    
+
     @EnvironmentObject var cartManager: CartManager
 
     /// A binding to a boolean that indicates whether the user is signed in or not.

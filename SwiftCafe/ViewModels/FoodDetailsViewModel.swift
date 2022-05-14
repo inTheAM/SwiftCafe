@@ -53,7 +53,11 @@ final class FoodDetailsViewModel: ObservableObject {
     }
     /// A string representing the total price accommodating for the quantity and any extras.
     var totalPrice: String {
-        "$\(food.price * Double(quantity))"
+        let optionPrices = selectedOptions.map { $0.priceDifference }
+        let optionTotal = optionPrices.reduce(0) { $0 + $1 }
+        print(optionTotal)
+        let total = food.price + optionTotal
+        return "$\(total * Double(quantity))"
     }
 
     // MARK: - Initializer

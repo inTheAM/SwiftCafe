@@ -10,7 +10,7 @@ import Foundation
 
 /// #The user's cart.
 struct Cart: Decodable {
-    
+
     /// The cartContents of the cart.
     ///
     /// Sent as an array of `Payload` forms of a `CartEntry`.

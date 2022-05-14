@@ -17,8 +17,11 @@ struct OptionGroupsView: View {
     /// A binding to a boolean value that represents the expansion state of the disclosure view
     @Binding var optionsExpanded: Bool
 
+    private var label: String {
+        cartManager.contains(viewModel.food) ? "Selected options" : "Customize your order"
+    }
     var body: some View {
-        DisclosureView(label: cartManager.contains(viewModel.food) ? "Selected options" : "Customize your order", isExpanded: $optionsExpanded) {
+        DisclosureView(label: label, isExpanded: $optionsExpanded) {
             ScrollView {
                 ForEach(viewModel.optionGroups, id: \.name) { optionGroup in
                     OptionsView(viewModel: viewModel, optionGroup: optionGroup)

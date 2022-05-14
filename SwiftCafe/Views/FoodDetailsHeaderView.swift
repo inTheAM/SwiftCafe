@@ -51,7 +51,7 @@ struct FoodDetailsHeaderView: View {
                 .padding()
             }
         }
-        .frame(height: 160)
+        .frame(height: 120)
         .accessibility(addTraits: .isHeader)
         .background(
             Color(UIColor.systemBackground)

@@ -11,7 +11,7 @@ import SwiftUI
 struct OptionsView: View {
 
     @EnvironmentObject var cartManager: CartManager
-    
+
     /// The view model that manages the food details view.
     @ObservedObject var viewModel: FoodDetailsViewModel
 
@@ -44,16 +44,16 @@ struct OptionsView: View {
                 .padding(.horizontal, -10)
 
             if cartManager.contains(viewModel.food) {
-                if let option = viewModel.selectedOptions.first(where: { $0.optionGroupID == optionGroup.id } ) {
+                if let option = viewModel.selectedOptions.first(where: { $0.optionGroupID == optionGroup.id }) {
                     HStack {
                         Text(option.name)
                             .font(.caption.bold())
-                        
+
                         Spacer()
-                        
+
                         Text("+ $\(option.priceDifference.format(2))")
                             .font(.caption.bold())
-                        
+
                         CheckBox(isSelected: true)
                     }
                 }
@@ -66,19 +66,19 @@ struct OptionsView: View {
                         HStack {
                             Text(option.name)
                                 .font(.caption.bold())
-                            
+
                             Spacer()
-                            
+
                             Text("+ $\(option.priceDifference.format(2))")
                                 .font(.caption.bold())
-                            
+
                             CheckBox(isSelected: selectedOption == option)
                         }
                     }
                     .buttonStyle(PlainButtonStyle())
                     .accessibilityIdentifier("\(optionGroup.name) \(option.name)")
                     .onAppear {
-                        if viewModel.selectedOptions.contains(where: { $0.name == option.name} ) {
+                        if viewModel.selectedOptions.contains(where: { $0.name == option.name}) {
                             selectedOption = option
                         }
                     }

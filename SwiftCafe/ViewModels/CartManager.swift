@@ -9,21 +9,22 @@ import Combine
 import Foundation
 
 final class CartManager: ObservableObject {
-    
+
     /// The service used to handle requests that perform cart operations.
     private let cartService: CartServiceProtocol
-    
+
     private var cancellables: Set<AnyCancellable> = .init()
-    
+
     // MARK: - Cart cartContents
     /// The entries in the cart.
     @Published private(set) var cartContents = [Cart.Entry]()
-    
+
     /// Tracks whether the cart is currently being modified.
     @Published var isModifying = false
-    
+
+    /// An error while fetching or modifying the user's cart.
     @Published private(set) var error: String?
-    
+
     // MARK: - Initializer
     /// Creates the cart.
     /// - Parameter cartService: An instance of a type that conforms to `CartServiceProtocol`.
@@ -50,7 +51,7 @@ extension CartManager {
             }
             .store(in: &cancellables)
     }
-    
+
     /// Adds an entry to the cart.
     /// - Parameters:
     ///   - food: The food item to add to the cart.
@@ -74,7 +75,7 @@ extension CartManager {
             }
             .store(in: &cancellables)
     }
-    
+
     /// Removes an entry from the cart.
     /// - Parameter food: The food item to remove from the cart.
     func remove(_ food: Food) {
@@ -91,7 +92,7 @@ extension CartManager {
                 }
                 .sink {  [weak self] foodID in
                     guard foodID == food.id else { return }
-                    
+
                     self?.cartContents.remove(at: index)
                     self?.isModifying = false
                 }
@@ -100,15 +101,14 @@ extension CartManager {
             print("FAILED TO GET ITEM")
         }
     }
-    
+
     /// Checks whether an entry containing the food item exists in the cart.
     /// - Parameter food: The food item to check an entry for.
     /// - Returns: A boolean indicating whether an entry containing the food item exists or not.
     func contains(_ food: Food) -> Bool {
         cartContents.contains(where: {$0.food.id == food.id})
     }
-    
-    
+
     func selectedOptions(for food: Food) -> [Option] {
         if let entry = cartContents
             .first(where: {$0.food.id == food.id}) {

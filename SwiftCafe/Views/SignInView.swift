@@ -46,7 +46,7 @@ struct SignInView: View {
                                 .foregroundColor(.primary.opacity(0.3))
                         )
                         .padding(.bottom)
-                        .accessibilityIdentifier("email input")
+                        .accessibilityIdentifier("sign-in-email-input")
 
                     SecureField("Password", text: $viewModel.password)
                         .autocapitalization(.none)
@@ -56,7 +56,7 @@ struct SignInView: View {
                                 .stroke(lineWidth: 2)
                                 .foregroundColor(.primary.opacity(0.3))
                         )
-                        .accessibilityIdentifier("password input")
+                        .accessibilityIdentifier("sign-in-password-input")
 
                     HStack {
                         Text(viewModel.signInErrorDescription)
@@ -68,7 +68,7 @@ struct SignInView: View {
                     HStack {
                         NavigationLink("Don't have an account?", destination: SignUpView(isSignedIn: $isSignedIn))
                             .font(.subheadline.bold())
-                            .accessibilityIdentifier("go to signup")
+                            .accessibilityIdentifier("go-to-signup")
                         Spacer()
                     }.padding(.bottom)
 
@@ -84,7 +84,7 @@ struct SignInView: View {
                         .background(Color.blue.cornerRadius(20))
                         .grayscale(viewModel.isFormValid ? 0 : 1)
                         .disabled(!viewModel.isFormValid)
-                        .accessibilityIdentifier("sign in")
+                        .accessibilityIdentifier("sign-in")
 
                     Spacer()
                 }

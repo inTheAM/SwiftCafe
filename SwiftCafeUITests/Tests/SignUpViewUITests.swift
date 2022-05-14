@@ -30,18 +30,18 @@ final class SignUpViewUITests: XCTestCase {
 
     /// Tests the email address input field exists.
     func testEmailTextFieldExists() throws {
-        let emailField = app.textFields["email input"]
+        let emailField = app.textFields["sign-up-email-input"]
         XCTAssert(emailField.exists)
     }
 
     /// Tests the password secure fields appear when the email address input is validated.
     func testPasswordTextFieldsAppearOnEmailValidation() throws {
-        let emailField = app.textFields["email input"]
+        let emailField = app.textFields["sign-up-email-input"]
         emailField.tap()
         emailField.typeText("testuser3@test.com")
 
-        let passwordField = app.secureTextFields["password input"]
-        let repeatPasswordField = app.secureTextFields["repeat password"]
+        let passwordField = app.secureTextFields["sign-up-password-input"]
+        let repeatPasswordField = app.secureTextFields["sign-up-repeat-password-input"]
         XCTAssert(passwordField.waitForExistence(timeout: 5))
         XCTAssert(repeatPasswordField.exists)
     }
@@ -49,30 +49,30 @@ final class SignUpViewUITests: XCTestCase {
     /// Tests the `Sign up` button appears when the email address input is validated and
     /// that the button is disabled.
     func testSignUpButtonAppearsOnEmailValidationAndIsDisabledByDefault() throws {
-        let emailField = app.textFields["email input"]
+        let emailField = app.textFields["sign-up-email-input"]
         emailField.tap()
         emailField.typeText("testuser3@test.com")
 
-        let signupButton = app.buttons["sign up"]
+        let signupButton = app.buttons["sign-up-button"]
         XCTAssert(signupButton.waitForExistence(timeout: 5))
         XCTAssertFalse(signupButton.isEnabled)
     }
 
     /// Tests the `Sign up` button is enabled when the form is validated.
     func testSignUpButtonIsEnabledWhenFormIsValidated() throws {
-        let emailField = app.textFields["email input"]
+        let emailField = app.textFields["sign-up-email-input"]
         emailField.tap()
         emailField.typeText("testuser3@test.com")
 
-        let passwordField = app.secureTextFields["password input"]
+        let passwordField = app.secureTextFields["sign-up-password-input"]
         passwordField.tap()
         passwordField.typeText("Password@123")
 
-        let repeatPasswordField = app.secureTextFields["repeat password"]
+        let repeatPasswordField = app.secureTextFields["sign-up-repeat-password-input"]
         repeatPasswordField.tap()
         repeatPasswordField.typeText("Password@123")
 
-        let signupButton = app.buttons["sign up"]
+        let signupButton = app.buttons["sign-up-button"]
         XCTAssert(signupButton.waitForExistence(timeout: 5))
         XCTAssertTrue(signupButton.isEnabled)
     }

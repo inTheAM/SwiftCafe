@@ -18,7 +18,7 @@ final class FoodDetailsViewUITests: XCTestCase {
     /// taps a food card to show the detail view.
     override func setUpWithError() throws {
         app.launchInTestEnvironment()
-        let foodCard = app.buttons["Food 1"].firstMatch
+        let foodCard = app.buttons["Food 2"].firstMatch
         foodCard.tap()
     }
 
@@ -26,8 +26,8 @@ final class FoodDetailsViewUITests: XCTestCase {
     /// Tests the food details header exists.
     /// The header shows the image, name, price
     func testFoodDetailsHeaderExist() throws {
-        let foodImage = app.images["Food 1 photo"]
-        let foodName = app.staticTexts["Food 1 name header"]
+        let foodImage = app.images["Food 2 photo"]
+        let foodName = app.staticTexts["Food 2 name header"]
         let foodPrice = app.staticTexts["Total price"]
         let foodDetails = app.staticTexts["Food details details header"]
         let closeButton = app.buttons["Close"]

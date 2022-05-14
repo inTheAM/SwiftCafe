@@ -9,9 +9,9 @@
 import XCTest
 
 /// #Tests the Cart.
-final class CartTests: XCTestCase {
+final class CartManagerTests: XCTestCase {
     /// The cart instance under test.
-    private var cart: Cart!
+    private var cart: CartManager!
     private let testFood = MenuSection.samples[0].items[0]
     private let testFood2 = MenuSection.samples[0].items[1]
 
@@ -19,7 +19,7 @@ final class CartTests: XCTestCase {
     /// Sets up the test cart with a mock cart service.
     override func setUpWithError() throws {
         let cartService = MockCartService()
-        cart = Cart(cartService: cartService)
+        cart = CartManager(cartService: cartService)
     }
 
     // MARK: - Tests

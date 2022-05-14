@@ -35,7 +35,6 @@ struct FoodDetailsView: View {
                 .overlayDivider(.bottom)
 
             OptionGroupsView(viewModel: viewModel, optionsExpanded: $optionsExpanded)
-                
 
             Spacer(minLength: 0)
             HStack {

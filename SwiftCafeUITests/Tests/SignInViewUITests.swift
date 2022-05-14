@@ -33,47 +33,48 @@ final class SignInViewUITests: XCTestCase {
 
     /// Tests the email address input field exists.
     func testEmailTextFieldExists() throws {
-        let emailField = app.textFields["email input"]
+        let emailField = app.textFields["sign-in-email-input"]
         XCTAssert(emailField.exists)
     }
 
     /// Tests the password secure field exists.
     func testPasswordFieldExists() throws {
-        let passwordField = app.secureTextFields["password input"]
+        let passwordField = app.secureTextFields["sign-in-password-input"]
         XCTAssert(passwordField.exists)
     }
 
     /// Tests the navigation link to the sign-up page exists.
     func testSignUpNavigationLinkExists() throws {
-        let signUpLink = app.buttons["go to signup"]
+        let signUpLink = app.buttons["go-to-signup"]
         XCTAssert(signUpLink.exists)
     }
 
     /// Tests the `Sign in` button exists and
     /// that the button disabled by default.
     func testSignInButtonExistsAndIsDisabledByDefault() throws {
-        let signInButton = app.buttons["sign in"]
+        let signInButton = app.buttons["sign-in"]
         XCTAssert(signInButton.exists)
+        XCTAssertFalse(signInButton.isEnabled)
     }
 
     /// Tests the `Sign up` button is enabled when the form is validated.
     func testSignInButtonIsEnabledWhenFormIsValidated() throws {
-        let emailField = app.textFields["email input"]
+        let emailField = app.textFields["sign-in-email-input"]
         emailField.tap()
         emailField.typeText("testuser3@test.com")
 
-        let passwordField = app.secureTextFields["password input"]
+        let passwordField = app.secureTextFields["sign-in-password-input"]
         passwordField.tap()
         passwordField.typeText("Password@123")
 
-        let signinButton = app.buttons["sign in"]
+        let signinButton = app.buttons["sign-in"]
         XCTAssert(signinButton.waitForExistence(timeout: 5))
         XCTAssertTrue(signinButton.isEnabled)
     }
 
     /// Tests navigating to the `SignUpView`.
     func testNavigatingToSignUpView() throws {
-        let signUpLink = app.buttons["go to signup"]
+        let signUpLink = app.buttons["go-to-signup"]
         signUpLink.tap()
         XCTAssertFalse(signUpLink.waitForExistence(timeout: 5))
     }
