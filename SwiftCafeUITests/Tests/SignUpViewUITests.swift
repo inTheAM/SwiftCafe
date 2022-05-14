@@ -17,7 +17,7 @@ final class SignUpViewUITests: XCTestCase {
     /// navigates to the sign-up view.
     override func setUpWithError() throws {
         app.launchInTestEnvironment(isSignup: true)
-        let signUpLink = app.buttons["go to signup"]
+        let signUpLink = app.buttons["go-to-signup"]
         signUpLink.tap()
     }
 
@@ -65,6 +65,7 @@ final class SignUpViewUITests: XCTestCase {
         emailField.typeText("testuser3@test.com")
 
         let passwordField = app.secureTextFields["sign-up-password-input"]
+        XCTAssert(passwordField.waitForExistence(timeout: 5))
         passwordField.tap()
         passwordField.typeText("Password@123")
 
