@@ -117,4 +117,25 @@ extension CartManager {
         }
         return [Option]()
     }
+
+    func clearContents() {
+        cartService.clearCartContents()
+            .receive(on: RunLoop.main)
+            .catch { [weak self] error ->  AnyPublisher<RequestResult, Never> in
+                self?.error = error.description
+                return Just(.failure)
+                    .eraseToAnyPublisher()
+            }
+            .sink { [weak self] result in
+                switch result {
+                case .success:
+                    self?.error = ""
+                    self?.cartContents.removeAll()
+                case .failure:
+                    break
+                }
+            }
+            .store(in: &cancellables)
+
+    }
 }

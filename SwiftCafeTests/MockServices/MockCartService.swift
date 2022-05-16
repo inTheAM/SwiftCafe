@@ -11,6 +11,12 @@ import Foundation
 
 /// #A mock implementation of `CartService`.
 struct MockCartService: CartServiceProtocol {
+    
+    func clearCartContents() -> AnyPublisher<RequestResult, CartError> {
+        return Just(.success)
+            .setFailureType(to: CartError.self)
+            .eraseToAnyPublisher()
+    }
 
     /// Mocks fetching cart cartContents by passing sample cart entries.
     /// - Parameter completion: A closure the method runs to pass the sample cart entries.

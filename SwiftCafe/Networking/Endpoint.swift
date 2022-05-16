@@ -101,6 +101,11 @@ extension Endpoint where Payload == Cart.Entry.RemoveData,
     static let removeItemFromCart: Self = Endpoint(.delete, mainPath: .carts)
 }
 
+extension Endpoint where Payload == EmptyPayload,
+                         Response == EmptyResponse {
+    static let clearCartContents: Self = Endpoint(.delete, accessLevel: .token, mainPath: .carts, path: "clear")
+}
+
 // MARK: - MENU & FOOD ENDPOINTS
 /// #Fetching the menu sections.
 extension Endpoint where Payload == EmptyPayload,

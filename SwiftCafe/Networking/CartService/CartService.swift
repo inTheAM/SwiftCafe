@@ -52,4 +52,13 @@ struct CartService: CartServiceProtocol {
             }
             .eraseToAnyPublisher()
     }
+
+    func clearCartContents() -> AnyPublisher<RequestResult, CartError> {
+        return networkManager.makeRequestPublisher(endpoint: .clearCartContents)
+            .map(\.self)
+            .mapError { _ in
+                return .failedToClearContents
+            }
+            .eraseToAnyPublisher()
+    }
 }

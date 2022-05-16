@@ -79,11 +79,11 @@ struct NetworkManager {
         default:
             break
         }
-        
+
         if let payload = payload {
             attach(payload, to: &request)
         }
-        
+
         dump(request)
         let decoder = JSONDecoder()
 
@@ -128,7 +128,7 @@ struct NetworkManager {
         if let payload = payload {
             attach(payload, to: &request)
         }
-        
+
         dump(request)
 
         return URLSession.shared.dataTaskPublisher(for: request)

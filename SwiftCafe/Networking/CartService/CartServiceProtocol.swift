@@ -28,4 +28,9 @@ protocol CartServiceProtocol {
     /// - Returns: A Publisher that publishes either the UUID of the deleted item if the request was
     ///            successful or a CartError if the request failed.
     func removeFromCart(_ cartEntry: Cart.Entry) -> AnyPublisher<UUID?, CartError>
+
+    /// Clears the contents of the user's cart.
+    /// - Returns: A Publisher that publishes the result if the request was
+    ///            successful or a CartError if the request failed.
+    func clearCartContents() -> AnyPublisher<RequestResult, CartError>
 }
