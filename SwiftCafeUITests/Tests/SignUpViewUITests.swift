@@ -55,9 +55,12 @@ final class SignUpViewUITests: XCTestCase {
         XCTAssert(emailField.waitForExistence(timeout: 10))
         emailField.tap()
         emailField.typeText("testuser3@test.com")
-
+        print(app.debugDescription)
+        sleep(2)
         let signupButton = app.buttons["sign-up-button"]
-        XCTAssert(signupButton.waitForExistence(timeout: 10))
+
+        XCTAssert(signupButton.waitForExistence(timeout: 10), app.debugDescription)
+
         XCTAssertFalse(signupButton.isEnabled)
     }
 
@@ -75,7 +78,7 @@ final class SignUpViewUITests: XCTestCase {
         let repeatPasswordField = app.secureTextFields["sign-up-repeat-password-input"]
         repeatPasswordField.tap()
         repeatPasswordField.typeText("Password@123")
-
+        print(app.debugDescription)
         let signupButton = app.buttons["sign-up-button"]
         XCTAssert(signupButton.waitForExistence(timeout: 10))
         XCTAssertTrue(signupButton.isEnabled)
