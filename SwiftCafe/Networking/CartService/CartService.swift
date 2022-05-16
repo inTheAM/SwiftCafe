@@ -35,12 +35,17 @@ struct CartService: CartServiceProtocol {
     }
 
     func removeFromCart(_ cartEntry: Cart.Entry) -> AnyPublisher<UUID?, CartError> {
-        let payload = Cart.Entry.RemoveData(id: cartEntry.id)
+        let payload = Cart.Entry.RemoveData(cartEntryID: cartEntry.id)
 
         return networkManager
             .makeRequestPublisher(endpoint: .removeItemFromCart, payload: payload)
-            .map { _ in
-                return cartEntry.food.id
+            .map { result -> UUID? in
+                switch result {
+                case .success:
+                    return cartEntry.food.id
+                case .failure:
+                    return nil
+                }
             }
             .mapError { _ in
                 return .failedToRemoveItem
