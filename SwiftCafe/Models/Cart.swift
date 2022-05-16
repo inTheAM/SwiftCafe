@@ -54,6 +54,6 @@ extension Cart.Entry {
     struct RemoveData: Encodable {
 
         /// The id of the cart entry to remove from the user's cart.
-        let id: Cart.Entry.ID
+        let cartEntryID: Cart.Entry.ID
     }
 }
