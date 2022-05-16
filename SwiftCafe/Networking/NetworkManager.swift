@@ -79,16 +79,11 @@ struct NetworkManager {
         default:
             break
         }
-
-        switch endpoint.httpMethod {
-        case .post:
-            if let payload = payload {
-                attach(payload, to: &request)
-            }
-
-        default:
-            break
+        
+        if let payload = payload {
+            attach(payload, to: &request)
         }
+        
         dump(request)
         let decoder = JSONDecoder()
 
@@ -107,9 +102,11 @@ struct NetworkManager {
             .eraseToAnyPublisher()
     }
 
-    func makeRequestPublisher(
-        endpoint: Endpoint<EmptyPayload, EmptyResponse>
-    ) -> AnyPublisher<RequestResult, RequestError> {
+    func makeRequestPublisher<Payload>(
+        endpoint: Endpoint<Payload, EmptyResponse>,
+        payload: Payload? = nil
+    ) -> AnyPublisher<RequestResult, RequestError>
+    where Payload: Encodable {
         let url = endpoint.makeURL()
 
         guard var request = makeRequest(endpoint.httpMethod, for: url) else {
@@ -128,6 +125,10 @@ struct NetworkManager {
         default:
             break
         }
+        if let payload = payload {
+            attach(payload, to: &request)
+        }
+        
         dump(request)
 
         return URLSession.shared.dataTaskPublisher(for: request)
