@@ -13,9 +13,7 @@ jobs:
 
     steps:
       - name: Testing iOS app
-        run: xcodebuild -project SwiftCafe.xcodeproj \
-            -scheme SwiftCafe \
-            -destination platform=iOS\ Simulator,OS=15.4,name=iPhone\ 13 \
+        run: xcodebuild -project SwiftCafe.xcodeproj -scheme SwiftCafe -destination platform=iOS\ Simulator,OS=15.4,name=iPhone\ 13 \
             clean test | xcpretty
         
      
