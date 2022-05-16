@@ -55,7 +55,6 @@ final class SignUpViewModel: ObservableObject {
     /// An inline error displayed when sign-up fails.
     @Published var signUpErrorDescription = ""
 
-    // swiftlint:disable function_body_length
     // MARK: - Initializer
     /// The initializer for the view model.
     /// - Parameter authService: An instance of a type that conforms to `AuthServiceProtocol`.
@@ -64,15 +63,9 @@ final class SignUpViewModel: ObservableObject {
         self.authService = authService
 
         subscribeToEmailInput()
+        subscribeToEmailAvailability()
         subscribeToPasswordInput()
-
-        /// Initializing the form validity publisher.
-        /// The publisher is received on the main thread, assigned to `isFormValid`
-        /// and stored in the `cancellables` set.
-        isFormValidPublisher
-            .receive(on: RunLoop.main)
-            .assign(to: \.isFormValid, on: self)
-            .store(in: &cancellables)
+        subscribeToFormValidation()
     }
 
     private func subscribeToEmailInput() {
@@ -89,9 +82,12 @@ final class SignUpViewModel: ObservableObject {
                 self.isEmailValid = status == .valid
                 return status == .valid
             }
-            .flatMap { _ in
-                self.authService.checkEmailAvailability(email: self.email)
-            }
+            .assign(to: \.isEmailValid, on: self)
+            .store(in: &cancellables)
+    }
+
+    private func subscribeToEmailAvailability() {
+        isEmailAvailablePublisher
             .receive(on: RunLoop.main)
             .map { result in
                 print("EMAIL CHECK", result)
@@ -125,8 +121,15 @@ final class SignUpViewModel: ObservableObject {
             .assign(to: \.isPasswordValid, on: self)
             .store(in: &cancellables)
     }
+
+    private func subscribeToFormValidation() {
+        isFormValidPublisher
+            .receive(on: RunLoop.main)
+            .assign(to: \.isFormValid, on: self)
+            .store(in: &cancellables)
+    }
 }
-// swiftlint:enable function_body_length
+
 // MARK: - Email Validation
 extension SignUpViewModel {
     /// A publisher that returns a boolean indicating
@@ -171,7 +174,6 @@ extension SignUpViewModel {
     /// whether the email address is available for account creation or not.
     private var isEmailAvailablePublisher: AnyPublisher<EmailCheckResult, Never> {
         isEmailInputValidPublisher
-            .debounce(for: 1, scheduler: RunLoop.main)
             .filter { $0 == .valid }
             .flatMap { _ in
                 self.authService.checkEmailAvailability(email: self.email)
@@ -260,10 +262,10 @@ extension SignUpViewModel {
     /// A publisher that returns a boolean value indicating
     /// whether the filled form is valid or not.
     private var isFormValidPublisher: AnyPublisher<Bool, Never> {
-        Publishers.CombineLatest(isEmailAvailablePublisher, isPasswordInputValidPublisher)
-            .map { emailStatus, passwordStatus in
+        Publishers.CombineLatest($isEmailAvailable, $isPasswordValid)
+            .map { isEmailValid, isPasswordValid in
                 print("Checking email")
-                return emailStatus == .available && passwordStatus == .valid
+                return isEmailValid && isPasswordValid
             }
             .eraseToAnyPublisher()
     }
