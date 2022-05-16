@@ -12,8 +12,6 @@ jobs:
     runs-on: macos-latest
 
     steps:
-      - name: Force XCode 13.3.1
-        run: sudo xcode-select -switch /Applications/Xcode_13.3.1.app
       - name: Testing Swift package
         run: exec ./.github/scripts/test_swift_package.sh
       - name: Testing iOS app
