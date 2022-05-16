@@ -11,7 +11,7 @@ import Foundation
 
 /// #A mock implementation of `CartService`.
 struct MockCartService: CartServiceProtocol {
-    
+
     func clearCartContents() -> AnyPublisher<RequestResult, CartError> {
         return Just(.success)
             .setFailureType(to: CartError.self)
