@@ -12,7 +12,7 @@ jobs:
     runs-on: macos-latest
     strategy:
         matrix:
-          destination: ['platform=iOS Simulator,OS=15.4,name=iPhone 13']
+          destination: ['platform=iOS Simulator,OS=15.2,name=iPhone 13']
     steps:
       - name: Checkout
         uses: actions/checkout@v2
