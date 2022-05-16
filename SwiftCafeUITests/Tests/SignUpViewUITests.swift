@@ -39,10 +39,11 @@ final class SignUpViewUITests: XCTestCase {
         let emailField = app.textFields["sign-up-email-input"]
         emailField.tap()
         emailField.typeText("testuser3@test.com")
-
+        let screenshot = XCUIScreen.main.screenshot()
+        dump(screenshot, name: "PASSWORD FIELDS SCREENSHOT")
         let passwordField = app.secureTextFields["sign-up-password-input"]
         let repeatPasswordField = app.secureTextFields["sign-up-repeat-password-input"]
-        XCTAssert(passwordField.waitForExistence(timeout: 5))
+        XCTAssert(passwordField.waitForExistence(timeout: 10))
         XCTAssert(repeatPasswordField.exists)
     }
 
@@ -50,11 +51,13 @@ final class SignUpViewUITests: XCTestCase {
     /// that the button is disabled.
     func testSignUpButtonAppearsOnEmailValidationAndIsDisabledByDefault() throws {
         let emailField = app.textFields["sign-up-email-input"]
+        XCTAssert(emailField.waitForExistence(timeout: 10))
         emailField.tap()
         emailField.typeText("testuser3@test.com")
-
+        let screenshot = XCUIScreen.main.screenshot()
+        dump(screenshot, name: "SIGN UP BUTTON APPEARS SCREENSHOT")
         let signupButton = app.buttons["sign-up-button"]
-        XCTAssert(signupButton.waitForExistence(timeout: 5))
+        XCTAssert(signupButton.waitForExistence(timeout: 10))
         XCTAssertFalse(signupButton.isEnabled)
     }
 
@@ -63,18 +66,23 @@ final class SignUpViewUITests: XCTestCase {
         let emailField = app.textFields["sign-up-email-input"]
         emailField.tap()
         emailField.typeText("testuser3@test.com")
-
+        
+        let screenshot = XCUIScreen.main.screenshot()
+        dump(screenshot, name: "EMAIL SCREENSHOT")
+        
         let passwordField = app.secureTextFields["sign-up-password-input"]
-        XCTAssert(passwordField.waitForExistence(timeout: 5))
+        XCTAssert(passwordField.waitForExistence(timeout: 10))
         passwordField.tap()
         passwordField.typeText("Password@123")
-
+        let screenshot2 = XCUIScreen.main.screenshot()
+        dump(screenshot, name: "PASSWORD SCREENSHOT")
         let repeatPasswordField = app.secureTextFields["sign-up-repeat-password-input"]
         repeatPasswordField.tap()
         repeatPasswordField.typeText("Password@123")
-
+        let screenshot3 = XCUIScreen.main.screenshot()
+        dump(screenshot, name: "PASSWORD REPT SCREENSHOT")
         let signupButton = app.buttons["sign-up-button"]
-        XCTAssert(signupButton.waitForExistence(timeout: 5))
+        XCTAssert(signupButton.waitForExistence(timeout: 10))
         XCTAssertTrue(signupButton.isEnabled)
     }
 
