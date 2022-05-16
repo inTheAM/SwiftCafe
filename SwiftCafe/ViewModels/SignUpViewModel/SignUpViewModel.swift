@@ -63,6 +63,19 @@ final class SignUpViewModel: ObservableObject {
     init(authService: AuthServiceProtocol = AuthServiceFactory.create()) {
         self.authService = authService
 
+        subscribeToEmailInput()
+        subscribeToPasswordInput()
+
+        /// Initializing the form validity publisher.
+        /// The publisher is received on the main thread, assigned to `isFormValid`
+        /// and stored in the `cancellables` set.
+        isFormValidPublisher
+            .receive(on: RunLoop.main)
+            .assign(to: \.isFormValid, on: self)
+            .store(in: &cancellables)
+    }
+
+    private func subscribeToEmailInput() {
         isEmailInputValidPublisher
             .receive(on: RunLoop.main)
             .map { status -> Bool in
@@ -73,12 +86,12 @@ final class SignUpViewModel: ObservableObject {
                     self.emailErrorDescription = status.description
                 }
                 print(status)
+                self.isEmailValid = status == .valid
                 return status == .valid
             }
-            .assign(to: \.isEmailValid, on: self)
-            .store(in: &cancellables)
-
-        isEmailAvailablePublisher
+            .flatMap { _ in
+                self.authService.checkEmailAvailability(email: self.email)
+            }
             .receive(on: RunLoop.main)
             .map { result in
                 print("EMAIL CHECK", result)
@@ -94,7 +107,9 @@ final class SignUpViewModel: ObservableObject {
             }
             .assign(to: \.isEmailAvailable, on: self)
             .store(in: &cancellables)
+    }
 
+    private func subscribeToPasswordInput() {
         isPasswordInputValidPublisher
             .receive(on: RunLoop.main)
             .map { status in
@@ -108,14 +123,6 @@ final class SignUpViewModel: ObservableObject {
                 }
             }
             .assign(to: \.isPasswordValid, on: self)
-            .store(in: &cancellables)
-
-        /// Initializing the form validity publisher.
-        /// The publisher is received on the main thread, assigned to `isFormValid`
-        /// and stored in the `cancellables` set.
-        isFormValidPublisher
-            .receive(on: RunLoop.main)
-            .assign(to: \.isFormValid, on: self)
             .store(in: &cancellables)
     }
 }
