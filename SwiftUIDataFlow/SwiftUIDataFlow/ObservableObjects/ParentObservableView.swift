@@ -19,10 +19,10 @@ struct ParentObservableView: View {
             // Display the message in the model.
             Text(parentModel.message)
             
-            Button("Update message") {
-                parentModel.updateMessage()
-            }
-            .padding()
+            // The observable object can be passed directly to a child view,
+            // which can then access the same logic in the observable object and make changes to it.
+            ChildObservedView(parentModel: parentModel)
+                .padding()
         }
     }
 }

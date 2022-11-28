@@ -16,6 +16,7 @@
 		DB0E538D2934FE6500177319 /* ListeningChildView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0E538C2934FE6500177319 /* ListeningChildView.swift */; };
 		DB0E53902935085C00177319 /* ParentObservableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0E538F2935085C00177319 /* ParentObservableView.swift */; };
 		DB0E53922935094D00177319 /* ParentObservableObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0E53912935094D00177319 /* ParentObservableObject.swift */; };
+		DB0E53942935152C00177319 /* ChildObservedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0E53932935152C00177319 /* ChildObservedView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +30,7 @@
 		DB0E538C2934FE6500177319 /* ListeningChildView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListeningChildView.swift; sourceTree = "<group>"; };
 		DB0E538F2935085C00177319 /* ParentObservableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParentObservableView.swift; sourceTree = "<group>"; };
 		DB0E53912935094D00177319 /* ParentObservableObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParentObservableObject.swift; sourceTree = "<group>"; };
+		DB0E53932935152C00177319 /* ChildObservedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChildObservedView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +104,7 @@
 			children = (
 				DB0E538F2935085C00177319 /* ParentObservableView.swift */,
 				DB0E53912935094D00177319 /* ParentObservableObject.swift */,
+				DB0E53932935152C00177319 /* ChildObservedView.swift */,
 			);
 			path = ObservableObjects;
 			sourceTree = "<group>";
@@ -179,6 +182,7 @@
 				DB0E537A2934F45D00177319 /* ContentView.swift in Sources */,
 				DB0E538B2934FC8C00177319 /* BindingChildView.swift in Sources */,
 				DB0E53892934FBC400177319 /* ParentView.swift in Sources */,
+				DB0E53942935152C00177319 /* ChildObservedView.swift in Sources */,
 				DB0E53782934F45D00177319 /* SwiftUIDataFlowApp.swift in Sources */,
 				DB0E53922935094D00177319 /* ParentObservableObject.swift in Sources */,
 				DB0E538D2934FE6500177319 /* ListeningChildView.swift in Sources */,
