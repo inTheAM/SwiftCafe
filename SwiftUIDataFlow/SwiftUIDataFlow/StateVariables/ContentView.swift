@@ -11,14 +11,14 @@ struct ContentView: View {
     
     /// Use `@State` when you want to declare variables that may be changed and are being shown in the view or in a child view.
     /// Whenever the value of a `State` changes, the `body` of the view will be computed again and the updates become visible on screen.
+    ///
+    /// If the value will never change, use a `let` to declare it:
+    ///
+    ///     let message: String = "Hello"
     @State private var message: String = "Hi"
     
     /// An array of sample messages to display.
     let messages: [String] = ["Hello", "Ciao", "Ola"]
-    
-    /// If the value will never change, use a `let` to declare it:
-    ///
-    ///     let message: String = "Hello"
     
     var body: some View {
         VStack {
