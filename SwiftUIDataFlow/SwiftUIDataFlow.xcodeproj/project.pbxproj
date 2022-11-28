@@ -14,6 +14,8 @@
 		DB0E53892934FBC400177319 /* ParentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0E53882934FBC400177319 /* ParentView.swift */; };
 		DB0E538B2934FC8C00177319 /* BindingChildView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0E538A2934FC8C00177319 /* BindingChildView.swift */; };
 		DB0E538D2934FE6500177319 /* ListeningChildView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0E538C2934FE6500177319 /* ListeningChildView.swift */; };
+		DB0E53902935085C00177319 /* ParentObservableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0E538F2935085C00177319 /* ParentObservableView.swift */; };
+		DB0E53922935094D00177319 /* ParentObservableObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0E53912935094D00177319 /* ParentObservableObject.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +27,8 @@
 		DB0E53882934FBC400177319 /* ParentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParentView.swift; sourceTree = "<group>"; };
 		DB0E538A2934FC8C00177319 /* BindingChildView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BindingChildView.swift; sourceTree = "<group>"; };
 		DB0E538C2934FE6500177319 /* ListeningChildView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListeningChildView.swift; sourceTree = "<group>"; };
+		DB0E538F2935085C00177319 /* ParentObservableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParentObservableView.swift; sourceTree = "<group>"; };
+		DB0E53912935094D00177319 /* ParentObservableObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParentObservableObject.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +64,7 @@
 				DB0E53772934F45D00177319 /* SwiftUIDataFlowApp.swift */,
 				DB0E53862934F95C00177319 /* StateVariables */,
 				DB0E53872934FB8800177319 /* ParentChildState */,
+				DB0E538E2935083200177319 /* ObservableObjects */,
 				DB0E537B2934F45D00177319 /* Assets.xcassets */,
 				DB0E537D2934F45D00177319 /* Preview Content */,
 			);
@@ -90,6 +95,15 @@
 				DB0E538C2934FE6500177319 /* ListeningChildView.swift */,
 			);
 			path = ParentChildState;
+			sourceTree = "<group>";
+		};
+		DB0E538E2935083200177319 /* ObservableObjects */ = {
+			isa = PBXGroup;
+			children = (
+				DB0E538F2935085C00177319 /* ParentObservableView.swift */,
+				DB0E53912935094D00177319 /* ParentObservableObject.swift */,
+			);
+			path = ObservableObjects;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -166,7 +180,9 @@
 				DB0E538B2934FC8C00177319 /* BindingChildView.swift in Sources */,
 				DB0E53892934FBC400177319 /* ParentView.swift in Sources */,
 				DB0E53782934F45D00177319 /* SwiftUIDataFlowApp.swift in Sources */,
+				DB0E53922935094D00177319 /* ParentObservableObject.swift in Sources */,
 				DB0E538D2934FE6500177319 /* ListeningChildView.swift in Sources */,
+				DB0E53902935085C00177319 /* ParentObservableView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
