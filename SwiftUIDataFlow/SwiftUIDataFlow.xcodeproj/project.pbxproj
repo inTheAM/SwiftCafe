@@ -52,7 +52,7 @@
 			isa = PBXGroup;
 			children = (
 				DB0E53772934F45D00177319 /* SwiftUIDataFlowApp.swift */,
-				DB0E53792934F45D00177319 /* ContentView.swift */,
+				DB0E53862934F95C00177319 /* StateVariables */,
 				DB0E537B2934F45D00177319 /* Assets.xcassets */,
 				DB0E537D2934F45D00177319 /* Preview Content */,
 			);
@@ -65,6 +65,14 @@
 				DB0E537E2934F45D00177319 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		DB0E53862934F95C00177319 /* StateVariables */ = {
+			isa = PBXGroup;
+			children = (
+				DB0E53792934F45D00177319 /* ContentView.swift */,
+			);
+			path = StateVariables;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
