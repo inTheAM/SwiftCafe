@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct ListeningChildView: View {
+    /// This view only displays the value from the parent view.
+    /// Since this view is not interested in modifying the value, `let` is more fitting here.
     let currentMessage: String
     var body: some View {
         Text("The current message is: " + currentMessage)
