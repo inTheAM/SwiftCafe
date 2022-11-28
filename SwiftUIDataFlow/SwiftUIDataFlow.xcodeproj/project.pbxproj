@@ -13,6 +13,7 @@
 		DB0E537F2934F45D00177319 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DB0E537E2934F45D00177319 /* Preview Assets.xcassets */; };
 		DB0E53892934FBC400177319 /* ParentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0E53882934FBC400177319 /* ParentView.swift */; };
 		DB0E538B2934FC8C00177319 /* BindingChildView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0E538A2934FC8C00177319 /* BindingChildView.swift */; };
+		DB0E538D2934FE6500177319 /* ListeningChildView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0E538C2934FE6500177319 /* ListeningChildView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +24,7 @@
 		DB0E537E2934F45D00177319 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		DB0E53882934FBC400177319 /* ParentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParentView.swift; sourceTree = "<group>"; };
 		DB0E538A2934FC8C00177319 /* BindingChildView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BindingChildView.swift; sourceTree = "<group>"; };
+		DB0E538C2934FE6500177319 /* ListeningChildView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListeningChildView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +87,7 @@
 			children = (
 				DB0E53882934FBC400177319 /* ParentView.swift */,
 				DB0E538A2934FC8C00177319 /* BindingChildView.swift */,
+				DB0E538C2934FE6500177319 /* ListeningChildView.swift */,
 			);
 			path = ParentChildState;
 			sourceTree = "<group>";
@@ -163,6 +166,7 @@
 				DB0E538B2934FC8C00177319 /* BindingChildView.swift in Sources */,
 				DB0E53892934FBC400177319 /* ParentView.swift in Sources */,
 				DB0E53782934F45D00177319 /* SwiftUIDataFlowApp.swift in Sources */,
+				DB0E538D2934FE6500177319 /* ListeningChildView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
