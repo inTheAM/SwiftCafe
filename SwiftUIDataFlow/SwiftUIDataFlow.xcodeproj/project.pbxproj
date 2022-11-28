@@ -17,6 +17,9 @@
 		DB0E53902935085C00177319 /* ParentObservableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0E538F2935085C00177319 /* ParentObservableView.swift */; };
 		DB0E53922935094D00177319 /* ParentObservableObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0E53912935094D00177319 /* ParentObservableObject.swift */; };
 		DB0E53942935152C00177319 /* ChildObservedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0E53932935152C00177319 /* ChildObservedView.swift */; };
+		DB0E539729351DCE00177319 /* ParentEnvironmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0E539629351DCE00177319 /* ParentEnvironmentView.swift */; };
+		DB0E53992935205400177319 /* ChildEnvironmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0E53982935205400177319 /* ChildEnvironmentView.swift */; };
+		DB0E539B2935219400177319 /* GrandchildEnvironmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0E539A2935219400177319 /* GrandchildEnvironmentView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +34,9 @@
 		DB0E538F2935085C00177319 /* ParentObservableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParentObservableView.swift; sourceTree = "<group>"; };
 		DB0E53912935094D00177319 /* ParentObservableObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParentObservableObject.swift; sourceTree = "<group>"; };
 		DB0E53932935152C00177319 /* ChildObservedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChildObservedView.swift; sourceTree = "<group>"; };
+		DB0E539629351DCE00177319 /* ParentEnvironmentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParentEnvironmentView.swift; sourceTree = "<group>"; };
+		DB0E53982935205400177319 /* ChildEnvironmentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChildEnvironmentView.swift; sourceTree = "<group>"; };
+		DB0E539A2935219400177319 /* GrandchildEnvironmentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrandchildEnvironmentView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +73,7 @@
 				DB0E53862934F95C00177319 /* StateVariables */,
 				DB0E53872934FB8800177319 /* ParentChildState */,
 				DB0E538E2935083200177319 /* ObservableObjects */,
+				DB0E539529351DBB00177319 /* EnvironmentObjects */,
 				DB0E537B2934F45D00177319 /* Assets.xcassets */,
 				DB0E537D2934F45D00177319 /* Preview Content */,
 			);
@@ -107,6 +114,16 @@
 				DB0E53932935152C00177319 /* ChildObservedView.swift */,
 			);
 			path = ObservableObjects;
+			sourceTree = "<group>";
+		};
+		DB0E539529351DBB00177319 /* EnvironmentObjects */ = {
+			isa = PBXGroup;
+			children = (
+				DB0E539629351DCE00177319 /* ParentEnvironmentView.swift */,
+				DB0E53982935205400177319 /* ChildEnvironmentView.swift */,
+				DB0E539A2935219400177319 /* GrandchildEnvironmentView.swift */,
+			);
+			path = EnvironmentObjects;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -184,9 +201,12 @@
 				DB0E53892934FBC400177319 /* ParentView.swift in Sources */,
 				DB0E53942935152C00177319 /* ChildObservedView.swift in Sources */,
 				DB0E53782934F45D00177319 /* SwiftUIDataFlowApp.swift in Sources */,
+				DB0E53992935205400177319 /* ChildEnvironmentView.swift in Sources */,
 				DB0E53922935094D00177319 /* ParentObservableObject.swift in Sources */,
 				DB0E538D2934FE6500177319 /* ListeningChildView.swift in Sources */,
+				DB0E539B2935219400177319 /* GrandchildEnvironmentView.swift in Sources */,
 				DB0E53902935085C00177319 /* ParentObservableView.swift in Sources */,
+				DB0E539729351DCE00177319 /* ParentEnvironmentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
