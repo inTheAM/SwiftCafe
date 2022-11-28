@@ -12,6 +12,8 @@ struct ParentView: View {
     
     var body: some View {
         VStack {
+            
+            // The current message displayed
             Text(message)
                 .padding()
             

@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct BindingChildView: View {
-    /// To use a `State` variable  from a parent view we have two options.
-    /// If we would like to modify the variable,  we use `@Binding`
+    /// To use a `State` variable  from a parent view that will be modified, use `@Binding`
+    /// Any changes made to the binding will be propagated to the parent view.
     @Binding var message: String
     
     let messages: [String] = ["Hello", "Ciao", "Ola"]
