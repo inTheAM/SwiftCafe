@@ -16,7 +16,7 @@ struct ParentView: View {
                 .padding()
             
             // To pass the State variable to a child view which can update the variable ie is using a Binding,
-            // use the $ sign to pass the actual state, and not just the contained value.
+            // use the $ sign to pass the modifiable state, and not just the contained value.
             BindingChildView(message: $message)
                 .padding()
             
