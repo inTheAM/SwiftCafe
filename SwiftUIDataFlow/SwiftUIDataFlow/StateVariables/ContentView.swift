@@ -40,6 +40,8 @@ struct ContentView: View {
         .padding()
     }
     
+    /// Sets a random message to display.
+    /// Generally, it's a good idea to create functions for any logic you use, rather than put the logic directly inside the button.
     func setRandomMessage() {
         message = messages.randomElement()!
     }
