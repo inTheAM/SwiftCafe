@@ -18,8 +18,12 @@ struct BindingChildView: View {
         
         // We can then modify the binding variable as we wish.
         Button("Set message") {
-            message = messages.randomElement()!
+            setRandomMessage()
         }
+    }
+    
+    func setRandomMessage() {
+        message = messages.randomElement()!
     }
 }
 

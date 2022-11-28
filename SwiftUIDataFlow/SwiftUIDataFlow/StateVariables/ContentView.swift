@@ -34,11 +34,16 @@ struct ContentView: View {
             
             // Sets a random message to display.
             Button("Set message") {
-                message = messages.randomElement()!
+                setRandomMessage()
             }
         }
         .padding()
     }
+    
+    func setRandomMessage() {
+        message = messages.randomElement()!
+    }
+    
 }
 
 struct ContentView_Previews: PreviewProvider {
